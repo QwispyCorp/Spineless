@@ -12,16 +12,20 @@ An audio manager that plays/ stops sound effects and music, and tracks global vo
 public class AudioManager : MonoBehaviour
 {
     //list of sounds and music tracks added via inspector
-    [SerializeField] private Sound[] sounds;
-    [SerializeField] private Sound[] musicTracks;
+    [SerializeField]
+    private Sound[] sounds;
+    [SerializeField]
+    private Sound[] musicTracks;
 
     //local and global manager instances
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } } //to use any method from this manager call AudioManager.Instance."FunctionName"(); anywhere in any script
 
     //global volume values
-    private float globalSoundVolume;
-    private float globalMusicVolume;
+    [SerializeField]
+    private FloatReference globalSoundVolume;
+    [SerializeField]
+    private FloatReference globalMusicVolume;
 
 
     void Awake()
@@ -43,7 +47,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = s.volume;
+            s.source.volume = globalSoundVolume.Value;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
@@ -54,7 +58,7 @@ public class AudioManager : MonoBehaviour
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
 
-            s.source.volume = s.volume;
+            s.source.volume = globalMusicVolume.Value;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
@@ -63,9 +67,9 @@ public class AudioManager : MonoBehaviour
 
     private void Start() // this will play sounds on start of the level, so main theme and what not
     {
-        if (SceneManager.GetActiveScene().name == "Main Menu")
+        if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            //AudioManager.Instance.Play("Title Music");  uncomment this when title music is added
+            Instance.PlayMusicTrack("Title Music");
         }
     }
 
@@ -73,7 +77,7 @@ public class AudioManager : MonoBehaviour
     /*                          AUDIO MANAGER METHODS                             */
     /* -------------------------------------------------------------------------- */
 
-    private void PlaySound(string name)  //Play a sound by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.PlaySound("Sound Name");
+    public void PlaySound(string name)  //Play a sound by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.PlaySound("Sound Name");
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)// if name of audio clip is wrong this will help debug
@@ -83,7 +87,7 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Play();
     }
-    private void StopSound(string name) //Stop a sound by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.StopSound("Sound Name");
+    public void StopSound(string name) //Stop a sound by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.StopSound("Sound Name");
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)// if name of audio clip is wrong this will help debug
@@ -93,7 +97,7 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Stop();
     }
-    private void PlayMusicTrack(string name)  //Play a music track by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.PlayTrack("Sound Name");
+    public void PlayMusicTrack(string name)  //Play a music track by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.PlayTrack("Sound Name");
     {
         Sound s = Array.Find(musicTracks, sound => sound.name == name);
         if (s == null)// if name of audio clip is wrong this will help debug
@@ -105,6 +109,7 @@ public class AudioManager : MonoBehaviour
         {
             if (track.name == name)
             {
+                Debug.Log("Playing track: " + track.name);
                 track.source.Play();
             }
             else
@@ -113,7 +118,7 @@ public class AudioManager : MonoBehaviour
             }
         }
     }
-    private void StopMusicTrack(string name) //Stop a music track by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.StopTrack("Sound Name");
+    public void StopMusicTrack(string name) //Stop a music track by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.StopTrack("Sound Name");
     {
         Sound s = Array.Find(musicTracks, sound => sound.name == name);
         if (s == null)// if name of audio clip is wrong this will help debug
@@ -123,7 +128,7 @@ public class AudioManager : MonoBehaviour
         }
         s.source.Stop();
     }
-    private void StopAllSounds()
+    public void StopAllSounds()
     { //Stop all sounds. Usage outside of this class: AudioManager.Instance.StopAllSounds();
         foreach (Sound s in sounds)
         {
@@ -134,20 +139,28 @@ public class AudioManager : MonoBehaviour
     /*                           GETTERS AND SETTERS                              */
     /* -------------------------------------------------------------------------- */
 
-    private float SoundVolume() //get global sound effects volume value
+    public float SoundVolume() //get global sound effects volume value
     {
-        return globalSoundVolume;
+        return globalSoundVolume.Value;
     }
-    private float MusicVolume() //get global music volume value
+    public float MusicVolume() //get global music volume value
     {
-        return globalMusicVolume;
+        return globalMusicVolume.Value;
     }
-    private void SetSoundVolume(float newValue) //set new global sound effects volume value
+    public void SetSoundVolume(float newValue) //set new global sound effects volume value
     {
-        globalSoundVolume = newValue;
+        globalSoundVolume.Value = newValue; //update global sound effects volume variable
+        foreach (Sound s in sounds)
+        {
+            s.source.volume = newValue; //update volume of all sound effect
+        }
     }
-    private void SetMusicVolume(float newValue) //set new global music volume value
+    public void SetMusicVolume(float newValue) //set new global music volume value
     {
-        globalMusicVolume = newValue;
+        globalMusicVolume.Value = newValue; //update global music volume variable
+        foreach (Sound track in musicTracks)
+        {
+            track.source.volume = newValue; //update volume of all music tracks
+        }
     }
 }

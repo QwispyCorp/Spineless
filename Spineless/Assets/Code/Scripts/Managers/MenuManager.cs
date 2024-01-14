@@ -54,7 +54,7 @@ public class MenuManager : MonoBehaviour
     /* -------------------------------------------------------------------------- */
 
     //OpenMenu method opens any meny by passing its name given in inspector and closes all other menus. Usage outside of this class: MenuManager.Instance.OpenMenu("Menu Name");
-    private void OpenMenu(string name)
+    public void OpenMenu(string name)
     {
         Menu menuCheck = Array.Find(menus, menu => menu.name == name);
 
