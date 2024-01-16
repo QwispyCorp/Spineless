@@ -948,6 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e274d0726057114f93cf7925cf9012d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 0.5019608}
 --- !u!1 &555491187
 GameObject:
   m_ObjectHideFlags: 0
@@ -1323,6 +1324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e274d0726057114f93cf7925cf9012d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  highlightColor: {r: 1, g: 1, b: 1, a: 0.5019608}
 --- !u!1 &1041290579
 GameObject:
   m_ObjectHideFlags: 0
