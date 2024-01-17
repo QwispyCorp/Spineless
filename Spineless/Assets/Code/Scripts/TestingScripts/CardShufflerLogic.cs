@@ -5,20 +5,24 @@ using UnityEngine;
 public class CardShufflerLogic : MonoBehaviour
 {
     public Transform playerTransform; // Assign the player's transform in the Inspector
-    public Transform tableTransform;  // Assign the table's transform in the Inspector
     public List<GameObject> safeCardModels; // List of safe card models
     public List<GameObject> deathCardModels; // List of death card models
 
+    public GameObject customPivotObject; // Drag your custom pivot point object here in the Inspector
+
+    private List<GameObject> deck; // The deck of cards
+    private List<GameObject> tableCards; // The cards on the table
+
     void Start()
     {
+        InitializeDeck();
         ShuffleDeck();
+        DrawInitialCards();
     }
 
-    void ShuffleDeck()
+    void InitializeDeck()
     {
-        List<GameObject> deck = new List<GameObject>();
-
-        // Create a deck with 1/6th death cards and the rest safe cards for testing purposes
+        deck = new List<GameObject>();
         int totalCards = 52;
         int deathCardCount = totalCards / 6;
 
@@ -26,15 +30,18 @@ public class CardShufflerLogic : MonoBehaviour
         {
             if (i < deathCardCount)
             {
-                deck.Add(GetRandomCardModel(deathCardModels)); 
+                deck.Add(GetRandomCardModel(deathCardModels)); // Add random death card model
             }
             else
             {
-                deck.Add(GetRandomCardModel(safeCardModels)); 
+                deck.Add(GetRandomCardModel(safeCardModels)); // Add random safe card model
             }
         }
+    }
 
-        // Shuffle the deck using Fisher-Yates algorithm (did this with chatGPT)
+    void ShuffleDeck()
+    {
+        // Shuffle the deck using Fisher-Yates algorithm
         for (int i = deck.Count - 1; i > 0; i--)
         {
             int randomIndex = Random.Range(0, i + 1);
@@ -42,23 +49,73 @@ public class CardShufflerLogic : MonoBehaviour
             deck[i] = deck[randomIndex];
             deck[randomIndex] = temp;
         }
+    }
 
-        // Position 7 shuffled cards in front of the player on the table
-        float cardSpacing = 1.5f; // Adjust this value for card spacing
-        Vector3 spawnPosition = tableTransform.position;
+    void DrawInitialCards()
+    {
+        tableCards = new List<GameObject>();
 
-        for (int i = 0; i < 7; i++)
+        // Draw and instantiate 5 cards in front of the player on the table
+        for (int i = 0; i < 5; i++)
         {
-            Vector3 offset = new Vector3(i * cardSpacing, 0f, 0f);
-            GameObject card = Instantiate(deck[i], spawnPosition + offset, Quaternion.identity);
-            card.AddComponent<CardInteractLogic>(); // Adds CardInteraction script to each card
+            DrawCard();
         }
+    }
+
+    void DrawCard()
+    {
+        // Check if there are cards left in the deck
+        if (deck.Count > 0)
+        {
+            // Draw a card from the deck
+            GameObject drawnCard = deck[0];
+            deck.RemoveAt(0);
+
+            float cardSpacing = 1.0f; // Adjust this value for card spacing
+
+            // Use the custom pivot object for accurate positioning
+            if (customPivotObject != null)
+            {
+                Vector3 spawnPosition = customPivotObject.transform.position + new Vector3(tableCards.Count * cardSpacing, 0f, 0f);
+
+                GameObject card = Instantiate(drawnCard, spawnPosition, Quaternion.identity);
+                card.AddComponent<CardInteractLogic>(); // Add CardInteractLogic script to each card
+
+                // Add the card to the list of table cards
+                tableCards.Add(card);
+            }
+            else
+            {
+                Debug.LogError("Custom pivot object not assigned.");
+            }
+        }
+        else
+        {
+            Debug.Log("No cards left in the deck.");
+        }
+    }
+
+    // Function to draw an additional card and add it to the existing cards on the table
+    public void DrawAdditionalCard()
+    {
+        DrawCard(); // Draw a single card and add it to the table
     }
 
     GameObject GetRandomCardModel(List<GameObject> cardModelList)
     {
-        // Gets a random card model from the specified list
+        // Get a random card model from the specified list
         int randomIndex = Random.Range(0, cardModelList.Count);
         return cardModelList[randomIndex];
+    }
+
+    // Function to add a card dynamically
+    public void AddCard(bool isSafe)
+    {
+        List<GameObject> cardModels = isSafe ? safeCardModels : deathCardModels;
+        GameObject newCard = Instantiate(GetRandomCardModel(cardModels), Vector3.zero, Quaternion.identity);
+        newCard.AddComponent<CardInteractLogic>();
+
+        // Add the new card to the list of table cards
+        tableCards.Add(newCard);
     }
 }
