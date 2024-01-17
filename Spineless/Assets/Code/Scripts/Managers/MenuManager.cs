@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-    
+
     void Start()
     {
         if (SceneManager.GetActiveScene().name == "MainMenu") //on start, if the player is in the main menu scene, open the main menu
@@ -81,12 +81,52 @@ public class MenuManager : MonoBehaviour
             }
         }
     }
+    //CloseMenu method closes any meny by passing its name given in inspector and closes all other menus. Usage outside of this class: MenuManager.Instance.OpenMenu("Menu Name");
+    public void CloseMenu(string name)
+    {
+        Menu menuCheck = Array.Find(menus, menu => menu.name == name);
+
+        if (menuCheck == null)// check for existence of menu name
+        {
+            Debug.LogWarning("Menu: " + name + " not found!");
+            return;
+        }
+        if (name == currentMenu)
+        { //check if menu is already opened
+            Debug.LogWarning("Menu: " + name + " already open!");
+            return;
+        }
+        foreach (Menu menu in menus) //search list of menus
+        {
+            if (menu.name == name) //if currently indexed menu name matches, turn it on
+            {
+                menu.canvas.SetActive(false);
+                currentMenu = name; //update current menu to the new menu opened
+            }
+        }
+    }
+
+    //CloseAllMenus closes all menus that may be open. Usage outside of this class: MenuManager.Instance.CloseAllMenus();
+    public void CloseAllMenus()
+    {
+        foreach (Menu menu in menus)
+        {
+            menu.canvas.SetActive(false);
+            currentMenu = null;
+        }
+    }
 
     /* -------------------------------------------------------------------------- */
     /*                               BUTTON METHODS                               */
     /* -------------------------------------------------------------------------- */
     /*                    methods used for OnClick button events                  */
     /* -------------------------------------------------------------------------- */
+    public void PlayGame()
+    {
+        Instance.CloseAllMenus();
+        SceneManager.LoadScene("Game");
+    }
+
     public void GoToMainMenu()
     {
         Instance.OpenMenu("Main Menu");
