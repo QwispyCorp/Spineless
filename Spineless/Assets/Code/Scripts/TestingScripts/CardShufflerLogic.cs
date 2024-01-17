@@ -114,8 +114,30 @@ public class CardShufflerLogic : MonoBehaviour
         List<GameObject> cardModels = isSafe ? safeCardModels : deathCardModels;
         GameObject newCard = Instantiate(GetRandomCardModel(cardModels), Vector3.zero, Quaternion.identity);
         newCard.AddComponent<CardInteractLogic>();
+        tableCards.Add(newCard);// Add the new card to the list of table cards
+    }
+    public void RemoveCardFromTable(GameObject card) //------REMOVES CARD FROM DRAWN SELECTION
+    {
+        // Check if the card is in the tableCards list
+        if (tableCards.Contains(card))
+        {
+            // Remove the card from the list
+            tableCards.Remove(card);
 
-        // Add the new card to the list of table cards
-        tableCards.Add(newCard);
+            // Destroy the card GameObject
+            Destroy(card);
+
+            // Rearrange the remaining cards on the table
+            RearrangeTableCards();
+        }
+    }
+    void RearrangeTableCards() // Function to rearrange the remaining cards on the table
+    {
+        float cardSpacing = 1.0f; // Adjust this value for card spacing
+        for (int i = 0; i < tableCards.Count; i++)// Iterate through the remaining cards and reposition them
+        {
+            Vector3 newPosition = customPivotObject.transform.position + new Vector3(i * cardSpacing, 0f, 0f);
+            tableCards[i].transform.position = newPosition;
+        }
     }
 }
