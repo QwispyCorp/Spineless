@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CardShufflerLogic : MonoBehaviour
@@ -24,7 +25,7 @@ public class CardShufflerLogic : MonoBehaviour
     {
         deck = new List<GameObject>();
         int totalCards = 52;
-        int deathCardCount = totalCards / 6;
+        int deathCardCount = totalCards / 4;
 
         for (int i = 0; i < totalCards; i++)
         {
@@ -64,8 +65,8 @@ public class CardShufflerLogic : MonoBehaviour
 
     void DrawCard()
     {
-        // Check if there are cards left in the deck
-        if (deck.Count > 0)
+        // Check if there are cards left in the deck and if the maximum number of cards hasn't been reached
+        if (deck.Count > 0 && tableCards.Count < 5)
         {
             // Draw a card from the deck
             GameObject drawnCard = deck[0];
