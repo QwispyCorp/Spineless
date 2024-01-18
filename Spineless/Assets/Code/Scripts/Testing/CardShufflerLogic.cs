@@ -80,7 +80,7 @@ public class CardShufflerLogic : MonoBehaviour
                 Vector3 spawnPosition = customPivotObject.transform.position + new Vector3(tableCards.Count * cardSpacing, 0f, 0f);
 
                 GameObject card = Instantiate(drawnCard, spawnPosition, Quaternion.identity);
-                card.AddComponent<CardInteractLogic>(); // Add CardInteractLogic script to each card
+                //card.AddComponent<CardInteractLogic>(); // Add CardInteractLogic script to each card
 
                 // Add the card to the list of table cards
                 tableCards.Add(card);
@@ -114,7 +114,7 @@ public class CardShufflerLogic : MonoBehaviour
     {
         List<GameObject> cardModels = isSafe ? safeCardModels : deathCardModels;
         GameObject newCard = Instantiate(GetRandomCardModel(cardModels), Vector3.zero, Quaternion.identity);
-        newCard.AddComponent<CardInteractLogic>();
+        //newCard.AddComponent<CardInteractLogic>();
         tableCards.Add(newCard);// Add the new card to the list of table cards
     }
     public void RemoveCardFromTable(GameObject card) //------REMOVES CARD FROM DRAWN SELECTION
@@ -129,7 +129,7 @@ public class CardShufflerLogic : MonoBehaviour
             Destroy(card);
 
             // Rearrange the remaining cards on the table
-            RearrangeTableCards();
+            //RearrangeTableCards();
         }
     }
     void RearrangeTableCards() // Function to rearrange the remaining cards on the table
