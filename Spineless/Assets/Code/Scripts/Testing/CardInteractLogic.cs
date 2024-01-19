@@ -13,6 +13,8 @@ public class CardInteractLogic : MonoBehaviour
     public IntegerReference playerHealth;
 
     private CardShufflerLogic cardShuffler; // Reference to the CardShufflerLogic script
+    [SerializeField]
+    private float cardRemoveDelayTime;
     void Start()
     {
         isClicked = false;
@@ -48,6 +50,7 @@ public class CardInteractLogic : MonoBehaviour
 
     void HandleSafeCardInteraction()
     {
+        cardMesh.material.color = safeColor;
         StartCoroutine(CardRemoveDelay());
 
         Debug.Log("Safe card! Your turn ends.");
@@ -57,54 +60,68 @@ public class CardInteractLogic : MonoBehaviour
     void HandleDeathCardInteraction()
     {
         //Chopping finger animation goes here
-        HealthTest.Instance.ChangeHealth(-1);
-        StartCoroutine(CardRemoveDelay());
+        HealthTest.Instance.ChangeHealth(-1); //Decrease health
 
+        cardMesh.material.color = deathColor;
+        StartCoroutine(CardRemoveDelay());
         Debug.Log("Death card! You lose a finger!");
         // Add logic for the player's death (e.g., restart the game or show a game over screen)
     }
     void OnMouseEnter()
     {
-        if (!isClicked)
+        if (!isClicked && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
         {
             cardMesh.material.color = highlightColor;
         }
     }
     void OnMouseExit()
     {
-        if (!isClicked)
+        if (!isClicked && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
         {
             cardMesh.material.color = unflippedColor;
         }
     }
     void OnMouseUp()
     {
-        Debug.Log("Mouse Test point 1." + Time.deltaTime);
-        if (!isClicked)
+        if (!isClicked && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
         {
             isClicked = true;
-            Debug.Log("Mouse Test point 2." + Time.deltaTime);
+
             if (isSafeCard)
             {
                 HandleSafeCardInteraction();
+                //When player clicks on a death card, change to damage state
+                //StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerSafe);
             }
             else
             {
                 HandleDeathCardInteraction();
+                //When player clicks on a death card, change to damage state
+                //StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerDamage);
             }
         }
     }
     private IEnumerator CardRemoveDelay()
     {
+        yield return new WaitForSeconds(cardRemoveDelayTime); //wait for the delay time before removing the card from the table
+        cardShuffler.RemoveCardFromTable(gameObject); //remove the card from the table
+        
+        //Check if table is empty
+        if (cardShuffler.CheckTableCards() == 0)
+        {
+            //if table is empty after flipping a card, redraw all cards
+            cardShuffler.DrawHand();
+        }
         if (isSafeCard)
         {
-            cardMesh.material.color = safeColor;
+            //When player clicked on a safe card, change to damage state
+            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerSafe);
         }
         else
         {
-            cardMesh.material.color = deathColor;
+            //When player clicked on a death card, change to damage state
+            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerDamage);
         }
-        yield return new WaitForSeconds(1);
-        cardShuffler.RemoveCardFromTable(gameObject);
+
     }
 }

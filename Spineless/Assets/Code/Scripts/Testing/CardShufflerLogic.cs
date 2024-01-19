@@ -8,22 +8,28 @@ public class CardShufflerLogic : MonoBehaviour
     public Transform playerTransform; // Assign the player's transform in the Inspector
     public List<GameObject> safeCardModels; // List of safe card models
     public List<GameObject> deathCardModels; // List of death card models
-
     public GameObject customPivotObject; // Drag your custom pivot point object here in the Inspector
-
     private List<GameObject> deck; // The deck of cards
     private List<GameObject> tableCards; // The cards on the table
+    [SerializeField]
+    private float cardSpacing;
 
+    void Awake()
+    {
+        deck = new List<GameObject>();
+        tableCards = new List<GameObject>();
+
+    }
     void Start()
     {
         InitializeDeck();
         ShuffleDeck();
-        DrawInitialCards();
+        DrawHand();
     }
 
     void InitializeDeck()
     {
-        deck = new List<GameObject>();
+        //deck = new List<GameObject>();
         int totalCards = 52;
         int deathCardCount = totalCards / 4;
 
@@ -52,9 +58,9 @@ public class CardShufflerLogic : MonoBehaviour
         }
     }
 
-    void DrawInitialCards()
+    public void DrawHand()
     {
-        tableCards = new List<GameObject>();
+        //tableCards = new List<GameObject>();
 
         // Draw and instantiate 5 cards in front of the player on the table
         for (int i = 0; i < 5; i++)
@@ -71,8 +77,6 @@ public class CardShufflerLogic : MonoBehaviour
             // Draw a card from the deck
             GameObject drawnCard = deck[0];
             deck.RemoveAt(0);
-
-            float cardSpacing = 1.0f; // Adjust this value for card spacing
 
             // Use the custom pivot object for accurate positioning
             if (customPivotObject != null)
@@ -114,7 +118,6 @@ public class CardShufflerLogic : MonoBehaviour
     {
         List<GameObject> cardModels = isSafe ? safeCardModels : deathCardModels;
         GameObject newCard = Instantiate(GetRandomCardModel(cardModels), Vector3.zero, Quaternion.identity);
-        //newCard.AddComponent<CardInteractLogic>();
         tableCards.Add(newCard);// Add the new card to the list of table cards
     }
     public void RemoveCardFromTable(GameObject card) //------REMOVES CARD FROM DRAWN SELECTION
@@ -127,10 +130,11 @@ public class CardShufflerLogic : MonoBehaviour
 
             // Destroy the card GameObject
             Destroy(card);
-
-            // Rearrange the remaining cards on the table
-            //RearrangeTableCards();
         }
+    }
+    public int CheckTableCards()
+    {
+        return tableCards.Count;
     }
     void RearrangeTableCards() // Function to rearrange the remaining cards on the table
     {
