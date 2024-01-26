@@ -9,7 +9,10 @@ public class StateTest : MonoBehaviour
     private static StateTest _instance;
     public static StateTest Instance { get { return _instance; } }
     public EncounterState CurrentEncounterState;
-    
+    [SerializeField] private EnemyDeckLogic enemyDeck;
+    [SerializeField] private PlayerDeckLogic playerDeck;
+    [SerializeField] private float delayTime;
+
     void Awake()
     {
         //on awake check for existence of manager and handle accordingly
@@ -45,19 +48,18 @@ public class StateTest : MonoBehaviour
                 break;
             case EncounterState.PlayerDamage:
                 HandlePlayerDamage();
-
+                StartCoroutine("TurnDelay");
                 break;
             case EncounterState.PlayerSafe:
                 HandlePlayerSafe();
-
+                StartCoroutine("TurnDelay");
                 break;
             case EncounterState.EnemyTurn:
                 HandleEnemyTurn();
-
                 break;
             case EncounterState.EnemyDamage:
                 HandleEnemyDamage();
-
+                StartCoroutine("TurnDelay");
                 break;
             case EncounterState.EnemySafe:
                 HandleEnemySafe();
@@ -72,23 +74,26 @@ public class StateTest : MonoBehaviour
     private void HandlePlayerDamage()
     {
         //damage animation and health change logic goes here
-        //  separate function for animations and delays?
         //HealthTest.Instance.ChangeHealth(-1);
         Debug.Log("PLAYER CURRENTLY IN: Player Damage State");
         Debug.Log("Switching to Enemy turn...");
+        StartCoroutine("TurnDelay");
         UpdateEncounterState(EncounterState.EnemyTurn);
     }
     private void HandlePlayerSafe()
     {
         Debug.Log("PLAYER CURRENTLY IN: Player Safe State.");
         Debug.Log("Switching to Enemy turn...");
+        StartCoroutine("TurnDelay");
         UpdateEncounterState(EncounterState.EnemyTurn);
     }
     private void HandleEnemyTurn()
     {
         Debug.Log("ENEMY CURRENTLY IN: Enemy Turn State");
         //Enemy AI Logic for picking card here
+        enemyDeck.EnemyCardSelection();
         Debug.Log("Switching to Player Turn");
+        StartCoroutine("TurnDelay");
         UpdateEncounterState(EncounterState.PlayerTurn);
     }
     private void HandleEnemyDamage()
@@ -97,6 +102,7 @@ public class StateTest : MonoBehaviour
         Debug.Log("ENEMY CURRENTLY IN: Enemy Damage State");
         //Enemy Damage Logic/ Animations
         Debug.Log("Switching to player turn...");
+        StartCoroutine("TurnDelay");
         UpdateEncounterState(EncounterState.PlayerTurn);
     }
     private void HandleEnemySafe()
@@ -104,6 +110,7 @@ public class StateTest : MonoBehaviour
         Debug.Log("ENEMY CURRENTLY IN: Enemy Safe State");
         //Enemy Safe Logic/ Animations
         Debug.Log("Switching to player turn...");
+        StartCoroutine("TurnDelay");
         UpdateEncounterState(EncounterState.PlayerTurn);
 
     }
@@ -116,5 +123,9 @@ public class StateTest : MonoBehaviour
         EnemyTurn,
         EnemyDamage,
         EnemySafe,
+    }
+    private IEnumerator TurnDelay()
+    {
+        yield return new WaitForSeconds(delayTime);
     }
 }

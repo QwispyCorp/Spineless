@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 
 
-public class HealthTest : MonoBehaviour
+public class PlayerHealthTest : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text healthText;
@@ -12,8 +12,8 @@ public class HealthTest : MonoBehaviour
     private int maxHealth;
     [SerializeField]
     private IntegerReference playerHealth;
-    private static HealthTest _instance;
-    public static HealthTest Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
+    private static PlayerHealthTest _instance;
+    public static PlayerHealthTest Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
 
     void Awake()
     {

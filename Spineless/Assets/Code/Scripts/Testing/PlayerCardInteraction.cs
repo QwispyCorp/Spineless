@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class CardInteractLogic : MonoBehaviour
+public class PlayerCardInteraction : MonoBehaviour
 {
     private bool isSafeCard;
     private bool isClicked;
@@ -12,7 +12,7 @@ public class CardInteractLogic : MonoBehaviour
     private MeshRenderer cardMesh;
     public IntegerReference playerHealth;
 
-    private CardShufflerLogic cardShuffler; // Reference to the CardShufflerLogic script
+    private PlayerDeckLogic playerDeck; // Reference to the playerDeckLogic script
     [SerializeField]
     private float cardRemoveDelayTime;
     void Start()
@@ -31,13 +31,13 @@ public class CardInteractLogic : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        // Find the CardShufflerLogic script in the scene
-        cardShuffler = FindObjectOfType<CardShufflerLogic>();
+        // Find the playerDeckLogic script in the scene
+        playerDeck = FindObjectOfType<PlayerDeckLogic>();
 
         // If the script is not found, log an error
-        if (cardShuffler == null)
+        if (playerDeck == null)
         {
-            Debug.LogError("CardShufflerLogic script not found in the scene. Make sure it's present in the scene.");
+            Debug.LogError("playerDeckLogic script not found in the scene. Make sure it's present in the scene.");
         }
     }
 
@@ -50,22 +50,20 @@ public class CardInteractLogic : MonoBehaviour
 
     void HandleSafeCardInteraction()
     {
-        cardMesh.material.color = safeColor;
-        StartCoroutine(CardRemoveDelay());
-
+        cardMesh.material.color = safeColor; //change card color to safe color
+        PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen overlay
+        StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
         Debug.Log("Safe card! Your turn ends.");
-        // Add logic for the player's turn ending (e.g., proceed to the next player's turn)
     }
 
     void HandleDeathCardInteraction()
     {
         //Chopping finger animation goes here
-        HealthTest.Instance.ChangeHealth(-1); //Decrease health
-
-        cardMesh.material.color = deathColor;
-        StartCoroutine(CardRemoveDelay());
+        PlayerHealthTest.Instance.ChangeHealth(-1); //Decrease health
+        cardMesh.material.color = deathColor; //change card color to death color
+        PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen overlay
+        StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
         Debug.Log("Death card! You lose a finger!");
-        // Add logic for the player's death (e.g., restart the game or show a game over screen)
     }
     void OnMouseEnter()
     {
@@ -90,27 +88,24 @@ public class CardInteractLogic : MonoBehaviour
             if (isSafeCard)
             {
                 HandleSafeCardInteraction();
-                //When player clicks on a death card, change to damage state
-                //StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerSafe);
             }
             else
             {
                 HandleDeathCardInteraction();
-                //When player clicks on a death card, change to damage state
-                //StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerDamage);
             }
         }
     }
     private IEnumerator CardRemoveDelay()
     {
         yield return new WaitForSeconds(cardRemoveDelayTime); //wait for the delay time before removing the card from the table
-        cardShuffler.RemoveCardFromTable(gameObject); //remove the card from the table
-        
+        playerDeck.RemoveCardFromTable(gameObject); //remove the card from the table
+        PopUpTextManager.Instance.CloseAllScreens(); //close chosen card screen overlay
+
         //Check if table is empty
-        if (cardShuffler.CheckTableCards() == 0)
+        if (playerDeck.CheckTableCards() == 0)
         {
             //if table is empty after flipping a card, redraw all cards
-            cardShuffler.DrawHand();
+            playerDeck.DrawHand();
         }
         if (isSafeCard)
         {

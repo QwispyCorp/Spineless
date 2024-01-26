@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class CardShufflerLogic : MonoBehaviour
+public class PlayerDeckLogic : MonoBehaviour
 {
     public Transform playerTransform; // Assign the player's transform in the Inspector
     public List<GameObject> safeCardModels; // List of safe card models

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7468337273469609827}
   - component: {fileID: 366098412656955860}
   m_Layer: 0
-  m_Name: TempCardLife
+  m_Name: PlayerSafeCard
   m_TagString: SafeCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,4 +127,4 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: bf91ee7ed86c5446db36b5e885a0e631, type: 2}
-  cardRemoveDelayTime: 0.5
+  cardRemoveDelayTime: 1
