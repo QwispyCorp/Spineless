@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerHealthTest : MonoBehaviour
@@ -32,9 +33,19 @@ public class PlayerHealthTest : MonoBehaviour
     {
         playerHealth.Value = maxHealth;
         healthText.SetText("Fingers: " + playerHealth.Value);
+        if (playerHealth.Value <= 0)
+        {
+            PlayerLoses();
+        }
     }
-    public void ChangeHealth(int amount){
+    public void ChangeHealth(int amount) {
         playerHealth.Value += amount;
         healthText.SetText("Fingers: " + playerHealth.Value);
+    }
+
+    private void PlayerLoses()
+    {
+        //We can add more stuff here later such as death animations
+        SceneManager.LoadScene("PlayerLost");
     }
 }

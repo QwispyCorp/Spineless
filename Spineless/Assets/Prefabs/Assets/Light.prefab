@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 7790842707951942587}
   - component: {fileID: 1517186281954061842}
   - component: {fileID: 7250334641453868974}
-  - component: {fileID: 2520914828241382365}
-  - component: {fileID: 1745152770548957132}
+  - component: {fileID: 4654263295278693780}
+  - component: {fileID: 5825763572206785919}
   m_Layer: 0
   m_Name: Light
-  m_TagString: Untagged
+  m_TagString: Light
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,9 +46,9 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 0.9811321, g: 0.6882505, b: 0, a: 1}
-  m_Intensity: 25
-  m_Range: 6.150152
+  m_Color: {r: 1, g: 0.7058824, b: 0, a: 1}
+  m_Intensity: 2
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -89,8 +89,8 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
+  m_BounceIntensity: 2
+  m_ColorTemperature: 6905
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!95 &2520914828241382365
+--- !u!95 &4654263295278693780
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -141,7 +141,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1745152770548957132
+--- !u!114 &5825763572206785919
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,4 +154,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flickeringLight: {fileID: 1517186281954061842}
-  Light: {fileID: 2520914828241382365}
+  Light: {fileID: 4654263295278693780}

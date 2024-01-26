@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SafeCard
   - DeathCard
+  - Light
   layers:
   - Default
   - TransparentFX

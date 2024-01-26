@@ -1,35 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LightManager : MonoBehaviour
 {
     public Light flickeringLight;
     public Animator Light;
-
-    void Start()
+    private string LightOn = "On";
+    private string LightOff = "Off";
+    private static LightManager instance;
+    private void Awake()
     {
-        StartCoroutine(FlickeringTransition());
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    public IEnumerator StartFlickeringTransition()
+    {
+        return FlickeringTransition();
     }
 
-    IEnumerator FlickeringTransition()
+    private IEnumerator FlickeringTransition()
     {
-        // Flickering Animation
-        Light.SetTrigger("Off");
+        Light.SetBool(LightOff, true);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(6f);
 
-        // Triggering Function
         EnviromentSwitch();
 
         yield return new WaitForSeconds(2f);
 
-        // Flickering Back On Animation
-        Light.SetTrigger("On");
+        if (Light != null)
+        {
+            Light.SetBool(LightOn, true);
+        }
+        else
+        {
+            Debug.LogError("Animator component not found on LightManager.");
+        }
+
+        yield return new WaitForSeconds(6f);
+        Light.SetBool(LightOn, false);
+        Light.SetBool(LightOff, false);
     }
 
-    void EnviromentSwitch()
+    private void EnviromentSwitch()
     {
-        // Implement Enviroment Switch
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Prototype")
+        {
+            SceneManager.LoadScene("GameBoard");
+        }
+        else if (currentScene.name == "GameBoard")
+        {
+            SceneManager.LoadScene("Prototype");
+        }
     }
 }
