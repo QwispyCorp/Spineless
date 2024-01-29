@@ -31,12 +31,6 @@ public class StateTest : MonoBehaviour
     {
         UpdateEncounterState(EncounterState.PlayerTurn);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void UpdateEncounterState(EncounterState newState)
     {
         CurrentEncounterState = newState;
@@ -45,21 +39,23 @@ public class StateTest : MonoBehaviour
         {
             case EncounterState.PlayerTurn:
                 HandlePlayerTurn();
+                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.PlayerDamage:
                 HandlePlayerDamage();
-                StartCoroutine("TurnDelay");
+                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.PlayerSafe:
                 HandlePlayerSafe();
-                StartCoroutine("TurnDelay");
+                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.EnemyTurn:
                 HandleEnemyTurn();
+                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.EnemyDamage:
                 HandleEnemyDamage();
-                StartCoroutine("TurnDelay");
+                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.EnemySafe:
                 HandleEnemySafe();
@@ -67,6 +63,12 @@ public class StateTest : MonoBehaviour
                 break;
         }
     }
+
+    public void DelayTurn()
+    {
+        StartCoroutine("TurnDelay");
+    }
+
     private void HandlePlayerTurn()
     {
         Debug.Log("PLAYER CURRENTLY IN: Player Turn State");
@@ -126,6 +128,7 @@ public class StateTest : MonoBehaviour
     }
     private IEnumerator TurnDelay()
     {
+        Debug.Log("Delaying turn");
         yield return new WaitForSeconds(delayTime);
     }
 }

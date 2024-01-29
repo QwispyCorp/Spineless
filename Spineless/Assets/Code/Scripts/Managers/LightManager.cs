@@ -9,11 +9,12 @@ public class LightManager : MonoBehaviour
     private string LightOn = "On";
     private string LightOff = "Off";
     private static LightManager instance;
+    public static LightManager Instance;
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -55,11 +56,22 @@ public class LightManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "Prototype")
         {
-            SceneManager.LoadScene("GameBoard");
+            //SceneManager.LoadScene("GameBoard");
+            //Change to game board
+            if (PlayerHealthTest.Instance.GetCurrentHealth() <= 0)
+            {
+                PopUpTextManager.Instance.ShowScreen("Lose Screen");
+            }
+            else
+            {
+                PopUpTextManager.Instance.ShowScreen("Win Screen");
+            }
+
         }
         else if (currentScene.name == "GameBoard")
         {
-            SceneManager.LoadScene("Prototype");
+            //SceneManager.LoadScene("Prototype");
+            //Go back to encounter scene here
         }
     }
 }

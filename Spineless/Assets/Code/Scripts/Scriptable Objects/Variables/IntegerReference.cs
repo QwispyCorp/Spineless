@@ -9,10 +9,10 @@ using UnityEngine;
 public class IntegerReference
 {
     public bool UseConstant = true;
-    public float ConstantValue;
+    public int ConstantValue;
     public IntegerVariable Variable;
 
-    public float Value
+    public int Value
     {
         get
         {

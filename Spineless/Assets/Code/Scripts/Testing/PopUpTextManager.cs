@@ -57,6 +57,31 @@ public class PopUpTextManager : MonoBehaviour
 
         StartCoroutine("ScreenOff");
     }
+    public void CloseScreen(string name)
+    {
+        ScreenUtil screenCheck = Array.Find(screens, screen => screen.name == name);
+
+        if (screenCheck == null)// check for existence of menu name
+        {
+            Debug.LogWarning("Screen: " + name + " not found!");
+            return;
+        }
+        if (name == currentScreen)
+        { //check if menu is already opened
+            Debug.LogWarning("Screen: " + name + " already open!");
+            return;
+        }
+        foreach (ScreenUtil screen in screens) //search list of menus
+        {
+            if (screen.name == name) //if currently indexed screen name matches, turn it on
+            {
+                screen.canvas.SetActive(false);
+                currentScreen = null; //update current screen to the new screen opened
+            }
+        }
+
+        StartCoroutine("ScreenOff");
+    }
     public void CloseAllScreens()
     {
         foreach (ScreenUtil screen in screens)
@@ -70,6 +95,6 @@ public class PopUpTextManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
-        CloseAllScreens();
+        CloseScreen(currentScreen);
     }
 }

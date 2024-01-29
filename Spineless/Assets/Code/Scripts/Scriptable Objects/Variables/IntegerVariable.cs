@@ -4,5 +4,5 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Integer", menuName = "Variables/Integer", order = 0)]
 public class IntegerVariable : ScriptableObject {
-    public float Value;
+    public int Value;
 }

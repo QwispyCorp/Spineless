@@ -50,7 +50,7 @@ public class EnemyHealthTest : MonoBehaviour
 
                 if (lightManager != null)
                 {
-                    CoroutineManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
+                    LightManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
                 }
                 else
                 {

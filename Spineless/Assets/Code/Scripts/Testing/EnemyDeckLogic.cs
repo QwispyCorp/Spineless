@@ -71,6 +71,7 @@ public class EnemyDeckLogic : MonoBehaviour
 
     public void EnemyCardSelection()
     {
+        StateTest.Instance.DelayTurn();
         int randomCardIndex = Random.Range(0, tableCards.Count);
         GameObject chosenCard;
         bool cardExists = false;

@@ -35,17 +35,24 @@ public class PlayerHealthTest : MonoBehaviour
         healthText.SetText("Fingers: " + playerHealth.Value);
         if (playerHealth.Value <= 0)
         {
+            HUDManager.Instance.TurnOffHUD();
             PlayerLoses();
         }
     }
-    public void ChangeHealth(int amount) {
+    public void ChangeHealth(int amount)
+    {
         playerHealth.Value += amount;
         healthText.SetText("Fingers: " + playerHealth.Value);
+    }
+
+    public int GetCurrentHealth()
+    {
+        return playerHealth.Value;
     }
 
     private void PlayerLoses()
     {
         //We can add more stuff here later such as death animations
-        SceneManager.LoadScene("PlayerLost");
+        PopUpTextManager.Instance.ShowScreen("Lose Screen");
     }
 }
