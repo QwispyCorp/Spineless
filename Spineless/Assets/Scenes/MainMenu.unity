@@ -630,7 +630,7 @@ MonoBehaviour:
   sounds: []
   musicTracks:
   - name: Title Music
-    clip: {fileID: 8300000, guid: f37cfdc988ce2354e9a95111454363c5, type: 3}
+    clip: {fileID: 8300000, guid: d272eec6aeb07514ba0900fc50198b42, type: 3}
     volume: 0.5
     pitch: 1
     loop: 1
@@ -767,70 +767,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1767428771952485545, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767428771952485545, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767428771952485545, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560322430912390216, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6560322430912390216, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169994393440336002, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7169994393440336002, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7356454418041836594, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1638668782}
-    - target: {fileID: 7491236800249635828, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7491236800249635828, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7491236800249635828, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 9114579504042752682, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
         type: 3}
       propertyPath: m_Name
       value: Options Menu Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 9114579504042752682, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -955,11 +900,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Menu Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 3307853838200955747, guid: 19eb78789a374b34f856494cce171e1b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4289033097556533879, guid: 19eb78789a374b34f856494cce171e1b,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -970,21 +910,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1638668782}
-    - target: {fileID: 4402949488177953207, guid: 19eb78789a374b34f856494cce171e1b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 4402949488177953207, guid: 19eb78789a374b34f856494cce171e1b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: MenuManager, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4402949488177953207, guid: 19eb78789a374b34f856494cce171e1b,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1002,11 +927,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Credits Menu Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7524520608660091490, guid: d2c60632c027e924282d817f5aeaa41c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112337696070667567, guid: d2c60632c027e924282d817f5aeaa41c,
         type: 3}

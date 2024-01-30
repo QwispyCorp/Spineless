@@ -7,6 +7,9 @@ TagManager:
   - SafeCard
   - DeathCard
   - Light
+  - Monster Tile
+  - Item Tile
+  - Empty Tile
   layers:
   - Default
   - TransparentFX

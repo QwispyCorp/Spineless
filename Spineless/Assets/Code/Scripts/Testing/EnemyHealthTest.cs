@@ -38,6 +38,7 @@ public class EnemyHealthTest : MonoBehaviour
         healthText.SetText("Enemy Fingers: " + playerHealth.Value);
         if (playerHealth.Value <= 0)
         {
+            HUDManager.Instance.TurnOffHUD();
             PlayerWins();
         }
     }

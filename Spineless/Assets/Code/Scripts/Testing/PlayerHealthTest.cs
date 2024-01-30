@@ -33,16 +33,16 @@ public class PlayerHealthTest : MonoBehaviour
     {
         playerHealth.Value = maxHealth;
         healthText.SetText("Fingers: " + playerHealth.Value);
-        if (playerHealth.Value <= 0)
-        {
-            HUDManager.Instance.TurnOffHUD();
-            PlayerLoses();
-        }
     }
     public void ChangeHealth(int amount)
     {
         playerHealth.Value += amount;
         healthText.SetText("Fingers: " + playerHealth.Value);
+        if (playerHealth.Value <= 0)
+        {
+            HUDManager.Instance.TurnOffHUD();
+            PlayerLoses();
+        }
     }
 
     public int GetCurrentHealth()
