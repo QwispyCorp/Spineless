@@ -81,8 +81,9 @@ public class PlayerCardInteraction : MonoBehaviour
     }
     void OnMouseUp()
     {
-        if (!isClicked && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
+        if (isClicked == false && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
         {
+            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerSafe);
             isClicked = true;
 
             if (isSafeCard)
@@ -95,11 +96,9 @@ public class PlayerCardInteraction : MonoBehaviour
             }
         }
     }
-    private IEnumerator CardRemoveDelay()
+    private void SwitchState()
     {
-        yield return new WaitForSeconds(cardRemoveDelayTime); //wait for the delay time before removing the card from the table
         playerDeck.RemoveCardFromTable(gameObject); //remove the card from the table
-        PopUpTextManager.Instance.CloseAllScreens(); //close chosen card screen overlay
 
         //Check if table is empty
         if (playerDeck.CheckTableCards() == 0)
@@ -107,16 +106,13 @@ public class PlayerCardInteraction : MonoBehaviour
             //if table is empty after flipping a card, redraw all cards
             playerDeck.DrawHand();
         }
-        if (isSafeCard)
-        {
-            //When player clicked on a safe card, change to damage state
-            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerSafe);
-        }
-        else
-        {
-            //When player clicked on a death card, change to damage state
-            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerDamage);
-        }
+        StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.EnemyTurn);
 
+    }
+    private IEnumerator CardRemoveDelay()
+    {
+        yield return new WaitForSeconds(cardRemoveDelayTime); //wait for the delay time before removing the card from the table
+        PopUpTextManager.Instance.CloseScreen(PopUpTextManager.Instance.currentScreen); //close chosen card screen overlay
+        Invoke("SwitchState", cardRemoveDelayTime);
     }
 }

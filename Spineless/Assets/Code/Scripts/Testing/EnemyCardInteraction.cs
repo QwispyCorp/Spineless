@@ -74,12 +74,10 @@ public class EnemyCardInteraction : MonoBehaviour
             HandleDeathCardInteraction(); //handle death card logic
         }
     }
-
-    private IEnumerator CardRemoveDelay()
+    private void SwitchState()
     {
-        yield return new WaitForSeconds(cardRemoveDelayTime); //wait for the delay time before removing the card from the table
         enemyDeck.RemoveCardFromTable(gameObject); //remove the card from the table
-        PopUpTextManager.Instance.CloseAllScreens(); //close chosen card screen overlay
+        StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerTurn);
 
         //Check if table is empty
         if (enemyDeck.CheckTableCards() == 0)
@@ -87,15 +85,13 @@ public class EnemyCardInteraction : MonoBehaviour
             //if table is empty after flipping a card, redraw all cards
             enemyDeck.DrawHand();
         }
-        if (isSafeCard)
-        {
-            //When enemy chose a safe card, change to enemy safe state
-            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.EnemySafe);
-        }
-        else
-        {
-            //When enemy chose a death card, change to enemy damage state
-            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.EnemyDamage);
-        }
+    }
+
+    private IEnumerator CardRemoveDelay()
+    {
+        yield return new WaitForSeconds(cardRemoveDelayTime); //wait for the delay time before removing the card from the table
+        //PopUpTextManager.Instance.CloseScreen(PopUpTextManager.Instance.currentScreen); //close chosen card screen overlay
+        Invoke("SwitchState", cardRemoveDelayTime);
+
     }
 }

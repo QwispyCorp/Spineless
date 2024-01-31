@@ -9,7 +9,7 @@ public class PopUpTextManager : MonoBehaviour
     private static PopUpTextManager _instance;
     public static PopUpTextManager Instance { get { return _instance; } }
 
-    private string currentScreen;
+    public string currentScreen;
 
     void Awake()
     {
@@ -54,7 +54,6 @@ public class PopUpTextManager : MonoBehaviour
                 screen.canvas.SetActive(false); //if currently indexed menu does not match name, turn it off
             }
         }
-
         StartCoroutine("ScreenOff");
     }
     public void CloseScreen(string name)
@@ -79,8 +78,6 @@ public class PopUpTextManager : MonoBehaviour
                 currentScreen = null; //update current screen to the new screen opened
             }
         }
-
-        StartCoroutine("ScreenOff");
     }
     public void CloseAllScreens()
     {
@@ -93,8 +90,11 @@ public class PopUpTextManager : MonoBehaviour
 
     private IEnumerator ScreenOff()
     {
-        yield return new WaitForSeconds(1);
-
-        CloseScreen(currentScreen);
+        yield return new WaitForSeconds(0.5f);
+        CloseAllScreens();
+        if (StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.EnemyTurn)
+        {
+            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerTurn);
+        }
     }
 }
