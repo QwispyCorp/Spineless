@@ -5602,6 +5602,21 @@ PrefabInstance:
       propertyPath: HUDCanvas
       value: 
       objectReference: {fileID: 1792023491}
+    - target: {fileID: 3769156442981992245, guid: 1d53398f8f5bf464baf2046097aee2ad,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769156442981992245, guid: 1d53398f8f5bf464baf2046097aee2ad,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769156442981992245, guid: 1d53398f8f5bf464baf2046097aee2ad,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 4726928806561765269, guid: 1d53398f8f5bf464baf2046097aee2ad,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5651,6 +5666,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8413155268486821006, guid: 1d53398f8f5bf464baf2046097aee2ad,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1008
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

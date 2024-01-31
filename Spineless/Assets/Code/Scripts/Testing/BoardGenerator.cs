@@ -66,10 +66,19 @@ public class BoardGenerator : MonoBehaviour
         {
             for (int j = 0; j < boardSize; j++)
             {
-                int randomTileIndex = UnityEngine.Random.Range(0, boardTiles.Count);
-                GameObject randomTile = boardTiles[randomTileIndex];
-                Instantiate(randomTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
-                boardTiles.Remove(randomTile);
+                if (i == 3 && j == 0) //always spawn empty tile at player spawnpoint
+                {
+                    GameObject randomEmptyTile = boardTiles.Find(tile => tile.name == "Empty Tile");
+                    Instantiate(emptyTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
+                    boardTiles.Remove(randomEmptyTile);
+                }
+                else
+                {
+                    int randomTileIndex = UnityEngine.Random.Range(0, boardTiles.Count);
+                    GameObject randomTile = boardTiles[randomTileIndex];
+                    Instantiate(randomTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
+                    boardTiles.Remove(randomTile);
+                }
             }
         }
     }
