@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class BoardGenerator : MonoBehaviour
 {
-    [SerializeField] private Canvas gameBoard;
     [SerializeField] private GameObject[] tilePrefabs;
     private bool boardGenerated = false;
     private int boardSize = 8;
@@ -25,8 +24,14 @@ public class BoardGenerator : MonoBehaviour
         {
             for (int j = 0; j < boardSize; j++)
             {
-                Instantiate(tilePrefabs[UnityEngine.Random.Range(0, tilePrefabs.Length)], transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.Euler(90, 0, 0), gameBoard.transform);
+                Instantiate(tilePrefabs[UnityEngine.Random.Range(0, tilePrefabs.Length)], transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
             }
         }
+    }
+
+    public GameObject creditsText;
+    public void ShowCredits()
+    {
+        creditsText.SetActive(true);
     }
 }
