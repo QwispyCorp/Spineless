@@ -29,9 +29,10 @@ public class LightManager : MonoBehaviour
 
     private IEnumerator FlickeringTransition()
     {
-        Light.SetBool(LightOff, true);
+        //Light.SetBool(LightOff, true);
+        Light.SetTrigger("TurnOff");
 
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
 
         EnviromentSwitch();
 
@@ -39,14 +40,15 @@ public class LightManager : MonoBehaviour
 
         if (Light != null)
         {
-            Light.SetBool(LightOn, true);
+            //Light.SetBool(LightOn, true);
+            Light.SetTrigger("TurnOn");
         }
         else
         {
             Debug.LogError("Animator component not found on LightManager.");
         }
 
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(4f);
         Light.SetBool(LightOn, false);
         Light.SetBool(LightOff, false);
     }
@@ -64,13 +66,13 @@ public class LightManager : MonoBehaviour
             }
             else
             {
-                PopUpTextManager.Instance.ShowScreen("Win Screen");
+                SceneManager.LoadScene("GameBoard");
             }
 
         }
         else if (currentScene.name == "GameBoard")
         {
-            //SceneManager.LoadScene("Prototype");
+            SceneManager.LoadScene("Prototype");
             //Go back to encounter scene here
         }
     }

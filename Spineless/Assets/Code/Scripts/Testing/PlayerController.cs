@@ -71,6 +71,15 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchToEncounter()
     {
-        SceneManager.LoadScene("Prototype");
+        GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
+        if (lightGameObject != null)
+        {
+            LightManager lightManager = lightGameObject.GetComponent<LightManager>();
+
+            if (lightManager != null)
+            {
+                LightManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
+            }
+        }
     }
 }
