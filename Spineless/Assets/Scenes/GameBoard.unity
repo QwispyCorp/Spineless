@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 330371499}
   m_Layer: 0
   m_Name: Player Piece
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2212,10 +2212,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0f58644e1ad8f438d4ae19cb5ab86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilePrefabs:
-  - {fileID: 1018420391625252070, guid: 7f3348fd6e7d3f840b745e6f85a33c4d, type: 3}
-  - {fileID: 8320977018185505982, guid: c05baf595475c5f42be2db8c1717bfc6, type: 3}
-  - {fileID: 8338404150077217490, guid: 21c3699e98f8752469d21c3673d03cb7, type: 3}
+  encounterTile: {fileID: 8338404150077217490, guid: 21c3699e98f8752469d21c3673d03cb7,
+    type: 3}
+  itemTile: {fileID: 8320977018185505982, guid: c05baf595475c5f42be2db8c1717bfc6,
+    type: 3}
+  emptyTile: {fileID: 1018420391625252070, guid: 7f3348fd6e7d3f840b745e6f85a33c4d,
+    type: 3}
+  maxEncounterTiles: 5
+  maxItemTiles: 10
 --- !u!4 &1875056194
 Transform:
   m_ObjectHideFlags: 0

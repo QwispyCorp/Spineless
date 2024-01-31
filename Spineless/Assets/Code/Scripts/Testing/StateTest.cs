@@ -15,6 +15,7 @@ public class StateTest : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(gameObject);
         //on awake check for existence of manager and handle accordingly
         if (_instance != null && _instance != this)
         {
@@ -24,7 +25,7 @@ public class StateTest : MonoBehaviour
         {
             _instance = this;
         }
-        DontDestroyOnLoad(gameObject);
+        
     }
     // Start is called before the first frame update
     void Start()
