@@ -6,9 +6,9 @@ public class LightManager : MonoBehaviour
 {
     public Light flickeringLight;
     public Animator Light;
-    private string LightOn = "On";
-    private string LightOff = "Off";
-    private static LightManager instance;
+    //private string LightOn = "On";
+   // private string LightOff = "Off";
+    //private static LightManager instance;
     public static LightManager Instance;
     private void Awake()
     {
@@ -29,7 +29,6 @@ public class LightManager : MonoBehaviour
 
     private IEnumerator FlickeringTransition()
     {
-        //Light.SetBool(LightOff, true);
         Light.SetTrigger("TurnOff");
 
         yield return new WaitForSeconds(4f);
@@ -40,7 +39,6 @@ public class LightManager : MonoBehaviour
 
         if (Light != null)
         {
-            //Light.SetBool(LightOn, true);
             Light.SetTrigger("TurnOn");
         }
         else
@@ -49,8 +47,6 @@ public class LightManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(4f);
-        Light.SetBool(LightOn, false);
-        Light.SetBool(LightOff, false);
     }
 
     private void EnviromentSwitch()
@@ -58,8 +54,6 @@ public class LightManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "Prototype")
         {
-            //SceneManager.LoadScene("GameBoard");
-            //Change to game board
             if (PlayerHealthTest.Instance.GetCurrentHealth() <= 0)
             {
                 PopUpTextManager.Instance.ShowScreen("Lose Screen");
@@ -73,7 +67,6 @@ public class LightManager : MonoBehaviour
         else if (currentScene.name == "GameBoard")
         {
             SceneManager.LoadScene("Prototype");
-            //Go back to encounter scene here
         }
     }
 }

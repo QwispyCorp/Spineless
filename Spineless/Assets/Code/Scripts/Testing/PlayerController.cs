@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private bool tileEventTriggered;
-
+    public Animator CameraAni;
     void Start()
     {
         tileEventTriggered = false;
@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchToEncounter()
     {
+        CameraAni.SetTrigger("Board2Free");
         GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
         if (lightGameObject != null)
         {
