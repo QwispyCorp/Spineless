@@ -10,20 +10,6 @@ public class CameraPan : MonoBehaviour
     public float maxHorizontalAngle = 30f; // Maximum horizontal angle in degrees
     private Vector3 rotate;
 
-    void Start()
-    {
-        Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "Prototype")
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-        }
-        else if (currentScene.name == "GameBoard")
-        {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
-    }
     void Update()
     {
         y = Input.GetAxis("Mouse X");

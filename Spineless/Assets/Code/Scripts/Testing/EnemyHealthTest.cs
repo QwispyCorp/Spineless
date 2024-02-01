@@ -42,6 +42,14 @@ public class EnemyHealthTest : MonoBehaviour
             PlayerWins();
         }
     }
+
+    void Update()
+    {
+        if (playerHealth.Value <= 0)
+        {           
+            PlayerWins();
+        }
+    }
     private void PlayerWins()
     {  
             GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");

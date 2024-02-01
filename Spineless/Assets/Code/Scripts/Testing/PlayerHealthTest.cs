@@ -44,6 +44,13 @@ public class PlayerHealthTest : MonoBehaviour
             PlayerLoses();
         }
     }
+    void Update()
+    {
+        if (playerHealth.Value <= 0)
+        {
+            PlayerLoses();
+        }
+    }
 
     public int GetCurrentHealth()
     {

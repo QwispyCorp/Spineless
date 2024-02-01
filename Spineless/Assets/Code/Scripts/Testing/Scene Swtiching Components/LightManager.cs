@@ -6,9 +6,6 @@ public class LightManager : MonoBehaviour
 {
     public Light flickeringLight;
     public Animator Light;
-    //private string LightOn = "On";
-   // private string LightOff = "Off";
-    //private static LightManager instance;
     public static LightManager Instance;
     private void Awake()
     {

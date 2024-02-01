@@ -27,10 +27,6 @@ public class PlayerCardInteraction : MonoBehaviour
         //Start card with unflipped color
         cardMesh.material.color = unflippedColor;
 
-        // Ensure the cursor is always visible
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
         // Find the playerDeckLogic script in the scene
         playerDeck = FindObjectOfType<PlayerDeckLogic>();
 
