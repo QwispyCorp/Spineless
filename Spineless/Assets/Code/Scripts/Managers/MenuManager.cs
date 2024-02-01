@@ -125,6 +125,7 @@ public class MenuManager : MonoBehaviour
     {
         Instance.CloseAllMenus();
         SceneManager.LoadScene("GameBoard");
+        gameObject.SetActive(false);
     }
 
     public void GoToMainMenu()
