@@ -13,7 +13,6 @@ public class StateTest : MonoBehaviour
     [SerializeField] private EnemyDeckLogic enemyDeck;
     [SerializeField] private PlayerDeckLogic playerDeck;
     [SerializeField] private float turnDelayTime;
-    [SerializeField] private Button forceEnemyTurnButton;
 
     void Awake()
     {
@@ -34,16 +33,6 @@ public class StateTest : MonoBehaviour
     {
         AudioManager.Instance.PlayMusicTrack("Encounter Music");
         UpdateEncounterState(EncounterState.PlayerTurn);
-
-        // Add listener to the button if it's not null
-        if (forceEnemyTurnButton != null)
-        {
-            forceEnemyTurnButton.onClick.AddListener(ForceEnemyTurn);
-        }
-        else
-        {
-            Debug.LogError("Force Enemy Turn Button is not assigned!");
-        }
     }
     public void ForceEnemyTurn()
     {
