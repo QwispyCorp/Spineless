@@ -10,7 +10,6 @@ public class PlayerCardInteraction : MonoBehaviour
     public Color deathColor = Color.red;
     public Color unflippedColor = Color.black;
     private MeshRenderer cardMesh;
-    public IntegerReference playerHealth;
 
     private PlayerDeckLogic playerDeck; // Reference to the playerDeckLogic script
     [SerializeField]
@@ -55,6 +54,7 @@ public class PlayerCardInteraction : MonoBehaviour
     void HandleDeathCardInteraction()
     {
         //Chopping finger animation goes here
+        AudioManager.Instance.PlaySound("SeveredHand");
         PlayerHealthTest.Instance.ChangeHealth(-1); //Decrease health
         cardMesh.material.color = deathColor; //change card color to death color
         PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen overlay
@@ -79,6 +79,7 @@ public class PlayerCardInteraction : MonoBehaviour
     {
         if (isClicked == false && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
         {
+            AudioManager.Instance.PlaySound("CardFlip" + Random.Range(1, 3).ToString());
             StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerSafe);
             isClicked = true;
 
@@ -100,6 +101,7 @@ public class PlayerCardInteraction : MonoBehaviour
         if (playerDeck.CheckTableCards() == 0)
         {
             //if table is empty after flipping a card, redraw all cards
+            AudioManager.Instance.PlaySound("CardFlip4");
             playerDeck.DrawHand();
         }
         StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.EnemyTurn);

@@ -10,8 +10,8 @@ public class CamLock : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "Prototype")
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
         }
         else if (currentScene.name == "GameBoard")
         {

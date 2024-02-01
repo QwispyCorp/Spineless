@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3472157213612398043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8970334368513856492}
+  - component: {fileID: 286160723761441664}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8970334368513856492
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472157213612398043}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &286160723761441664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3472157213612398043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5c4abf02b50fb4785e640cd5fb19a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: CardFlip1
+    clip: {fileID: 8300000, guid: c749f316326220e479513bd76a3ce6f7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CardFlip2
+    clip: {fileID: 8300000, guid: 23b4cc7a5430c734ca2200b745c15c25, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CardFlip3
+    clip: {fileID: 8300000, guid: 3b07e4f1bbab56042945befbfa6eafb6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: CardFlip4
+    clip: {fileID: 8300000, guid: 97f1cd9b031513e49903329b70b90e4a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ChessPieceMove
+    clip: {fileID: 8300000, guid: d19b2c575155b4349a7d451a46458358, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SeveredHand
+    clip: {fileID: 8300000, guid: 7966d2c205251114aa8b286bc18678f1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Riser
+    clip: {fileID: 8300000, guid: 2de99d878e9dc8b49acd164c59f2ecec, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Shuffle
+    clip: {fileID: 8300000, guid: 3da8baeed857abb4ab9597466f8be349, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  musicTracks:
+  - name: Title Music
+    clip: {fileID: 8300000, guid: d272eec6aeb07514ba0900fc50198b42, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Encounter Music
+    clip: {fileID: 8300000, guid: 099c871955461b649b50522076917239, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  CurrentTrack: 
+  CurrentTrackSource: {fileID: 0}
+  globalSoundVolume:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: baf14cc2d8be9c84baa17518803f3f9c, type: 2}
+  globalMusicVolume:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: a634d1ac0f1f76b4498dd4d7c7916606, type: 2}

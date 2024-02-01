@@ -9,7 +9,6 @@ public class EnemyCardInteraction : MonoBehaviour
     public Color deathColor = Color.red;
     public Color unflippedColor = Color.black;
     private MeshRenderer cardMesh;
-    public IntegerReference enemyHealth;
 
     private EnemyDeckLogic enemyDeck; // Reference to the enemyDeckLogic script
     [SerializeField] private float cardRemoveDelayTime;
@@ -25,8 +24,8 @@ public class EnemyCardInteraction : MonoBehaviour
         cardMesh.material.color = unflippedColor;
 
         // Ensure the cursor is always visible
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.visible = true;
 
         // Find the enemyDeckLogic script in the scene
         enemyDeck = FindObjectOfType<EnemyDeckLogic>();
@@ -56,6 +55,7 @@ public class EnemyCardInteraction : MonoBehaviour
     void HandleDeathCardInteraction()
     {
         //Chopping finger animation goes here
+        AudioManager.Instance.PlaySound("SeveredHand");
         EnemyHealthTest.Instance.ChangeHealth(-1); //Decrease health
         cardMesh.material.color = deathColor; //change card color to death card color
         PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen 
@@ -83,6 +83,7 @@ public class EnemyCardInteraction : MonoBehaviour
         if (enemyDeck.CheckTableCards() == 0)
         {
             //if table is empty after flipping a card, redraw all cards
+            AudioManager.Instance.PlaySound("CardFlip4");
             enemyDeck.DrawHand();
         }
     }

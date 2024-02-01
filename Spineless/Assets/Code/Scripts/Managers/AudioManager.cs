@@ -20,6 +20,8 @@ public class AudioManager : MonoBehaviour
     //local and global manager instances
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } } //to use any method from this manager call AudioManager.Instance."FunctionName"(); anywhere in any script
+    public string CurrentTrack;
+    public AudioSource CurrentTrackSource;
 
     //global volume values
     [SerializeField]
@@ -33,6 +35,9 @@ public class AudioManager : MonoBehaviour
         //on awake check for existence of manager and handle accordingly
         if (_instance != null && _instance != this)
         {
+            globalMusicVolume.Value = 0.5f;
+            globalSoundVolume.Value = 0.5f;
+
             Destroy(this.gameObject);
         }
         else
@@ -71,6 +76,14 @@ public class AudioManager : MonoBehaviour
         {
             Instance.PlayMusicTrack("Title Music");
         }
+        else if (SceneManager.GetActiveScene().name == "Prototype")
+        {
+            Instance.PlayMusicTrack("Encounter Music");
+        }
+        else if (SceneManager.GetActiveScene().name == "GameBoard")
+        {
+            Instance.PlayMusicTrack("Encounter Music");
+        }
     }
 
     /* -------------------------------------------------------------------------- */
@@ -85,7 +98,17 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
-        s.source.Play();
+        s.source.PlayOneShot(s.source.clip, s.source.volume);
+        MuffleMusic();
+        Invoke("UnMuffleMusic", s.clip.length);
+    }
+    public void MuffleMusic()
+    {
+       CurrentTrackSource.volume = CurrentTrackSource.volume / 2;
+    }
+    private void UnMuffleMusic()
+    {
+        CurrentTrackSource.volume = globalMusicVolume.Value;
     }
     public void StopSound(string name) //Stop a sound by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.StopSound("Sound Name");
     {
@@ -109,6 +132,8 @@ public class AudioManager : MonoBehaviour
         {
             if (track.name == name)
             {
+                CurrentTrack = track.name;
+                CurrentTrackSource = track.source;
                 Debug.Log("Playing track: " + track.name);
                 track.source.Play();
             }

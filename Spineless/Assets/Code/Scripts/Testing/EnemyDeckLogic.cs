@@ -72,6 +72,7 @@ public class EnemyDeckLogic : MonoBehaviour
     public void EnemyCardSelection()
     {
         //StateTest.Instance.DelayTurn();
+        AudioManager.Instance.PlaySound("CardFlip" + Random.Range(1,3).ToString());
         int randomCardIndex = Random.Range(0, tableCards.Count);
         GameObject chosenCard;
         bool cardExists = false;
@@ -85,8 +86,6 @@ public class EnemyDeckLogic : MonoBehaviour
             if (chosenCard != null)
             {
                 cardExists = true;
-                Debug.Log("Enemy Chosen Card: " + randomCardIndex);
-                Debug.Log("Is safe card: " + chosenCard.GetComponent<EnemyCardInteraction>().CheckIfSafeCard());
                 chosenCard.GetComponent<EnemyCardInteraction>().EnemyCardSelected();
             }
         }

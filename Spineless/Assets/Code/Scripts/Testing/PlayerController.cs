@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Animator CameraAni;
     void Start()
     {
+        AudioManager.Instance.PlayMusicTrack("Encounter Music");
         playerInteractCanvas.SetActive(true);
         tileEventTriggered = false;
     }
@@ -19,20 +20,24 @@ public class PlayerController : MonoBehaviour
     {
         if (!tileEventTriggered)
         {
-            if (Input.GetKeyDown(KeyCode.W) && transform.position.z < .08)
+            if (Input.GetKeyDown(KeyCode.W) && transform.position.z < .08) //later check for walls here
             {
+                AudioManager.Instance.PlaySound("ChessPieceMove");
                 transform.Translate(0, 0, 0.04f);
             }
-            else if (Input.GetKeyDown(KeyCode.A) && transform.position.x > -.13)
+            else if (Input.GetKeyDown(KeyCode.A) && transform.position.x > -.13) //later check for walls here
             {
+                AudioManager.Instance.PlaySound("ChessPieceMove");
                 transform.Translate(-.04f, 0, 0);
             }
-            else if (Input.GetKeyDown(KeyCode.D) && transform.position.x < .13)
+            else if (Input.GetKeyDown(KeyCode.D) && transform.position.x < .13) //later check for walls here
             {
+                AudioManager.Instance.PlaySound("ChessPieceMove");
                 transform.Translate(.04f, 0, 0);
             }
-            else if (Input.GetKeyDown(KeyCode.S) && transform.position.z > -.17)
+            else if (Input.GetKeyDown(KeyCode.S) && transform.position.z > -.17) //later check for walls here
             {
+                AudioManager.Instance.PlaySound("ChessPieceMove");
                 transform.Translate(0, 0, -0.04f);
             }
         }
@@ -41,6 +46,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Monster Tile"))
         {
+            AudioManager.Instance.PlaySound("Riser");
             tileEventTriggered = true;
             HandleMonsterTile(other.gameObject);
         }
