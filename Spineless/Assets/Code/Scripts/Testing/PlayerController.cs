@@ -7,16 +7,18 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private bool tileEventTriggered;
+    [SerializeField] private GameObject playerInteractCanvas;
     public Animator CameraAni;
     void Start()
     {
+        playerInteractCanvas.SetActive(true);
         tileEventTriggered = false;
     }
     // Update is called once per frame
     void Update()
     {
         if (!tileEventTriggered)
-        {         
+        {
             if (Input.GetKeyDown(KeyCode.W) && transform.position.z < .08)
             {
                 transform.Translate(0, 0, 0.04f);
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
     private void HandleMonsterTile(GameObject tile)
     {
         tile.GetComponent<TileTrigger>().FlipTile();
+        playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Monster Tile");
         Invoke("SwitchToEncounter", 2);
     }
