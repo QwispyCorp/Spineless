@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class TutorialButton : MonoBehaviour
 {
     public Canvas tutorialCanvas;
-    public Canvas HUDCanvas;
+    //public Canvas HUDCanvas;
 
     void Start()
     {
         tutorialCanvas.gameObject.SetActive(true);
-        HUDCanvas.gameObject.SetActive(false);
+        //HUDCanvas.gameObject.SetActive(false);
     }
 
     public void SwitchOffCanvas()
@@ -20,7 +20,7 @@ public class TutorialButton : MonoBehaviour
     }
     public void SwitchOnHUD()
     {
-        HUDCanvas.gameObject.SetActive(true);
+        //HUDCanvas.gameObject.SetActive(true);
     }
 
     public void SwitchToEncounter()

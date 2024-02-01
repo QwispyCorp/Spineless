@@ -12,7 +12,7 @@ public class TileTrigger : MonoBehaviour
     void Start()
     {
         coveredTile.SetActive(true);
-        coveredTile.SetActive(true);
+        tileFog.SetActive(true);
         displayedTile.SetActive(false);
     }
     public void FlipTile()

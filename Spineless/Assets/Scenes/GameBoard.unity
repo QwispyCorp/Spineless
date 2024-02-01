@@ -1212,7 +1212,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tutorialCanvas: {fileID: 938251006}
-  HUDCanvas: {fileID: 0}
 --- !u!114 &938251004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1909,6 +1908,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769156442981992245, guid: 1d53398f8f5bf464baf2046097aee2ad,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769156442981992245, guid: 1d53398f8f5bf464baf2046097aee2ad,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769156442981992245, guid: 1d53398f8f5bf464baf2046097aee2ad,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 4726928806561765269, guid: 1d53398f8f5bf464baf2046097aee2ad,
         type: 3}
