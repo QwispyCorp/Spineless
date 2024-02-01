@@ -627,7 +627,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5c4abf02b50fb4785e640cd5fb19a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: CardFlip
+    clip: {fileID: 8300000, guid: c749f316326220e479513bd76a3ce6f7, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ChessPieceMove
+    clip: {fileID: 8300000, guid: d19b2c575155b4349a7d451a46458358, type: 3}
+    volume: 1
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   musicTracks:
   - name: Title Music
     clip: {fileID: 8300000, guid: d272eec6aeb07514ba0900fc50198b42, type: 3}

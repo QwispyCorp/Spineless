@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (!tileEventTriggered)
-        {
+        {         
             if (Input.GetKeyDown(KeyCode.W) && transform.position.z < .08)
             {
                 transform.Translate(0, 0, 0.04f);

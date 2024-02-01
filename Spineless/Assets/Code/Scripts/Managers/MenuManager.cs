@@ -124,7 +124,7 @@ public class MenuManager : MonoBehaviour
     public void PlayGame()
     {
         Instance.CloseAllMenus();
-        SceneManager.LoadScene("Prototype");
+        SceneManager.LoadScene("GameBoard");
     }
 
     public void GoToMainMenu()

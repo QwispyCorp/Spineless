@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class StateTest : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class StateTest : MonoBehaviour
     [SerializeField] private EnemyDeckLogic enemyDeck;
     [SerializeField] private PlayerDeckLogic playerDeck;
     [SerializeField] private float turnDelayTime;
+    [SerializeField] private Button forceEnemyTurnButton;
 
     void Awake()
     {
@@ -31,6 +33,29 @@ public class StateTest : MonoBehaviour
     void Start()
     {
         UpdateEncounterState(EncounterState.PlayerTurn);
+
+        // Add listener to the button if it's not null
+        if (forceEnemyTurnButton != null)
+        {
+            forceEnemyTurnButton.onClick.AddListener(ForceEnemyTurn);
+        }
+        else
+        {
+            Debug.LogError("Force Enemy Turn Button is not assigned!");
+        }
+    }
+    public void ForceEnemyTurn()
+    {
+        if (CurrentEncounterState == EncounterState.EnemyTurn)
+        {
+            // If it's already enemy's turn, run the enemy AI immediately
+            RunEnemyAI();
+        }
+        else
+        {
+            // If it's not enemy's turn, switch to enemy's turn state
+            UpdateEncounterState(EncounterState.EnemyTurn);
+        }
     }
     public void UpdateEncounterState(EncounterState newState)
     {
