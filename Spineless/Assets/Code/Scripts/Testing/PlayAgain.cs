@@ -7,6 +7,27 @@ public class PlayAgain : MonoBehaviour
 {
     public void PlayAgainFunc()
     {
-        SceneManager.LoadScene("GameBoard");
+        if (BoardGenerator.Instance != null)
+        {
+            BoardGenerator.Instance.DestroyBoard();
+        }
+        GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
+        if (lightGameObject != null)
+        {
+            LightManager lightManager = lightGameObject.GetComponent<LightManager>();
+
+            if (lightManager != null)
+            {
+                LightManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
+            }
+            else
+            {
+                Debug.LogError("LightManager component not found on GameObject with tag 'Light'.");
+            }
+        }
+        else
+        {
+            Debug.LogError("GameObject with tag 'Light' not found in the scene.");
+        }
     }
 }

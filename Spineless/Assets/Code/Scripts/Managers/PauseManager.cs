@@ -9,11 +9,13 @@ public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenu;
     public Button resumeButton;
+    public GameObject OptionsMenu;
 
     private bool isPaused = false;
 
     private void Start()
     {
+        OptionsMenu.SetActive(false);
         ResumeGame();
     }
 
@@ -49,17 +51,20 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         pauseMenu.SetActive(false);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         EventSystem.current.SetSelectedGameObject(resumeButton.gameObject);
     }
     public void LoadMenu()
     {
+        if (BoardGenerator.Instance != null)
+        {
+            BoardGenerator.Instance.DestroyBoard();
+        }
         SceneManager.LoadScene("MainMenu");
     }
     public void LoadOptions()
     {
-        SceneManager.LoadScene("Options");
+        OptionsMenu.SetActive(true);
     }
 }

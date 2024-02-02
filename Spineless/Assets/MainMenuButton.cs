@@ -7,7 +7,15 @@ public class MainMenuButton : MonoBehaviour
 {
     public void ToMainMenu()
     {
-        BoardGenerator.Instance.DestroyBoard();
+        if (BoardGenerator.Instance != null)
+        {
+            BoardGenerator.Instance.DestroyBoard();
+        }
+        if (LightManager.Instance != null)
+        {
+            LightManager.Instance.DestroyLight();
+        }
+        AudioManager.Instance.PlayMusicTrack("Title Music");
         SceneManager.LoadScene("MainMenu");
     }
 }

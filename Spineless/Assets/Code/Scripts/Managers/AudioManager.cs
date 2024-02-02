@@ -35,8 +35,8 @@ public class AudioManager : MonoBehaviour
         //on awake check for existence of manager and handle accordingly
         if (_instance != null && _instance != this)
         {
-            globalMusicVolume.Value = 0.5f;
-            globalSoundVolume.Value = 0.5f;
+            globalMusicVolume.Value = 0.75f;
+            globalSoundVolume.Value = 0.75f;
 
             Destroy(this.gameObject);
         }

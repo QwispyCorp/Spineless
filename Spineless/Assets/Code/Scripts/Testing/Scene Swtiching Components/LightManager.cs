@@ -6,18 +6,19 @@ public class LightManager : MonoBehaviour
 {
     public Light flickeringLight;
     public Animator Light;
-    public static LightManager Instance;
+    private static LightManager _instance;
+    public static LightManager Instance { get { return _instance; } }
     private void Awake()
     {
-        if (Instance == null)
+        if (_instance != null && _instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
+            Destroy(this.gameObject);
         }
         else
         {
-            Destroy(gameObject);
+            _instance = this;
         }
+        DontDestroyOnLoad(gameObject);
     }
     public IEnumerator StartFlickeringTransition()
     {
@@ -54,12 +55,18 @@ public class LightManager : MonoBehaviour
         if (currentScene.name == "Prototype")
         {
             Debug.Log("Switching to GameBoard Scene");
-            SceneManager.LoadScene("GameBoard"); 
+            SceneManager.LoadScene("GameBoard");
         }
-        else if(currentScene.name == "GameBoard")
+        else if (currentScene.name == "GameBoard")
         {
             Debug.Log("Switching to Prototype Scene");
             SceneManager.LoadScene("Prototype");
         }
+    }
+    public void DestroyLight()
+    {
+        Debug.Log("Destroy Light function called");
+
+        Destroy(gameObject);
     }
 }
