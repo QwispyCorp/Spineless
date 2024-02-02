@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5689627988556389148}
   - component: {fileID: 7468337273469609827}
   - component: {fileID: 366098412656955860}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerSafeCard
   m_TagString: SafeCard
   m_Icon: {fileID: 0}
@@ -123,8 +123,4 @@ MonoBehaviour:
   safeColor: {r: 0, g: 1, b: 0.013665199, a: 1}
   deathColor: {r: 1, g: 0, b: 0.09411765, a: 1}
   unflippedColor: {r: 0, g: 0, b: 0, a: 1}
-  playerHealth:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: bf91ee7ed86c5446db36b5e885a0e631, type: 2}
   cardRemoveDelayTime: 1
