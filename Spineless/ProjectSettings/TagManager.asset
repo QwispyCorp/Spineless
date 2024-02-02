@@ -10,6 +10,7 @@ TagManager:
   - Monster Tile
   - Item Tile
   - Empty Tile
+  - Win Tile
   layers:
   - Default
   - TransparentFX

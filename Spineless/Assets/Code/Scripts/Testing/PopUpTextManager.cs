@@ -54,7 +54,7 @@ public class PopUpTextManager : MonoBehaviour
                 screen.canvas.SetActive(false); //if currently indexed menu does not match name, turn it off
             }
         }
-        if (name != "Lose Screen")
+        if (name != "Lose Screen" && name != "Win Screen")
         {
             StartCoroutine("ScreenOff");
         }

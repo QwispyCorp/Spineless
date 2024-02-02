@@ -44,6 +44,9 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+
+        other.gameObject.GetComponent<BoxCollider>().enabled = false;
+
         if (other.CompareTag("Monster Tile"))
         {
             AudioManager.Instance.PlaySound("Riser");
@@ -58,12 +61,17 @@ public class PlayerController : MonoBehaviour
         {
             HandleEmptyTile(other.gameObject);
         }
+        else if (other.CompareTag("Win Tile"))
+        {
+            HandleWinTile(other.gameObject);
+        }
     }
 
     private void HandleMonsterTile(GameObject tile)
     {
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
+        BoardGenerator.Instance.HideBoard();
         Debug.Log("Player on Monster Tile");
         Invoke("SwitchToEncounter", 2);
     }
@@ -76,6 +84,12 @@ public class PlayerController : MonoBehaviour
     {
         tile.GetComponent<TileTrigger>().FlipTile();
         Debug.Log("Player on EmptyTile");
+    }
+    private void HandleWinTile(GameObject tile)
+    {
+        tile.GetComponent<TileTrigger>().FlipTile();
+        PopUpTextManager.Instance.ShowScreen("Win Screen");
+        Debug.Log("Player on WinTile");
     }
 
     private void SwitchToEncounter()
