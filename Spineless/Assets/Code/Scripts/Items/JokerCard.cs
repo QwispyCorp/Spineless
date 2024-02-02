@@ -28,5 +28,6 @@ public class JokerCard : MonoBehaviour, Interactable
         {
             Debug.LogError("EnemyDeck GameObject reference is not assigned.");
         }
+        gameObject.SetActive(false);    
     }
 }
