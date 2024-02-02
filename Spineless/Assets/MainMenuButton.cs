@@ -7,7 +7,7 @@ public class MainMenuButton : MonoBehaviour
 {
     public void ToMainMenu()
     {
-        BoardGenerator.Instance.boardGenerated = false; //reset the game board when starting game over
+        BoardGenerator.Instance.DestroyBoard();
         SceneManager.LoadScene("MainMenu");
     }
 }

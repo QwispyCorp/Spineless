@@ -8,9 +8,12 @@ public class PlayerController : MonoBehaviour
 {
     private bool tileEventTriggered;
     [SerializeField] private GameObject playerInteractCanvas;
+    public GameObject board;
     public Animator CameraAni;
+    public bool playerOnBoard;
     void Start()
     {
+        playerOnBoard = false;
         AudioManager.Instance.PlayMusicTrack("Encounter Music");
         playerInteractCanvas.SetActive(true);
         tileEventTriggered = false;
@@ -18,7 +21,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!tileEventTriggered)
+        if (!tileEventTriggered && playerOnBoard)
         {
             if (Input.GetKeyDown(KeyCode.W) && transform.position.z < .08) //later check for walls here
             {
@@ -45,25 +48,28 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        other.gameObject.GetComponent<BoxCollider>().enabled = false;
 
-        if (other.CompareTag("Monster Tile"))
+        if (other.CompareTag("Monster Tile") && playerOnBoard)
         {
             AudioManager.Instance.PlaySound("Riser");
             tileEventTriggered = true;
             HandleMonsterTile(other.gameObject);
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
-        else if (other.CompareTag("Item Tile"))
+        else if (other.CompareTag("Item Tile") && playerOnBoard)
         {
             HandleItemTile(other.gameObject);
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
-        else if (other.CompareTag("Empty Tile"))
+        else if (other.CompareTag("Empty Tile") && playerOnBoard)
         {
             HandleEmptyTile(other.gameObject);
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
-        else if (other.CompareTag("Win Tile"))
+        else if (other.CompareTag("Win Tile") && playerOnBoard)
         {
             HandleWinTile(other.gameObject);
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
 
@@ -88,6 +94,7 @@ public class PlayerController : MonoBehaviour
     private void HandleWinTile(GameObject tile)
     {
         tile.GetComponent<TileTrigger>().FlipTile();
+        Destroy(board);
         PopUpTextManager.Instance.ShowScreen("Win Screen");
         Debug.Log("Player on WinTile");
     }
@@ -105,5 +112,13 @@ public class PlayerController : MonoBehaviour
                 LightManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
             }
         }
+    }
+    public void PlayerOnBoard()
+    {
+        playerOnBoard = true;
+    }
+    public void PlayerOffBoard()
+    {
+        playerOnBoard = false;
     }
 }

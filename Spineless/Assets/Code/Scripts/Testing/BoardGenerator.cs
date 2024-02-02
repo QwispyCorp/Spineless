@@ -35,19 +35,17 @@ public class BoardGenerator : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(gameObject);
+    }
 
+    void Start()
+    {
         generatedBoardTiles = new List<GameObject>();
-
+        gameObject.SetActive(true);
         if (!boardGenerated) //if board hasnt been generated, generate it
         {
             InitializeTiles();
             GenerateBoard();
         }
-    }
-
-    void Start()
-    {
-        gameObject.SetActive(true);
     }
     private void InitializeTiles()
     {
@@ -120,6 +118,10 @@ public class BoardGenerator : MonoBehaviour
             }
         }
         boardGenerated = true;
+    }
+    public void DestroyBoard()
+    {
+        Destroy(gameObject);
     }
     public void HideBoard()
     {
