@@ -104,13 +104,20 @@ public class PlayerCardInteraction : MonoBehaviour
             AudioManager.Instance.PlaySound("CardFlip4");
             playerDeck.DrawHand();
         }
-        StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.EnemyTurn);
+        if (PlayerHealthTest.Instance.GetCurrentHealth() > 0)
+        {
+            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.EnemyTurn);
+        }
 
     }
     private IEnumerator CardRemoveDelay()
     {
         yield return new WaitForSeconds(cardRemoveDelayTime); //wait for the delay time before removing the card from the table
         PopUpTextManager.Instance.CloseScreen(PopUpTextManager.Instance.currentScreen); //close chosen card screen overlay
+        if (PlayerHealthTest.Instance.GetCurrentHealth() <= 0)
+        {
+            PopUpTextManager.Instance.ShowScreen("Lose Screen");
+        }
         Invoke("SwitchState", cardRemoveDelayTime);
     }
 }

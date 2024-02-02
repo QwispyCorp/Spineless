@@ -53,10 +53,12 @@ public class LightManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "Prototype")
         {
+            Debug.Log("Switching to GameBoard Scene");
             SceneManager.LoadScene("GameBoard"); 
         }
-        else
+        else if(currentScene.name == "GameBoard")
         {
+            Debug.Log("Switching to Prototype Scene");
             SceneManager.LoadScene("Prototype");
         }
     }

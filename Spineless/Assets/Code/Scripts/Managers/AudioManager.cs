@@ -104,7 +104,7 @@ public class AudioManager : MonoBehaviour
     }
     public void MuffleMusic()
     {
-       CurrentTrackSource.volume = CurrentTrackSource.volume / 2;
+       CurrentTrackSource.volume = CurrentTrackSource.volume * .75f;
     }
     private void UnMuffleMusic()
     {

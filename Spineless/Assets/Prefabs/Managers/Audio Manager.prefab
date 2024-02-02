@@ -101,6 +101,20 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Joker
+    clip: {fileID: 8300000, guid: 7dcadc20151b43341970b6d73bb359d3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Stapler
+    clip: {fileID: 8300000, guid: 421675785add5a64ebee93786113673a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   musicTracks:
   - name: Title Music
     clip: {fileID: 8300000, guid: d272eec6aeb07514ba0900fc50198b42, type: 3}

@@ -15,6 +15,7 @@ public class JokerCard : MonoBehaviour, Interactable
 
             if (enemyDeckLogic != null)
             {
+                AudioManager.Instance.PlaySound("Joker");
                 enemyDeckLogic.RefreshTable();
                 enemyDeckLogic.DrawHand();
                 Debug.Log("New Enemey Cards");
