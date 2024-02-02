@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ItemTest : MonoBehaviour, Interactable
+public class Stapler : MonoBehaviour, Interactable
 {
     public void Interact()
     {

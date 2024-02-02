@@ -44,6 +44,8 @@ public class LightManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(4f);
+
+        StopCoroutine(FlickeringTransition());
     }
 
     private void EnviromentSwitch()
@@ -51,17 +53,9 @@ public class LightManager : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         if (currentScene.name == "Prototype")
         {
-            if (PlayerHealthTest.Instance.GetCurrentHealth() <= 0)
-            {
-                PopUpTextManager.Instance.ShowScreen("Lose Screen");
-            }
-            else
-            {
-                SceneManager.LoadScene("GameBoard");
-            }
-
+            SceneManager.LoadScene("GameBoard"); 
         }
-        else if (currentScene.name == "GameBoard")
+        else
         {
             SceneManager.LoadScene("Prototype");
         }

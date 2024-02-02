@@ -24,6 +24,7 @@ public class EnemyDeckLogic : MonoBehaviour
     {
         InitializeDeck();
         ShuffleDeck();
+        RefreshTable();
         DrawHand();
     }
 
@@ -57,7 +58,15 @@ public class EnemyDeckLogic : MonoBehaviour
             deck[randomIndex] = temp;
         }
     }
-
+    public void RefreshTable()
+    {
+        // Remove all cards from the table
+        foreach (GameObject card in tableCards)
+        {
+            Destroy(card);
+        }
+        tableCards.Clear(); // Clear the list
+    }
     public void DrawHand()
     {
         //tableCards = new List<GameObject>();

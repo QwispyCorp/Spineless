@@ -4,13 +4,6 @@ using UnityEngine;
 public class InteractManager : MonoBehaviour
 {
     public LayerMask interactLayer;
-    public Texture2D interactCursor; // Assign the cursor texture in the inspector
-
-    private void Start()
-    {
-        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto); // Set default cursor
-    }
-
     void Update()
     {
         // Check if the left mouse button is pressed
@@ -33,20 +26,7 @@ public class InteractManager : MonoBehaviour
                     {
                         methodInfo.Invoke(interactable, null);
                     }
-
-                    // Change cursor icon
-                    Cursor.SetCursor(interactCursor, Vector2.zero, CursorMode.Auto);
                 }
-                else
-                {
-                    // Reset cursor to default if not hovering over an interactable object
-                    Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
-                }
-            }
-            else
-            {
-                // Reset cursor to default if not hitting any object
-                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             }
         }
     }
