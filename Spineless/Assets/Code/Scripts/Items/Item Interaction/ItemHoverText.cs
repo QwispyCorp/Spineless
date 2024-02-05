@@ -6,6 +6,7 @@ public class ItemHoverText : MonoBehaviour
 {
     private MeshRenderer mesh;
     public Color hoverEmissionColor;
+    public float hoverEmissionIntensity;
     public GameObject itemText;
     void Start()
     {
@@ -13,12 +14,12 @@ public class ItemHoverText : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        mesh.material.SetColor("_EmissionColor", hoverEmissionColor);
+        mesh.material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity);
         itemText.SetActive(true);
     }
     private void OnMouseExit()
     {
-        mesh.material.SetColor("_EmissionColor", Color.black);
+        mesh.material.SetColor("_Emissive", Color.black);
         itemText.SetActive(false);
     }
     private void OnMouseDown()
