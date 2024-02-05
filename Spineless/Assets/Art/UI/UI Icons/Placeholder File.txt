@@ -1,1 +1,0 @@
-Placeholder file to allow empty folders to push on Git. Delete when files are added to this directory.
