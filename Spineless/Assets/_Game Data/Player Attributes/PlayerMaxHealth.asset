@@ -9,10 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cc1c846fd5fadc4c8027b2ca08cad3b, type: 3}
-  m_Name: Joker
+  m_Script: {fileID: 11500000, guid: 06e24c85f02654ffabd18b713ac49d0e, type: 3}
+  m_Name: PlayerMaxHealth
   m_EditorClassIdentifier: 
-  itemName: Joker
-  itemAmount: 1
-  itemPrefab: {fileID: 2023671169739087667, guid: 0e41a1bb9946e76439ff9b61f0955a76,
-    type: 3}
+  Value: 5

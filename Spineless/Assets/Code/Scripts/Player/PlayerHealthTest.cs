@@ -9,10 +9,10 @@ public class PlayerHealthTest : MonoBehaviour
 {
     [SerializeField]
     private TMP_Text healthText;
-    [SerializeField]
     private int maxHealth;
-    [SerializeField]
-    private IntegerReference playerHealth;
+    [SerializeField] private PlayerSaveData saveData;
+    [SerializeField] private IntegerReference playerHealth;
+    [SerializeField] private IntegerReference playerMaxHealth;
     private static PlayerHealthTest _instance;
     public static PlayerHealthTest Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
 
@@ -31,7 +31,7 @@ public class PlayerHealthTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth.Value = maxHealth;
+        playerHealth.Value = playerMaxHealth.Value;
         healthText.SetText("Fingers: " + playerHealth.Value);
     }
     public void ChangeHealth(int amount)
@@ -50,6 +50,10 @@ public class PlayerHealthTest : MonoBehaviour
         return playerHealth.Value;
     }
 
+    public int GetMaxHealth()
+    {
+        return playerMaxHealth.Value;
+    }
     private void PlayerLoses()
     {
         //We can add more stuff here later such as death animations

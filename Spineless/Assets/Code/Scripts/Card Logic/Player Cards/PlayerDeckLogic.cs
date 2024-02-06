@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerDeckLogic : MonoBehaviour
@@ -11,8 +12,8 @@ public class PlayerDeckLogic : MonoBehaviour
     public GameObject customPivotObject; // Drag your custom pivot point object here in the Inspector
     private List<GameObject> deck; // The deck of cards
     private List<GameObject> tableCards; // The cards on the table
-    [SerializeField]
-    private float cardSpacing;
+    [SerializeField] private float cardSpacing;
+    [SerializeField] private PlayerSaveData saveData;
 
     void Awake()
     {
@@ -25,6 +26,7 @@ public class PlayerDeckLogic : MonoBehaviour
         InitializeDeck();
         ShuffleDeck();
         DrawHand();
+        UpdateSaveCards();
     }
 
     void InitializeDeck()
@@ -57,6 +59,11 @@ public class PlayerDeckLogic : MonoBehaviour
             deck[randomIndex] = temp;
         }
     }
+    void UpdateSaveCards()
+    {
+        saveData.Deck = deck;
+        saveData.TableCards = tableCards;
+    }
 
     public void DrawHand()
     {
@@ -66,6 +73,21 @@ public class PlayerDeckLogic : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             DrawCard();
+        }
+    }
+    public void RemoveDeathCard()
+    {
+        for (int i = 0; i < tableCards.Count; i++)
+        {
+            Debug.Log("Card number " + i + ": " + tableCards[i].gameObject.name);
+        }
+        if (tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"))
+        {
+            RemoveCardFromTable(tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"));
+        }
+        else
+        {
+            Debug.Log("Could not find card named " + tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"));
         }
     }
 

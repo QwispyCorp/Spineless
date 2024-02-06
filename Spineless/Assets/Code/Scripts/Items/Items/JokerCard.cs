@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class JokerCard : MonoBehaviour, Interactable
 {
-    public GameObject enemyDeckObject; // Reference to the EnemyDeck GameObject
+    private GameObject enemyDeckObject; // Reference to the EnemyDeck GameObject
+
+    void Start()
+    {
+        enemyDeckObject = GameObject.Find("Enemy Deck");
+    }
 
     public void Interact()
     {
@@ -18,7 +23,7 @@ public class JokerCard : MonoBehaviour, Interactable
                 AudioManager.Instance.PlaySound("Joker");
                 enemyDeckLogic.RefreshTable();
                 enemyDeckLogic.DrawHand();
-                Debug.Log("New Enemey Cards");
+                Debug.Log("New Enemy Cards");
             }
             else
             {
@@ -29,6 +34,6 @@ public class JokerCard : MonoBehaviour, Interactable
         {
             Debug.LogError("EnemyDeck GameObject reference is not assigned.");
         }
-        gameObject.SetActive(false);    
+        gameObject.SetActive(false);
     }
 }

@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class ItemHoverText : MonoBehaviour
 {
+    [SerializeField] private string itemName;
     private MeshRenderer mesh;
     public Color hoverEmissionColor;
     public float hoverEmissionIntensity;
-    public GameObject itemText;
+    private GameObject itemText;
+
     void Start()
     {
+        if (GameObject.Find(itemName + " Text") != null)
+        {
+            itemText = GameObject.Find(itemName + " Text");
+        }
+        else
+        {
+            itemText = null;
+            Debug.Log("Could not find " + itemName + " Text");
+        }
+        itemText.SetActive(false);
         mesh = GetComponent<MeshRenderer>();
     }
     private void OnMouseEnter()

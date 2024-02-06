@@ -15,7 +15,7 @@ public class CamLock : MonoBehaviour
         }
         else if (currentScene.name == "GameBoard")
         {
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
     }

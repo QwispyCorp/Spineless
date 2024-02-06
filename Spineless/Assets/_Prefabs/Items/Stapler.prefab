@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5664733828505957614}
   - component: {fileID: 6564912383155733730}
   m_Layer: 6
-  m_Name: Stapler Item
+  m_Name: Stapler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,6 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876cc483a2a3f2049abbec47ff617b62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHealth:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: bf91ee7ed86c5446db36b5e885a0e631, type: 2}
+  maxPlayerHealth:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 51f14fccd24dc1247b4e18e934c794f9, type: 2}
 --- !u!114 &5664733828505957614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,9 +119,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f01fe5666bee84581bdbf7f80c7c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: Stapler
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
-  hoverEmissionIntensity: 4
-  itemText: {fileID: 0}
+  hoverEmissionIntensity: 1
 --- !u!64 &6564912383155733730
 MeshCollider:
   m_ObjectHideFlags: 0

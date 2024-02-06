@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Stapler
   m_EditorClassIdentifier: 
   itemName: Stapler
-  itemAmount: 0
+  itemAmount: 1
   itemPrefab: {fileID: 6887070315473114313, guid: 03f6d90ca44358c40b498210c58f6188,
     type: 3}

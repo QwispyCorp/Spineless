@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class EnemyHealthTest : MonoBehaviour
 {
-    [SerializeField]
-    private TMP_Text healthText;
-    [SerializeField]
-    private int maxHealth;
-    [SerializeField]
-    private IntegerReference playerHealth;
+    [SerializeField] private TMP_Text healthText;
+    [SerializeField] private int maxHealth;
+    [SerializeField] private IntegerReference playerHealth;
+    [SerializeField] private PlayerSaveData saveData;
     private static EnemyHealthTest _instance;
     public static EnemyHealthTest Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
 
@@ -44,6 +43,7 @@ public class EnemyHealthTest : MonoBehaviour
     }
     private void PlayerWins()
     {  
+            saveData.EncountersWon++;
             GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
             if (lightGameObject != null)
             {

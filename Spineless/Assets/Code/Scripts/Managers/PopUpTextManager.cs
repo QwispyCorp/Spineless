@@ -93,7 +93,7 @@ public class PopUpTextManager : MonoBehaviour
 
     private IEnumerator ScreenOff()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         CloseAllScreens();
         if (StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.EnemyTurn)
         {

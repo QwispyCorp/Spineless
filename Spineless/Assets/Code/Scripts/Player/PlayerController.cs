@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +9,7 @@ public class PlayerController : MonoBehaviour
 {
     private bool tileEventTriggered;
     [SerializeField] private GameObject playerInteractCanvas;
+    [SerializeField] private PlayerSaveData saveData;
     public GameObject board;
     public Animator CameraAni;
     public bool playerOnBoard;
@@ -58,6 +60,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Item Tile") && playerOnBoard)
         {
+            AudioManager.Instance.PlaySound("Riser");
+            tileEventTriggered = true;
             HandleItemTile(other.gameObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
@@ -77,14 +81,15 @@ public class PlayerController : MonoBehaviour
     {
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
-        BoardGenerator.Instance.HideBoard();
         Debug.Log("Player on Monster Tile");
         Invoke("SwitchToEncounter", 2);
     }
     private void HandleItemTile(GameObject tile)
     {
         tile.GetComponent<TileTrigger>().FlipTile();
+        playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Item Tile");
+        Invoke("CollectItem", 2);
     }
     private void HandleEmptyTile(GameObject tile)
     {
@@ -101,6 +106,8 @@ public class PlayerController : MonoBehaviour
 
     private void SwitchToEncounter()
     {
+        BoardGenerator.Instance.HideBoard();
+
         CameraAni.SetTrigger("Board2Free");
         GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
         if (lightGameObject != null)
@@ -112,6 +119,25 @@ public class PlayerController : MonoBehaviour
                 LightManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
             }
         }
+    }
+
+    private void CollectItem()
+    {
+        int randomItemIndex = UnityEngine.Random.Range(0, saveData.ItemPool.Count);
+        if (saveData.ItemPool.Count > 0) //if list of available items is not empty
+        {
+            if (saveData.EquippedItems.Find(x => x.itemName == saveData.ItemPool[randomItemIndex].itemName)) //if player already has this item
+            {
+                Debug.Log("Too bad! you already have a " + saveData.ItemPool[randomItemIndex].itemName);
+            }
+            else
+            {
+                saveData.EquippedItems.Add(saveData.ItemPool[randomItemIndex]); //add item to equipped items
+                Debug.Log(saveData.ItemPool[randomItemIndex].itemName + " Collected");
+            }
+        }
+        tileEventTriggered = false;
+        playerInteractCanvas.SetActive(true);
     }
     public void PlayerOnBoard()
     {
