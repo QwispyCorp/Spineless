@@ -12,60 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1128fb4acea2c1344ab3b1d39196b3c2, type: 3}
   m_Name: Player Save Data
   m_EditorClassIdentifier: 
-  Deck:
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  - {fileID: 4090042394187079175, guid: 2f36a97b4f8354dc6ba466f02e5762eb, type: 3}
-  TableCards:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Deck: []
+  TableCards: []
   EncountersWon: 0
   BoardGenerated: 0
   GameBoard: {fileID: 0}

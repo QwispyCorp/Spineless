@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
+using UnityEditor.Rendering;
 
 public class PopUpTextManager : MonoBehaviour
 {
-    [SerializeField] private ScreenUtil[] screens;
+    [SerializeField] private PlayerSaveData savedata;
+    public ScreenUtil[] Screens;
     private static PopUpTextManager _instance;
     public static PopUpTextManager Instance { get { return _instance; } }
 
@@ -30,7 +33,7 @@ public class PopUpTextManager : MonoBehaviour
 
     public void ShowScreen(string name)
     {
-        ScreenUtil screenCheck = Array.Find(screens, screen => screen.name == name);
+        ScreenUtil screenCheck = Array.Find(Screens, screen => screen.name == name);
 
         if (screenCheck == null)// check for existence of menu name
         {
@@ -42,7 +45,7 @@ public class PopUpTextManager : MonoBehaviour
             Debug.LogWarning("Screen: " + name + " already open!");
             return;
         }
-        foreach (ScreenUtil screen in screens) //search list of menus
+        foreach (ScreenUtil screen in Screens) //search list of menus
         {
             if (screen.name == name) //if currently indexed screen name matches, turn it on
             {
@@ -61,7 +64,7 @@ public class PopUpTextManager : MonoBehaviour
     }
     public void CloseScreen(string name)
     {
-        ScreenUtil screenCheck = Array.Find(screens, screen => screen.name == name);
+        ScreenUtil screenCheck = Array.Find(Screens, screen => screen.name == name);
 
         if (screenCheck == null)// check for existence of menu name
         {
@@ -73,7 +76,7 @@ public class PopUpTextManager : MonoBehaviour
             Debug.LogWarning("Screen: " + name + " already open!");
             return;
         }
-        foreach (ScreenUtil screen in screens) //search list of menus
+        foreach (ScreenUtil screen in Screens) //search list of menus
         {
             if (screen.name == name) //if currently indexed screen name matches, turn it on
             {
@@ -84,7 +87,7 @@ public class PopUpTextManager : MonoBehaviour
     }
     public void CloseAllScreens()
     {
-        foreach (ScreenUtil screen in screens)
+        foreach (ScreenUtil screen in Screens)
         {
             screen.canvas.SetActive(false);
             currentScreen = null;
@@ -93,11 +96,19 @@ public class PopUpTextManager : MonoBehaviour
 
     private IEnumerator ScreenOff()
     {
-        yield return new WaitForSeconds(1f);
+        float waitTime = 0.5f;
+        if(currentScreen.Contains("Collected Screen") || currentScreen.Contains("Already Equipped")){
+            waitTime = 2;
+        }
+        
+        yield return new WaitForSeconds(waitTime);
         CloseAllScreens();
-        if (StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.EnemyTurn)
+        if (SceneManager.GetActiveScene().name == "Prototype")
         {
-            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerTurn);
+            if (StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.EnemyTurn)
+            {
+                StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerTurn);
+            }
         }
     }
 }

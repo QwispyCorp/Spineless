@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 5212903347730645480}
   - component: {fileID: 4149558367353522785}
   - component: {fileID: 8927445323227596781}
+  - component: {fileID: 4310313430427259352}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -435,6 +436,31 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4310313430427259352}
+        m_TargetAssemblyTypeName: ResetSaveData, Assembly-CSharp
+        m_MethodName: ResetSaveDataFunc
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4310313430427259352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941082367379524560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdfac07a711d3d44a1f8d25a88b2728, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
 --- !u!1 &2222737068078601779
 GameObject:
   m_ObjectHideFlags: 0

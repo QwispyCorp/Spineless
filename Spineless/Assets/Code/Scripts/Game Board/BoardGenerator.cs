@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class BoardGenerator : MonoBehaviour
 {
+    [SerializeField] private PlayerSaveData saveData;
+
     //Tile Objects assigned in inspector
     [SerializeField] private GameObject encounterTile;
     [SerializeField] private GameObject itemTile;

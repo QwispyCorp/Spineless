@@ -115,6 +115,13 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Holy Cross
+    clip: {fileID: 8300000, guid: 5526d15725820bc4ba9f39ee49512985, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   musicTracks:
   - name: Title Music
     clip: {fileID: 8300000, guid: d272eec6aeb07514ba0900fc50198b42, type: 3}

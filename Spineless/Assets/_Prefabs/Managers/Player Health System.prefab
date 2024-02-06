@@ -45,7 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 0}
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   playerHealth:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: bf91ee7ed86c5446db36b5e885a0e631, type: 2}
+  playerMaxHealth:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 51f14fccd24dc1247b4e18e934c794f9, type: 2}

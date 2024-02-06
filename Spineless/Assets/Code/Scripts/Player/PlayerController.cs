@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     private bool tileEventTriggered;
+    private GameObject collidedObject;
     [SerializeField] private GameObject playerInteractCanvas;
     [SerializeField] private PlayerSaveData saveData;
     public GameObject board;
@@ -49,30 +51,29 @@ public class PlayerController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
+        collidedObject = other.gameObject;
 
         if (other.CompareTag("Monster Tile") && playerOnBoard)
         {
             AudioManager.Instance.PlaySound("Riser");
             tileEventTriggered = true;
-            HandleMonsterTile(other.gameObject);
+            HandleMonsterTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         else if (other.CompareTag("Item Tile") && playerOnBoard)
         {
-            AudioManager.Instance.PlaySound("Riser");
             tileEventTriggered = true;
-            HandleItemTile(other.gameObject);
+            HandleItemTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         else if (other.CompareTag("Empty Tile") && playerOnBoard)
         {
-            HandleEmptyTile(other.gameObject);
+            HandleEmptyTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         else if (other.CompareTag("Win Tile") && playerOnBoard)
         {
-            HandleWinTile(other.gameObject);
+            HandleWinTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
     }
@@ -124,14 +125,21 @@ public class PlayerController : MonoBehaviour
     private void CollectItem()
     {
         int randomItemIndex = UnityEngine.Random.Range(0, saveData.ItemPool.Count);
+        string foundItemName = saveData.ItemPool[randomItemIndex].itemName;
+        bool playerHasItem = saveData.EquippedItems.Find(x => x.itemName == foundItemName);
         if (saveData.ItemPool.Count > 0) //if list of available items is not empty
         {
-            if (saveData.EquippedItems.Find(x => x.itemName == saveData.ItemPool[randomItemIndex].itemName)) //if player already has this item
+            if (playerHasItem) //if player already has this item
             {
+                // collidedObject.GetComponent<BoxCollider>().enabled = true; re-enable colider for later collection
+                PopUpTextManager.Instance.ShowScreen("Item Already Equipped Screen");
+                Array.Find(PopUpTextManager.Instance.Screens, screen => screen.name == "Item Already Equipped Screen").canvas.GetComponentInChildren<TextMeshProUGUI>().SetText(foundItemName + " already equipped!");
                 Debug.Log("Too bad! you already have a " + saveData.ItemPool[randomItemIndex].itemName);
             }
             else
             {
+                PopUpTextManager.Instance.ShowScreen(saveData.ItemPool[randomItemIndex].itemName + " Collected Screen");
+                AudioManager.Instance.PlaySound(saveData.ItemPool[randomItemIndex].itemName);
                 saveData.EquippedItems.Add(saveData.ItemPool[randomItemIndex]); //add item to equipped items
                 Debug.Log(saveData.ItemPool[randomItemIndex].itemName + " Collected");
             }

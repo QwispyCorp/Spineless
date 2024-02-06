@@ -165,9 +165,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 54843508}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33abe69ed6f9d5e41ae9287255b58dc3, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f2ffeed4ad605a408c41917c6c62c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
 --- !u!1 &250804389
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee0f58644e1ad8f438d4ae19cb5ab86c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   encounterTile: {fileID: 8338404150077217490, guid: 21c3699e98f8752469d21c3673d03cb7,
     type: 3}
   itemTile: {fileID: 8320977018185505982, guid: c05baf595475c5f42be2db8c1717bfc6,
@@ -847,7 +849,7 @@ MonoBehaviour:
   emptyTile: {fileID: 1018420391625252070, guid: 7f3348fd6e7d3f840b745e6f85a33c4d,
     type: 3}
   winTile: {fileID: 8320977018185505982, guid: 7f20d1d051fca35428f0a15ae33d70f7, type: 3}
-  maxEncounterTiles: 0
+  maxEncounterTiles: 5
   maxItemTiles: 10
   boardGenerated: 0
 --- !u!1 &724312987
@@ -1820,6 +1822,66 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -966332087389129400, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.19687058
+      objectReference: {fileID: 0}
+    - target: {fileID: -966332087389129400, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.19687058
+      objectReference: {fileID: 0}
+    - target: {fileID: -966332087389129400, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.67914796
+      objectReference: {fileID: 0}
+    - target: {fileID: -966332087389129400, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.67914796
+      objectReference: {fileID: 0}
+    - target: {fileID: -966332087389129400, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -966332087389129400, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -147.668
+      objectReference: {fileID: 0}
+    - target: {fileID: -59487288183421508, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.3626121
+      objectReference: {fileID: 0}
+    - target: {fileID: -59487288183421508, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.3626117
+      objectReference: {fileID: 0}
+    - target: {fileID: -59487288183421508, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.6070525
+      objectReference: {fileID: 0}
+    - target: {fileID: -59487288183421508, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.6070523
+      objectReference: {fileID: 0}
+    - target: {fileID: -59487288183421508, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -59487288183421508, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 118.298
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9e534af05542e8e40bf5b23c7588e2b7,
         type: 3}
       propertyPath: m_Name
@@ -2223,11 +2285,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pause Menu Canvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 2469787550556269826, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4922966530239442410, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
         type: 3}
@@ -3996,6 +4053,8 @@ SceneRoots:
   - {fileID: 1582394419}
   - {fileID: 1178690642}
   - {fileID: 851331401}
+  - {fileID: 942632623}
+  - {fileID: 332279801}
   - {fileID: 1236872854}
   - {fileID: 1877585425}
   - {fileID: 901977061}
@@ -4008,5 +4067,3 @@ SceneRoots:
   - {fileID: 854101089}
   - {fileID: 1170115558}
   - {fileID: 1142696319}
-  - {fileID: 942632623}
-  - {fileID: 332279801}

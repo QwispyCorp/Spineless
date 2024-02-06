@@ -17,4 +17,14 @@ public class PlayerSaveData : ScriptableObject
     public List<Item> ItemPool; //for storing equipped items
     public List<Item> Inventory; //for storing collected items
     public List<Item> EquippedItems; //for storing equipped items
+
+    private void OnDisable() { // reset all data on disable
+        Deck.Clear();
+        TableCards.Clear();
+        Inventory.Clear();
+        EquippedItems.Clear();
+        BoardGenerated = false;
+        GameBoard = null;
+        EncountersWon = 0;
+    }
 }

@@ -1176,6 +1176,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7077654730877234693, guid: d491037c5cb2d8944bf849836ebc9c37,
+        type: 3}
+      propertyPath: globalSoundsVolume.UseConstant
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7169994393440336002, guid: d491037c5cb2d8944bf849836ebc9c37,
         type: 3}
       propertyPath: m_AnchorMax.x
