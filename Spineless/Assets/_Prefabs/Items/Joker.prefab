@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Joker
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1
 --- !u!64 &2722634120512989038

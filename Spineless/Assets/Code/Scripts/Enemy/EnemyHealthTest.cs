@@ -32,7 +32,8 @@ public class EnemyHealthTest : MonoBehaviour
         playerHealth.Value = maxHealth;
         healthText.SetText("Enemy Fingers: " + playerHealth.Value);
     }
-    public void ChangeHealth(int amount){
+    public void ChangeHealth(int amount)
+    {
         playerHealth.Value += amount;
         healthText.SetText("Enemy Fingers: " + playerHealth.Value);
         if (playerHealth.Value <= 0)
@@ -42,25 +43,26 @@ public class EnemyHealthTest : MonoBehaviour
         }
     }
     private void PlayerWins()
-    {  
-            saveData.EncountersWon++;
-            GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
-            if (lightGameObject != null)
-            {
-                LightManager lightManager = lightGameObject.GetComponent<LightManager>();
+    {
+        AudioManager.Instance.PlaySound("Riser");
+        saveData.EncountersWon++;
+        GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
+        if (lightGameObject != null)
+        {
+            LightManager lightManager = lightGameObject.GetComponent<LightManager>();
 
-                if (lightManager != null)
-                {
-                    LightManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
-                }
-                else
-                {
-                    Debug.LogError("LightManager component not found on GameObject with tag 'Light'.");
-                }
+            if (lightManager != null)
+            {
+                LightManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
             }
             else
             {
-                Debug.LogError("GameObject with tag 'Light' not found in the scene.");
+                Debug.LogError("LightManager component not found on GameObject with tag 'Light'.");
             }
+        }
+        else
+        {
+            Debug.LogError("GameObject with tag 'Light' not found in the scene.");
+        }
     }
 }

@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class ItemHoverText : MonoBehaviour
 {
     [SerializeField] private string itemName;
+    [SerializeField] private PlayerSaveData saveData;
     private MeshRenderer mesh;
     public Color hoverEmissionColor;
     public float hoverEmissionIntensity;
@@ -37,5 +39,6 @@ public class ItemHoverText : MonoBehaviour
     private void OnMouseDown()
     {
         itemText.SetActive(false);
+        saveData.EquippedItems.Remove(saveData.EquippedItems.Find(x => x.name == itemName));
     }
 }
