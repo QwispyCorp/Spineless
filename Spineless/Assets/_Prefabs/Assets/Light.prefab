@@ -48,10 +48,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.75686276, g: 0.75686276, b: 0.75686276, a: 1}
-  m_Intensity: 238.09747
-  m_Range: 6.5
-  m_SpotAngle: 80
-  m_InnerSpotAngle: 40
+  m_Intensity: 233.32472
+  m_Range: 18
+  m_SpotAngle: 135
+  m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
     m_Type: 2
@@ -91,7 +91,7 @@ Light:
   m_LightShadowCasterMode: 2
   m_AreaSize: {x: 0.5, y: 0.5}
   m_BounceIntensity: 2
-  m_ColorTemperature: 6905
+  m_ColorTemperature: 6749
   m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 1.71e-43, z: 0, w: 1.1847e-41}
   m_UseBoundingSphereOverride: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 350
+  m_Intensity: 905
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -188,7 +188,7 @@ MonoBehaviour:
   m_ShapeRadius: 0.025
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 30
+  m_CustomSpotLightShadowCone: 1
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
