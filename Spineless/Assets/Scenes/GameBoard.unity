@@ -484,14 +484,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -804731622281664130, guid: bb9a977344cddee44af9674013a924f5,
         type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 78d8dff1986d2cb41998710711eef6e2, type: 2}
+    - target: {fileID: -804731622281664130, guid: bb9a977344cddee44af9674013a924f5,
+        type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: bfa990b0d2edfb742837835662534304, type: 2}
+    - target: {fileID: -320917365026177879, guid: bb9a977344cddee44af9674013a924f5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 78d8dff1986d2cb41998710711eef6e2, type: 2}
     - target: {fileID: 919132149155446097, guid: bb9a977344cddee44af9674013a924f5,
         type: 3}
       propertyPath: m_Name
       value: phonograph
       objectReference: {fileID: 0}
+    - target: {fileID: 7071182760956848314, guid: bb9a977344cddee44af9674013a924f5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 78d8dff1986d2cb41998710711eef6e2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
