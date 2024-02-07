@@ -3,7 +3,22 @@ guid: 56c4cebcda2c5454a8eb0e13685be86d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalTilesBroken
+    second: {fileID: 2100000, guid: 17fbb7263bc19a0449775f24f4e051e2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalTilesFull
+    second: {fileID: 2100000, guid: 22be8223a3938c64b83c35a3cd951ba4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hospitalTilesFull.001
+    second: {fileID: 2100000, guid: d421a9c2f9cdf6242bfea45abb3b599b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
