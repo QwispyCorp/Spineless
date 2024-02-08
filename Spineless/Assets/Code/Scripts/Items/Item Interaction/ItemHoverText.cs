@@ -17,28 +17,37 @@ public class ItemHoverText : MonoBehaviour
         if (GameObject.Find(itemName + " Text") != null)
         {
             itemText = GameObject.Find(itemName + " Text");
+            itemText.SetActive(false);
         }
         else
         {
             itemText = null;
-            Debug.Log("Could not find " + itemName + " Text");
+            Debug.Log("Could not find text object for " + itemName + ".");
         }
-        itemText.SetActive(false);
         mesh = GetComponent<MeshRenderer>();
     }
     private void OnMouseEnter()
     {
         mesh.material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity);
-        itemText.SetActive(true);
+        if (itemText)
+        {
+            itemText.SetActive(true);
+        }
     }
     private void OnMouseExit()
     {
         mesh.material.SetColor("_Emissive", Color.black);
-        itemText.SetActive(false);
+        if (itemText)
+        {
+            itemText.SetActive(false);
+        }
     }
     private void OnMouseDown()
     {
-        itemText.SetActive(false);
+        if (itemText)
+        {
+            itemText.SetActive(false);
+        }
         saveData.EquippedItems.Remove(saveData.EquippedItems.Find(x => x.name == itemName));
     }
 }
