@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2814217817035442024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7930868538440937752}
+  - component: {fileID: 6750785888874988901}
+  m_Layer: 0
+  m_Name: Board Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7930868538440937752
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2814217817035442024}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.15, y: 0.999, z: -0.1621}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6327318221321680855}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6750785888874988901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2814217817035442024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee0f58644e1ad8f438d4ae19cb5ab86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
+  encounterTile: {fileID: 8338404150077217490, guid: 21c3699e98f8752469d21c3673d03cb7,
+    type: 3}
+  itemTile: {fileID: 8320977018185505982, guid: c05baf595475c5f42be2db8c1717bfc6,
+    type: 3}
+  choiceTile: {fileID: 8320977018185505982, guid: 5d4950857f071d449bf472a55a882c16,
+    type: 3}
+  emptyTile: {fileID: 1018420391625252070, guid: 7f3348fd6e7d3f840b745e6f85a33c4d,
+    type: 3}
+  winTile: {fileID: 8320977018185505982, guid: 7f20d1d051fca35428f0a15ae33d70f7, type: 3}
+  maxEncounterTiles: 7
+  maxItemTiles: 13
+  maxChoiceTiles: 5
+  boardGenerated: 0
+  tileScaleFactor: 1.05
+--- !u!1 &4878697361890487097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6327318221321680855}
+  - component: {fileID: 8468112326225325345}
+  m_Layer: 0
+  m_Name: Wall Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6327318221321680855
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878697361890487097}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7930868538440937752}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8468112326225325345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4878697361890487097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a7437849be8bd46a9b81f1220995d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  board: {fileID: 6750785888874988901}
+  wallLayouts:
+  - {fileID: 5102638752413007525, guid: 8a04150129b0c2b44a37c8c88b929999, type: 3}
+  - {fileID: 4658780868258908825, guid: 3810ede5a19fb4d42b33828528562248, type: 3}
+  - {fileID: 7173407448662760468, guid: 0e1fbfc3c999a8845b8491123effa075, type: 3}

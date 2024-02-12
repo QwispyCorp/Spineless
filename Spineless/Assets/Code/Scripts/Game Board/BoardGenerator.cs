@@ -3,23 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class BoardGenerator : MonoBehaviour
 {
+    [Header("Game Data")]
     [SerializeField] private PlayerSaveData saveData;
+    [Header("Tile Prefabs")]
 
     //Tile Objects assigned in inspector
     [SerializeField] private GameObject encounterTile;
     [SerializeField] private GameObject itemTile;
+    [SerializeField] private GameObject choiceTile;
     [SerializeField] private GameObject emptyTile;
     [SerializeField] private GameObject winTile;
+    [Header("Board Properties")]
     //Max values of tiles on the board assigned in inspector
     [SerializeField] private int maxEncounterTiles;
     [SerializeField] private int maxItemTiles;
+    [SerializeField] private int maxChoiceTiles;
+    [HideInInspector] public bool boardGenerated = false;
+
+    [Header("Tile Properties")]
+    [SerializeField] private float tileScaleFactor;
     //private utility variables
-    public bool boardGenerated = false;
     private int boardSize = 8;
-    private float tileSpacing = 0.04f;
+    private float tileSpacing;
     private List<GameObject> generatedBoardTiles;
     //Singleton variables
     private static BoardGenerator _instance;
@@ -36,6 +45,8 @@ public class BoardGenerator : MonoBehaviour
         {
             _instance = this;
         }
+        tileSpacing = .04f * tileScaleFactor;
+        saveData.tileSpacing = tileSpacing;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -55,6 +66,7 @@ public class BoardGenerator : MonoBehaviour
         int emptyTiles = 0;
         int itemTiles = 0;
         int winTiles = 0;
+        int choiceTiles = 0;
         for (int i = 0; i < boardSize * boardSize; i++)
         {
             if (winTiles < 1)
@@ -75,7 +87,13 @@ public class BoardGenerator : MonoBehaviour
                 encounterTiles++;
                 Debug.Log("Generated Encounter Tile # " + encounterTiles);
             }
-            else if (encounterTiles == maxEncounterTiles && itemTiles == maxItemTiles)
+            else if (choiceTiles < maxChoiceTiles)
+            {
+                generatedBoardTiles.Add(choiceTile); //add choice tiles to list
+                choiceTiles++;
+                Debug.Log("Generated Choice Tile # " + choiceTiles);
+            }
+            else
             {
                 generatedBoardTiles.Add(emptyTile); //add empty tiles to list
                 emptyTiles++;
@@ -91,6 +109,7 @@ public class BoardGenerator : MonoBehaviour
         Debug.Log("Win Tile Spawned at (" + winTileSlot + "," + (boardSize - 1) + ")");
         //Spawn the winning tile
         GameObject winningTile = generatedBoardTiles.Find(tile => tile.name == "Win Tile");
+        winningTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
         Instantiate(winTile, transform.position + new Vector3(winTileSlot * tileSpacing, 0, (boardSize - 1) * tileSpacing), Quaternion.identity, transform);
         generatedBoardTiles.Remove(winningTile);
 
@@ -99,9 +118,10 @@ public class BoardGenerator : MonoBehaviour
             for (int j = 0; j < boardSize; j++) //row number of board
             {
 
-                if (i == 3 && j == 0) //always spawn empty tile at player spawnpoint
+                if (i == 0 && j == 0) //always spawn empty tile at player spawnpoint
                 {
                     GameObject randomEmptyTile = generatedBoardTiles.Find(tile => tile.name == "Empty Tile");
+                    randomEmptyTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
                     Instantiate(emptyTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
                     generatedBoardTiles.Remove(randomEmptyTile);
                 }
@@ -115,6 +135,7 @@ public class BoardGenerator : MonoBehaviour
 
                     GameObject randomTile = generatedBoardTiles[randomTileIndex];
                     GameObject randomTileInstance = Instantiate(randomTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
+                    randomTileInstance.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
                     generatedBoardTiles.Remove(randomTile);
                 }
             }

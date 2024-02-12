@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private GameObject collidedObject;
     [SerializeField] private GameObject playerInteractCanvas;
     [SerializeField] private PlayerSaveData saveData;
-    [SerializeField] private float tileSpacing;
+    [SerializeField] private float tileSpacing; // for movement, changes based on board tile scaling
     public GameObject board;
     public Animator CameraAni;
     public bool playerOnBoard;
@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(true);
         tileEventTriggered = false;
         wallLayerMask = 1 << 7;
+        tileSpacing = saveData.tileSpacing; //set tile spacing for movement equal to board tile spacing 
     }
     // Update is called once per frame
     void Update()
@@ -34,22 +35,22 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.back) * tileSpacing, Color.green);
         if (!tileEventTriggered && playerOnBoard)
         {
-            if (Input.GetKeyDown(KeyCode.W) && transform.position.z < .08 && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), tileSpacing, wallLayerMask)) //later check for walls here
+            if (Input.GetKeyDown(KeyCode.W) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
                 transform.Translate(0, 0, tileSpacing);
             }
-            else if (Input.GetKeyDown(KeyCode.A) && transform.position.x > -.13 && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), tileSpacing, wallLayerMask)) //later check for walls here
+            else if (Input.GetKeyDown(KeyCode.A) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
                 transform.Translate(-tileSpacing, 0, 0);
             }
-            else if (Input.GetKeyDown(KeyCode.D) && transform.position.x < .13 && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), tileSpacing, wallLayerMask)) //later check for walls here
+            else if (Input.GetKeyDown(KeyCode.D) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
                 transform.Translate(tileSpacing, 0, 0);
             }
-            else if (Input.GetKeyDown(KeyCode.S) && transform.position.z > -.17 && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), tileSpacing, wallLayerMask)) //later check for walls here
+            else if (Input.GetKeyDown(KeyCode.S) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
                 transform.Translate(0, 0, -tileSpacing);
@@ -83,6 +84,11 @@ public class PlayerController : MonoBehaviour
             HandleWinTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
+        else if (other.CompareTag("Choice Tile") && playerOnBoard)
+        {
+            HandleChoiceTile(collidedObject);
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
     private void HandleMonsterTile(GameObject tile)
@@ -110,6 +116,11 @@ public class PlayerController : MonoBehaviour
         Destroy(board);
         PopUpTextManager.Instance.ShowScreen("Win Screen");
         Debug.Log("Player on WinTile");
+    }
+    private void HandleChoiceTile(GameObject tile)
+    {
+        tile.GetComponent<TileTrigger>().FlipTile();
+        Debug.Log("Player on Choice Tile");
     }
 
     private void SwitchToEncounter()

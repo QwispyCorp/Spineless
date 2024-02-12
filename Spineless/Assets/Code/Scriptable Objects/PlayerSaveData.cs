@@ -13,6 +13,7 @@ public class PlayerSaveData : ScriptableObject
     [Header("Game Board Data")]
     public bool BoardGenerated; //for keeping track of board generation state
     public GameObject GameBoard; //for storing generated game board
+    public float tileSpacing;
     [Header("Inventory Data")]
     public List<Item> ItemPool; //for storing equipped items
     public List<Item> Inventory; //for storing collected items

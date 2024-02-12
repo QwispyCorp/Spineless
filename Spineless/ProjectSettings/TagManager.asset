@@ -11,6 +11,7 @@ TagManager:
   - Item Tile
   - Empty Tile
   - Win Tile
+  - Choice Tile
   layers:
   - Default
   - TransparentFX
