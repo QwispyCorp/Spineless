@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
@@ -9,6 +10,9 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private bool tileEventTriggered;
+    private bool choiceTileTriggered;
+    private bool itemTileTriggered;
+    private bool monsterTileTriggered;
     private GameObject collidedObject;
     [SerializeField] private GameObject playerInteractCanvas;
     [SerializeField] private PlayerSaveData saveData;
@@ -23,6 +27,9 @@ public class PlayerController : MonoBehaviour
         AudioManager.Instance.PlayMusicTrack("Encounter Music");
         playerInteractCanvas.SetActive(true);
         tileEventTriggered = false;
+        itemTileTriggered = false;
+        choiceTileTriggered = false;
+        monsterTileTriggered = false;
         wallLayerMask = 1 << 7;
         tileSpacing = saveData.tileSpacing; //set tile spacing for movement equal to board tile spacing 
     }
@@ -65,12 +72,15 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.Instance.PlaySound("Riser");
             tileEventTriggered = true;
+            monsterTileTriggered = true;
             HandleMonsterTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         else if (other.CompareTag("Item Tile") && playerOnBoard)
         {
+            AudioManager.Instance.PlaySound("Riser");
             tileEventTriggered = true;
+            itemTileTriggered = true;
             HandleItemTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
@@ -86,6 +96,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Choice Tile") && playerOnBoard)
         {
+            AudioManager.Instance.PlaySound("Riser");
+            tileEventTriggered = true;
+            choiceTileTriggered = true;
             HandleChoiceTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
@@ -96,14 +109,14 @@ public class PlayerController : MonoBehaviour
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Monster Tile");
-        Invoke("SwitchToEncounter", 2);
+        Invoke("SwitchRooms", 2);
     }
     private void HandleItemTile(GameObject tile)
     {
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Item Tile");
-        Invoke("CollectItem", 2);
+        Invoke("SwitchRooms", 2);
     }
     private void HandleEmptyTile(GameObject tile)
     {
@@ -120,14 +133,17 @@ public class PlayerController : MonoBehaviour
     private void HandleChoiceTile(GameObject tile)
     {
         tile.GetComponent<TileTrigger>().FlipTile();
+        playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Choice Tile");
+        Invoke("SwitchRooms", 2);
+
     }
 
-    private void SwitchToEncounter()
+    private void SwitchRooms()
     {
         BoardGenerator.Instance.HideBoard();
 
-        CameraAni.SetTrigger("Board2Free");
+        CameraAni.SetTrigger("B2F");
         GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
         if (lightGameObject != null)
         {
@@ -135,15 +151,26 @@ public class PlayerController : MonoBehaviour
 
             if (lightManager != null)
             {
-                LightManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
+                if (choiceTileTriggered == true) //switch scene to choice room
+                {
+                    LightManager.Instance.StartFlickeringTransitionTo("ChoiceRoom");
+                }
+                else if (itemTileTriggered == true) //switch scene to item room
+                {
+                    LightManager.Instance.StartFlickeringTransitionTo("ItemRoom");
+                }
+                else if (monsterTileTriggered == true) //switch scene to encounter
+                {
+                    LightManager.Instance.StartFlickeringTransitionTo("Prototype");
+                }
             }
         }
     }
-
+    /*
     private void CollectItem()
     {
-        int randomItemIndex = UnityEngine.Random.Range(0, saveData.PlayerItemPool.Count);
-        string foundItemName = saveData.PlayerItemPool[randomItemIndex].itemName;
+        int randomItemIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
+        string foundItemName = saveData.MasterItemPool[randomItemIndex].itemName;
         bool playerHasItem = saveData.EquippedItems.Find(x => x.itemName == foundItemName);
         if (saveData.PlayerItemPool.Count > 0) //if list of available items is not empty
         {
@@ -164,7 +191,7 @@ public class PlayerController : MonoBehaviour
         }
         tileEventTriggered = false;
         playerInteractCanvas.SetActive(true);
-    }
+    }*/
     public void PlayerOnBoard()
     {
         playerOnBoard = true;

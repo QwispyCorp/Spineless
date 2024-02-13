@@ -32,7 +32,7 @@ public class TutorialButton : MonoBehaviour
 
             if (lightManager != null)
             {
-                CoroutineManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
+                LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
             }
             else
             {

@@ -5543,7 +5543,7 @@ PrefabInstance:
         type: 3}
       propertyPath: CameraAni
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2106969210}
     - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
       propertyPath: playerInteractCanvas

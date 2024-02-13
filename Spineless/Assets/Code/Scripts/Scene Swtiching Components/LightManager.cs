@@ -7,6 +7,7 @@ public class LightManager : MonoBehaviour
     public Light flickeringLight;
     public float timeDelay;
     private static LightManager _instance;
+    private string _newSceneName;
     public bool hasStarted = false;
     public static LightManager Instance { get { return _instance; } }
     private void Awake()
@@ -28,12 +29,41 @@ public class LightManager : MonoBehaviour
             Debug.Log("LightSwitchOn");
         }
     }
-    public IEnumerator StartFlickeringTransition()
+    private void EnvironmentSwitchTo(string newScene)
     {
-        return FlickeringTransition();
+        if (newScene == "Prototype")
+        {
+            Debug.Log("Switching to Encounter Scene");
+            SceneManager.LoadScene("Prototype");
+        }
+        else if (newScene == "GameBoard")
+        {
+            Debug.Log("Switching to GameBoard Scene");
+            SceneManager.LoadScene("GameBoard");
+        }
+        else if (newScene == "ItemRoom")
+        {
+            Debug.Log("Switching to Item Room Scene");
+            SceneManager.LoadScene("ItemRoom");
+        }
+        else if (newScene == "ChoiceRoom")
+        {
+            Debug.Log("Switching to Choice Room Scene");
+            SceneManager.LoadScene("ChoiceRoom");
+        }
+        else if (newScene == "WinScene")
+        {
+            Debug.Log("Switching to Win Scene");
+            SceneManager.LoadScene("WinScene");
+        }
+    }
+    public void StartFlickeringTransitionTo(string newSceneName)
+    {
+        _newSceneName = newSceneName;
+        StartCoroutine("FlickerTransition");
     }
 
-    private IEnumerator FlickeringTransition()
+    private IEnumerator FlickerTransition()
     {
         //Flicker Off 
         this.gameObject.GetComponent<Light>().enabled = false;
@@ -58,8 +88,8 @@ public class LightManager : MonoBehaviour
         timeDelay = Random.Range(0.1f, 0.4f);
 
         yield return new WaitForSeconds(2f);
-
-        EnviromentSwitch();
+        
+        EnvironmentSwitchTo(_newSceneName);
 
         yield return new WaitForSeconds(2f);
 
@@ -84,23 +114,7 @@ public class LightManager : MonoBehaviour
         yield return new WaitForSeconds(timeDelay);
         this.gameObject.GetComponent<Light>().enabled = true;
         timeDelay = Random.Range(0.1f, 0.4f);
-
-        StopCoroutine(FlickeringTransition());
-    }
-
-    private void EnviromentSwitch()
-    {
-        Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "Prototype")
-        {
-            Debug.Log("Switching to GameBoard Scene");
-            SceneManager.LoadScene("GameBoard");
-        }
-        else if (currentScene.name == "GameBoard")
-        {
-            Debug.Log("Switching to Prototype Scene");
-            SceneManager.LoadScene("Prototype");
-        }
+        StopCoroutine("FlickerTransition");
     }
     public void DestroyLight()
     {

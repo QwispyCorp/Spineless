@@ -18,7 +18,7 @@ public class PlayAgain : MonoBehaviour
 
             if (lightManager != null)
             {
-                LightManager.Instance.StartCoroutine(lightManager.StartFlickeringTransition());
+                LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
             }
             else
             {
