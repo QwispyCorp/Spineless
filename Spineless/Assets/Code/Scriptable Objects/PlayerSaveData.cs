@@ -15,11 +15,22 @@ public class PlayerSaveData : ScriptableObject
     public GameObject GameBoard; //for storing generated game board
     public float tileSpacing;
     [Header("Inventory Data")]
-    public List<Item> ItemPool; //for storing equipped items
-    public List<Item> Inventory; //for storing collected items
+    public List<Item> MasterItemPool; //for storing all available items
+    public List<Item> PlayerItemPool; //for storing all available items in current game
+    public List<Item> Inventory; //for storing unlocked items
     public List<Item> EquippedItems; //for storing equipped items
 
-    private void OnDisable() { // reset all data on disable
+    private void OnEnable()
+    {
+        //Transfer all items in master item pool to player item pool
+        for (int i = 0; i < MasterItemPool.Count; i++)
+        {
+            PlayerItemPool[i] = MasterItemPool[i];
+        }
+    }
+
+    private void OnDisable()
+    { // reset all data on disable
         Deck.Clear();
         TableCards.Clear();
         Inventory.Clear();

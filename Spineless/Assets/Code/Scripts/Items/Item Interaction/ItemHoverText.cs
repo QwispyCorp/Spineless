@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ItemHoverText : MonoBehaviour
 {
@@ -47,6 +48,11 @@ public class ItemHoverText : MonoBehaviour
         if (itemText)
         {
             itemText.SetActive(false);
+        }
+        if (SceneManager.GetActiveScene().name == "GameBoard")
+        {
+            //Do item game board logic
+            //Either add to equipped items or move to inventory
         }
         saveData.EquippedItems.Remove(saveData.EquippedItems.Find(x => x.name == itemName));
     }

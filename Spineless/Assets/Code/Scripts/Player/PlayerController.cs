@@ -142,24 +142,24 @@ public class PlayerController : MonoBehaviour
 
     private void CollectItem()
     {
-        int randomItemIndex = UnityEngine.Random.Range(0, saveData.ItemPool.Count);
-        string foundItemName = saveData.ItemPool[randomItemIndex].itemName;
+        int randomItemIndex = UnityEngine.Random.Range(0, saveData.PlayerItemPool.Count);
+        string foundItemName = saveData.PlayerItemPool[randomItemIndex].itemName;
         bool playerHasItem = saveData.EquippedItems.Find(x => x.itemName == foundItemName);
-        if (saveData.ItemPool.Count > 0) //if list of available items is not empty
+        if (saveData.PlayerItemPool.Count > 0) //if list of available items is not empty
         {
-            if (playerHasItem) //if player already has this item
+            if (playerHasItem) //if player already has this item, keep looping until one is found that the player doesn't have
             {
                 // collidedObject.GetComponent<BoxCollider>().enabled = true; re-enable colider for later collection
                 PopUpTextManager.Instance.ShowScreen("Item Already Equipped Screen");
                 Array.Find(PopUpTextManager.Instance.Screens, screen => screen.name == "Item Already Equipped Screen").canvas.GetComponentInChildren<TextMeshProUGUI>().SetText(foundItemName + " already equipped!");
-                Debug.Log("Too bad! you already have a " + saveData.ItemPool[randomItemIndex].itemName);
+                Debug.Log("Too bad! you already have a " + saveData.PlayerItemPool[randomItemIndex].itemName);
             }
             else
             {
-                PopUpTextManager.Instance.ShowScreen(saveData.ItemPool[randomItemIndex].itemName + " Collected Screen");
-                AudioManager.Instance.PlaySound(saveData.ItemPool[randomItemIndex].itemName);
-                saveData.EquippedItems.Add(saveData.ItemPool[randomItemIndex]); //add item to equipped items
-                Debug.Log(saveData.ItemPool[randomItemIndex].itemName + " Collected");
+                PopUpTextManager.Instance.ShowScreen(saveData.PlayerItemPool[randomItemIndex].itemName + " Collected Screen");
+                AudioManager.Instance.PlaySound(saveData.PlayerItemPool[randomItemIndex].itemName);
+                saveData.EquippedItems.Add(saveData.PlayerItemPool[randomItemIndex]); //add item to equipped items
+                Debug.Log(saveData.PlayerItemPool[randomItemIndex].itemName + " Collected");
             }
         }
         tileEventTriggered = false;
