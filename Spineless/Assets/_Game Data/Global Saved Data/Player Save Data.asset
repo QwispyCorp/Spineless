@@ -17,9 +17,17 @@ MonoBehaviour:
   EncountersWon: 0
   BoardGenerated: 0
   GameBoard: {fileID: 0}
-  ItemPool:
+  tileSpacing: 0.041999996
+  MasterItemPool:
+  - {fileID: 11400000, guid: 0555ef7a5a0ff3045885f6a927c86003, type: 2}
+  - {fileID: 11400000, guid: a970f83e43f804145ab53ad7b6c7a425, type: 2}
+  - {fileID: 11400000, guid: 5a44431b147faa940b719dd32deb2c08, type: 2}
+  PlayerItemPool:
   - {fileID: 11400000, guid: 0555ef7a5a0ff3045885f6a927c86003, type: 2}
   - {fileID: 11400000, guid: a970f83e43f804145ab53ad7b6c7a425, type: 2}
   - {fileID: 11400000, guid: 5a44431b147faa940b719dd32deb2c08, type: 2}
   Inventory: []
-  EquippedItems: []
+  EquippedItems:
+  - {fileID: 11400000, guid: 5a44431b147faa940b719dd32deb2c08, type: 2}
+  - {fileID: 11400000, guid: 0555ef7a5a0ff3045885f6a927c86003, type: 2}
+  - {fileID: 11400000, guid: a970f83e43f804145ab53ad7b6c7a425, type: 2}

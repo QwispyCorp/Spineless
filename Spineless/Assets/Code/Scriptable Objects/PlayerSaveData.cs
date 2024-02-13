@@ -25,15 +25,16 @@ public class PlayerSaveData : ScriptableObject
         //Transfer all items in master item pool to player item pool
         for (int i = 0; i < MasterItemPool.Count; i++)
         {
-            PlayerItemPool[i] = MasterItemPool[i];
+            PlayerItemPool.Add(MasterItemPool[i]);
         }
     }
 
     private void OnDisable()
     { // reset all data on disable
         Deck.Clear();
+        PlayerItemPool.Clear();
         TableCards.Clear();
-        Inventory.Clear();
+        //Inventory.Clear();
         EquippedItems.Clear();
         BoardGenerated = false;
         GameBoard = null;

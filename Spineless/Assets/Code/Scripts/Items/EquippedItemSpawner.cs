@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EquippedItemSpawner : MonoBehaviour
 {
-    [SerializeField] private Transform[] spawnPoints;
+    public Transform[] spawnPoints;
     [SerializeField] private PlayerSaveData saveData;
     void Start()
     {
@@ -16,7 +16,7 @@ public class EquippedItemSpawner : MonoBehaviour
             if (saveData.EquippedItems.Count > 0)
             {
                 Debug.Log("Spawning object " + saveData.EquippedItems[i].itemName);
-                Instantiate(saveData.EquippedItems[i].itemPrefab, new Vector3(spawnPoints[i].position.x, saveData.EquippedItems[i].itemPrefab.gameObject.transform.position.y, spawnPoints[i].position.z), Quaternion.identity, spawnPoints[i]);
+                Instantiate(saveData.EquippedItems[i].itemPrefab, spawnPoints[i].transform.position, Quaternion.identity, spawnPoints[i]);
             }
         }
     }

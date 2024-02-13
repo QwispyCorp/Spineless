@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class JokerCard : MonoBehaviour, Interactable
 {
@@ -13,27 +15,26 @@ public class JokerCard : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if (enemyDeckObject != null)
+        if (SceneManager.GetActiveScene().name == "Prototype")
         {
-            // Get the EnemyDeckLogic component from the GameObject
-            EnemyDeckLogic enemyDeckLogic = enemyDeckObject.GetComponent<EnemyDeckLogic>();
+            if (enemyDeckObject != null)
+            {
+                // Get the EnemyDeckLogic component from the GameObject
+                EnemyDeckLogic enemyDeckLogic = enemyDeckObject.GetComponent<EnemyDeckLogic>();
 
-            if (enemyDeckLogic != null)
-            {
-                AudioManager.Instance.PlaySound("Joker");
-                enemyDeckLogic.RefreshTable();
-                enemyDeckLogic.DrawHand();
-                Debug.Log("New Enemy Cards");
+                if (enemyDeckLogic != null)
+                {
+                    AudioManager.Instance.PlaySound("Joker");
+                    enemyDeckLogic.RefreshTable();
+                    enemyDeckLogic.DrawHand();
+                    Debug.Log("New Enemy Cards");
+                }
+                else
+                {
+                    Debug.LogError("EnemyDeckLogic component not found on the specified GameObject.");
+                }
             }
-            else
-            {
-                Debug.LogError("EnemyDeckLogic component not found on the specified GameObject.");
-            }
+            gameObject.SetActive(false);
         }
-        else
-        {
-            Debug.LogError("EnemyDeck GameObject reference is not assigned.");
-        }
-        gameObject.SetActive(false);
     }
 }

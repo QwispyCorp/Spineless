@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Joker
   itemAmount: 1
-  itemPrefab: {fileID: 2023671169739087667, guid: 0e41a1bb9946e76439ff9b61f0955a76,
+  itemPrefab: {fileID: 2001778195784754496, guid: 0e41a1bb9946e76439ff9b61f0955a76,
     type: 3}
