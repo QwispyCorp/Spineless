@@ -12,6 +12,7 @@ TagManager:
   - Empty Tile
   - Win Tile
   - Choice Tile
+  - Button
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - UI
   - InteractLayer
   - Wall
-  - 
+  - Buttons
   - 
   - 
   - 

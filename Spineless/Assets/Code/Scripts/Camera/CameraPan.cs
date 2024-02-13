@@ -1,49 +1,37 @@
 using UnityEngine;
-using System.Collections;
-
+using UnityEngine.EventSystems;
 
 public class CameraPan : MonoBehaviour
 {
-    public GameObject Cam;
-    public Animator animator;
     public float senseX;
     public float senseY;
-
+    public bool CanLook;
     public Transform orientation;
-
+    private Quaternion initialRotation;
     float xRotation;
     float yRotation;
 
     // Start is called before the first frame update
     void Start()
     {
+        initialRotation = transform.rotation;
         Cameralock();
+        CanLook = true;
     }
 
-    public void AnimatorOn() // Switches Animator On
+    public void CamCanLook()
     {
-        animator.enabled = true;
+        CanLook = !CanLook;
     }
-    public void AnimatorOff() //Switches Animator Off after 1.5 Seconds
+    public void CameraUnlock()
     {
-        StartCoroutine(TurnOffAnimatorAfterDelay());
-    }
-    IEnumerator TurnOffAnimatorAfterDelay()
-    {
-        yield return new WaitForSeconds(2f);
-        animator.enabled = false;
-    }
-    public void CameraUnlock() //Call Function when wnating to use item cabinet
-    {
-        StartCoroutine(UnlockAfterDelay());
-    }
-    IEnumerator UnlockAfterDelay() //The time here allows for animations to play
-    {
-        yield return new WaitForSeconds(1.5f);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        transform.rotation = Quaternion.identity;
+        transform.rotation = initialRotation;
     }
-    public void Cameralock() //Lock for FPS cam
+
+    public void Cameralock()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -52,6 +40,9 @@ public class CameraPan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (CanLook == true)
+        {
+            // Camera rotation based on mouse input
             float mouseX = -Input.GetAxisRaw("Mouse X") * Time.deltaTime * senseX;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * senseY;
 
@@ -61,5 +52,7 @@ public class CameraPan : MonoBehaviour
 
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
+
+        }
     }
 }
