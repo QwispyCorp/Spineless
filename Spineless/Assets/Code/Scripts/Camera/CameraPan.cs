@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -18,31 +19,41 @@ public class CameraPan : MonoBehaviour
         Cameralock();
         CanLook = true;
     }
-
+    //-------------------------------------------------------
     public void CamCanLook()
     {
-        CanLook = !CanLook;
-    }
-    public void CameraUnlock()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        transform.rotation = Quaternion.identity;
-        transform.rotation = initialRotation;
+        StartCoroutine(CamCanLookCoroutine());
     }
 
+    IEnumerator CamCanLookCoroutine()
+    {
+        yield return new WaitForSeconds(1.5f);
+        CanLook = !CanLook;
+    }
+    //--------------------------------------------------------
+    public void CameraUnlock()
+    {
+        StartCoroutine(CamUnlockCoroutine());
+    }
+    IEnumerator CamUnlockCoroutine()
+    {
+        transform.rotation = Quaternion.identity;
+        transform.rotation = initialRotation;
+        yield return new WaitForSeconds(1.5f);
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+    //--------------------------------------------------------
     public void Cameralock()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
-    // Update is called once per frame
+    //--------------------------------------------------------
     void Update()
     {
         if (CanLook == true)
         {
-            // Camera rotation based on mouse input
             float mouseX = -Input.GetAxisRaw("Mouse X") * Time.deltaTime * senseX;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * senseY;
 
