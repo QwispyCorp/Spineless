@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rooms/GameBoard.unity
     guid: bcd0b6e3caf4c90429406f0a1c18e4ce
+  - enabled: 1
+    path: Assets/Scenes/Rooms/ItemRoom.unity
+    guid: 47f1e6fc15ce39f4eb748ce8fd58b5cc
+  - enabled: 1
+    path: Assets/Scenes/Rooms/ChoiceRoom.unity
+    guid: 850d9e7969349450e97ef21a99721e6a
   m_configObjects: {}

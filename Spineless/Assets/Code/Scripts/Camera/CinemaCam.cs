@@ -64,7 +64,7 @@ public class CinemaCam : MonoBehaviour
     }
     IEnumerator Cabinet2FreeCoroutine()
     {
-        Cursor.visible = false;
+        Cursor.visible = true;
         CamAni.SetTrigger("C2F");
         yield return new WaitForSeconds(1f);
         Cam1.SetActive(true);
@@ -98,7 +98,7 @@ public class CinemaCam : MonoBehaviour
     }
     IEnumerator Board2FreeCoroutine()
     {
-        Cursor.visible = false;
+        Cursor.visible = true;
         CamAni.SetTrigger("B2F");
         yield return new WaitForSeconds(1f);
         Cam1.SetActive(true);

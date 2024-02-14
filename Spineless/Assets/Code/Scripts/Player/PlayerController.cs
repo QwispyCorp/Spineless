@@ -151,47 +151,21 @@ public class PlayerController : MonoBehaviour
 
             if (lightManager != null)
             {
-                if (choiceTileTriggered == true) //switch scene to choice room
+                if (choiceTileTriggered) //switch scene to choice room
                 {
                     LightManager.Instance.StartFlickeringTransitionTo("ChoiceRoom");
                 }
-                else if (itemTileTriggered == true) //switch scene to item room
+                else if (itemTileTriggered) //switch scene to item room
                 {
                     LightManager.Instance.StartFlickeringTransitionTo("ItemRoom");
                 }
-                else if (monsterTileTriggered == true) //switch scene to encounter
+                else if (monsterTileTriggered) //switch scene to encounter
                 {
                     LightManager.Instance.StartFlickeringTransitionTo("Prototype");
                 }
             }
         }
     }
-    /*
-    private void CollectItem()
-    {
-        int randomItemIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
-        string foundItemName = saveData.MasterItemPool[randomItemIndex].itemName;
-        bool playerHasItem = saveData.EquippedItems.Find(x => x.itemName == foundItemName);
-        if (saveData.PlayerItemPool.Count > 0) //if list of available items is not empty
-        {
-            if (playerHasItem) //if player already has this item, keep looping until one is found that the player doesn't have
-            {
-                // collidedObject.GetComponent<BoxCollider>().enabled = true; re-enable colider for later collection
-                PopUpTextManager.Instance.ShowScreen("Item Already Equipped Screen");
-                Array.Find(PopUpTextManager.Instance.Screens, screen => screen.name == "Item Already Equipped Screen").canvas.GetComponentInChildren<TextMeshProUGUI>().SetText(foundItemName + " already equipped!");
-                Debug.Log("Too bad! you already have a " + saveData.PlayerItemPool[randomItemIndex].itemName);
-            }
-            else
-            {
-                PopUpTextManager.Instance.ShowScreen(saveData.PlayerItemPool[randomItemIndex].itemName + " Collected Screen");
-                AudioManager.Instance.PlaySound(saveData.PlayerItemPool[randomItemIndex].itemName);
-                saveData.EquippedItems.Add(saveData.PlayerItemPool[randomItemIndex]); //add item to equipped items
-                Debug.Log(saveData.PlayerItemPool[randomItemIndex].itemName + " Collected");
-            }
-        }
-        tileEventTriggered = false;
-        playerInteractCanvas.SetActive(true);
-    }*/
     public void PlayerOnBoard()
     {
         playerOnBoard = true;
