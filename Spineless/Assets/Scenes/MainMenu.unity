@@ -148,6 +148,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Playtest Tutorial Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 1356505333038618297, guid: 1d53398f8f5bf464baf2046097aee2ad,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4726928806561765269, guid: 1d53398f8f5bf464baf2046097aee2ad,
         type: 3}
       propertyPath: m_LocalPosition.x

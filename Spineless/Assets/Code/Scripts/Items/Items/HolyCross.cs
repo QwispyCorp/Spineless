@@ -16,7 +16,7 @@ public class HolyCross : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if (SceneManager.GetActiveScene().name == "Prototype") //Interact Logic for item in Encounter room: Perform item effect and consume by de-activating game object
+        if (SceneManager.GetActiveScene().name == "Encounter") //Interact Logic for item in Encounter room: Perform item effect and consume by de-activating game object
         {
             if (playerDeckObject != null)
             {

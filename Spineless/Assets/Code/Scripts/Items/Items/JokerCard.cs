@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,7 +14,7 @@ public class JokerCard : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if (SceneManager.GetActiveScene().name == "Prototype")
+        if (SceneManager.GetActiveScene().name == "Encounter")
         {
             if (enemyDeckObject != null)
             {

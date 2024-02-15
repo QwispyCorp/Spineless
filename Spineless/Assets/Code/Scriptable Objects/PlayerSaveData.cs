@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class PlayerSaveData : ScriptableObject
 {
-    [Header("Encounter Data")]
-    public List<GameObject> Deck; //for storing player deck status
-    public List<GameObject> TableCards; //for storing player deck status
     public int EncountersWon; //for storing number of encounters player has won
 
     [Header("Game Board Data")]
@@ -31,9 +28,7 @@ public class PlayerSaveData : ScriptableObject
 
     private void OnDisable()
     { // reset all data on disable
-        Deck.Clear();
         PlayerItemPool.Clear();
-        TableCards.Clear();
         //Inventory.Clear();
         EquippedItems.Clear();
         BoardGenerated = false;

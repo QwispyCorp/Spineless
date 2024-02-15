@@ -10,8 +10,8 @@ public class CameraPan : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
     //--------------------------------------------------------
     void Update()

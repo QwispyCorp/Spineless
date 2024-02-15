@@ -84,6 +84,10 @@ public class AudioManager : MonoBehaviour
         {
             Instance.PlayMusicTrack("Encounter Music");
         }
+        else if (SceneManager.GetActiveScene().name == "Encounter")
+        {
+            Instance.PlayMusicTrack("Encounter Music");
+        }
     }
 
     /* -------------------------------------------------------------------------- */
@@ -104,7 +108,7 @@ public class AudioManager : MonoBehaviour
     }
     public void MuffleMusic()
     {
-       CurrentTrackSource.volume = CurrentTrackSource.volume * .75f;
+        CurrentTrackSource.volume = CurrentTrackSource.volume * .75f;
     }
     private void UnMuffleMusic()
     {

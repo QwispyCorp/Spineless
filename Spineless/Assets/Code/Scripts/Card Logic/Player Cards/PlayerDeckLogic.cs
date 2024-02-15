@@ -14,6 +14,9 @@ public class PlayerDeckLogic : MonoBehaviour
     private List<GameObject> tableCards; // The cards on the table
     [SerializeField] private float cardSpacing;
     [SerializeField] private PlayerSaveData saveData;
+    [SerializeField] private EncounterData encounterData;
+    public delegate void CardsUpdater();
+    public static event CardsUpdater PlayerCardsUpdated;
 
     void Awake()
     {
@@ -26,7 +29,6 @@ public class PlayerDeckLogic : MonoBehaviour
         InitializeDeck();
         ShuffleDeck();
         DrawHand();
-        UpdateSaveCards();
     }
 
     void InitializeDeck()
@@ -58,11 +60,17 @@ public class PlayerDeckLogic : MonoBehaviour
             deck[i] = deck[randomIndex];
             deck[randomIndex] = temp;
         }
+        UpdateEncounterCards();
+
     }
-    void UpdateSaveCards()
+    void UpdateEncounterCards()
     {
-        saveData.Deck = deck;
-        saveData.TableCards = tableCards;
+        encounterData.PlayerDeck = deck;
+        encounterData.PlayerTableCards = tableCards;
+        if (PlayerCardsUpdated != null)
+        {
+            PlayerCardsUpdated?.Invoke();
+        }
     }
 
     public void DrawHand()
@@ -84,6 +92,8 @@ public class PlayerDeckLogic : MonoBehaviour
         if (tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"))
         {
             RemoveCardFromTable(tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"));
+            UpdateEncounterCards();
+
         }
         else
         {
@@ -110,6 +120,8 @@ public class PlayerDeckLogic : MonoBehaviour
 
                 // Add the card to the list of table cards
                 tableCards.Add(card);
+                //Update encounter cards
+                UpdateEncounterCards();
             }
             else
             {
@@ -149,7 +161,7 @@ public class PlayerDeckLogic : MonoBehaviour
         {
             // Remove the card from the list
             tableCards.Remove(card);
-
+            UpdateEncounterCards();
             // Destroy the card GameObject
             Destroy(card);
         }
@@ -157,14 +169,5 @@ public class PlayerDeckLogic : MonoBehaviour
     public int CheckTableCards()
     {
         return tableCards.Count;
-    }
-    void RearrangeTableCards() // Function to rearrange the remaining cards on the table
-    {
-        float cardSpacing = 1.0f; // Adjust this value for card spacing
-        for (int i = 0; i < tableCards.Count; i++)// Iterate through the remaining cards and reposition them
-        {
-            Vector3 newPosition = customPivotObject.transform.position + new Vector3(i * cardSpacing, 0f, 0f);
-            tableCards[i].transform.position = newPosition;
-        }
     }
 }

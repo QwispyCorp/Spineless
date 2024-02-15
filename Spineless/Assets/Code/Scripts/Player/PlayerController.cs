@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
                 }
                 else if (monsterTileTriggered) //switch scene to encounter
                 {
-                    LightManager.Instance.StartFlickeringTransitionTo("Prototype");
+                    LightManager.Instance.StartFlickeringTransitionTo("Encounter");
                 }
             }
         }

@@ -51,3 +51,5 @@ MonoBehaviour:
   - {fileID: 8781309038735725388, guid: 866ee60e6034d4c03bc820e98e818b7d, type: 3}
   customPivotObject: {fileID: 0}
   cardSpacing: 0.2
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
+  encData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}

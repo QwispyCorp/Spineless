@@ -7,6 +7,6 @@ public class RestartEncounter : MonoBehaviour
 {
     public void RestartEncounterFunc()
     {
-        SceneManager.LoadScene("Prototype");
+        SceneManager.LoadScene("Encounter");
     }
 }

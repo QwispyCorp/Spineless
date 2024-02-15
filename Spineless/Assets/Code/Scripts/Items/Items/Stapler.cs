@@ -7,7 +7,7 @@ public class Stapler : MonoBehaviour, Interactable
     public IntegerReference maxPlayerHealth;
     public void Interact()
     {
-        if (SceneManager.GetActiveScene().name == "Prototype")
+        if (SceneManager.GetActiveScene().name == "Encounter")
         {
             if (playerHealth.Value < maxPlayerHealth.Value) //ifplayer is under max health, add a finger
             {

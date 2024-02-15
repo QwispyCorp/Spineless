@@ -31,10 +31,10 @@ public class LightManager : MonoBehaviour
     }
     private void EnvironmentSwitchTo(string newScene)
     {
-        if (newScene == "Prototype")
+        if (newScene == "Encounter")
         {
             Debug.Log("Switching to Encounter Scene");
-            SceneManager.LoadScene("Prototype");
+            SceneManager.LoadScene("Encounter");
         }
         else if (newScene == "GameBoard")
         {

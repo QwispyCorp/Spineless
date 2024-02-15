@@ -11,8 +11,11 @@ public class EnemyDeckLogic : MonoBehaviour
     public GameObject customPivotObject; // Drag your custom pivot point object here in the Inspector
     private List<GameObject> deck; // The deck of cards
     private List<GameObject> tableCards; // The cards on the table
-    [SerializeField]
-    private float cardSpacing;
+    [SerializeField] private float cardSpacing;
+    [SerializeField] private EncounterData encounterData;
+    public delegate void EnemyCardsUpdater();
+    public static event EnemyCardsUpdater EnemyCardsUpdated;
+
 
     void Awake()
     {
@@ -57,6 +60,17 @@ public class EnemyDeckLogic : MonoBehaviour
             deck[i] = deck[randomIndex];
             deck[randomIndex] = temp;
         }
+
+        UpdateEncounterCards();
+    }
+    void UpdateEncounterCards()
+    {
+        encounterData.EnemyDeck = deck;
+        encounterData.EnemyTableCards = tableCards;
+        if (EnemyCardsUpdated != null)
+        {
+            EnemyCardsUpdated?.Invoke();
+        }
     }
     public void RefreshTable()
     {
@@ -76,12 +90,14 @@ public class EnemyDeckLogic : MonoBehaviour
         {
             DrawCard();
         }
+
+        UpdateEncounterCards();
     }
 
     public void EnemyCardSelection()
     {
         //StateTest.Instance.DelayTurn();
-        AudioManager.Instance.PlaySound("CardFlip" + Random.Range(1,3).ToString());
+        AudioManager.Instance.PlaySound("CardFlip" + Random.Range(1, 3).ToString());
         int randomCardIndex = Random.Range(0, tableCards.Count);
         GameObject chosenCard;
         bool cardExists = false;
@@ -98,6 +114,8 @@ public class EnemyDeckLogic : MonoBehaviour
                 chosenCard.GetComponent<EnemyCardInteraction>().EnemyCardSelected();
             }
         }
+
+        UpdateEncounterCards();
     }
 
     void DrawCard()
@@ -119,6 +137,9 @@ public class EnemyDeckLogic : MonoBehaviour
 
                 // Add the card to the list of table cards
                 tableCards.Add(card);
+
+
+                UpdateEncounterCards();
             }
             else
             {
@@ -158,7 +179,7 @@ public class EnemyDeckLogic : MonoBehaviour
         {
             // Remove the card from the list
             tableCards.Remove(card);
-
+            UpdateEncounterCards();
             // Destroy the card GameObject
             Destroy(card);
         }
@@ -166,14 +187,5 @@ public class EnemyDeckLogic : MonoBehaviour
     public int CheckTableCards()
     {
         return tableCards.Count;
-    }
-    void RearrangeTableCards() // Function to rearrange the remaining cards on the table
-    {
-        float cardSpacing = 1.0f; // Adjust this value for card spacing
-        for (int i = 0; i < tableCards.Count; i++)// Iterate through the remaining cards and reposition them
-        {
-            Vector3 newPosition = customPivotObject.transform.position + new Vector3(i * cardSpacing, 0f, 0f);
-            tableCards[i].transform.position = newPosition;
-        }
     }
 }

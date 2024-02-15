@@ -53,7 +53,7 @@ public class EnemyHealthTest : MonoBehaviour
 
             if (lightManager != null)
             {
-                LightManager.Instance.StartFlickeringTransitionTo("WinScene");
+                LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
             }
             else
             {

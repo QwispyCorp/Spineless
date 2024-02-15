@@ -13,6 +13,7 @@ public class ItemMouseInteraction : MonoBehaviour
     public Color hoverEmissionColor;
     public float hoverEmissionIntensity;
     private GameObject itemText;
+    private GameObject tvText;
     private GameObject cabinetItems;
     private Transform[] trayTransforms;
     private Transform[] cabinetTransforms;
@@ -28,7 +29,17 @@ public class ItemMouseInteraction : MonoBehaviour
         else
         {
             itemText = null;
-            Debug.Log("Could not find text object for " + itemName + ".");
+            Debug.LogWarning("Could not find text object for " + itemName + ".");
+        }
+        //Assign tv text
+        if (GameObject.Find("Death Card Text") != null)
+        {
+            tvText = GameObject.Find("Death Card Text");
+            tvText.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("Could not find TV Death Card Text object.");
         }
         //Find the transforms for equipping/ unequipping items
         if (GameObject.Find("Cabinet Items") != null)
@@ -39,7 +50,7 @@ public class ItemMouseInteraction : MonoBehaviour
         }
         else
         {
-            Debug.Log("Could not find Cabinet Items object.");
+            Debug.LogWarning("Could not find Cabinet Items object.");
         }
         mesh = GetComponent<MeshRenderer>();
     }
@@ -50,6 +61,10 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             itemText.SetActive(true);
         }
+        if (tvText)
+        {
+            tvText.SetActive(false);
+        }
     }
     private void OnMouseExit()
     {
@@ -58,6 +73,10 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             itemText.SetActive(false);
         }
+        if (tvText)
+        {
+            tvText.SetActive(true);
+        }
     }
     private void OnMouseDown()
     {
@@ -65,6 +84,10 @@ public class ItemMouseInteraction : MonoBehaviour
         if (itemText)
         {
             itemText.SetActive(false);
+        }
+        if (tvText)
+        {
+            tvText.SetActive(true);
         }
 
         if (SceneManager.GetActiveScene().name == "GameBoard")
