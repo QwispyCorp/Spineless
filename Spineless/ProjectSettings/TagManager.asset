@@ -13,6 +13,7 @@ TagManager:
   - Win Tile
   - Choice Tile
   - Button
+  - CustomCursor
   layers:
   - Default
   - TransparentFX
