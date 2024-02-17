@@ -4,21 +4,23 @@ using System.Collections;
 public class PlayerCardInteraction : MonoBehaviour
 {
     private bool isSafeCard;
+    private bool isJokerCard;
     private bool isClicked;
     public Color highlightColor = new Color(1f, 1f, 1f, 0.5f); // White with 50% opacity;
     public Color safeColor = Color.green;
     public Color deathColor = Color.red;
+    public Color jokerColor = Color.yellow;
     public Color unflippedColor = Color.black;
     private MeshRenderer cardMesh;
 
     private PlayerDeckLogic playerDeck; // Reference to the playerDeckLogic script
-    [SerializeField]
-    private float cardRemoveDelayTime;
+    [SerializeField] private float cardRemoveDelayTime;
     void Start()
     {
         isClicked = false;
-        // Determine whether the card is safe or death (you can implement your logic here)
+        // Determine whether the card is safe or death or joker (you can implement your logic here)
         isSafeCard = CheckIfSafeCard();
+        isJokerCard = CheckIfJokerCard();
 
         //Assign card mesh for highlighting
         cardMesh = GetComponent<MeshRenderer>();
@@ -42,6 +44,10 @@ public class PlayerCardInteraction : MonoBehaviour
         // For simplicity, let's say safe cards have the tag "SafeCard" and death cards have the tag "DeathCard"
         return gameObject.CompareTag("SafeCard");
     }
+    bool CheckIfJokerCard()
+    {
+        return gameObject.CompareTag("JokerCard");
+    }
 
     void HandleSafeCardInteraction()
     {
@@ -60,6 +66,12 @@ public class PlayerCardInteraction : MonoBehaviour
         PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen overlay
         StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
         Debug.Log("Death card! You lose a finger!");
+    }
+    private void HandleJokerCardInteraction()
+    {
+        cardMesh.material.color = jokerColor; //change card color to joker color
+        StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
+        Debug.Log("Joker card!");
     }
     void OnMouseEnter()
     {
@@ -87,12 +99,17 @@ public class PlayerCardInteraction : MonoBehaviour
             {
                 HandleSafeCardInteraction();
             }
+            else if (isJokerCard)
+            {
+                HandleJokerCardInteraction();
+            }
             else
             {
                 HandleDeathCardInteraction();
             }
         }
     }
+
     private void SwitchState()
     {
         playerDeck.RemoveCardFromTable(gameObject); //remove the card from the table

@@ -6,13 +6,18 @@ using UnityEngine;
 
 public class PlayerDeckLogic : MonoBehaviour
 {
-    public Transform playerTransform; // Assign the player's transform in the Inspector
     public List<GameObject> safeCardModels; // List of safe card models
     public List<GameObject> deathCardModels; // List of death card models
+    public List<GameObject> jokerCardModels; // List of joker card models
     public GameObject customPivotObject; // Drag your custom pivot point object here in the Inspector
     private List<GameObject> deck; // The deck of cards
     private List<GameObject> tableCards; // The cards on the table
+    [Header("Deck Properties")]
+    [SerializeField] private int totalCardsAmount;
+    [SerializeField] private int totalDeathCards;
+    [SerializeField] private int totalJokercards;
     [SerializeField] private float cardSpacing;
+
     [SerializeField] private PlayerSaveData saveData;
     [SerializeField] private EncounterData encounterData;
     public delegate void CardsUpdater();
@@ -33,15 +38,20 @@ public class PlayerDeckLogic : MonoBehaviour
 
     void InitializeDeck()
     {
-        //deck = new List<GameObject>();
-        int totalCards = 52;
-        int deathCardCount = totalCards / 4;
+        int deathCardsIn = 0;
+        int jokerCardsIn = 0;
 
-        for (int i = 0; i < totalCards; i++)
+        for (int i = 0; i < totalCardsAmount; i++)
         {
-            if (i < deathCardCount)
+            if (deathCardsIn < totalDeathCards)
             {
                 deck.Add(GetRandomCardModel(deathCardModels)); // Add random death card model
+                deathCardsIn++;
+            }
+            else if (jokerCardsIn < totalJokercards )
+            {
+                deck.Add(GetRandomCardModel(jokerCardModels)); // Add random death card model
+                jokerCardsIn++;
             }
             else
             {
