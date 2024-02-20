@@ -8,10 +8,16 @@ public class EnemyDeckLogic : MonoBehaviour
     public Transform enemyTransform; // Assign the player's transform in the Inspector
     public List<GameObject> safeCardModels; // List of safe card models
     public List<GameObject> deathCardModels; // List of death card models
-    public GameObject customPivotObject; // Drag your custom pivot point object here in the Inspector
+    public GameObject cardSpawnPoint; // Drag your custom pivot point object here in the Inspector
     private List<GameObject> deck; // The deck of cards
     private List<GameObject> tableCards; // The cards on the table
+    [Header("Enemy Deck Properties")]
+    [SerializeField] private int totalCardsAmount;
+    [SerializeField] private int totalDeathCards;
+    [SerializeField] private int totalJokerCards;
     [SerializeField] private float cardSpacing;
+    [Header("Game Data")]
+    [SerializeField] private PlayerSaveData saveData;
     [SerializeField] private EncounterData encounterData;
     public delegate void EnemyCardsUpdater();
     public static event EnemyCardsUpdater EnemyCardsUpdated;
@@ -128,9 +134,9 @@ public class EnemyDeckLogic : MonoBehaviour
             deck.RemoveAt(0);
 
             // Use the custom pivot object for accurate positioning
-            if (customPivotObject != null)
+            if (cardSpawnPoint != null)
             {
-                Vector3 spawnPosition = customPivotObject.transform.position + new Vector3(tableCards.Count * cardSpacing, 0f, 0f);
+                Vector3 spawnPosition = cardSpawnPoint.transform.position + new Vector3(tableCards.Count * cardSpacing, 0f, 0f);
 
                 GameObject card = Instantiate(drawnCard, spawnPosition, Quaternion.identity);
                 //card.AddComponent<CardInteractLogic>(); // Add CardInteractLogic script to each card

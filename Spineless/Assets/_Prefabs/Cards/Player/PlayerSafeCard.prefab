@@ -28,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4090042394187079175}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -9.6, y: -5.2329683, z: -2.6000001}
   m_LocalScale: {x: 0.006, y: 1, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &1659944648128021788
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -122,5 +122,6 @@ MonoBehaviour:
   highlightColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   safeColor: {r: 0, g: 1, b: 0.013665199, a: 1}
   deathColor: {r: 1, g: 0, b: 0.09411765, a: 1}
+  jokerColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   unflippedColor: {r: 0, g: 0, b: 0, a: 1}
   cardRemoveDelayTime: 1

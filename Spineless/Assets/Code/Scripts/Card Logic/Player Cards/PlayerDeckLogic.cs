@@ -9,15 +9,16 @@ public class PlayerDeckLogic : MonoBehaviour
     public List<GameObject> safeCardModels; // List of safe card models
     public List<GameObject> deathCardModels; // List of death card models
     public List<GameObject> jokerCardModels; // List of joker card models
-    public GameObject customPivotObject; // Drag your custom pivot point object here in the Inspector
+    public GameObject cardSpawnPoint; // Drag your custom pivot point object here in the Inspector
     private List<GameObject> deck; // The deck of cards
     private List<GameObject> tableCards; // The cards on the table
-    [Header("Deck Properties")]
+    [Header("Player Deck Properties")]
     [SerializeField] private int totalCardsAmount;
     [SerializeField] private int totalDeathCards;
-    [SerializeField] private int totalJokercards;
+    [SerializeField] private int totalJokerCards;
     [SerializeField] private float cardSpacing;
 
+    [Header("Game Data")]
     [SerializeField] private PlayerSaveData saveData;
     [SerializeField] private EncounterData encounterData;
     public delegate void CardsUpdater();
@@ -48,7 +49,7 @@ public class PlayerDeckLogic : MonoBehaviour
                 deck.Add(GetRandomCardModel(deathCardModels)); // Add random death card model
                 deathCardsIn++;
             }
-            else if (jokerCardsIn < totalJokercards )
+            else if (jokerCardsIn < totalJokerCards)
             {
                 deck.Add(GetRandomCardModel(jokerCardModels)); // Add random death card model
                 jokerCardsIn++;
@@ -121,9 +122,9 @@ public class PlayerDeckLogic : MonoBehaviour
             deck.RemoveAt(0);
 
             // Use the custom pivot object for accurate positioning
-            if (customPivotObject != null)
+            if (cardSpawnPoint != null)
             {
-                Vector3 spawnPosition = customPivotObject.transform.position + new Vector3(tableCards.Count * cardSpacing, 0f, 0f);
+                Vector3 spawnPosition = cardSpawnPoint.transform.position + new Vector3(tableCards.Count * cardSpacing, 0f, 0f);
 
                 GameObject card = Instantiate(drawnCard, spawnPosition, Quaternion.identity);
                 //card.AddComponent<CardInteractLogic>(); // Add CardInteractLogic script to each card

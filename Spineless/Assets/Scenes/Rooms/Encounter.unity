@@ -172,25 +172,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: (Temp) Player Health Text
       objectReference: {fileID: 0}
+    - target: {fileID: 2163325833388288669, guid: 3b846feed16264845931bf9d3191e8eb,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3988361542061778200, guid: 3b846feed16264845931bf9d3191e8eb,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.62877
+      value: 0.27863944
       objectReference: {fileID: 0}
     - target: {fileID: 3988361542061778200, guid: 3b846feed16264845931bf9d3191e8eb,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.62877
+      value: 0.27863944
       objectReference: {fileID: 0}
     - target: {fileID: 3988361542061778200, guid: 3b846feed16264845931bf9d3191e8eb,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.62877
+      value: 0.27863944
       objectReference: {fileID: 0}
     - target: {fileID: 3988361542061778200, guid: 3b846feed16264845931bf9d3191e8eb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.037
+      value: -0.0573
       objectReference: {fileID: 0}
     - target: {fileID: 3988361542061778200, guid: 3b846feed16264845931bf9d3191e8eb,
         type: 3}
@@ -200,7 +205,12 @@ PrefabInstance:
     - target: {fileID: 3988361542061778200, guid: 3b846feed16264845931bf9d3191e8eb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.149
+      value: 0.1236
+      objectReference: {fileID: 0}
+    - target: {fileID: 4293487781008632108, guid: 3b846feed16264845931bf9d3191e8eb,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4495420774028528044, guid: 3b846feed16264845931bf9d3191e8eb,
         type: 3}
@@ -265,6 +275,11 @@ PrefabInstance:
     - target: {fileID: 6081686473595788942, guid: 3b846feed16264845931bf9d3191e8eb,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089988388038893028, guid: 3b846feed16264845931bf9d3191e8eb,
+        type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7047555002714260590, guid: 3b846feed16264845931bf9d3191e8eb,
@@ -1728,6 +1743,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
         type: 3}
+      propertyPath: saveData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089,
+        type: 2}
+    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
+        type: 3}
       propertyPath: cardSpacing
       value: 0.1
       objectReference: {fileID: 0}
@@ -1737,6 +1758,26 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f,
         type: 2}
+    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
+        type: 3}
+      propertyPath: cardSpawnPoint
+      value: 
+      objectReference: {fileID: 1608931367}
+    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
+        type: 3}
+      propertyPath: totalDeathCards
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
+        type: 3}
+      propertyPath: totalJokerCards
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
+        type: 3}
+      propertyPath: totalCardsAmount
+      value: 52
+      objectReference: {fileID: 0}
     - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
         type: 3}
       propertyPath: customPivotObject
@@ -1886,12 +1927,12 @@ PrefabInstance:
     - target: {fileID: 1336694670339008995, guid: 63de6e7ad2672c64699f7d949d109906,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -0.5247
       objectReference: {fileID: 0}
     - target: {fileID: 1336694670339008995, guid: 63de6e7ad2672c64699f7d949d109906,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.35
+      value: 0.2353
       objectReference: {fileID: 0}
     - target: {fileID: 1336694670339008995, guid: 63de6e7ad2672c64699f7d949d109906,
         type: 3}
@@ -2801,6 +2842,7 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -3129,7 +3171,7 @@ Transform:
   m_GameObject: {fileID: 1121427570}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.25, y: 1.25, z: 0.5}
+  m_LocalPosition: {x: 0.25, y: 1.297, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3644,7 +3686,7 @@ PrefabInstance:
     - target: {fileID: 5118805531680923992, guid: e8f66e1b51b3c2941aec1597b3c0d15f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.544
+      value: 0.687
       objectReference: {fileID: 0}
     - target: {fileID: 5118805531680923992, guid: e8f66e1b51b3c2941aec1597b3c0d15f,
         type: 3}
@@ -3971,21 +4013,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
         type: 3}
-      propertyPath: saveData
+      propertyPath: cardSpawnPoint
       value: 
-      objectReference: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089,
-        type: 2}
+      objectReference: {fileID: 717700813}
     - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
         type: 3}
-      propertyPath: cardSpacing
-      value: 0.1
+      propertyPath: totalJokercards
+      value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
-        type: 3}
-      propertyPath: encounterData
-      value: 
-      objectReference: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f,
-        type: 2}
     - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
         type: 3}
       propertyPath: customPivotObject
@@ -4555,10 +4590,10 @@ SceneRoots:
   - {fileID: 286750565}
   - {fileID: 1399045727}
   - {fileID: 98624659}
+  - {fileID: 42584481}
+  - {fileID: 596070926}
   - {fileID: 329951532}
   - {fileID: 1522411032}
   - {fileID: 189093421}
   - {fileID: 695380545}
   - {fileID: 1488083840}
-  - {fileID: 42584481}
-  - {fileID: 596070926}
