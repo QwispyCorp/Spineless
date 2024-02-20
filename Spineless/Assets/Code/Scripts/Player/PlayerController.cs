@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
             HandleWinTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
-        else if (other.CompareTag("Choice Tile") && playerOnBoard)
+        else if (other.CompareTag("Shop Tile") && playerOnBoard)
         {
             AudioManager.Instance.PlaySound("Riser");
             tileEventTriggered = true;

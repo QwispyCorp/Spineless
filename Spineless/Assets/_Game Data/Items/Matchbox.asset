@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc1c846fd5fadc4c8027b2ca08cad3b, type: 3}
-  m_Name: Stapler
+  m_Name: Matchbox
   m_EditorClassIdentifier: 
-  itemName: Stapler
-  itemDescription: This item gives you a finger.
+  itemName: Matchbox
+  itemDescription: 
   itemAmount: 1
-  value: 2
-  itemPrefab: {fileID: 6887070315473114313, guid: 03f6d90ca44358c40b498210c58f6188,
+  value: 0
+  itemPrefab: {fileID: 7894527601299119966, guid: 76938f4bd51672247a4110335b02af5a,
     type: 3}

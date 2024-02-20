@@ -15,5 +15,6 @@ MonoBehaviour:
   itemName: Holy Cross
   itemDescription: This item removes one death card on your side of the table.
   itemAmount: 1
+  value: 2
   itemPrefab: {fileID: 1232879863359453446, guid: 15e47b78a46e1a148a82653a0bc435f4,
     type: 3}
