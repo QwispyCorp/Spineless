@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cc1c846fd5fadc4c8027b2ca08cad3b, type: 3}
-  m_Name: Joker
+  m_Name: Pocket Knife
   m_EditorClassIdentifier: 
-  itemName: Joker
-  itemDescription: This item reshuffles your opponent's cards.
+  itemName: Pocket Knife
+  itemDescription: 
   itemAmount: 1
-  itemPrefab: {fileID: 2001778195784754496, guid: 0e41a1bb9946e76439ff9b61f0955a76,
+  itemPrefab: {fileID: 6872833485225956553, guid: 657a3daafb59b9345b04e3d3119c65c2,
     type: 3}
