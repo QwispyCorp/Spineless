@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f01fe5666bee84581bdbf7f80c7c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Holy Cross
+  itemSO: {fileID: 11400000, guid: 0555ef7a5a0ff3045885f6a927c86003, type: 2}
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1

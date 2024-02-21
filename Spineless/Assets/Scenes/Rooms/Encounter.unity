@@ -465,6 +465,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6878588213872835991, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6993527498085574590, guid: 6f199b2e913ca9a40a1450ac286045a3,
         type: 3}
       propertyPath: m_Name
@@ -1743,44 +1748,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
         type: 3}
-      propertyPath: saveData
-      value: 
-      objectReference: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089,
-        type: 2}
-    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
-        type: 3}
-      propertyPath: cardSpacing
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
-        type: 3}
-      propertyPath: encounterData
-      value: 
-      objectReference: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f,
-        type: 2}
-    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
-        type: 3}
       propertyPath: cardSpawnPoint
-      value: 
-      objectReference: {fileID: 1608931367}
-    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
-        type: 3}
-      propertyPath: totalDeathCards
-      value: 13
-      objectReference: {fileID: 0}
-    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
-        type: 3}
-      propertyPath: totalJokerCards
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
-        type: 3}
-      propertyPath: totalCardsAmount
-      value: 52
-      objectReference: {fileID: 0}
-    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
-        type: 3}
-      propertyPath: customPivotObject
       value: 
       objectReference: {fileID: 1608931367}
     - target: {fileID: 6446819219378937399, guid: 5f39b59ce863906429493ca0510d18a6,

@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Eye
   m_EditorClassIdentifier: 
   itemName: Eye
-  itemDescription: 
-  itemAmount: 0
-  value: 0
+  itemDescription: See value of a selected card.
+  value: 3
   itemPrefab: {fileID: 0}

@@ -1,41 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ItemMouseInteraction : MonoBehaviour
 {
-    [SerializeField] private string itemName;
+    private string itemName;
+    private string itemDescription;
+    private int itemValue;
+    [SerializeField] private Item itemSO;
     [SerializeField] private PlayerSaveData saveData;
     private MeshRenderer mesh;
     public Color hoverEmissionColor;
     public float hoverEmissionIntensity;
-    private GameObject itemText;
-    private GameObject tvText;
+    private GameObject itemTextObject;
+    private GameObject tvTextObject;
     private GameObject cabinetItems;
     private Transform[] trayTransforms;
     private Transform[] cabinetTransforms;
 
     void Start()
     {
+        itemName = itemSO.itemName;
+
         //Find the item's corresponding text object in the scene
         if (GameObject.Find(itemName + " Text") != null)
         {
-            itemText = GameObject.Find(itemName + " Text");
-            itemText.SetActive(false);
+            itemTextObject = GameObject.Find(itemName + " Text");
+            itemTextObject.SetActive(false);
         }
         else
         {
-            itemText = null;
+            itemTextObject = null;
             Debug.LogWarning("Could not find text object for " + itemName + ".");
         }
         //Assign tv text
         if (GameObject.Find("Death Card Text") != null)
         {
-            tvText = GameObject.Find("Death Card Text");
-            tvText.SetActive(true);
+            tvTextObject = GameObject.Find("Death Card Text");
+            tvTextObject.SetActive(true);
         }
         else
         {
@@ -56,41 +62,69 @@ public class ItemMouseInteraction : MonoBehaviour
     }
     private void OnMouseEnter()
     {
-        mesh.material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity);
-        if (itemText)
+        if (mesh != null) //if the gameobject has a mmesh renderer
         {
-            itemText.SetActive(true);
+            mesh.material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity);
         }
-        if (tvText)
+        else //otherwise cycle through children to highlight all different parts of mesh
         {
-            tvText.SetActive(false);
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
+                {
+                    mesh.material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity);
+                }
+            }
+        }
+
+        if (itemTextObject)
+        {
+            itemTextObject.SetActive(true); //turn on item text
+            itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemDescription); //update item text object
+        }
+        if (tvTextObject)
+        {
+            tvTextObject.SetActive(false); //turn off tv text
         }
     }
     private void OnMouseExit()
     {
-        mesh.material.SetColor("_Emissive", Color.black);
-        if (itemText)
+        if (mesh != null) //if the gameobject has a mesh renderer
         {
-            itemText.SetActive(false);
+            mesh.material.SetColor("_Emissive", Color.black);
         }
-        if (tvText)
+        else //otherwise cycle through children to highlight all different parts of mesh
         {
-            tvText.SetActive(true);
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
+                {
+                    mesh.material.SetColor("_Emissive", Color.black);
+                }
+            }
+        }
+        if (itemTextObject)
+        {
+            itemTextObject.SetActive(false); //turn off item text object
+        }
+        if (tvTextObject)
+        {
+            tvTextObject.SetActive(true); //turn on default tv text object
         }
     }
     private void OnMouseDown()
     {
 
-        if (itemText)
+        if (itemTextObject)
         {
-            itemText.SetActive(false);
+            itemTextObject.SetActive(false); //turn off the item text description
         }
-        if (tvText)
+        if (tvTextObject)
         {
-            tvText.SetActive(true);
+            tvTextObject.SetActive(true); //turn on the tv text
         }
 
-        if (SceneManager.GetActiveScene().name == "GameBoard")
+        if (SceneManager.GetActiveScene().name == "GameBoard") //if in game board room, equip or unequip item
         {
             if (saveData.EquippedItems.Exists(x => x.name == itemName)) //if item is equipped in tray, unequip it and move to cabinet
             {

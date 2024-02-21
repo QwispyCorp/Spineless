@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Snake
   m_EditorClassIdentifier: 
   itemName: Snake
-  itemDescription: 
-  itemAmount: 0
-  value: 0
+  itemDescription: Reveal enemy's cards (in hand)
+  value: 2
   itemPrefab: {fileID: 0}

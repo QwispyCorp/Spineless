@@ -12,6 +12,7 @@ public class EnemyCardInteraction : MonoBehaviour
 
     private EnemyDeckLogic enemyDeck; // Reference to the enemyDeckLogic script
     [SerializeField] private float cardRemoveDelayTime;
+    [SerializeField] private PlayerSaveData saveData;
     void Start()
     {
         // Determine whether the card is safe or death (you can implement your logic here)
@@ -22,10 +23,6 @@ public class EnemyCardInteraction : MonoBehaviour
 
         //Start card with unflipped color
         cardMesh.material.color = unflippedColor;
-
-        // Ensure the cursor is always visible
-        // Cursor.lockState = CursorLockMode.Locked;
-        // Cursor.visible = true;
 
         // Find the enemyDeckLogic script in the scene
         enemyDeck = FindObjectOfType<EnemyDeckLogic>();
@@ -57,6 +54,7 @@ public class EnemyCardInteraction : MonoBehaviour
         //Chopping finger animation goes here
         AudioManager.Instance.PlaySound("SeveredHand");
         EnemyHealthTest.Instance.ChangeHealth(-1); //Decrease health
+        saveData.monsterFingers++; //increase monster fingers player currency
         cardMesh.material.color = deathColor; //change card color to death card color
         PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen 
         StartCoroutine(CardRemoveDelay());

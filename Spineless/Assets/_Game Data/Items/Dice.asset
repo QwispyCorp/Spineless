@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Dice
   m_EditorClassIdentifier: 
   itemName: Dice
-  itemAmount: 1
+  itemDescription: Reveal everyone's cards. Whoever has most Death cards present,
+    loses a finger. Forces all to redraw afterwards.
+  value: 2
   itemPrefab: {fileID: 3915088651864016740, guid: 416d0d366d9d1d847ac729cf4df44c4d,
     type: 3}

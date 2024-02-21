@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Holy cross item discards one death card from the table/ hand; item consumed with no effect if no death cards are present
 public class HolyCross : MonoBehaviour, Interactable
 {
     private GameObject playerDeckObject; // Reference to the Player Deck GameObject

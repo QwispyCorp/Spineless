@@ -8,15 +8,15 @@ public class TVTextLoader : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < saveData.PlayerItemPool.Count; i++)
+        for (int i = 0; i < saveData.MasterItemPool.Count; i++)
         {
-            if (saveData.EquippedItems.Find(x => x.itemName == saveData.PlayerItemPool[i].itemName)) //if equipped items contains the currently indexed item in the item pool, keep its text object active
+            if (saveData.EquippedItems.Find(x => x.itemName == saveData.MasterItemPool[i].itemName)) //if equipped items contains the currently indexed item in the item pool, keep its text object active
             {
                 continue;
             }
             else
             {
-                GameObject.Find(saveData.PlayerItemPool[i].itemName + " Text").SetActive(false);
+                GameObject.Find(saveData.MasterItemPool[i].itemName + " Text").SetActive(false);
             }
         }
     }

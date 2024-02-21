@@ -11,24 +11,15 @@ public class PlayerSaveData : ScriptableObject
     public bool BoardGenerated; //for keeping track of board generation state
     public GameObject GameBoard; //for storing generated game board
     public float tileSpacing;
-    [Header("Inventory Data")]
+    [Header("Item Data")]
     public List<Item> MasterItemPool; //for storing all available items
-    public List<Item> PlayerItemPool; //for storing all available items in current game
     public List<Item> Inventory; //for storing unlocked items
     public List<Item> EquippedItems; //for storing equipped items
-
-    private void OnEnable()
-    {
-        //Transfer all items in master item pool to player item pool
-        for (int i = 0; i < MasterItemPool.Count; i++)
-        {
-            PlayerItemPool.Add(MasterItemPool[i]);
-        }
-    }
+    [Header("Currency")]
+    public int monsterFingers; //for storing the monster fingers player has collected
 
     private void OnDisable()
     { // reset all data on disable
-        PlayerItemPool.Clear();
         //Inventory.Clear();
         EquippedItems.Clear();
         BoardGenerated = false;

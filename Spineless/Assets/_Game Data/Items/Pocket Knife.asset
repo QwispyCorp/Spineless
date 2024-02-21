@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pocket Knife
   m_EditorClassIdentifier: 
   itemName: Pocket Knife
-  itemDescription: 
-  itemAmount: 1
+  itemDescription: Select which card your opponent must reveal.
+  value: 2
   itemPrefab: {fileID: 6872833485225956553, guid: 657a3daafb59b9345b04e3d3119c65c2,
     type: 3}

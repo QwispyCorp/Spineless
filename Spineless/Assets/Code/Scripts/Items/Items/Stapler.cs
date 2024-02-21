@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//Stapler item gives back one finger/ HP to the player
 public class Stapler : MonoBehaviour, Interactable
 {
     public IntegerReference playerHealth;

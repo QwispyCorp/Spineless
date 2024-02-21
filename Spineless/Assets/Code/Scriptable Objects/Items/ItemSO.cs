@@ -9,7 +9,6 @@ public class Item : ScriptableObject
     public string itemName;
     [TextAreaAttribute(6,20)]
     public string itemDescription;
-    public int itemAmount;
     public int value;
     public GameObject itemPrefab;
 }

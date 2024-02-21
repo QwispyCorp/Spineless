@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Jack In The Box
   m_EditorClassIdentifier: 
   itemName: Jack In The Box
-  itemDescription: 
-  itemAmount: 1
-  value: 0
+  itemDescription: Force the enemy to redraw their entire hand.
+  value: 2
   itemPrefab: {fileID: 6211203667120519613, guid: ae8d0f102c077b8409ced00438a002f6,
     type: 3}

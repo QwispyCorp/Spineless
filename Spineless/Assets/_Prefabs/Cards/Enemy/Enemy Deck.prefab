@@ -49,5 +49,10 @@ MonoBehaviour:
   - {fileID: 4090042394187079175, guid: b345b2f0ea76c492fb9e2b87e1923850, type: 3}
   deathCardModels:
   - {fileID: 4090042394187079175, guid: 2752206b30ff64fd389df30f1069ff10, type: 3}
-  customPivotObject: {fileID: 0}
-  cardSpacing: 0.2
+  cardSpawnPoint: {fileID: 0}
+  totalCardsAmount: 52
+  totalDeathCards: 13
+  totalJokerCards: 0
+  cardSpacing: 0.1
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
+  encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}
