@@ -57,4 +57,29 @@ public class CinemaCam : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         Cursor.visible = true;
     }
+    //--------------------------------------------------------
+    public void Free2Phono() //CALL THIS TO START THIS ANIMATION
+    {
+        StartCoroutine(Free2PhonoCoroutine());
+    }
+    IEnumerator Free2PhonoCoroutine()
+    {
+        Cursor.visible = false;
+        CamAni.SetTrigger("F2P");
+        yield return new WaitForSeconds(1.5f);
+        Cursor.visible = true;
+    }
+    //--------------------------------------------------------
+    public void Phono2Free() //CALL THIS TO START THIS ANIMATION
+    {
+        StartCoroutine(Phono2FreeCoroutine());
+    }
+    IEnumerator Phono2FreeCoroutine()
+    {
+        Cursor.visible = false;
+        CamAni.SetTrigger("P2F");
+        yield return new WaitForSeconds(1.5f);
+        Cursor.visible = true;
+    }
 }
+
