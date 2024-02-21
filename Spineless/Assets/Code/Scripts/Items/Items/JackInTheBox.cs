@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class JokerCard : MonoBehaviour, Interactable
+public class JackInTheBox : MonoBehaviour, Interactable
 {
     private GameObject enemyDeckObject; // Reference to the EnemyDeck GameObject
 
@@ -23,7 +23,7 @@ public class JokerCard : MonoBehaviour, Interactable
 
                 if (enemyDeckLogic != null)
                 {
-                    AudioManager.Instance.PlaySound("Joker");
+                    AudioManager.Instance.PlaySound("Jack In The Box");
                     enemyDeckLogic.RefreshTable();
                     enemyDeckLogic.DrawHand();
                     Debug.Log("New Enemy Cards");

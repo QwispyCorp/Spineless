@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Snake
   itemDescription: Reveal enemy's cards (in hand)
   value: 2
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 3742920824577165655, guid: c4fbb999225096145978c4b3b36661c2,
+    type: 3}

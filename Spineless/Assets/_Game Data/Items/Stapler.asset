@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: Stapler
   itemDescription: This item gives you a finger.
   value: 3
-  itemPrefab: {fileID: 6887070315473114313, guid: 03f6d90ca44358c40b498210c58f6188,
+  itemPrefab: {fileID: 692793098900669828, guid: 1e96b9ff7467a4b469d9a65577e75323,
     type: 3}

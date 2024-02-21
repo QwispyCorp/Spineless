@@ -15,7 +15,8 @@ public class PlayerSaveData : ScriptableObject
     public List<Item> MasterItemPool; //for storing all available items
     public List<Item> Inventory; //for storing unlocked items
     public List<Item> EquippedItems; //for storing equipped items
-    [Header("Currency")]
+    [Header("Resources")]
+    public int playerFingersInNextEncounter;
     public int monsterFingers; //for storing the monster fingers player has collected
 
     private void OnDisable()
@@ -25,5 +26,6 @@ public class PlayerSaveData : ScriptableObject
         BoardGenerated = false;
         GameBoard = null;
         EncountersWon = 0;
+        playerFingersInNextEncounter = 5;
     }
 }

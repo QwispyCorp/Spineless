@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class TVUpdater : MonoBehaviour
+public class DeathCountTVUpdater : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI cardCountText;
     [SerializeField] private EncounterData encounterData;

@@ -14,14 +14,14 @@ public class BoardGenerator : MonoBehaviour
     //Tile Objects assigned in inspector
     [SerializeField] private GameObject encounterTile;
     [SerializeField] private GameObject itemTile;
-    [SerializeField] private GameObject choiceTile;
+    [SerializeField] private GameObject shopTile;
     [SerializeField] private GameObject emptyTile;
     [SerializeField] private GameObject winTile;
     [Header("Board Properties")]
     //Max values of tiles on the board assigned in inspector
     [SerializeField] private int maxEncounterTiles;
     [SerializeField] private int maxItemTiles;
-    [SerializeField] private int maxChoiceTiles;
+    [SerializeField] private int maxShopTiles;
     [HideInInspector] public bool boardGenerated = false;
 
     [Header("Tile Properties")]
@@ -66,7 +66,7 @@ public class BoardGenerator : MonoBehaviour
         int emptyTiles = 0;
         int itemTiles = 0;
         int winTiles = 0;
-        int choiceTiles = 0;
+        int shopTiles = 0;
         for (int i = 0; i < boardSize * boardSize; i++)
         {
             if (winTiles < 1)
@@ -87,11 +87,11 @@ public class BoardGenerator : MonoBehaviour
                 encounterTiles++;
                 Debug.Log("Generated Encounter Tile # " + encounterTiles);
             }
-            else if (choiceTiles < maxChoiceTiles)
+            else if (shopTiles < maxShopTiles)
             {
-                generatedBoardTiles.Add(choiceTile); //add choice tiles to list
-                choiceTiles++;
-                Debug.Log("Generated Choice Tile # " + choiceTiles);
+                generatedBoardTiles.Add(shopTile); //add shop tile to list
+                shopTiles++;
+                Debug.Log("Generated Shop Tile # " + shopTiles);
             }
             else
             {
@@ -122,8 +122,19 @@ public class BoardGenerator : MonoBehaviour
                 {
                     GameObject randomEmptyTile = generatedBoardTiles.Find(tile => tile.name == "Empty Tile");
                     randomEmptyTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
-                    Instantiate(emptyTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
+                    GameObject emptyInstance = Instantiate(emptyTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
                     generatedBoardTiles.Remove(randomEmptyTile);
+                }
+                else if ((i == 0 && j == 1) || (i == 1 && j == 0)) //always spawn item tiles adjacent to player start point
+                {
+                    GameObject randomItemTile = generatedBoardTiles.Find(tile => tile.name == "Item Tile");
+                    randomItemTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
+                    GameObject emptyInstance = Instantiate(itemTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
+                    generatedBoardTiles.Remove(randomItemTile);
+                }
+                else if (i == 4 && j == 3) //Always spawn shop tile in center of board
+                {
+                    
                 }
                 else if (i == winTileSlot && j == boardSize - 1) //skip random instantiation on winning tile
                 {

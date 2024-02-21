@@ -123,8 +123,5 @@ MonoBehaviour:
   safeColor: {r: 0, g: 1, b: 0, a: 1}
   deathColor: {r: 1, g: 0, b: 0, a: 1}
   unflippedColor: {r: 0, g: 0, b: 0, a: 1}
-  enemyHealth:
-    UseConstant: 1
-    ConstantValue: 0
-    Variable: {fileID: 0}
   cardRemoveDelayTime: 1
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}

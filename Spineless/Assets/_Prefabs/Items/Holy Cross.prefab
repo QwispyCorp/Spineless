@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6165460677619310814}
   - component: {fileID: 2683067658443159015}
   - component: {fileID: 3013319960659556573}
+  - component: {fileID: -8466358770888463244}
   m_Layer: 6
   m_Name: Holy Cross
   m_TagString: Untagged
@@ -114,3 +115,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
+--- !u!65 &-8466358770888463244
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232879863359453446}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.046971936, y: 0.023951724, z: 0.0038220275}
+  m_Center: {x: -0.0008031085, y: 0.000094890616, z: 0}

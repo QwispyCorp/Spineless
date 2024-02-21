@@ -4921,8 +4921,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6750785888874988901, guid: 1d494077787240f4c9dbe7da2de5bb0b,
         type: 3}
+      propertyPath: shopTile
+      value: 
+      objectReference: {fileID: 8320977018185505982, guid: 5d4950857f071d449bf472a55a882c16,
+        type: 3}
+    - target: {fileID: 6750785888874988901, guid: 1d494077787240f4c9dbe7da2de5bb0b,
+        type: 3}
       propertyPath: maxItemTiles
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6750785888874988901, guid: 1d494077787240f4c9dbe7da2de5bb0b,
+        type: 3}
+      propertyPath: maxShopTiles
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7930868538440937752, guid: 1d494077787240f4c9dbe7da2de5bb0b,
         type: 3}
