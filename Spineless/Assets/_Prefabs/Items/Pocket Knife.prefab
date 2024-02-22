@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8515076798575034121}
   - component: {fileID: 8290049913132667853}
   - component: {fileID: 1805537592254213760}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: KnifeHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 734729065848070677}
   - component: {fileID: 750981249376078451}
   - component: {fileID: 3630443100542674768}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 5293525131847983930}
   - component: {fileID: 6845720953926002434}
   - component: {fileID: -3148568075033858517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pocket Knife
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,5 +249,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.0166585, y: 1, z: 1}
+  m_Center: {x: 0.051056866, y: 0, z: 0}

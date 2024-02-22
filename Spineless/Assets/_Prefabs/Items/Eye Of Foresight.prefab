@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -7000143076925390379}
   - component: {fileID: -2725294226685951356}
   - component: {fileID: 7636026442973683424}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eye Of Foresight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSO: {fileID: 0}
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
-  hoverEmissionColor: {r: 0, g: 0, b: 0, a: 0}
-  hoverEmissionIntensity: 0
+  hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
+  hoverEmissionIntensity: 1
 --- !u!114 &-2725294226685951356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,8 +83,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.026169062, y: 0.030196711, z: 0.03491029}
+  m_Center: {x: 0.004866659, y: -0.0059812316, z: -0.001510046}
 --- !u!1 &6948213533801929597
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2597188639743525334}
   - component: {fileID: 2767894400903820873}
   - component: {fileID: 1249691530895962462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 8125044848008398967}
   - component: {fileID: 2233371075869522782}
   - component: {fileID: 7188534336700816091}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cornea
   m_TagString: Untagged
   m_Icon: {fileID: 0}

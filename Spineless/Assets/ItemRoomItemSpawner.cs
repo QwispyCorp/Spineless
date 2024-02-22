@@ -30,10 +30,13 @@ public class ItemRoomItemSpawner : MonoBehaviour
         }
 
         //When item room starts, turn off all item text on tv, turn on item room prompt
-        for (int i = 0; i < saveData.MasterItemPool.Count; i++)
-        {
-            GameObject.Find(saveData.MasterItemPool[i].itemName + " Text").SetActive(false);
-        }
-        
+        // for (int i = 0; i < saveData.MasterItemPool.Count; i++)
+        // {
+        //     if (GameObject.Find(saveData.MasterItemPool[i].itemName + " Text") != null)
+        //     {
+        //         GameObject.Find(saveData.MasterItemPool[i].itemName + " Text").SetActive(false);
+        //     }
+        // }
+
     }
 }

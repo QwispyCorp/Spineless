@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2576711163419287713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5124383081729032112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Snake Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3098104713507496994}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Root.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7758888843508275176}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7436074771007702564}
   - component: {fileID: 10270222017881999}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Snake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6855027878904955285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Root.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 243369839678158647}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: -8909139382326360851}
   - component: {fileID: 2048694291850371299}
   - component: {fileID: -615804111467388446}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pickled Snake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,8 +364,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.1313543, y: 0.11658794, z: 0.14111692}
+  m_Center: {x: -0.016831398, y: 0.068333, z: -0.005662143}
 --- !u!1 &5820738572406120634
 GameObject:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 739555561816444457}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Root.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

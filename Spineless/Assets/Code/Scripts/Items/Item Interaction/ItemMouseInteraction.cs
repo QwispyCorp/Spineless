@@ -104,7 +104,7 @@ public class ItemMouseInteraction : MonoBehaviour
                 {
                     if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
                     {
-                        mesh.material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                        transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity); //highlight item
                     }
                 }
             }
@@ -115,7 +115,7 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 if (transform.GetChild(i).GetComponent<MeshRenderer>() != null) //if the child has a mesh renderer
                 {
-                    mesh.material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                    transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity); //highlight item
                 }
             }
         }
@@ -147,7 +147,7 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
                 {
-                    mesh.material.SetColor("_Emissive", Color.black);
+                    transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_Emissive", Color.black);
                 }
             }
         }
@@ -161,7 +161,7 @@ public class ItemMouseInteraction : MonoBehaviour
         }
         if (itemRoomTVTextObject)
         {
-            itemRoomTVTextObject.SetActive(true); //turn off item room tv prompt
+            itemRoomTVTextObject.SetActive(true); //turn on item room tv prompt
         }
     }
     //-------------------------------------WHEN PLAYER CLICKS ON ITEM WITH CURSOR 
