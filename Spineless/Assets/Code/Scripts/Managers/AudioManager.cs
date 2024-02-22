@@ -83,6 +83,10 @@ public class AudioManager : MonoBehaviour
         {
             Instance.PlayMusicTrack("Encounter Music");
         }
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Instance.PlayMusicTrack("Title Music");
+        }
         if (SceneManager.GetActiveScene().name == "ShopRoom")
         {
             Instance.PlayMusicTrack("Shop Room Music");

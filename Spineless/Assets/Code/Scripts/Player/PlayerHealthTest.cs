@@ -31,7 +31,7 @@ public class PlayerHealthTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth.Value = playerMaxHealth.Value;
+        playerHealth.Value = saveData.playerFingersInNextEncounter;
         healthText.SetText("Fingers: " + playerHealth.Value);
     }
     public void ChangeHealth(int amount)
@@ -57,6 +57,7 @@ public class PlayerHealthTest : MonoBehaviour
     private void PlayerLoses()
     {
         //We can add more stuff here later such as death animations
-        PopUpTextManager.Instance.ShowScreen("Lose Screen");
+        saveData.playerFingersInNextEncounter -= 2; 
+        LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
     }
 }
