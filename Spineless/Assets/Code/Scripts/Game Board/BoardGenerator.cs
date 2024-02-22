@@ -46,12 +46,9 @@ public class BoardGenerator : MonoBehaviour
             _instance = this;
         }
         tileSpacing = .04f * tileScaleFactor;
-        saveData.tileSpacing = tileSpacing;
+        saveData.TileSpacing = tileSpacing;
         DontDestroyOnLoad(gameObject);
-    }
 
-    void Start()
-    {
         generatedBoardTiles = new List<GameObject>();
         gameObject.SetActive(true);
         if (!boardGenerated) //if board hasnt been generated, generate it
@@ -59,6 +56,11 @@ public class BoardGenerator : MonoBehaviour
             InitializeTiles();
             GenerateBoard();
         }
+    }
+
+    void Start()
+    {
+        boardGenerated = true;
     }
     private void InitializeTiles()
     {
@@ -73,31 +75,26 @@ public class BoardGenerator : MonoBehaviour
             {
                 generatedBoardTiles.Add(winTile); //add win tile to list
                 winTiles++;
-                Debug.Log("Generated Win Tile # " + winTiles);
             }
             if (itemTiles < maxItemTiles)
             {
                 generatedBoardTiles.Add(itemTile); //add item tiles to list
                 itemTiles++;
-                Debug.Log("Generated Item Tile # " + itemTiles);
             }
             else if (encounterTiles < maxEncounterTiles)
             {
                 generatedBoardTiles.Add(encounterTile); //add encounter tiles to list
                 encounterTiles++;
-                Debug.Log("Generated Encounter Tile # " + encounterTiles);
             }
             else if (shopTiles < maxShopTiles)
             {
                 generatedBoardTiles.Add(shopTile); //add shop tile to list
                 shopTiles++;
-                Debug.Log("Generated Shop Tile # " + shopTiles);
             }
             else
             {
                 generatedBoardTiles.Add(emptyTile); //add empty tiles to list
                 emptyTiles++;
-                Debug.Log("Generated Empty Tile # " + emptyTiles);
             }
         }
     }
@@ -134,7 +131,12 @@ public class BoardGenerator : MonoBehaviour
                 }
                 else if (i == 4 && j == 3) //Always spawn shop tile in center of board
                 {
-                    
+                    GameObject randomShopTile = generatedBoardTiles.Find(tile => tile.name == "Shop Tile");
+                    randomShopTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
+                    GameObject shopInstance = Instantiate(shopTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
+                    shopInstance.GetComponentInChildren<TileTrigger>().FlipTile();
+                    generatedBoardTiles.Remove(randomShopTile);
+
                 }
                 else if (i == winTileSlot && j == boardSize - 1) //skip random instantiation on winning tile
                 {
@@ -142,7 +144,12 @@ public class BoardGenerator : MonoBehaviour
                 }
                 else
                 {
-                    int randomTileIndex = UnityEngine.Random.Range(0, generatedBoardTiles.Count);
+                    int randomTileIndex;
+                    do
+                    {
+                        randomTileIndex = UnityEngine.Random.Range(0, generatedBoardTiles.Count);
+                    }
+                    while (generatedBoardTiles[randomTileIndex].name.Contains("Shop") == true);
 
                     GameObject randomTile = generatedBoardTiles[randomTileIndex];
                     GameObject randomTileInstance = Instantiate(randomTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
@@ -151,7 +158,6 @@ public class BoardGenerator : MonoBehaviour
                 }
             }
         }
-        boardGenerated = true;
     }
     public void DestroyBoard()
     {

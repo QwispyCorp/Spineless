@@ -20,10 +20,13 @@ public class ItemMouseInteraction : MonoBehaviour
     private GameObject itemTextObject;
     private GameObject encounterTVTextObject;
     private GameObject itemRoomTVTextObject;
+    private GameObject shopRoomTVTextObject;
     private GameObject cabinetItems;
     private Transform[] trayTransforms;
     private Transform[] cabinetTransforms;
     private string currentRoom;
+    public delegate void ItemPurchased();
+    public static event ItemPurchased OnItemPurchased;
 
     void Awake()
     {
@@ -93,7 +96,26 @@ public class ItemMouseInteraction : MonoBehaviour
                 encounterTVTextObject = GameObject.Find("Death Card Text");
                 encounterTVTextObject.SetActive(false);
             }
+        }
+        //ITEM INTERACTION SETUP FOR SHOP ROOM --------------------
+        if (currentRoom == "ShopRoom")
+        {
+            //Assign item room tv text
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                shopRoomTVTextObject = GameObject.Find("Shop Room Text");
+                shopRoomTVTextObject.SetActive(true);
+            }
+            else
+            {
+                Debug.LogWarning("Could not find Shop Room TV Text object.");
+            }
 
+            if (GameObject.Find("Death Card Text") != null)
+            {
+                encounterTVTextObject = GameObject.Find("Death Card Text");
+                encounterTVTextObject.SetActive(false);
+            }
         }
         if (GetComponent<MeshRenderer>() != null)
         {
@@ -167,6 +189,10 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             itemRoomTVTextObject.SetActive(false); //turn off item room tv prompt
         }
+        if (shopRoomTVTextObject)
+        {
+            shopRoomTVTextObject.SetActive(false); //turn off shop room tv prompt
+        }
     }
     //-------------------------------------WHEN PLAYER EXITS ITEM WITH CURSOR 
     private void OnMouseExit()
@@ -202,23 +228,26 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             itemRoomTVTextObject.SetActive(true); //turn on item room tv prompt
         }
+        if (shopRoomTVTextObject)
+        {
+            shopRoomTVTextObject.SetActive(true); //turn on shop room tv prompt
+        }
     }
     //-------------------------------------WHEN PLAYER CLICKS ON ITEM WITH CURSOR 
     private void OnMouseDown()
     {
 
-        if (itemTextObject)
-        {
-            itemTextObject.SetActive(false); //turn off the item text description
-        }
-        if (encounterTVTextObject)
-        {
-            encounterTVTextObject.SetActive(true); //turn on the tv text
-        }
-
         //ITEM FUNCTIONALITY FOR GAME BOARD ROOM -----------------------------------------------------------
         if (currentRoom == "GameBoard") //if in game board room, equip or unequip item
         {
+            if (itemTextObject)
+            {
+                itemTextObject.SetActive(false); //turn off the item text description
+            }
+            if (encounterTVTextObject)
+            {
+                encounterTVTextObject.SetActive(true); //turn on the tv text
+            }
             if (saveData.EquippedItems.Exists(x => x.name == itemName)) //if item is equipped in tray, unequip it and move to cabinet
             {
                 UnequipItem();
@@ -232,7 +261,12 @@ public class ItemMouseInteraction : MonoBehaviour
         //ITEM FUNCTIONALITY FOR ITEM ROOM ----------------------------------
         if (currentRoom == "ItemRoom")
         {
+            if (itemTextObject)
+            {
+                itemTextObject.SetActive(false); //turn off the item text description
+            }
             CollectItem(); //collect the item
+            AudioManager.Instance.PlaySound(itemName);//play the item's sound effect during transition
             //turn off HUD all elements
             LightManager.Instance.StartFlickeringTransitionTo("GameBoard"); //switch back to game board room
         }
@@ -242,10 +276,20 @@ public class ItemMouseInteraction : MonoBehaviour
             //check if player has enough currency
             if (saveData.monsterFingers >= itemValue)
             {
+                if (itemTextObject)
+                {
+                    itemTextObject.SetActive(false); //turn off the item text description
+                }
+                if (shopRoomTVTextObject)
+                {
+                    shopRoomTVTextObject.SetActive(true); //turn on the tv text
+                }
+
                 PurchaseItem(); //purchase the item
             }
             else
             {
+                //play error sound?
                 //not enough currency feedback
                 Debug.Log("Not enough fingers for " + itemName + "!");
             }
@@ -296,6 +340,10 @@ public class ItemMouseInteraction : MonoBehaviour
     private void PurchaseItem()
     {
         saveData.monsterFingers -= itemValue; //subtract currency from player
+        if (OnItemPurchased != null)
+        {
+            OnItemPurchased?.Invoke(); //trigger item purchased event to update monster fingers in finger jar UI
+        }
         //play item sound effect
         saveData.Inventory.Add(itemSO); //add item to inventory
         //update monster finger jar count/ text

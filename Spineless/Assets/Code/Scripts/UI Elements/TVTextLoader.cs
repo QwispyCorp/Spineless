@@ -8,7 +8,8 @@ public class TVTextLoader : MonoBehaviour
     [SerializeField] private PlayerSaveData saveData;
     private string currentRoom;
 
-    void Awake(){
+    void Awake()
+    {
         currentRoom = SceneManager.GetActiveScene().name;
     }
     void Start()
@@ -34,20 +35,45 @@ public class TVTextLoader : MonoBehaviour
             {
                 GameObject.Find("Item Room Text").SetActive(false);
             }
-        }
-        else
-        {
             if (GameObject.Find("Death Card Text") != null)
             {
-                GameObject.Find("Death Card Text").SetActive(false);
+                GameObject.Find("Death Card Text").SetActive(true);
+            }
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                GameObject.Find("Shop Room Text").SetActive(false);
             }
         }
-
+        //ITEM ROOM FUNCTIONALITY
         if (currentRoom == "ItemRoom")
         {
             if (GameObject.Find("Item Room Text") != null)
             {
                 GameObject.Find("Item Room Text").SetActive(true);
+            }
+            if (GameObject.Find("Death Card Text") != null)
+            {
+                GameObject.Find("Death Card Text").SetActive(false);
+            }
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                GameObject.Find("Shop Room Text").SetActive(false);
+            }
+        }
+        //SHOP ROOM FUNCTIONALITY
+        if (currentRoom == "ShopRoom")
+        {
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                GameObject.Find("Shop Room Text").SetActive(true);
+            }
+            if (GameObject.Find("Death Card Text") != null)
+            {
+                GameObject.Find("Death Card Text").SetActive(false);
+            }
+            if (GameObject.Find("Item Room Text") != null)
+            {
+                GameObject.Find("Item Room Text").SetActive(false);
             }
         }
     }

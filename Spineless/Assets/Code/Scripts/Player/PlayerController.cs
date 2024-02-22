@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private bool tileEventTriggered;
-    private bool choiceTileTriggered;
+    private bool shopTileTriggered;
     private bool itemTileTriggered;
     private bool monsterTileTriggered;
     private GameObject collidedObject;
@@ -28,10 +28,10 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(true);
         tileEventTriggered = false;
         itemTileTriggered = false;
-        choiceTileTriggered = false;
+        shopTileTriggered = false;
         monsterTileTriggered = false;
         wallLayerMask = 1 << 7;
-        tileSpacing = saveData.tileSpacing; //set tile spacing for movement equal to board tile spacing 
+        tileSpacing = saveData.TileSpacing; //set tile spacing for movement equal to board tile spacing 
     }
     // Update is called once per frame
     void Update()
@@ -91,16 +91,31 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Win Tile") && playerOnBoard)
         {
-            HandleWinTile(collidedObject);
-            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            if (saveData.EncountersWon >= saveData.TargetEncounterWins) //if the player has cleared enough encounters
+            {
+                HandleWinTile(collidedObject);
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+            else
+            {
+                //feedback to player that they cannot escape without clearing more encounters
+                Debug.Log("You need " + (saveData.TargetEncounterWins-saveData.EncountersWon) + " more encounters cleared to win!");
+            }
         }
         else if (other.CompareTag("Shop Tile") && playerOnBoard)
         {
-            AudioManager.Instance.PlaySound("Riser");
-            tileEventTriggered = true;
-            choiceTileTriggered = true;
-            HandleChoiceTile(collidedObject);
-            other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            if (saveData.ShopVisited == false)
+            {
+                AudioManager.Instance.PlaySound("Riser");
+                tileEventTriggered = true;
+                shopTileTriggered = true;
+                HandleShopTile(collidedObject);
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            }
+            else
+            {
+                //player cannot re-enter shop feedback
+            }
         }
     }
 
@@ -130,11 +145,11 @@ public class PlayerController : MonoBehaviour
         PopUpTextManager.Instance.ShowScreen("Win Screen");
         Debug.Log("Player on WinTile");
     }
-    private void HandleChoiceTile(GameObject tile)
+    private void HandleShopTile(GameObject tile)
     {
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
-        Debug.Log("Player on Choice Tile");
+        Debug.Log("Player on Shop Tile");
         Invoke("SwitchRooms", 2);
 
     }
@@ -151,9 +166,9 @@ public class PlayerController : MonoBehaviour
 
             if (lightManager != null)
             {
-                if (choiceTileTriggered) //switch scene to choice room
+                if (shopTileTriggered) //switch scene to shop room
                 {
-                    LightManager.Instance.StartFlickeringTransitionTo("ChoiceRoom");
+                    LightManager.Instance.StartFlickeringTransitionTo("ShopRoom");
                 }
                 else if (itemTileTriggered) //switch scene to item room
                 {

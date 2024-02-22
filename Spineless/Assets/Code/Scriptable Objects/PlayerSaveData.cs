@@ -6,13 +6,14 @@ using UnityEngine;
 public class PlayerSaveData : ScriptableObject
 {
     [Header("Save Attributes")]
+    public int TargetEncounterWins;
     public int EncountersWon; //for storing number of encounters player has won
-    public bool shopVisited; //for checking if player can enter the shop 
+    public bool ShopVisited; //for checking if player can enter the shop 
 
     [Header("Game Board Data")]
     public bool BoardGenerated; //for keeping track of board generation state
     public GameObject GameBoard; //for storing generated game board
-    public float tileSpacing;
+    public float TileSpacing;
     [Header("Item Data")]
     public List<Item> MasterItemPool; //for storing all available items
     public List<Item> Inventory; //for storing unlocked items
@@ -23,10 +24,10 @@ public class PlayerSaveData : ScriptableObject
 
     private void OnDisable()
     { // reset all data on disable
-        //Inventory.Clear();
+        Inventory.Clear();
         EquippedItems.Clear();
         BoardGenerated = false;
-        shopVisited = false;
+        ShopVisited = false;
         GameBoard = null;
         EncountersWon = 0;
         playerFingersInNextEncounter = 5;

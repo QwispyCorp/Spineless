@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/_Scenes/MainMenu.unity
     guid: f0d036c2f91902043b67518700fd4ce0
   - enabled: 1
-    path: Assets/Scenes/Rooms/Prototype.unity
+    path: Assets/_Scenes/Rooms/Prototype.unity
     guid: 5b8697141be59304ab5438c4083b0e80
   - enabled: 1
-    path: Assets/Scenes/Rooms/GameBoard.unity
+    path: Assets/_Scenes/Rooms/GameBoard.unity
     guid: bcd0b6e3caf4c90429406f0a1c18e4ce
   - enabled: 1
-    path: Assets/Scenes/Rooms/ItemRoom.unity
+    path: Assets/_Scenes/Rooms/ItemRoom.unity
     guid: 47f1e6fc15ce39f4eb748ce8fd58b5cc
   - enabled: 1
-    path: Assets/Scenes/Rooms/Encounter.unity
+    path: Assets/_Scenes/Rooms/Encounter.unity
     guid: f608ec1479e5beb498bc10b278fe32fa
   - enabled: 1
-    path: Assets/Scenes/Rooms/ShopRoom.unity
+    path: Assets/_Scenes/Rooms/ShopRoom.unity
     guid: ec979350d2cfd4a8e8ae5e39ee815254
   m_configObjects: {}
