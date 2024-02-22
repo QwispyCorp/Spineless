@@ -81,5 +81,30 @@ public class CinemaCam : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         Cursor.visible = true;
     }
+
+    //-------------------------------------------------------- TUTORIAL 1------------------------------------------------------------------------
+    public void Tutorial1() //CALL THIS TO START THIS ANIMATION
+    {
+        StartCoroutine(Tutorial1Coroutine());
+    }
+    IEnumerator Tutorial1Coroutine()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
+        AudioManager.Instance.StopMusicTrack("Title Muisic");
+        AudioManager.Instance.PlaySound("Tutorial1");
+        CamAni.SetTrigger("T1");
+        yield return new WaitForSeconds(39f);
+        GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
+        if (lightGameObject != null)
+        {
+            LightManager lightManager = lightGameObject.GetComponent<LightManager>();
+
+            if (lightManager != null)
+            {
+            LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
+            }
+        }
+    }
 }
 
