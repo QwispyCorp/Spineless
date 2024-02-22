@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using System.Collections;
 
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
@@ -74,17 +75,17 @@ public class AudioManager : MonoBehaviour
     private void Start() // this will play sounds on start of the level, so main theme and what not
     {
         StopAllSounds();
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            Instance.PlayMusicTrack("Title Music");
-        }
         // else if (SceneManager.GetActiveScene().name == "GameBoard")
         // {
         //     Instance.PlayMusicTrack("Encounter Music");
         // } MUSIC PLAYED FROM PHONOGRAPH
-        else if (SceneManager.GetActiveScene().name == "Encounter")
+        if (SceneManager.GetActiveScene().name == "Encounter")
         {
             Instance.PlayMusicTrack("Encounter Music");
+        }
+        if (SceneManager.GetActiveScene().name == "ShopRoom")
+        {
+            Instance.PlayMusicTrack("Shop Room Music");
         }
     }
 
@@ -106,11 +107,11 @@ public class AudioManager : MonoBehaviour
     }
     public void MuffleMusic()
     {
-        CurrentTrackSource.volume = CurrentTrackSource.volume * .9f;
+        //CurrentTrackSource.volume = CurrentTrackSource.volume * .9f;
     }
     private void UnMuffleMusic()
     {
-        CurrentTrackSource.volume = globalMusicVolume.Value;
+        //CurrentTrackSource.volume = globalMusicVolume.Value;
     }
     public void StopSound(string name) //Stop a sound by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.StopSound("Sound Name");
     {
@@ -138,8 +139,9 @@ public class AudioManager : MonoBehaviour
                 CurrentTrack = track.name;
                 CurrentTrackSource = track.source;
                 Debug.Log("Playing track: " + track.name);
+                track.source.volume = 0;
                 track.source.Play();
-                FadeInMusic(track, musicFadeInDuration);
+                StartCoroutine(FadeInMusic(track, musicFadeInDuration));
             }
             else
             {
@@ -155,8 +157,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Music Track: " + name + " not found!");
             return;
         }
-        FadeOutMusic(s, musicFadeOutDuration);
-        s.source.Stop();
+        StartCoroutine(FadeOutMusic(s, musicFadeOutDuration));
     }
     public void StopAllSounds()
     { //Stop all sounds. Usage outside of this class: AudioManager.Instance.StopAllSounds();
@@ -170,7 +171,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void FadeInMusic(Sound track, float duration)
+    private IEnumerator FadeInMusic(Sound track, float duration)
     {
         //fade in music
         float currentTime = 0;
@@ -179,9 +180,11 @@ public class AudioManager : MonoBehaviour
         {
             currentTime += Time.deltaTime;
             track.source.volume = Mathf.Lerp(startVolume, globalMusicVolume.Value, currentTime / musicFadeInDuration);
+            yield return null;
         }
+        yield break;
     }
-    private void FadeOutMusic(Sound track, float duration)
+    private IEnumerator FadeOutMusic(Sound track, float duration)
     {
         //fade out music
         float currentTime = 0;
@@ -190,7 +193,10 @@ public class AudioManager : MonoBehaviour
         {
             currentTime += Time.deltaTime;
             track.source.volume = Mathf.Lerp(globalMusicVolume.Value, endVolume, currentTime / musicFadeOutDuration);
+            yield return null;
         }
+        track.source.Stop();
+        yield break;
     }
     /* -------------------------------------------------------------------------- */
     /*                           GETTERS AND SETTERS                              */

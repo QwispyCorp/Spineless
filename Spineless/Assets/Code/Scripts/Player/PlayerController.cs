@@ -99,7 +99,8 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //feedback to player that they cannot escape without clearing more encounters
-                Debug.Log("You need " + (saveData.TargetEncounterWins-saveData.EncountersWon) + " more encounters cleared to win!");
+                PopUpTextManager.Instance.ShowScreen("Play More Screen");
+                Debug.Log("You need " + (saveData.TargetEncounterWins - saveData.EncountersWon) + " more encounters cleared to win!");
             }
         }
         else if (other.CompareTag("Shop Tile") && playerOnBoard)
@@ -116,6 +117,13 @@ public class PlayerController : MonoBehaviour
             {
                 //player cannot re-enter shop feedback
             }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("Win Tile")){
+            PopUpTextManager.Instance.CloseAllScreens();
         }
     }
 

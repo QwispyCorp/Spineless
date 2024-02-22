@@ -9,6 +9,9 @@ public class ShopRoomEntryLogic : MonoBehaviour
     [SerializeField] private Transform rightSpawn;
     void Start()
     {
+        //when player enters shop, update shop visisted for shopo availability on board
+        saveData.ShopVisited = true;
+
         //When shop room starts, spawn random items in the spawn points for player purchasing
 
         //Spawn left item,  store which item index was used

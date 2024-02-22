@@ -1019,6 +1019,86 @@ MonoScript:
   m_ClassName: SceneObjectIDMapSceneAsset
   m_Namespace: UnityEngine.Rendering.HighDefinition
   m_AssemblyName: Unity.RenderPipelines.HighDefinition.Runtime
+--- !u!1001 &512700245
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3472157213612398043, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_Name
+      value: Audio Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8970334368513856492, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 135abd4d03607ec4f827b0308a2dc9dc, type: 3}
+--- !u!114 &512700246 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+    type: 3}
+  m_PrefabInstance: {fileID: 512700245}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a5c4abf02b50fb4785e640cd5fb19a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &520714343
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1888,6 +1968,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 512700246}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: StopMusicTrack
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Shop Room Music
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &603357411
@@ -4072,3 +4164,4 @@ SceneRoots:
   - {fileID: 1459253660}
   - {fileID: 1628495539}
   - {fileID: 2038761319}
+  - {fileID: 512700245}

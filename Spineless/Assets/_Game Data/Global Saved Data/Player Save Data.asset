@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1128fb4acea2c1344ab3b1d39196b3c2, type: 3}
   m_Name: Player Save Data
   m_EditorClassIdentifier: 
-  TargetEncounterWins: 0
+  TargetEncounterWins: 5
   EncountersWon: 0
   ShopVisited: 0
   BoardGenerated: 0

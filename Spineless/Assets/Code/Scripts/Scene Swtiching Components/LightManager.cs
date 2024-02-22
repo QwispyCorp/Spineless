@@ -35,21 +35,25 @@ public class LightManager : MonoBehaviour
         {
             Debug.Log("Switching to Encounter Scene");
             SceneManager.LoadScene("Encounter");
+            AudioManager.Instance.PlayMusicTrack("Encounter Music");
         }
         else if (newScene == "GameBoard")
         {
             Debug.Log("Switching to GameBoard Scene");
             SceneManager.LoadScene("GameBoard");
+            AudioManager.Instance.StopAllSounds();
         }
         else if (newScene == "ItemRoom")
         {
             Debug.Log("Switching to Item Room Scene");
             SceneManager.LoadScene("ItemRoom");
+            AudioManager.Instance.PlayMusicTrack("Item Room Music");
         }
-        else if (newScene == "ChoiceRoom")
+        else if (newScene == "ShopRoom")
         {
-            Debug.Log("Switching to Choice Room Scene");
-            SceneManager.LoadScene("ChoiceRoom");
+            Debug.Log("Switching to Shop Room Scene");
+            SceneManager.LoadScene("ShopRoom");
+            AudioManager.Instance.PlayMusicTrack("Shop Room Music");
         }
         else if (newScene == "WinScene")
         {

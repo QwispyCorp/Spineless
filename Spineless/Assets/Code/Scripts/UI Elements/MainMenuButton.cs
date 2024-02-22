@@ -15,7 +15,6 @@ public class MainMenuButton : MonoBehaviour
         {
             LightManager.Instance.DestroyLight();
         }
-        AudioManager.Instance.PlayMusicTrack("Title Music");
         SceneManager.LoadScene("MainMenu");
     }
 }

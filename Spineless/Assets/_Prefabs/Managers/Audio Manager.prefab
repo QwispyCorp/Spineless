@@ -131,6 +131,20 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: Encounter Music
+    clip: {fileID: 8300000, guid: 81a92bda5a945734189f886202c14856, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Item Room Music
+    clip: {fileID: 8300000, guid: 099c871955461b649b50522076917239, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Shop Room Music
     clip: {fileID: 8300000, guid: 099c871955461b649b50522076917239, type: 3}
     volume: 0.5
     pitch: 1
@@ -139,6 +153,8 @@ MonoBehaviour:
     source: {fileID: 0}
   CurrentTrack: 
   CurrentTrackSource: {fileID: 0}
+  musicFadeInDuration: 2
+  musicFadeOutDuration: 2
   globalSoundVolume:
     UseConstant: 0
     ConstantValue: 0

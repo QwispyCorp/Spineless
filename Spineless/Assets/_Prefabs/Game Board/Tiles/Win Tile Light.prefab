@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3661346046835743328}
   - component: {fileID: 7535846923393090981}
   - component: {fileID: 4889696682231715211}
+  - component: {fileID: 3419542906786794226}
   m_Layer: 0
-  m_Name: Tile Light
+  m_Name: Win Tile Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3150840304181012637}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.1656001, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,10 +46,10 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.42410073, g: 1, b: 0.4198113, a: 1}
-  m_Intensity: 28.60232
-  m_Range: 0.62
-  m_SpotAngle: 19.3
-  m_InnerSpotAngle: 19.3
+  m_Intensity: 17.32503
+  m_Range: 0.6
+  m_SpotAngle: 22
+  m_InnerSpotAngle: 2
   m_CookieSize: 10
   m_Shadows:
     m_Type: 0
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 2.5429206
+  m_Intensity: 2
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
@@ -126,7 +127,7 @@ MonoBehaviour:
   m_ShapeRadius: 0.025
   m_SoftnessScale: 1
   m_UseCustomSpotLightShadowCone: 0
-  m_CustomSpotLightShadowCone: 19.3
+  m_CustomSpotLightShadowCone: 2
   m_MaxSmoothness: 0.99
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
@@ -217,3 +218,18 @@ MonoBehaviour:
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+--- !u!114 &3419542906786794226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3150840304181012637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fe802a081e92a34badc43932109a764, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
+  openEscapeColor: {r: 0.42352945, g: 1, b: 0.41960788, a: 0}
+  closedEscapeColor: {r: 1, g: 0.6748457, b: 0, a: 0}
