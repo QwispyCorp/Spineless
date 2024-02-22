@@ -7,6 +7,11 @@ public class PlayerCardInteraction : MonoBehaviour
     private bool isJokerCard;
     private bool isClicked;
     public Color highlightColor = new Color(1f, 1f, 1f, 0.5f); // White with 50% opacity;
+    public Color unHighlightColor = Color.black; // White with 50% opacity;
+    public Material cardBackMaterial;
+    public Material safeMaterial;
+    public Material deathMaterial;
+    public Material jokerMaterial;
     public Color safeColor = Color.green;
     public Color deathColor = Color.red;
     public Color jokerColor = Color.yellow;
@@ -26,7 +31,8 @@ public class PlayerCardInteraction : MonoBehaviour
         cardMesh = GetComponent<MeshRenderer>();
 
         //Start card with unflipped color
-        cardMesh.material.color = unflippedColor;
+        //cardMesh.material.color = unflippedColor;
+        cardMesh.material = cardBackMaterial;
 
         // Find the playerDeckLogic script in the scene
         playerDeck = FindObjectOfType<PlayerDeckLogic>();
@@ -51,10 +57,26 @@ public class PlayerCardInteraction : MonoBehaviour
 
     void HandleSafeCardInteraction()
     {
-        cardMesh.material.color = safeColor; //change card color to safe color
+        //cardMesh.material.color = safeColor; //change card color to safe color
+        cardMesh.material = safeMaterial;
         PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen overlay
         StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
         Debug.Log("Safe card! Your turn ends.");
+    }
+    public void ShowCard()
+    {
+        if (isSafeCard)
+        {
+            cardMesh.material = safeMaterial;
+        }
+        else if (isJokerCard)
+        {
+            cardMesh.material = jokerMaterial;
+        }
+        else
+        {
+            cardMesh.material = deathMaterial;
+        }
     }
 
     void HandleDeathCardInteraction()
@@ -62,14 +84,16 @@ public class PlayerCardInteraction : MonoBehaviour
         //Chopping finger animation goes here
         AudioManager.Instance.PlaySound("SeveredHand");
         PlayerHealthTest.Instance.ChangeHealth(-1); //Decrease health
-        cardMesh.material.color = deathColor; //change card color to death color
+        //cardMesh.material.color = deathColor; //change card color to death color
+        cardMesh.material = deathMaterial;
         PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen overlay
         StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
         Debug.Log("Death card! You lose a finger!");
     }
     private void HandleJokerCardInteraction()
     {
-        cardMesh.material.color = jokerColor; //change card color to joker color
+        //cardMesh.material.color = jokerColor; //change card color to joker color
+        cardMesh.material = jokerMaterial;
         StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
         Debug.Log("Joker card!");
     }
@@ -77,14 +101,16 @@ public class PlayerCardInteraction : MonoBehaviour
     {
         if (!isClicked && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
         {
-            cardMesh.material.color = highlightColor;
+            cardMesh.material.SetColor("_EmissiveColor", highlightColor); //highlight item
+            //cardMesh.material.color = highlightColor;
         }
     }
     void OnMouseExit()
     {
         if (!isClicked && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
         {
-            cardMesh.material.color = unflippedColor;
+            cardMesh.material.SetColor("_EmissiveColor", unHighlightColor); //unhighlight item
+            //cardMesh.material.color = unflippedColor;
         }
     }
     void OnMouseUp()

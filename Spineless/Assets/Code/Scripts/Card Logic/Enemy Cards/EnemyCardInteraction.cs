@@ -5,6 +5,11 @@ public class EnemyCardInteraction : MonoBehaviour
 {
     private bool isSafeCard;
     public Color highlightColor = new Color(1f, 1f, 1f, 0.5f); // White with 50% opacity;
+    public Color unHighlightColor = Color.black;
+    public Material cardBackMaterial;
+    public Material safeMaterial;
+    public Material deathMaterial;
+    public Material jokerMaterial;
     public Color safeColor = Color.green;
     public Color deathColor = Color.red;
     public Color unflippedColor = Color.black;
@@ -22,7 +27,7 @@ public class EnemyCardInteraction : MonoBehaviour
         cardMesh = GetComponent<MeshRenderer>();
 
         //Start card with unflipped color
-        cardMesh.material.color = unflippedColor;
+        cardMesh.material = cardBackMaterial;
 
         // Find the enemyDeckLogic script in the scene
         enemyDeck = FindObjectOfType<EnemyDeckLogic>();
@@ -43,7 +48,8 @@ public class EnemyCardInteraction : MonoBehaviour
 
     void HandleSafeCardInteraction()
     {
-        cardMesh.material.color = safeColor; //change card color to safe card color
+        //cardMesh.material.color = safeColor; //change card color to safe card color
+        cardMesh.material = safeMaterial;
         PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen 
         StartCoroutine(CardRemoveDelay());
         Debug.Log("Enemy safe card!");
@@ -55,7 +61,8 @@ public class EnemyCardInteraction : MonoBehaviour
         AudioManager.Instance.PlaySound("SeveredHand");
         EnemyHealthTest.Instance.ChangeHealth(-1); //Decrease health
         saveData.monsterFingers++; //increase monster fingers player currency
-        cardMesh.material.color = deathColor; //change card color to death card color
+        //cardMesh.material.color = deathColor; //change card color to death card color
+        cardMesh.material = deathMaterial;
         PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen 
         StartCoroutine(CardRemoveDelay());
         Debug.Log("Enemy Death Card!");

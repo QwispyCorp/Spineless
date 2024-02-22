@@ -12,7 +12,7 @@ public class HolyCross : MonoBehaviour, Interactable
     void Start()
     {
         playerDeckObject = GameObject.Find("Player Deck");
-        Debug.Log("Player Deck Logic: " + playerDeckObject);
+        //Debug.Log("Holy cross item set up, Player Deck Logic: " + playerDeckObject);
     }
 
     public void Interact()

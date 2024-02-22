@@ -96,10 +96,6 @@ public class PlayerDeckLogic : MonoBehaviour
     }
     public void RemoveDeathCard()
     {
-        for (int i = 0; i < tableCards.Count; i++)
-        {
-            Debug.Log("Card number " + i + ": " + tableCards[i].gameObject.name);
-        }
         if (tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"))
         {
             RemoveCardFromTable(tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"));
@@ -109,6 +105,13 @@ public class PlayerDeckLogic : MonoBehaviour
         else
         {
             Debug.Log("Could not find card named " + tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"));
+        }
+    }
+    public void ShowAllCards()
+    {
+        for (int i = 0; i < tableCards.Count; i++)
+        {
+            tableCards[i].GetComponent<PlayerCardInteraction>().ShowCard();
         }
     }
 

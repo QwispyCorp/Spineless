@@ -23,11 +23,12 @@ public class AudioManager : MonoBehaviour
     public string CurrentTrack;
     public AudioSource CurrentTrackSource;
 
+    [SerializeField] private float musicFadeInDuration;
+    [SerializeField] private float musicFadeOutDuration;
+
     //global volume values
-    [SerializeField]
-    private FloatReference globalSoundVolume;
-    [SerializeField]
-    private FloatReference globalMusicVolume;
+    [SerializeField] private FloatReference globalSoundVolume;
+    [SerializeField] private FloatReference globalMusicVolume;
 
 
     void Awake()
@@ -72,18 +73,15 @@ public class AudioManager : MonoBehaviour
 
     private void Start() // this will play sounds on start of the level, so main theme and what not
     {
+        StopAllSounds();
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             Instance.PlayMusicTrack("Title Music");
         }
-        else if (SceneManager.GetActiveScene().name == "Prototype")
-        {
-            Instance.PlayMusicTrack("Encounter Music");
-        }
-        else if (SceneManager.GetActiveScene().name == "GameBoard")
-        {
-            Instance.PlayMusicTrack("Encounter Music");
-        }
+        // else if (SceneManager.GetActiveScene().name == "GameBoard")
+        // {
+        //     Instance.PlayMusicTrack("Encounter Music");
+        // } MUSIC PLAYED FROM PHONOGRAPH
         else if (SceneManager.GetActiveScene().name == "Encounter")
         {
             Instance.PlayMusicTrack("Encounter Music");
@@ -108,7 +106,7 @@ public class AudioManager : MonoBehaviour
     }
     public void MuffleMusic()
     {
-        CurrentTrackSource.volume = CurrentTrackSource.volume * .75f;
+        CurrentTrackSource.volume = CurrentTrackSource.volume * .9f;
     }
     private void UnMuffleMusic()
     {
@@ -136,10 +134,12 @@ public class AudioManager : MonoBehaviour
         {
             if (track.name == name)
             {
+                //play music
                 CurrentTrack = track.name;
                 CurrentTrackSource = track.source;
                 Debug.Log("Playing track: " + track.name);
                 track.source.Play();
+                FadeInMusic(track, musicFadeInDuration);
             }
             else
             {
@@ -155,6 +155,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Music Track: " + name + " not found!");
             return;
         }
+        FadeOutMusic(s, musicFadeOutDuration);
         s.source.Stop();
     }
     public void StopAllSounds()
@@ -162,6 +163,33 @@ public class AudioManager : MonoBehaviour
         foreach (Sound s in sounds)
         {
             s.source.Stop();
+        }
+        foreach (Sound s in musicTracks)
+        {
+            s.source.Stop();
+        }
+    }
+
+    private void FadeInMusic(Sound track, float duration)
+    {
+        //fade in music
+        float currentTime = 0;
+        float startVolume = 0;
+        while (currentTime < musicFadeInDuration)
+        {
+            currentTime += Time.deltaTime;
+            track.source.volume = Mathf.Lerp(startVolume, globalMusicVolume.Value, currentTime / musicFadeInDuration);
+        }
+    }
+    private void FadeOutMusic(Sound track, float duration)
+    {
+        //fade out music
+        float currentTime = 0;
+        float endVolume = globalMusicVolume.Value;
+        while (currentTime < musicFadeInDuration)
+        {
+            currentTime += Time.deltaTime;
+            track.source.volume = Mathf.Lerp(globalMusicVolume.Value, endVolume, currentTime / musicFadeOutDuration);
         }
     }
     /* -------------------------------------------------------------------------- */

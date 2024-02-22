@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerOnBoard = false;
-        AudioManager.Instance.PlayMusicTrack("Encounter Music");
+        //AudioManager.Instance.PlayMusicTrack("Encounter Music");
         playerInteractCanvas.SetActive(true);
         tileEventTriggered = false;
         itemTileTriggered = false;
