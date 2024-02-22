@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f01fe5666bee84581bdbf7f80c7c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemSO: {fileID: 0}
+  itemSO: {fileID: 11400000, guid: 5139583744950c54aac630b955972c8c, type: 2}
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1

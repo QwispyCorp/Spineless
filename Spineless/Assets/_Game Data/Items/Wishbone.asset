@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wishbone
   m_EditorClassIdentifier: 
   itemName: Wishbone
-  itemDescription: Make the enemy take another turn.
+  itemDescription: Force enemy turn.
   value: 2
   itemPrefab: {fileID: 6713821218124877309, guid: eb64fdc003bcff240bad17c2a7988817,
     type: 3}

@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class PlayerSaveData : ScriptableObject
 {
+    [Header("Save Attributes")]
     public int EncountersWon; //for storing number of encounters player has won
+    public bool shopVisited; //for checking if player can enter the shop 
 
     [Header("Game Board Data")]
     public bool BoardGenerated; //for keeping track of board generation state
@@ -24,6 +26,7 @@ public class PlayerSaveData : ScriptableObject
         //Inventory.Clear();
         EquippedItems.Clear();
         BoardGenerated = false;
+        shopVisited = false;
         GameBoard = null;
         EncountersWon = 0;
         playerFingersInNextEncounter = 5;

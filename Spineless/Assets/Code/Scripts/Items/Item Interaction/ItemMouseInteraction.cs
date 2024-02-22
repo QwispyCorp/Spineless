@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
@@ -22,17 +23,19 @@ public class ItemMouseInteraction : MonoBehaviour
     private GameObject cabinetItems;
     private Transform[] trayTransforms;
     private Transform[] cabinetTransforms;
+    private string currentRoom;
 
-    void Start()
+    void Awake()
     {
+        currentRoom = SceneManager.GetActiveScene().name;
         itemName = itemSO.itemName;
         itemValue = itemSO.value;
+        itemDescription = itemSO.itemDescription;
 
         //Find the item's corresponding text object in the scene
         if (GameObject.Find(itemName + " Text") != null)
         {
             itemTextObject = GameObject.Find(itemName + " Text");
-            itemTextObject.SetActive(false);
         }
         else
         {
@@ -41,7 +44,7 @@ public class ItemMouseInteraction : MonoBehaviour
         }
 
         //ITEM INTERACTION SETUP FOR ENCOUNTER ROOM -------------
-        if (SceneManager.GetActiveScene().name == "Encounter")
+        if (currentRoom == "Encounter")
         {
             //Assign tv text
             if (GameObject.Find("Death Card Text") != null)
@@ -56,7 +59,7 @@ public class ItemMouseInteraction : MonoBehaviour
         }
 
         //ITEM INTERACTION SETUP FOR GAME BOARD ROOM -------------
-        if (SceneManager.GetActiveScene().name == "GameBoard")
+        if (currentRoom == "GameBoard")
         {
             //Find the transforms for equipping/ unequipping items
             if (GameObject.Find("Cabinet Items") != null)
@@ -72,7 +75,7 @@ public class ItemMouseInteraction : MonoBehaviour
         }
 
         //ITEM INTERACTION SETUP FOR ITEM ROOM --------------------
-        if (SceneManager.GetActiveScene().name == "ItemRoom")
+        if (currentRoom == "ItemRoom")
         {
             //Assign item room tv text
             if (GameObject.Find("Item Room Text") != null)
@@ -85,18 +88,29 @@ public class ItemMouseInteraction : MonoBehaviour
                 Debug.LogWarning("Could not find Item Room TV Text object.");
             }
 
+            if (GameObject.Find("Death Card Text") != null)
+            {
+                encounterTVTextObject = GameObject.Find("Death Card Text");
+                encounterTVTextObject.SetActive(false);
+            }
+
         }
         if (GetComponent<MeshRenderer>() != null)
         {
             mesh = GetComponent<MeshRenderer>();
         }
     }
+
+    void Start()
+    {
+
+    }
     //-------------------------------------WHEN PLAYER HOVERS OVER ITEM WITH CURSOR 
     private void OnMouseEnter()
     {
         if (mesh != null) //if the gameobject has a mmesh renderer, highlight its mesh
         {
-            mesh.material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+            mesh.material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
 
             if (transform.childCount > 0) //if the item has children, check for mesh renderers in those objects
             {
@@ -104,18 +118,27 @@ public class ItemMouseInteraction : MonoBehaviour
                 {
                     if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
                     {
-                        transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                        transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                    }
+                    if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
+                    {
+                        transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
                     }
                 }
             }
         }
         else //otherwise cycle through children to highlight all different parts of mesh
         {
+            Debug.Log(itemName + " object child count: " + transform.childCount);
             for (int i = 0; i < transform.childCount; i++)
             {
                 if (transform.GetChild(i).GetComponent<MeshRenderer>() != null) //if the child has a mesh renderer
                 {
-                    transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_Emissive", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                    transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                }
+                if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
+                {
+                    transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
                 }
             }
         }
@@ -123,7 +146,18 @@ public class ItemMouseInteraction : MonoBehaviour
         if (itemTextObject)
         {
             itemTextObject.SetActive(true); //turn on item text
-            itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemDescription); //update item text object
+            if (currentRoom == "ItemRoom")
+            {
+                itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription + Environment.NewLine + "Collect?"); //update item text object
+            }
+            else if (currentRoom == "ShopRoom")
+            {
+                itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription + Environment.NewLine + "Finger Cost: " + itemValue); //update item text object
+            }
+            else if (currentRoom == "Encounter")
+            {
+                itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription); //update item text object
+            }
         }
         if (encounterTVTextObject)
         {
@@ -139,15 +173,20 @@ public class ItemMouseInteraction : MonoBehaviour
     {
         if (mesh != null) //if the gameobject has a mesh renderer
         {
-            mesh.material.SetColor("_Emissive", Color.black);
+            mesh.material.SetColor("_EmissiveColor", Color.black);
         }
         else //otherwise cycle through children to highlight all different parts of mesh
         {
+
             for (int i = 0; i < transform.childCount; i++)
             {
                 if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
                 {
-                    transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_Emissive", Color.black);
+                    transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", Color.black);
+                }
+                if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
+                {
+                    transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().material.SetColor("_EmissiveColor", Color.black); //highlight item
                 }
             }
         }
@@ -177,8 +216,8 @@ public class ItemMouseInteraction : MonoBehaviour
             encounterTVTextObject.SetActive(true); //turn on the tv text
         }
 
-        //ITEM FUNCTIONALITY FOR GAME BOARD ROOM
-        if (SceneManager.GetActiveScene().name == "GameBoard") //if in game board room, equip or unequip item
+        //ITEM FUNCTIONALITY FOR GAME BOARD ROOM -----------------------------------------------------------
+        if (currentRoom == "GameBoard") //if in game board room, equip or unequip item
         {
             if (saveData.EquippedItems.Exists(x => x.name == itemName)) //if item is equipped in tray, unequip it and move to cabinet
             {
@@ -190,8 +229,15 @@ public class ItemMouseInteraction : MonoBehaviour
             }
         }
 
-        //ITEM FUNCTIONALITY FOR ITEM ROOM 
-        if (SceneManager.GetActiveScene().name == "ItemRoom")
+        //ITEM FUNCTIONALITY FOR ITEM ROOM ----------------------------------
+        if (currentRoom == "ItemRoom")
+        {
+            CollectItem(); //collect the item
+            //turn off HUD all elements
+            LightManager.Instance.StartFlickeringTransitionTo("GameBoard"); //switch back to game board room
+        }
+        //ITEM FUNCTIONALITY FOR SHOP ROOM ---------------------------------
+        if (currentRoom == "ShopRoom")
         {
             //check if player has enough currency
             if (saveData.monsterFingers >= itemValue)
@@ -254,6 +300,11 @@ public class ItemMouseInteraction : MonoBehaviour
         saveData.Inventory.Add(itemSO); //add item to inventory
         //update monster finger jar count/ text
         Destroy(gameObject); //destroy object
+    }
+    private void CollectItem()
+    {
+        saveData.Inventory.Add(itemSO);
+        Destroy(gameObject);
     }
 
 }

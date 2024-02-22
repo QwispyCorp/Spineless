@@ -24,19 +24,20 @@ public class ItemRoomItemSpawner : MonoBehaviour
             rightItemIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
             if (rightItemIndex != leftItemIndex)
             {
-                GameObject rightItem = Instantiate(saveData.MasterItemPool[rightItemIndex].itemPrefab, rightSpawn.transform.position, Quaternion.identity, leftSpawn);
+                GameObject rightItem = Instantiate(saveData.MasterItemPool[rightItemIndex].itemPrefab, rightSpawn.transform.position, Quaternion.identity, rightSpawn);
                 break;
             }
         }
 
         //When item room starts, turn off all item text on tv, turn on item room prompt
-        // for (int i = 0; i < saveData.MasterItemPool.Count; i++)
-        // {
-        //     if (GameObject.Find(saveData.MasterItemPool[i].itemName + " Text") != null)
-        //     {
-        //         GameObject.Find(saveData.MasterItemPool[i].itemName + " Text").SetActive(false);
-        //     }
-        // }
+        for (int i = 0; i < saveData.MasterItemPool.Count; i++)
+        {
+            if (GameObject.Find(saveData.MasterItemPool[i].itemName) == null)
+            {
+                Debug.Log(saveData.MasterItemPool[i].itemName);
+                GameObject.Find(saveData.MasterItemPool[i].itemName + " Text").SetActive(false);
+            }
+        }
 
     }
 }

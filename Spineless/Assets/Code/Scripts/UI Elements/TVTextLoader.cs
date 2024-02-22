@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 public class TVTextLoader : MonoBehaviour
 {
     [SerializeField] private PlayerSaveData saveData;
+    private string currentRoom;
 
+    void Awake(){
+        currentRoom = SceneManager.GetActiveScene().name;
+    }
     void Start()
     {
         //ENCOUNTER FUNCTIONALITY 
-        if (SceneManager.GetActiveScene().name == "Encounter")
+        if (currentRoom == "Encounter")
         {
             for (int i = 0; i < saveData.MasterItemPool.Count; i++)
             {
@@ -26,6 +30,10 @@ public class TVTextLoader : MonoBehaviour
                     }
                 }
             }
+            if (GameObject.Find("Item Room Text") != null)
+            {
+                GameObject.Find("Item Room Text").SetActive(false);
+            }
         }
         else
         {
@@ -35,7 +43,7 @@ public class TVTextLoader : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene().name == "ItemRoom")
+        if (currentRoom == "ItemRoom")
         {
             if (GameObject.Find("Item Room Text") != null)
             {

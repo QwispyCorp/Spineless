@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Camera
   m_EditorClassIdentifier: 
   itemName: Camera
-  itemDescription: 
+  itemDescription: Reveal all cards of your current hand.
   value: 3
   itemPrefab: {fileID: 6572587325165623293, guid: f97cdb661777aed4ea32c9b12118147a,
     type: 3}
