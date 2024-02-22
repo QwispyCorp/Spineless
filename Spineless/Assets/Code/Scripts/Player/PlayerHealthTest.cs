@@ -57,7 +57,15 @@ public class PlayerHealthTest : MonoBehaviour
     private void PlayerLoses()
     {
         //We can add more stuff here later such as death animations
-        saveData.playerFingersInNextEncounter -= 2; 
-        LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
+        saveData.playerFingersInNextEncounter -= 2;
+        if (saveData.playerFingersInNextEncounter <= 0)
+        {
+            //playuer perma loses
+            PopUpTextManager.Instance.ShowScreen("Lose Screen");
+        }
+        else
+        {
+            LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
+        }
     }
 }
