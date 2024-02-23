@@ -71,8 +71,6 @@ public class PlayerDeckLogic : MonoBehaviour
             deck[i] = deck[randomIndex];
             deck[randomIndex] = temp;
         }
-        UpdateEncounterCards();
-
     }
     void UpdateEncounterCards()
     {
@@ -93,6 +91,8 @@ public class PlayerDeckLogic : MonoBehaviour
         {
             DrawCard();
         }
+        
+        UpdateEncounterCards();
     }
     public void RemoveDeathCard()
     {

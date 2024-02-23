@@ -39,6 +39,7 @@ public class ItemMouseInteraction : MonoBehaviour
         //Find the item's corresponding text object in the scene
         if (GameObject.Find(itemName + " Text") != null)
         {
+            Debug.Log(itemName + "Text Object Found");
             itemTextObject = GameObject.Find(itemName + " Text");
         }
         else
@@ -246,6 +247,10 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription); //update item text object
             }
+            else if (currentRoom == "GameBoard")
+            {
+                itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription); //update item text object
+            }
         }
         if (encounterTVTextObject)
         {
@@ -286,7 +291,7 @@ public class ItemMouseInteraction : MonoBehaviour
                 }
             }
         }
-        
+
         if (itemTextObject)
         {
             itemTextObject.SetActive(false); //turn off item text object
@@ -307,7 +312,7 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             gameBoardRoomTVTextObject.SetActive(true); //turn on game board room tv prompt
         }
-        
+
     }
     //-------------------------------------WHEN PLAYER CLICKS ON ITEM WITH CURSOR 
     private void OnMouseDown()
@@ -320,9 +325,9 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 itemTextObject.SetActive(false); //turn off the item text description
             }
-            if (encounterTVTextObject)
+            if (gameBoardRoomTVTextObject)
             {
-                encounterTVTextObject.SetActive(true); //turn on the tv text
+                gameBoardRoomTVTextObject.SetActive(true); //turn on the tv text
             }
             if (saveData.EquippedItems.Exists(x => x.name == itemName)) //if item is equipped in tray, unequip it and move to cabinet
             {
@@ -382,16 +387,16 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             if (cabinetTransforms[i].transform.childCount == 0)//if the current transform has no children, therefore does not have an object spawned on it
             {
-                Instantiate(saveData.EquippedItems.Find(x => x.name == itemName).itemPrefab, cabinetTransforms[i].transform.position, Quaternion.identity, cabinetTransforms[i]);//spawn object at this spawn point
+                transform.position = cabinetTransforms[i].transform.position;//move item to inventory
+                transform.parent = cabinetTransforms[i].transform; //parent item to cabinet spot
                 break; //break out of loop once the item is spawned to prevent duplicate spawns 
             }
         }
         saveData.EquippedItems.Remove(saveData.EquippedItems.Find(x => x.name == itemName)); //remove item from inventory
-        Destroy(gameObject); //destroy the tray item object
     }
     private void EquipItem()
     {
-        if (saveData.EquippedItems.Count < 3) //if equipped tray is not full, add item to equipped list, remove item from inventory, and move item to equipped tray 
+        if (saveData.EquippedItems.Count < 4) //if equipped tray is not full, add item to equipped list, remove item from inventory, and move item to equipped tray 
         {
             saveData.EquippedItems.Add(saveData.Inventory.Find(x => x.name == itemName)); //add item to equipped items list
                                                                                           //spawn item in tray:
@@ -399,14 +404,14 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 if (trayTransforms[i].transform.childCount == 0)//if the current transform has no children, therefore does not have an object spawned on it
                 {
-                    Instantiate(saveData.Inventory.Find(x => x.name == itemName).itemPrefab, trayTransforms[i].transform.position, Quaternion.identity, trayTransforms[i]);//spawn object at this spawn point
+                    transform.position = trayTransforms[i].transform.position;//move item to tray
+                    transform.parent = trayTransforms[i].transform; //parent item to cabinet spot
                     break; //break out of loop once the item is spawned to prevent duplicate spawns 
                 }
             }
             saveData.Inventory.Remove(saveData.Inventory.Find(x => x.name == itemName)); //remove item from inventory
-            Destroy(gameObject); //destroy the current item
         }
-        else if (saveData.EquippedItems.Count == 3) //if equipped tray is full
+        else if (saveData.EquippedItems.Count == 4) //if equipped tray is full
         {
             Debug.Log("Tray Full!"); //communicate tray's full
         }

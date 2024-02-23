@@ -799,6 +799,12 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 506304259}
+    - target: {fileID: 78313959712449443, guid: 8112f3ef306aa8a4cb54ee36d12c3904,
+        type: 3}
+      propertyPath: encounterData
+      value: 
+      objectReference: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f,
+        type: 2}
     - target: {fileID: 1250309139815323206, guid: 8112f3ef306aa8a4cb54ee36d12c3904,
         type: 3}
       propertyPath: m_Name
@@ -1092,6 +1098,12 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1617847596}
+    - target: {fileID: 5083657035733039447, guid: 48f18bd7747f72e41b5f6cd3cbf21d82,
+        type: 3}
+      propertyPath: encounterData
+      value: 
+      objectReference: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f,
+        type: 2}
     - target: {fileID: 5274168383762132165, guid: 48f18bd7747f72e41b5f6cd3cbf21d82,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3880,7 +3892,7 @@ GameObject:
   - component: {fileID: 1491645037}
   - component: {fileID: 1491645036}
   m_Layer: 0
-  m_Name: EncounterRoomStartup
+  m_Name: ENCOUNTER ROOM STARTUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4754,6 +4766,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1491645037}
   - {fileID: 1762869422}
   - {fileID: 80599286}
   - {fileID: 1573619119}
@@ -4783,5 +4796,4 @@ SceneRoots:
   - {fileID: 189093421}
   - {fileID: 695380545}
   - {fileID: 1488083840}
-  - {fileID: 1491645037}
   - {fileID: 1800303718}

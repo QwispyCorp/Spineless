@@ -13,6 +13,7 @@ public class PlayerHealthTest : MonoBehaviour
     [SerializeField] private PlayerSaveData saveData;
     [SerializeField] private IntegerReference playerHealth;
     [SerializeField] private IntegerReference playerMaxHealth;
+    [SerializeField] private EncounterData encounterData;
     private static PlayerHealthTest _instance;
     public static PlayerHealthTest Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
 
@@ -65,6 +66,7 @@ public class PlayerHealthTest : MonoBehaviour
         }
         else
         {
+            encounterData.ClearAllData();
             LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
         }
     }

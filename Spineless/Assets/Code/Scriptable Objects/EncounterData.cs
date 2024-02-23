@@ -12,7 +12,15 @@ public class EncounterData : ScriptableObject
     public List<GameObject> EnemyDeck; //for storing enemy deck status
     public List<GameObject> EnemyTableCards; //for storing enemy deck status
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
+        PlayerDeck.Clear();
+        PlayerTableCards.Clear();
+        EnemyDeck.Clear();
+        EnemyTableCards.Clear();
+    }
+    public void ClearAllData()
+    {
         PlayerDeck.Clear();
         PlayerTableCards.Clear();
         EnemyDeck.Clear();

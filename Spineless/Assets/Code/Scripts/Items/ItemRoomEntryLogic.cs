@@ -18,7 +18,7 @@ public class ItemRoomEntryLogic : MonoBehaviour
         //Spawn left item,  store which item index was used
         int leftItemIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
         int rightItemIndex;
-        GameObject leftItem = Instantiate(saveData.MasterItemPool[leftItemIndex].itemPrefab, leftSpawn.transform.position, Quaternion.identity, leftSpawn);
+        GameObject leftItem = Instantiate(saveData.MasterItemPool[leftItemIndex].itemPrefab, leftSpawn, false);
 
         //Spawn right item, checking for non-duplicate item from the left's index
         while (true)
@@ -26,7 +26,7 @@ public class ItemRoomEntryLogic : MonoBehaviour
             rightItemIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
             if (rightItemIndex != leftItemIndex)
             {
-                GameObject rightItem = Instantiate(saveData.MasterItemPool[rightItemIndex].itemPrefab, rightSpawn.transform.position, Quaternion.identity, rightSpawn);
+                GameObject rightItem = Instantiate(saveData.MasterItemPool[rightItemIndex].itemPrefab, rightSpawn, false);
                 break;
             }
         }
