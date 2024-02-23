@@ -1346,7 +1346,7 @@ PrefabInstance:
     - target: {fileID: 2000790341924345365, guid: 19eb78789a374b34f856494cce171e1b,
         type: 3}
       propertyPath: m_text
-      value: The Lethal Game of Chance ver. 0.0.2
+      value: The Lethal Game of Chance ver. 0.0.4
       objectReference: {fileID: 0}
     - target: {fileID: 2248451621868496979, guid: 19eb78789a374b34f856494cce171e1b,
         type: 3}

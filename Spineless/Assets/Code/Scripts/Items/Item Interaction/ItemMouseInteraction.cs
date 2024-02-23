@@ -21,6 +21,7 @@ public class ItemMouseInteraction : MonoBehaviour
     private GameObject encounterTVTextObject;
     private GameObject itemRoomTVTextObject;
     private GameObject shopRoomTVTextObject;
+    private GameObject gameBoardRoomTVTextObject;
     private GameObject cabinetItems;
     private Transform[] trayTransforms;
     private Transform[] cabinetTransforms;
@@ -49,7 +50,7 @@ public class ItemMouseInteraction : MonoBehaviour
         //ITEM INTERACTION SETUP FOR ENCOUNTER ROOM -------------
         if (currentRoom == "Encounter")
         {
-            //Assign tv text
+            //Turn on encounter tv text
             if (GameObject.Find("Death Card Text") != null)
             {
                 encounterTVTextObject = GameObject.Find("Death Card Text");
@@ -58,6 +59,24 @@ public class ItemMouseInteraction : MonoBehaviour
             else
             {
                 Debug.LogWarning("Could not find TV Death Card Text object.");
+            }
+
+            //turn off item room tv text
+            if (GameObject.Find("Item Room Text") != null)
+            {
+                itemRoomTVTextObject = GameObject.Find("Item Room Text");
+                itemRoomTVTextObject.SetActive(false);
+            }
+            //turn off shop room tv text
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                itemRoomTVTextObject = GameObject.Find("Shop Room Text");
+                itemRoomTVTextObject.SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                gameBoardRoomTVTextObject = GameObject.Find("Game Board Room Text");
+                gameBoardRoomTVTextObject.SetActive(false);
             }
         }
 
@@ -75,6 +94,30 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 Debug.LogWarning("Could not find Cabinet Items object.");
             }
+
+            //turn off encounter tv text 
+            if (GameObject.Find("Death Card Text") != null)
+            {
+                encounterTVTextObject = GameObject.Find("Death Card Text");
+                encounterTVTextObject.SetActive(false);
+            }
+            //turn off item room tv text
+            if (GameObject.Find("Item Room Text") != null)
+            {
+                itemRoomTVTextObject = GameObject.Find("Item Room Text");
+                itemRoomTVTextObject.SetActive(false);
+            }
+            //turn off shop room tv text
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                itemRoomTVTextObject = GameObject.Find("Shop Room Text");
+                itemRoomTVTextObject.SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                gameBoardRoomTVTextObject = GameObject.Find("Game Board Room Text");
+                gameBoardRoomTVTextObject.SetActive(true);
+            }
         }
 
         //ITEM INTERACTION SETUP FOR ITEM ROOM --------------------
@@ -91,16 +134,28 @@ public class ItemMouseInteraction : MonoBehaviour
                 Debug.LogWarning("Could not find Item Room TV Text object.");
             }
 
+            //turn off encounter tv text
             if (GameObject.Find("Death Card Text") != null)
             {
                 encounterTVTextObject = GameObject.Find("Death Card Text");
                 encounterTVTextObject.SetActive(false);
             }
+            //turn off shop room text
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                encounterTVTextObject = GameObject.Find("Shop Room Text");
+                encounterTVTextObject.SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                gameBoardRoomTVTextObject = GameObject.Find("Game Board Room Text");
+                gameBoardRoomTVTextObject.SetActive(false);
+            }
         }
         //ITEM INTERACTION SETUP FOR SHOP ROOM --------------------
         if (currentRoom == "ShopRoom")
         {
-            //Assign item room tv text
+            //turn on shop room tv text
             if (GameObject.Find("Shop Room Text") != null)
             {
                 shopRoomTVTextObject = GameObject.Find("Shop Room Text");
@@ -110,11 +165,22 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 Debug.LogWarning("Could not find Shop Room TV Text object.");
             }
-
+            //turn off encounter room tv text
             if (GameObject.Find("Death Card Text") != null)
             {
                 encounterTVTextObject = GameObject.Find("Death Card Text");
                 encounterTVTextObject.SetActive(false);
+            }
+            //turn off item room tv text
+            if (GameObject.Find("Death Card Text") != null)
+            {
+                encounterTVTextObject = GameObject.Find("Death Card Text");
+                encounterTVTextObject.SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                gameBoardRoomTVTextObject = GameObject.Find("Game Board Room Text");
+                gameBoardRoomTVTextObject.SetActive(false);
             }
         }
         if (GetComponent<MeshRenderer>() != null)
@@ -193,6 +259,10 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             shopRoomTVTextObject.SetActive(false); //turn off shop room tv prompt
         }
+        if (gameBoardRoomTVTextObject)
+        {
+            gameBoardRoomTVTextObject.SetActive(false); //turn off game board room tv prompt
+        }
     }
     //-------------------------------------WHEN PLAYER EXITS ITEM WITH CURSOR 
     private void OnMouseExit()
@@ -216,22 +286,28 @@ public class ItemMouseInteraction : MonoBehaviour
                 }
             }
         }
+        
         if (itemTextObject)
         {
             itemTextObject.SetActive(false); //turn off item text object
         }
-        if (encounterTVTextObject)
+        if (currentRoom == "Encounter" && encounterTVTextObject)
         {
             encounterTVTextObject.SetActive(true); //turn on default tv text object
         }
-        if (itemRoomTVTextObject)
+        if (currentRoom == "ItemRoom" && itemRoomTVTextObject)
         {
             itemRoomTVTextObject.SetActive(true); //turn on item room tv prompt
         }
-        if (shopRoomTVTextObject)
+        if (currentRoom == "ShopRoom" && shopRoomTVTextObject)
         {
             shopRoomTVTextObject.SetActive(true); //turn on shop room tv prompt
         }
+        if (currentRoom == "GameBoard" && gameBoardRoomTVTextObject)
+        {
+            gameBoardRoomTVTextObject.SetActive(true); //turn on game board room tv prompt
+        }
+        
     }
     //-------------------------------------WHEN PLAYER CLICKS ON ITEM WITH CURSOR 
     private void OnMouseDown()
