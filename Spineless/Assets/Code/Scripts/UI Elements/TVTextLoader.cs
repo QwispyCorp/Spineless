@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//very ugly tv text loader 
 public class TVTextLoader : MonoBehaviour
 {
     [SerializeField] private PlayerSaveData saveData;
@@ -43,6 +43,34 @@ public class TVTextLoader : MonoBehaviour
             {
                 GameObject.Find("Shop Room Text").SetActive(false);
             }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                GameObject.Find("Game Board Room Text").SetActive(false);
+            }
+        }
+        //GAME BOARD ROOM FUNCTIONALITY
+        if (currentRoom == "GameBoard")
+        {
+            if(GameObject.Find("Video Screen") != null){
+                GameObject.Find("Video Screen").SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                GameObject.Find("Game Board Room Text").SetActive(false);
+            }
+
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                GameObject.Find("Shop Room Text").SetActive(false);
+            }
+            if (GameObject.Find("Death Card Text") != null)
+            {
+                GameObject.Find("Death Card Text").SetActive(false);
+            }
+            if (GameObject.Find("Item Room Text") != null)
+            {
+                GameObject.Find("Item Room Text").SetActive(false);
+            }
         }
         //ITEM ROOM FUNCTIONALITY
         if (currentRoom == "ItemRoom")
@@ -59,6 +87,10 @@ public class TVTextLoader : MonoBehaviour
             {
                 GameObject.Find("Shop Room Text").SetActive(false);
             }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                GameObject.Find("Game Board Room Text").SetActive(false);
+            }
         }
         //SHOP ROOM FUNCTIONALITY
         if (currentRoom == "ShopRoom")
@@ -74,6 +106,10 @@ public class TVTextLoader : MonoBehaviour
             if (GameObject.Find("Item Room Text") != null)
             {
                 GameObject.Find("Item Room Text").SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                GameObject.Find("Game Board Room Text").SetActive(false);
             }
         }
     }

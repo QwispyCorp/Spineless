@@ -83,6 +83,10 @@ public class AudioManager : MonoBehaviour
         {
             Instance.PlayMusicTrack("Encounter Music");
         }
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Instance.PlayMusicTrack("Title Music");
+        }
         if (SceneManager.GetActiveScene().name == "ShopRoom")
         {
             Instance.PlayMusicTrack("Shop Room Music");
@@ -188,7 +192,7 @@ public class AudioManager : MonoBehaviour
     {
         //fade out music
         float currentTime = 0;
-        float endVolume = globalMusicVolume.Value;
+        float endVolume = 0;
         while (currentTime < musicFadeInDuration)
         {
             currentTime += Time.deltaTime;

@@ -8,6 +8,8 @@ public class MusicSlider : MonoBehaviour
     private Slider musicSlider;
     [SerializeField]
     private FloatReference globalMusicVolume;
+    public delegate void MusicVolumeChanged();
+    public static event MusicVolumeChanged OnMusicVolumeChanged;
     void Awake()
     {
         musicSlider = GetComponent<Slider>();
@@ -16,5 +18,15 @@ public class MusicSlider : MonoBehaviour
     void Start()
     {
         musicSlider.onValueChanged.AddListener(val => AudioManager.Instance.SetMusicVolume(val)); //when slider value changes, update volume in audio manager
+        musicSlider.onValueChanged.AddListener(val => UpdateGlobalVolume(val));
+    }
+
+    void UpdateGlobalVolume(float newVolume)
+    {
+        if (OnMusicVolumeChanged != null)
+        {
+            Debug.Log("Slider debug point");
+            OnMusicVolumeChanged?.Invoke(); //SEND MESSAGE THAT MUSIC VOLUME CHANGED
+        }
     }
 }

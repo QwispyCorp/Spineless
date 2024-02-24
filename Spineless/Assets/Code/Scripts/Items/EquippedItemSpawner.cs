@@ -16,7 +16,7 @@ public class EquippedItemSpawner : MonoBehaviour
             if (saveData.EquippedItems.Count > 0)
             {
                 Debug.Log("Spawning object " + saveData.EquippedItems[i].itemName);
-                Instantiate(saveData.EquippedItems[i].itemPrefab, spawnPoints[i].transform.position, Quaternion.identity, spawnPoints[i]);
+                Instantiate(saveData.EquippedItems[i].itemPrefab, spawnPoints[i], false);
             }
         }
     }

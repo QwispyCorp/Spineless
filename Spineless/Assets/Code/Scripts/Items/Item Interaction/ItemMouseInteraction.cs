@@ -21,6 +21,7 @@ public class ItemMouseInteraction : MonoBehaviour
     private GameObject encounterTVTextObject;
     private GameObject itemRoomTVTextObject;
     private GameObject shopRoomTVTextObject;
+    private GameObject gameBoardRoomTVTextObject;
     private GameObject cabinetItems;
     private Transform[] trayTransforms;
     private Transform[] cabinetTransforms;
@@ -38,6 +39,7 @@ public class ItemMouseInteraction : MonoBehaviour
         //Find the item's corresponding text object in the scene
         if (GameObject.Find(itemName + " Text") != null)
         {
+            Debug.Log(itemName + "Text Object Found");
             itemTextObject = GameObject.Find(itemName + " Text");
         }
         else
@@ -49,7 +51,7 @@ public class ItemMouseInteraction : MonoBehaviour
         //ITEM INTERACTION SETUP FOR ENCOUNTER ROOM -------------
         if (currentRoom == "Encounter")
         {
-            //Assign tv text
+            //Turn on encounter tv text
             if (GameObject.Find("Death Card Text") != null)
             {
                 encounterTVTextObject = GameObject.Find("Death Card Text");
@@ -58,6 +60,24 @@ public class ItemMouseInteraction : MonoBehaviour
             else
             {
                 Debug.LogWarning("Could not find TV Death Card Text object.");
+            }
+
+            //turn off item room tv text
+            if (GameObject.Find("Item Room Text") != null)
+            {
+                itemRoomTVTextObject = GameObject.Find("Item Room Text");
+                itemRoomTVTextObject.SetActive(false);
+            }
+            //turn off shop room tv text
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                itemRoomTVTextObject = GameObject.Find("Shop Room Text");
+                itemRoomTVTextObject.SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                gameBoardRoomTVTextObject = GameObject.Find("Game Board Room Text");
+                gameBoardRoomTVTextObject.SetActive(false);
             }
         }
 
@@ -75,6 +95,30 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 Debug.LogWarning("Could not find Cabinet Items object.");
             }
+
+            //turn off encounter tv text 
+            if (GameObject.Find("Death Card Text") != null)
+            {
+                encounterTVTextObject = GameObject.Find("Death Card Text");
+                encounterTVTextObject.SetActive(false);
+            }
+            //turn off item room tv text
+            if (GameObject.Find("Item Room Text") != null)
+            {
+                itemRoomTVTextObject = GameObject.Find("Item Room Text");
+                itemRoomTVTextObject.SetActive(false);
+            }
+            //turn off shop room tv text
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                itemRoomTVTextObject = GameObject.Find("Shop Room Text");
+                itemRoomTVTextObject.SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                gameBoardRoomTVTextObject = GameObject.Find("Game Board Room Text");
+                gameBoardRoomTVTextObject.SetActive(true);
+            }
         }
 
         //ITEM INTERACTION SETUP FOR ITEM ROOM --------------------
@@ -91,16 +135,28 @@ public class ItemMouseInteraction : MonoBehaviour
                 Debug.LogWarning("Could not find Item Room TV Text object.");
             }
 
+            //turn off encounter tv text
             if (GameObject.Find("Death Card Text") != null)
             {
                 encounterTVTextObject = GameObject.Find("Death Card Text");
                 encounterTVTextObject.SetActive(false);
             }
+            //turn off shop room text
+            if (GameObject.Find("Shop Room Text") != null)
+            {
+                encounterTVTextObject = GameObject.Find("Shop Room Text");
+                encounterTVTextObject.SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                gameBoardRoomTVTextObject = GameObject.Find("Game Board Room Text");
+                gameBoardRoomTVTextObject.SetActive(false);
+            }
         }
         //ITEM INTERACTION SETUP FOR SHOP ROOM --------------------
         if (currentRoom == "ShopRoom")
         {
-            //Assign item room tv text
+            //turn on shop room tv text
             if (GameObject.Find("Shop Room Text") != null)
             {
                 shopRoomTVTextObject = GameObject.Find("Shop Room Text");
@@ -110,11 +166,22 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 Debug.LogWarning("Could not find Shop Room TV Text object.");
             }
-
+            //turn off encounter room tv text
             if (GameObject.Find("Death Card Text") != null)
             {
                 encounterTVTextObject = GameObject.Find("Death Card Text");
                 encounterTVTextObject.SetActive(false);
+            }
+            //turn off item room tv text
+            if (GameObject.Find("Death Card Text") != null)
+            {
+                encounterTVTextObject = GameObject.Find("Death Card Text");
+                encounterTVTextObject.SetActive(false);
+            }
+            if (GameObject.Find("Game Board Room Text") != null)
+            {
+                gameBoardRoomTVTextObject = GameObject.Find("Game Board Room Text");
+                gameBoardRoomTVTextObject.SetActive(false);
             }
         }
         if (GetComponent<MeshRenderer>() != null)
@@ -180,6 +247,10 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription); //update item text object
             }
+            else if (currentRoom == "GameBoard")
+            {
+                itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription); //update item text object
+            }
         }
         if (encounterTVTextObject)
         {
@@ -192,6 +263,10 @@ public class ItemMouseInteraction : MonoBehaviour
         if (shopRoomTVTextObject)
         {
             shopRoomTVTextObject.SetActive(false); //turn off shop room tv prompt
+        }
+        if (gameBoardRoomTVTextObject)
+        {
+            gameBoardRoomTVTextObject.SetActive(false); //turn off game board room tv prompt
         }
     }
     //-------------------------------------WHEN PLAYER EXITS ITEM WITH CURSOR 
@@ -216,22 +291,28 @@ public class ItemMouseInteraction : MonoBehaviour
                 }
             }
         }
+
         if (itemTextObject)
         {
             itemTextObject.SetActive(false); //turn off item text object
         }
-        if (encounterTVTextObject)
+        if (currentRoom == "Encounter" && encounterTVTextObject)
         {
             encounterTVTextObject.SetActive(true); //turn on default tv text object
         }
-        if (itemRoomTVTextObject)
+        if (currentRoom == "ItemRoom" && itemRoomTVTextObject)
         {
             itemRoomTVTextObject.SetActive(true); //turn on item room tv prompt
         }
-        if (shopRoomTVTextObject)
+        if (currentRoom == "ShopRoom" && shopRoomTVTextObject)
         {
             shopRoomTVTextObject.SetActive(true); //turn on shop room tv prompt
         }
+        if (currentRoom == "GameBoard" && gameBoardRoomTVTextObject)
+        {
+            gameBoardRoomTVTextObject.SetActive(true); //turn on game board room tv prompt
+        }
+
     }
     //-------------------------------------WHEN PLAYER CLICKS ON ITEM WITH CURSOR 
     private void OnMouseDown()
@@ -244,9 +325,9 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 itemTextObject.SetActive(false); //turn off the item text description
             }
-            if (encounterTVTextObject)
+            if (gameBoardRoomTVTextObject)
             {
-                encounterTVTextObject.SetActive(true); //turn on the tv text
+                gameBoardRoomTVTextObject.SetActive(true); //turn on the tv text
             }
             if (saveData.EquippedItems.Exists(x => x.name == itemName)) //if item is equipped in tray, unequip it and move to cabinet
             {
@@ -306,16 +387,16 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             if (cabinetTransforms[i].transform.childCount == 0)//if the current transform has no children, therefore does not have an object spawned on it
             {
-                Instantiate(saveData.EquippedItems.Find(x => x.name == itemName).itemPrefab, cabinetTransforms[i].transform.position, Quaternion.identity, cabinetTransforms[i]);//spawn object at this spawn point
+                transform.position = cabinetTransforms[i].transform.position;//move item to inventory
+                transform.parent = cabinetTransforms[i].transform; //parent item to cabinet spot
                 break; //break out of loop once the item is spawned to prevent duplicate spawns 
             }
         }
         saveData.EquippedItems.Remove(saveData.EquippedItems.Find(x => x.name == itemName)); //remove item from inventory
-        Destroy(gameObject); //destroy the tray item object
     }
     private void EquipItem()
     {
-        if (saveData.EquippedItems.Count < 3) //if equipped tray is not full, add item to equipped list, remove item from inventory, and move item to equipped tray 
+        if (saveData.EquippedItems.Count < 4) //if equipped tray is not full, add item to equipped list, remove item from inventory, and move item to equipped tray 
         {
             saveData.EquippedItems.Add(saveData.Inventory.Find(x => x.name == itemName)); //add item to equipped items list
                                                                                           //spawn item in tray:
@@ -323,14 +404,14 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 if (trayTransforms[i].transform.childCount == 0)//if the current transform has no children, therefore does not have an object spawned on it
                 {
-                    Instantiate(saveData.Inventory.Find(x => x.name == itemName).itemPrefab, trayTransforms[i].transform.position, Quaternion.identity, trayTransforms[i]);//spawn object at this spawn point
+                    transform.position = trayTransforms[i].transform.position;//move item to tray
+                    transform.parent = trayTransforms[i].transform; //parent item to cabinet spot
                     break; //break out of loop once the item is spawned to prevent duplicate spawns 
                 }
             }
             saveData.Inventory.Remove(saveData.Inventory.Find(x => x.name == itemName)); //remove item from inventory
-            Destroy(gameObject); //destroy the current item
         }
-        else if (saveData.EquippedItems.Count == 3) //if equipped tray is full
+        else if (saveData.EquippedItems.Count == 4) //if equipped tray is full
         {
             Debug.Log("Tray Full!"); //communicate tray's full
         }

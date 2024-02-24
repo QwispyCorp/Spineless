@@ -13,6 +13,7 @@ public class PlayerHealthTest : MonoBehaviour
     [SerializeField] private PlayerSaveData saveData;
     [SerializeField] private IntegerReference playerHealth;
     [SerializeField] private IntegerReference playerMaxHealth;
+    [SerializeField] private EncounterData encounterData;
     private static PlayerHealthTest _instance;
     public static PlayerHealthTest Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
 
@@ -31,7 +32,7 @@ public class PlayerHealthTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth.Value = playerMaxHealth.Value;
+        playerHealth.Value = saveData.playerFingersInNextEncounter;
         healthText.SetText("Fingers: " + playerHealth.Value);
     }
     public void ChangeHealth(int amount)
@@ -57,6 +58,16 @@ public class PlayerHealthTest : MonoBehaviour
     private void PlayerLoses()
     {
         //We can add more stuff here later such as death animations
-        PopUpTextManager.Instance.ShowScreen("Lose Screen");
+        saveData.playerFingersInNextEncounter -= 2;
+        if (saveData.playerFingersInNextEncounter <= 0)
+        {
+            //playuer perma loses
+            PopUpTextManager.Instance.ShowScreen("Lose Screen");
+        }
+        else
+        {
+            encounterData.ClearAllData();
+            LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
+        }
     }
 }

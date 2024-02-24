@@ -3555,8 +3555,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8884611254400685668, guid: c5161c7602ceb5f47a19890b65cf61ad,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.75
+      propertyPath: m_text
+      value: The Lethal Game of Chance ver. 0.0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8884611254400685668, guid: c5161c7602ceb5f47a19890b65cf61ad,
         type: 3}

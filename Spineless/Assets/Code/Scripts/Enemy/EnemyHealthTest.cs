@@ -11,6 +11,7 @@ public class EnemyHealthTest : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private IntegerReference playerHealth;
     [SerializeField] private PlayerSaveData saveData;
+    [SerializeField] private EncounterData encounterData;
     private static EnemyHealthTest _instance;
     public static EnemyHealthTest Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
 
@@ -53,6 +54,7 @@ public class EnemyHealthTest : MonoBehaviour
 
             if (lightManager != null)
             {
+                encounterData.ClearAllData();
                 LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
             }
             else

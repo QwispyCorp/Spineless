@@ -15,7 +15,7 @@ public class InventorySpawner : MonoBehaviour
             if (saveData.Inventory.Count > 0)
             {
                 Debug.Log("Spawning object " + saveData.Inventory[i].itemName);
-                GameObject spawnedItem = Instantiate(saveData.Inventory[i].itemPrefab, spawnPoints[i].transform.position, Quaternion.identity, spawnPoints[i]);
+                GameObject spawnedItem = Instantiate(saveData.Inventory[i].itemPrefab, spawnPoints[i].transform, false);
             }
             else
             {
