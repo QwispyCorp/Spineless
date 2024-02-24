@@ -91,7 +91,7 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
-        AudioManager.Instance.StopMusicTrack("Title Muisic");
+        AudioManager.Instance.MuffleMusic();
         AudioManager.Instance.PlaySound("Tutorial1");
         CamAni.SetTrigger("T1");
         yield return new WaitForSeconds(39f);
@@ -103,6 +103,7 @@ public class CinemaCam : MonoBehaviour
             if (lightManager != null)
             {
             LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
+            AudioManager.Instance.UnMuffleMusic();
             }
         }
     }

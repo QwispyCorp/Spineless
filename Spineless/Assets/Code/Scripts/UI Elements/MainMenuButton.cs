@@ -11,10 +11,6 @@ public class MainMenuButton : MonoBehaviour
         {
             BoardGenerator.Instance.DestroyBoard();
         }
-        if (LightManager.Instance != null)
-        {
-            LightManager.Instance.DestroyLight();
-        }
         SceneManager.LoadScene("MainMenu");
     }
 }

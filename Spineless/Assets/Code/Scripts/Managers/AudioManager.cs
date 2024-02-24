@@ -113,7 +113,7 @@ public class AudioManager : MonoBehaviour
     {
         //CurrentTrackSource.volume = CurrentTrackSource.volume * .9f;
     }
-    private void UnMuffleMusic()
+    public void UnMuffleMusic()
     {
         //CurrentTrackSource.volume = globalMusicVolume.Value;
     }

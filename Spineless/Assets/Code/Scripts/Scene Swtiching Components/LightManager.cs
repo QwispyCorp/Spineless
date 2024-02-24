@@ -4,12 +4,12 @@ using UnityEngine.SceneManagement;
 
 public class LightManager : MonoBehaviour
 {
-    public Light flickeringLight;
     public float timeDelay;
     private static LightManager _instance;
     private string _newSceneName;
-    public bool hasStarted = false;
+    public GameObject Lights;
     public static LightManager Instance { get { return _instance; } }
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -20,14 +20,10 @@ public class LightManager : MonoBehaviour
         {
             _instance = this;
         }
-        DontDestroyOnLoad(gameObject);
-
-        if (!hasStarted)
-        {
-            SwitchLightOn();
-            hasStarted = true;
-            Debug.Log("LightSwitchOn");
-        }
+    }
+    private void Start()
+    {
+        StartCoroutine("SwitchLightOn");
     }
     private void EnvironmentSwitchTo(string newScene)
     {
@@ -66,87 +62,56 @@ public class LightManager : MonoBehaviour
         _newSceneName = newSceneName;
         StartCoroutine("FlickerTransition");
     }
-
     private IEnumerator FlickerTransition()
     {
         //Flicker Off 
-        this.gameObject.GetComponent<Light>().enabled = false;
+        Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = true;
+        Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = false;
+        Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = true;
+        Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = false;
+        Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = true;
+        Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = false;
+        Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
 
         yield return new WaitForSeconds(2f);
         
         EnvironmentSwitchTo(_newSceneName);
-
-        yield return new WaitForSeconds(2f);
-
-        //Flicker On
-        this.gameObject.GetComponent<Light>().enabled = true;
-        timeDelay = Random.Range(0.1f, 0.4f);
-        yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = false;
-        timeDelay = Random.Range(0.1f, 0.4f);
-        yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = true;
-        timeDelay = Random.Range(0.1f, 0.4f);
-        yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = false;
-        timeDelay = Random.Range(0.1f, 0.4f);
-        yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = true;
-        timeDelay = Random.Range(0.1f, 0.4f);
-        yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = false;
-        timeDelay = Random.Range(0.1f, 0.4f);
-        yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = true;
-        timeDelay = Random.Range(0.1f, 0.4f);
         StopCoroutine("FlickerTransition");
-    }
-    public void DestroyLight()
-    {
-        Debug.Log("Destroy Light function called");
-
-        Destroy(gameObject);
     }
     private IEnumerator SwitchLightOn()
     {
-        this.gameObject.GetComponent<Light>().enabled = true;
+        Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = false;
+        Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = true;
+        Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = false;
+        Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = true;
+        Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = false;
+        Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
-        this.gameObject.GetComponent<Light>().enabled = true;
+        Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         StopCoroutine(SwitchLightOn());
 
