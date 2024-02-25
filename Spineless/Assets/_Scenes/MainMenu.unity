@@ -1634,7 +1634,6 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -2174,6 +2173,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1033530145}
     m_Modifications:
+    - target: {fileID: 88110032928104025, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 88110032928104025, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 88110032928104025, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 88110032928104025, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 631646108399629378, guid: 19eb78789a374b34f856494cce171e1b,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2284,6 +2303,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2885403901749243252, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885403901749243252, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885403901749243252, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885403901749243252, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3010259925918764630, guid: 19eb78789a374b34f856494cce171e1b,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2294,12 +2333,86 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Menu Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4159957235713069147, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 24.99999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159957235713069147, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4159957235713069147, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862725213550521807, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862725213550521807, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862725213550521807, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5862725213550521807, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901919153792849700, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901919153792849700, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.w
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901919153792849700, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901919153792849700, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5901919153792849700, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6379531764207594751, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 34
+      objectReference: {fileID: 0}
     - target: {fileID: 6813224494566429450, guid: 19eb78789a374b34f856494cce171e1b,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1033530144}
-    m_RemovedComponents: []
+    - target: {fileID: 7390760470195368020, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7390760470195368020, guid: 19eb78789a374b34f856494cce171e1b, type: 3}
+    - {fileID: 4159957235713069147, guid: 19eb78789a374b34f856494cce171e1b, type: 3}
+    - {fileID: 4355759384741072068, guid: 19eb78789a374b34f856494cce171e1b, type: 3}
+    - {fileID: 7136205715043454429, guid: 19eb78789a374b34f856494cce171e1b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
