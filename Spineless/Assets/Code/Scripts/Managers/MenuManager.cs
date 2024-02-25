@@ -127,7 +127,21 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("GameBoard");
         gameObject.SetActive(false);
     }
-
+    public void MainMenu()
+    {
+        Instance.OpenMenu("Transtion Canvas");
+        Invoke("GoToMainMenu", 1f);
+    }
+    public void Options()
+    {
+        Instance.OpenMenu("Transtion Canvas");
+        Invoke("GoToOptionsMenu", 1f);
+    }
+    public void Credits()
+    {
+        Instance.OpenMenu("Transtion Canvas");
+        Invoke("GoToCreditsMenu", 1f);
+    }
     public void GoToMainMenu()
     {
         Instance.OpenMenu("Main Menu");
