@@ -120,12 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   highlightColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  unHighlightColor: {r: 0, g: 0, b: 0, a: 1}
   cardBackMaterial: {fileID: 2100000, guid: 2b9cb03d4bb061d46af1329b5faa39e4, type: 2}
   safeMaterial: {fileID: 2100000, guid: cdcb38e43ed904b43b7b89f2f64b1d43, type: 2}
   deathMaterial: {fileID: 2100000, guid: 0bbc06bed2675c54289743b039ebf941, type: 2}
   jokerMaterial: {fileID: 2100000, guid: 419d1824de337fb47915ff5365d75bd3, type: 2}
-  safeColor: {r: 0, g: 1, b: 0.013665199, a: 1}
-  deathColor: {r: 1, g: 0, b: 0.09411765, a: 1}
-  jokerColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   unflippedColor: {r: 0, g: 0, b: 0, a: 1}
   cardRemoveDelayTime: 1

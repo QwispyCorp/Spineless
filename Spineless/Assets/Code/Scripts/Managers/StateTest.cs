@@ -12,7 +12,7 @@ public class StateTest : MonoBehaviour
     public EncounterState CurrentEncounterState;
     [SerializeField] private EnemyDeckLogic enemyDeck;
     [SerializeField] private PlayerDeckLogic playerDeck;
-    [SerializeField] private float turnDelayTime;
+    [SerializeField] private float enemyTurnTime;
 
     void Awake()
     {
@@ -54,23 +54,18 @@ public class StateTest : MonoBehaviour
         {
             case EncounterState.PlayerTurn:
                 HandlePlayerTurn();
-                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.PlayerDamage:
                 HandlePlayerDamage();
-                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.PlayerSafe:
                 HandlePlayerSafe();
-                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.EnemyTurn:
                 HandleEnemyTurn();
-                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.EnemyDamage:
                 HandleEnemyDamage();
-                //StartCoroutine("TurnDelay");
                 break;
             case EncounterState.EnemySafe:
                 HandleEnemySafe();
@@ -98,7 +93,7 @@ public class StateTest : MonoBehaviour
     private void HandleEnemyTurn()
     {
         Debug.Log("ENEMY CURRENTLY IN: Enemy Turn State");
-        Invoke("RunEnemyAI", turnDelayTime);
+        Invoke("RunEnemyAI", enemyTurnTime);
         Debug.Log("Switching to Player Turn");
     }
     private void HandleEnemyDamage()

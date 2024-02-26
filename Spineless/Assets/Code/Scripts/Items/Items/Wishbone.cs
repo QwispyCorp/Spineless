@@ -7,6 +7,10 @@ public class Wishbone : MonoBehaviour, Interactable
 {
     public void Interact()
     {
-
+        //switch to item used state
+        //play wishbone animation
+        //activate effect after item animation plays
+        StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.EnemyTurn);
+        
     }
 }

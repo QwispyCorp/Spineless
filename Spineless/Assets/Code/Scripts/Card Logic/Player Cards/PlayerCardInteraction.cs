@@ -12,14 +12,19 @@ public class PlayerCardInteraction : MonoBehaviour
     public Material safeMaterial;
     public Material deathMaterial;
     public Material jokerMaterial;
-    public Color safeColor = Color.green;
-    public Color deathColor = Color.red;
-    public Color jokerColor = Color.yellow;
     public Color unflippedColor = Color.black;
     private MeshRenderer cardMesh;
 
     private PlayerDeckLogic playerDeck; // Reference to the playerDeckLogic script
     [SerializeField] private float cardRemoveDelayTime;
+    void OnEnable()
+    {
+        PlayerAnimationTrigger.OnAnimationFinished += SwitchToEnemyTurn;
+    }
+    void OnDisable()
+    {
+        PlayerAnimationTrigger.OnAnimationFinished -= SwitchToEnemyTurn;
+    }
     void Start()
     {
         isClicked = false;
@@ -30,8 +35,7 @@ public class PlayerCardInteraction : MonoBehaviour
         //Assign card mesh for highlighting
         cardMesh = GetComponent<MeshRenderer>();
 
-        //Start card with unflipped color
-        //cardMesh.material.color = unflippedColor;
+        //Start card with unflipped material
         cardMesh.material = cardBackMaterial;
 
         // Find the playerDeckLogic script in the scene
@@ -54,15 +58,6 @@ public class PlayerCardInteraction : MonoBehaviour
     {
         return gameObject.CompareTag("JokerCard");
     }
-
-    void HandleSafeCardInteraction()
-    {
-        //cardMesh.material.color = safeColor; //change card color to safe color
-        cardMesh.material = safeMaterial;
-        PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen overlay
-        StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
-        Debug.Log("Safe card! Your turn ends.");
-    }
     public void ShowCard()
     {
         if (isSafeCard)
@@ -79,21 +74,27 @@ public class PlayerCardInteraction : MonoBehaviour
         }
     }
 
+    void HandleSafeCardInteraction()
+    {
+        //cardMesh.material.color = safeColor; //change card color to safe color
+        cardMesh.material = safeMaterial;  //change card material to safe material
+        PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen overlay
+        StartRemove(); //start coroutine to remove card and screen overlay
+        Debug.Log("Safe card! Your turn ends.");
+    }
+
     void HandleDeathCardInteraction()
     {
-        //Chopping finger animation goes here
         AudioManager.Instance.PlaySound("SeveredHand");
         PlayerHealthTest.Instance.ChangeHealth(-1); //Decrease health
-        //cardMesh.material.color = deathColor; //change card color to death color
-        cardMesh.material = deathMaterial;
+        cardMesh.material = deathMaterial;  //change card material to death material
         PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen overlay
-        StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
+        StartRemove(); //start coroutine to remove card and screen overlay
         Debug.Log("Death card! You lose a finger!");
     }
     private void HandleJokerCardInteraction()
     {
-        //cardMesh.material.color = jokerColor; //change card color to joker color
-        cardMesh.material = jokerMaterial;
+        cardMesh.material = jokerMaterial; //change card material to joker material
         StartCoroutine(CardRemoveDelay()); //start coroutine to remove card and screen overlay
         Debug.Log("Joker card!");
     }
@@ -102,7 +103,6 @@ public class PlayerCardInteraction : MonoBehaviour
         if (!isClicked && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
         {
             cardMesh.material.SetColor("_EmissiveColor", highlightColor); //highlight item
-            //cardMesh.material.color = highlightColor;
         }
     }
     void OnMouseExit()
@@ -110,7 +110,6 @@ public class PlayerCardInteraction : MonoBehaviour
         if (!isClicked && StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.PlayerTurn)
         {
             cardMesh.material.SetColor("_EmissiveColor", unHighlightColor); //unhighlight item
-            //cardMesh.material.color = unflippedColor;
         }
     }
     void OnMouseUp()
@@ -136,31 +135,36 @@ public class PlayerCardInteraction : MonoBehaviour
         }
     }
 
-    private void SwitchState()
+    private void SwitchToEnemyTurn()
     {
-        playerDeck.RemoveCardFromTable(gameObject); //remove the card from the table
-
-        //Check if table is empty
-        if (playerDeck.CheckTableCards() == 0)
+        if (isClicked) //if card has been flipped (for animation finished event)
         {
-            //if table is empty after flipping a card, redraw all cards
-            AudioManager.Instance.PlaySound("CardFlip4");
-            playerDeck.DrawHand();
-        }
-        if (PlayerHealthTest.Instance.GetCurrentHealth() > 0)
-        {
-            StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.EnemyTurn);
+            if (PlayerHealthTest.Instance.GetCurrentHealth() > 0) //if the player is still alive, switch to enemy turn
+            {
+                StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.EnemyTurn);
+
+                playerDeck.RemoveCardFromTable(gameObject); //remove the card from the table
+                                                                        
+                if (playerDeck.CheckTableCards() == 0) //if table is empty of cards
+                {
+                    //if table is empty after flipping a card, redraw all cards (THIS COULD HAPPEN WHEN PLAYER'S TURN STARTS INSTEAD)
+                    AudioManager.Instance.PlaySound("CardFlip4");
+                    playerDeck.DrawHand();
+                }
+            }
         }
 
+    }
+    private void StartRemove()
+    {
+        StartCoroutine("CardRemoveDelay");
     }
     private IEnumerator CardRemoveDelay()
     {
         yield return new WaitForSeconds(cardRemoveDelayTime); //wait for the delay time before removing the card from the table
-        PopUpTextManager.Instance.CloseScreen(PopUpTextManager.Instance.currentScreen); //close chosen card screen overlay
-        if (PlayerHealthTest.Instance.GetCurrentHealth() <= 0)
+        if (isSafeCard)
         {
-            PopUpTextManager.Instance.ShowScreen("Lose Screen");
+            Invoke("SwitchToEnemyTurn", cardRemoveDelayTime);
         }
-        Invoke("SwitchState", cardRemoveDelayTime);
     }
 }

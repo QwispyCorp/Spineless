@@ -14,8 +14,19 @@ public class PlayerHealthTest : MonoBehaviour
     [SerializeField] private IntegerReference playerHealth;
     [SerializeField] private IntegerReference playerMaxHealth;
     [SerializeField] private EncounterData encounterData;
+    public delegate void PlayerFingerLost();
+    public static event PlayerFingerLost OnPlayerFingerLost;
     private static PlayerHealthTest _instance;
     public static PlayerHealthTest Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
+
+    void OnEnable()
+    {
+        PlayerAnimationTrigger.OnAnimationFinished += PlayerLosesEncounter;
+    }
+    void OnDisable()
+    {
+        PlayerAnimationTrigger.OnAnimationFinished -= PlayerLosesEncounter;
+    }
 
     void Awake()
     {
@@ -37,13 +48,15 @@ public class PlayerHealthTest : MonoBehaviour
     }
     public void ChangeHealth(int amount)
     {
+        if (amount < 0) //if player health change is negative
+        {
+            if (OnPlayerFingerLost != null)
+            {
+                OnPlayerFingerLost?.Invoke(); //invoke finger lost event
+            }
+        }
         playerHealth.Value += amount;
         healthText.SetText("Fingers: " + playerHealth.Value);
-        if (playerHealth.Value <= 0)
-        {
-            HUDManager.Instance.TurnOffHUD();
-            PlayerLoses();
-        }
     }
 
     public int GetCurrentHealth()
@@ -55,19 +68,22 @@ public class PlayerHealthTest : MonoBehaviour
     {
         return playerMaxHealth.Value;
     }
-    private void PlayerLoses()
+    private void PlayerLosesEncounter()
     {
-        //We can add more stuff here later such as death animations
-        saveData.playerFingersInNextEncounter -= 2;
-        if (saveData.playerFingersInNextEncounter <= 0)
+        if (playerHealth.Value <= 0)
         {
-            //playuer perma loses
-            PopUpTextManager.Instance.ShowScreen("Lose Screen");
-        }
-        else
-        {
-            encounterData.ClearAllData();
-            LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
+            HUDManager.Instance.TurnOffHUD();
+            saveData.playerFingersInNextEncounter -= 2; //
+            if (saveData.playerFingersInNextEncounter <= 0) //if player's perma health drops below 0
+            {
+                //player perma loses
+                PopUpTextManager.Instance.ShowScreen("Lose Screen"); //show lose screen or lose animation
+            }
+            else //if player's still alive after enocunter
+            {
+                encounterData.ClearAllData(); //reset encounter data
+                LightManager.Instance.StartFlickeringTransitionTo("GameBoard"); //transition to game board
+            }
         }
     }
 }

@@ -62,6 +62,7 @@ public class PauseManager : MonoBehaviour
     }
     public void LoadOptions()
     {
+        pauseMenu.SetActive(false);
         OptionsMenu.SetActive(true);
     }
 }

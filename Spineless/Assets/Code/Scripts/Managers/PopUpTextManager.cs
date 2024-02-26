@@ -8,6 +8,7 @@ using UnityEditor.Rendering;
 public class PopUpTextManager : MonoBehaviour
 {
     [SerializeField] private PlayerSaveData savedata;
+    [SerializeField] private float screenOffDelay;
     public ScreenUtil[] Screens;
     private static PopUpTextManager _instance;
     public static PopUpTextManager Instance { get { return _instance; } }
@@ -37,12 +38,12 @@ public class PopUpTextManager : MonoBehaviour
 
         if (screenCheck == null)// check for existence of menu name
         {
-            Debug.LogWarning("Screen: " + name + " not found!");
+            Debug.LogWarning("Opening Screen: " + name + " not found!");
             return;
         }
         if (name == currentScreen)
         { //check if menu is already opened
-            Debug.LogWarning("Screen: " + name + " already open!");
+            Debug.LogWarning("Opening Screen: " + name + " already open!");
             return;
         }
         foreach (ScreenUtil screen in Screens) //search list of menus
@@ -68,12 +69,7 @@ public class PopUpTextManager : MonoBehaviour
 
         if (screenCheck == null)// check for existence of menu name
         {
-            Debug.LogWarning("Screen: " + name + " not found!");
-            return;
-        }
-        if (name == currentScreen)
-        { //check if menu is already opened
-            Debug.LogWarning("Screen: " + name + " already open!");
+            Debug.LogWarning("Closing screen: Screen: " + name + " not found!");
             return;
         }
         foreach (ScreenUtil screen in Screens) //search list of menus
@@ -96,12 +92,12 @@ public class PopUpTextManager : MonoBehaviour
 
     private IEnumerator ScreenOff()
     {
-        float waitTime = 0.5f;
-        if(currentScreen.Contains("Collected Screen") || currentScreen.Contains("Already Equipped")){
-            waitTime = 2;
+        if (currentScreen.Contains("Collected Screen") || currentScreen.Contains("Already Equipped"))
+        {
+            screenOffDelay = 2;
         }
-        
-        yield return new WaitForSeconds(waitTime);
+
+        yield return new WaitForSeconds(screenOffDelay);
         CloseAllScreens();
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
