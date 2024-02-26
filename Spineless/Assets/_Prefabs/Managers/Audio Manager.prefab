@@ -122,6 +122,13 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Tutorial1
+    clip: {fileID: 8300000, guid: 39cf4fc7964847f48a4cbe9017842270, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   musicTracks:
   - name: Title Music
     clip: {fileID: 8300000, guid: 8929767d4fc07034b9e48a4dbd9f8bb3, type: 3}

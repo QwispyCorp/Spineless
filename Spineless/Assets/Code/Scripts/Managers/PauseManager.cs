@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public Button resumeButton;
     public GameObject OptionsMenu;
 
     private bool isPaused = false;
