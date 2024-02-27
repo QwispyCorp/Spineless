@@ -6,7 +6,7 @@ Avatar:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Monster Avatar
+  m_Name: Enemy Avatar 5
   m_AvatarSize: 11800
   m_Avatar:
     serializedVersion: 3

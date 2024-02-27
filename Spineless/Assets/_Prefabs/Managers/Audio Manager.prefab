@@ -129,6 +129,41 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: ThumbChop
+    clip: {fileID: 8300000, guid: 4f05b0fd294212d439b561f02f135c2a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: DefaultChop
+    clip: {fileID: 8300000, guid: b637e5aff86ddae4582e12785dda620b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: PinkyChop
+    clip: {fileID: 8300000, guid: 3d0e81f40baab724f81150b291232570, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: HeartBeat
+    clip: {fileID: 8300000, guid: cd7b3cdeba106f24ab48bd09231d1098, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: HeartBeatLast
+    clip: {fileID: 8300000, guid: c90fdf4ea89118b4fa2db253d5c70084, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   musicTracks:
   - name: Title Music
     clip: {fileID: 8300000, guid: 8929767d4fc07034b9e48a4dbd9f8bb3, type: 3}
@@ -160,8 +195,8 @@ MonoBehaviour:
     source: {fileID: 0}
   CurrentTrack: 
   CurrentTrackSource: {fileID: 0}
-  musicFadeInDuration: 2
-  musicFadeOutDuration: 2
+  musicFadeInDuration: 1
+  musicFadeOutDuration: 1
   globalSoundVolume:
     UseConstant: 0
     ConstantValue: 0
