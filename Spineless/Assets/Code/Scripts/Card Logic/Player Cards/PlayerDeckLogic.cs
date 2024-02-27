@@ -84,14 +84,13 @@ public class PlayerDeckLogic : MonoBehaviour
 
     public void DrawHand()
     {
-        //tableCards = new List<GameObject>();
 
         // Draw and instantiate 5 cards in front of the player on the table
         for (int i = 0; i < 5; i++)
         {
             DrawCard();
         }
-        
+        AudioManager.Instance.PlaySound("CardFlip4");
         UpdateEncounterCards();
     }
     public void RemoveDeathCard()

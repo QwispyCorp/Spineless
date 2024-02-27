@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyCardInteraction : MonoBehaviour
 {
     private bool isSafeCard;
+    private bool isJokerCard;
     public Color highlightColor = new Color(1f, 1f, 1f, 0.5f); // White with 50% opacity;
     public Color unHighlightColor = Color.black;
     public Material cardBackMaterial;
@@ -13,21 +14,30 @@ public class EnemyCardInteraction : MonoBehaviour
     public Color safeColor = Color.green;
     public Color deathColor = Color.red;
     public Color unflippedColor = Color.black;
-    private MeshRenderer cardMesh;
+    [HideInInspector] public MeshRenderer CardMesh;
+    [HideInInspector] public bool isClicked;
 
     private EnemyDeckLogic enemyDeck; // Reference to the enemyDeckLogic script
     [SerializeField] private float cardRemoveDelayTime;
+    [SerializeField] private float jokerDelayTime;
     [SerializeField] private PlayerSaveData saveData;
+    [SerializeField] private EncounterData encounterData;
+
+    public delegate void JokerExecutionCompleted2();
+    public static event JokerExecutionCompleted2 OnJokerExecutionCompleted2;
+
     void Start()
     {
+        isClicked = false;
         // Determine whether the card is safe or death (you can implement your logic here)
         isSafeCard = CheckIfSafeCard();
+        isJokerCard = CheckIfJokerCard();
 
         //Assign card mesh for highlighting
-        cardMesh = GetComponent<MeshRenderer>();
+        CardMesh = GetComponent<MeshRenderer>();
 
         //Start card with unflipped color
-        cardMesh.material = cardBackMaterial;
+        CardMesh.material = cardBackMaterial;
 
         // Find the enemyDeckLogic script in the scene
         enemyDeck = FindObjectOfType<EnemyDeckLogic>();
@@ -39,17 +49,59 @@ public class EnemyCardInteraction : MonoBehaviour
         }
     }
 
+    void OnMouseEnter() //used to interact with enemy cards in joker execution state
+    {
+        if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
+        {
+            //highlight all enemy death cards
+            for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+            {
+                encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", highlightColor); //highlight currently indexed card
+            }
+        }
+    }
+    void OnMouseExit() //used to interact with enemy cards in joker execution state
+    {
+        if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
+        {
+            //unhighlight all enemy table cards
+            for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+            {
+                encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor); //highlight currently indexed card
+            }
+        }
+    }
+    void OnMouseUp()
+    {
+        if (isClicked == false && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
+        {
+            isClicked = true;
+
+            for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)//set all player table cards isCLicked to true to avoid multiple joker executions on different cards
+            {
+                encounterData.PlayerTableCards[i].GetComponent<PlayerCardInteraction>().isClicked = true;
+            }
+            for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)//set all enemy table cards isCLicked to true to avoid multiple joker executions on different cards
+            {
+                encounterData.EnemyTableCards[i].GetComponent<EnemyCardInteraction>().isClicked = true;
+            }
+            ExecutePlayerJoker();
+        }
+    }
+
     public bool CheckIfSafeCard()
     {
-        // You may want to implement your logic to determine if this card is a safe card
         // For simplicity, let's say safe cards have the tag "SafeCard" and death cards have the tag "DeathCard"
         return gameObject.CompareTag("SafeCard");
+    }
+    public bool CheckIfJokerCard()
+    {
+        return gameObject.CompareTag("JokerCard");
     }
 
     void HandleSafeCardInteraction()
     {
-        //cardMesh.material.color = safeColor; //change card color to safe card color
-        cardMesh.material = safeMaterial;
+        CardMesh.material = safeMaterial;
         PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen 
         StartCoroutine(CardRemoveDelay());
         Debug.Log("Enemy safe card!");
@@ -61,8 +113,7 @@ public class EnemyCardInteraction : MonoBehaviour
         AudioManager.Instance.PlaySound("SeveredHand");
         EnemyHealthTest.Instance.ChangeHealth(-1); //Decrease health
         saveData.monsterFingers++; //increase monster fingers player currency
-        //cardMesh.material.color = deathColor; //change card color to death card color
-        cardMesh.material = deathMaterial;
+        CardMesh.material = deathMaterial;
         PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen 
         StartCoroutine(CardRemoveDelay());
         Debug.Log("Enemy Death Card!");
@@ -82,7 +133,7 @@ public class EnemyCardInteraction : MonoBehaviour
     private void SwitchState()
     {
         enemyDeck.RemoveCardFromTable(gameObject); //remove the card from the table
-        StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerTurn);
+        StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
 
         //Check if table is empty
         if (enemyDeck.CheckTableCards() == 0)
@@ -99,5 +150,104 @@ public class EnemyCardInteraction : MonoBehaviour
         //PopUpTextManager.Instance.CloseScreen(PopUpTextManager.Instance.currentScreen); //close chosen card screen overlay
         Invoke("SwitchState", cardRemoveDelayTime);
 
+    }
+
+    private void ExecutePlayerJoker()
+    {
+
+        //check enemy death card count
+        int enemyDeathCards = 0;
+        for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+        {
+            if (encounterData.EnemyTableCards[i].name.Contains("Death")) //if currently indexed card is a death card, increment death card count
+            {
+                enemyDeathCards++;
+            }
+        }
+
+        //if enemy has no death cards
+        if (enemyDeathCards == 0)
+        {
+            //highlight all enemy table cards with red
+            for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+            {
+                encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", deathColor);
+            }
+
+            StartCoroutine("JokerFailExecutionDelay");
+        }
+        //if enemy has at least one death card
+        else if (enemyDeathCards > 0)
+        {
+            //highlight the death cards with green
+            for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+            {
+                if (encounterData.EnemyTableCards[i].name.Contains("Death"))
+                {
+                    encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", safeColor);
+                }
+            }
+            //start delay for joker safe execution
+            StartCoroutine("JokerSafeExecutionDelay");
+        }
+    }
+
+    private IEnumerator JokerSafeExecutionDelay()  //delay for if the player successfully executes joker on enemy (enemy has death cards)
+    {
+        yield return new WaitForSeconds(jokerDelayTime); //delay removal of cards
+
+        //remove death cards
+        for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+        {
+            if (encounterData.EnemyTableCards[i].name.Contains("Death"))
+            {
+                enemyDeck.RemoveCardFromTable(encounterData.EnemyTableCards[i]);
+            }
+        }
+        //revert color for remaining cards on table
+        for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+        {
+            encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor);
+        }
+        //revert isClicked to false for remaing player cards on table
+        for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)
+        {
+            encounterData.PlayerTableCards[i].GetComponent<PlayerCardInteraction>().isClicked = false;
+        }
+        //revert isClicked to false for remaing enemy cards on table
+        for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+        {
+            encounterData.EnemyTableCards[i].GetComponent<EnemyCardInteraction>().isClicked = false;
+        }
+
+        //broadcast that joker execution has finished
+        if (OnJokerExecutionCompleted2 != null)
+        {
+            OnJokerExecutionCompleted2?.Invoke();
+        }
+
+        //switch to enemy turn
+        StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyTurn);
+    }
+
+    private IEnumerator JokerFailExecutionDelay()  //delay for if the player joker execution on enemy fails (enemy did not have death cards)
+    {
+        yield return new WaitForSeconds(jokerDelayTime); //delay effect
+
+        //remove a finger
+        EnemyHealthTest.Instance.ChangeHealth(-1);
+
+        //if the monster is still alive in the encounter
+        if (EnemyHealthTest.Instance.GetCurrentHealth() > 0)
+        {
+            //broadcast that joker execution has finished
+            if (OnJokerExecutionCompleted2 != null)
+            {
+                OnJokerExecutionCompleted2?.Invoke();
+            }
+            //switch to enemy turn
+            StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyTurn);
+        }
+        //otherwise, the monster is dead and the enemy health system will execute the win condition logic
     }
 }

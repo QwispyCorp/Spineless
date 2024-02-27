@@ -5,10 +5,10 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class StateTest : MonoBehaviour
+public class StateManager : MonoBehaviour
 {
-    private static StateTest _instance;
-    public static StateTest Instance { get { return _instance; } }
+    private static StateManager _instance;
+    public static StateManager Instance { get { return _instance; } }
     public EncounterState CurrentEncounterState;
     [SerializeField] private EnemyDeckLogic enemyDeck;
     [SerializeField] private PlayerDeckLogic playerDeck;
@@ -31,6 +31,7 @@ public class StateTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //entry of tutorial state on encounters cleared check goes here
         UpdateEncounterState(EncounterState.PlayerTurn);
     }
     public void ForceEnemyTurn()
@@ -38,7 +39,7 @@ public class StateTest : MonoBehaviour
         if (CurrentEncounterState == EncounterState.EnemyTurn)
         {
             // If it's already enemy's turn, run the enemy AI immediately
-            RunEnemyAI();
+            RunEnemyCardAI();
         }
         else
         {
@@ -58,6 +59,9 @@ public class StateTest : MonoBehaviour
             case EncounterState.PlayerDamage:
                 HandlePlayerDamage();
                 break;
+            case EncounterState.PlayerJokerExecution:
+                HandlePlayerJoker();
+                break;
             case EncounterState.PlayerSafe:
                 HandlePlayerSafe();
                 break;
@@ -69,7 +73,9 @@ public class StateTest : MonoBehaviour
                 break;
             case EncounterState.EnemySafe:
                 HandleEnemySafe();
-
+                break;
+            case EncounterState.EnemyJokerExecution:
+                HandleEnemyJoker();
                 break;
         }
     }
@@ -77,11 +83,12 @@ public class StateTest : MonoBehaviour
     private void HandlePlayerTurn()
     {
         Debug.Log("PLAYER CURRENTLY IN: Player Turn State");
+        if(playerDeck.CheckTableCards() == 0){ //if hand is empty at beginning of turn, draw hand
+            playerDeck.DrawHand();
+        }
     }
     private void HandlePlayerDamage()
     {
-        //damage animation and health change logic goes here
-        //HealthTest.Instance.ChangeHealth(-1);
         Debug.Log("PLAYER CURRENTLY IN: Player Damage State");
         Debug.Log("Switching to Enemy turn...");
         UpdateEncounterState(EncounterState.EnemyTurn);
@@ -93,37 +100,50 @@ public class StateTest : MonoBehaviour
     private void HandleEnemyTurn()
     {
         Debug.Log("ENEMY CURRENTLY IN: Enemy Turn State");
-        Invoke("RunEnemyAI", enemyTurnTime);
+        Invoke("RunEnemyCardAI", enemyTurnTime);
         Debug.Log("Switching to Player Turn");
     }
     private void HandleEnemyDamage()
     {
-        //Enemy damage animation and health change logic goes here
         Debug.Log("ENEMY CURRENTLY IN: Enemy Damage State");
-        //Enemy Damage Logic/ Animations
         Debug.Log("Switching to player turn...");
         UpdateEncounterState(EncounterState.PlayerTurn);
     }
     private void HandleEnemySafe()
     {
         Debug.Log("ENEMY CURRENTLY IN: Enemy Safe State");
-        //Enemy Safe Logic/ Animations
         Debug.Log("Switching to player turn...");
         UpdateEncounterState(EncounterState.PlayerTurn);
-
     }
-    private void RunEnemyAI()
+
+    private void HandleEnemyJoker()
+    {
+        Debug.Log("ENEMY CURRENTLY IN: Enemy Joker State");
+        Invoke("RunEnemyJokerAI", enemyTurnTime);
+    }
+    private void HandlePlayerJoker()
+    {
+        Debug.Log("PLAYER CURRENTLY IN: Player Joker State");
+    }
+    private void RunEnemyCardAI()
     {
         enemyDeck.EnemyCardSelection();
+    }
+    private void RunEnemyJokerAI()
+    {
+        enemyDeck.EnemyJokerExecution();
     }
 
     public enum EncounterState
     {
         PlayerTurn,
         PlayerDamage,
+        PlayerJokerExecution,
         PlayerSafe,
         EnemyTurn,
         EnemyDamage,
         EnemySafe,
+        EnemyJokerExecution,
+        EncounterTutorial
     }
 }

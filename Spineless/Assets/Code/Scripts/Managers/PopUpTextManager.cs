@@ -101,9 +101,9 @@ public class PopUpTextManager : MonoBehaviour
         CloseAllScreens();
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
-            if (StateTest.Instance.CurrentEncounterState == StateTest.EncounterState.EnemyTurn)
+            if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.EnemyTurn)
             {
-                StateTest.Instance.UpdateEncounterState(StateTest.EncounterState.PlayerTurn);
+                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
             }
         }
     }

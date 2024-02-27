@@ -100,7 +100,7 @@ public class EnemyDeckLogic : MonoBehaviour
         UpdateEncounterCards();
     }
 
-    public void EnemyCardSelection()
+    public void EnemyCardSelection() // Enemy AI for card selection
     {
         //StateTest.Instance.DelayTurn();
         AudioManager.Instance.PlaySound("CardFlip" + Random.Range(1, 3).ToString());
@@ -122,6 +122,54 @@ public class EnemyDeckLogic : MonoBehaviour
         }
 
         UpdateEncounterCards();
+    }
+
+    public void EnemyJokerExecution() //Enemy AI for execution selection
+    {
+        for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)//set all table cards isCLicked to true to avoid multiple joker executions on different cards
+        {
+            encounterData.PlayerTableCards[i].GetComponent<PlayerCardInteraction>().isClicked = true;
+        }
+
+        for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)//set all table cards isCLicked to true to avoid multiple joker executions on different cards
+        {
+            encounterData.EnemyTableCards[i].GetComponent<EnemyCardInteraction>().isClicked = true;
+        }
+        //check the current death card count
+        int playerDeathCards = 0;
+        int enemyDeathCards = 0;
+
+        for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)
+        {
+            if (encounterData.PlayerTableCards[i].name.Contains("Death"))
+            {
+                playerDeathCards++;
+            }
+        }
+
+        for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+        {
+            if (encounterData.EnemyTableCards[i].name.Contains("Death"))
+            {
+                enemyDeathCards++;
+            }
+        }
+
+        int totalTableDeathCards = playerDeathCards + enemyDeathCards;
+
+        if (totalTableDeathCards == 0)
+        {
+            //if the enemy AI sees that there are no death cards on the table, choose to execute on player
+        }
+        else if (totalDeathCards >= 4)
+        {
+            //if enemy AI sees there are more than 4 death cards choose to execute on themselves
+        }
+        else //choose randomly
+        {
+            //execute on either player or enemy
+        }
+
     }
 
     void DrawCard()

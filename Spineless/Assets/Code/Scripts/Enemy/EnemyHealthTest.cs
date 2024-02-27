@@ -9,7 +9,7 @@ public class EnemyHealthTest : MonoBehaviour
 {
     [SerializeField] private TMP_Text healthText;
     [SerializeField] private int maxHealth;
-    [SerializeField] private IntegerReference playerHealth;
+    [SerializeField] private IntegerReference enemyHealth;
     [SerializeField] private PlayerSaveData saveData;
     [SerializeField] private EncounterData encounterData;
     private static EnemyHealthTest _instance;
@@ -30,18 +30,22 @@ public class EnemyHealthTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerHealth.Value = maxHealth;
-        healthText.SetText("Enemy Fingers: " + playerHealth.Value);
+        enemyHealth.Value = maxHealth;
+        healthText.SetText("Enemy Fingers: " + enemyHealth.Value);
     }
     public void ChangeHealth(int amount)
     {
-        playerHealth.Value += amount;
-        healthText.SetText("Enemy Fingers: " + playerHealth.Value);
-        if (playerHealth.Value <= 0)
+        enemyHealth.Value += amount;
+        healthText.SetText("Enemy Fingers: " + enemyHealth.Value);
+        if (enemyHealth.Value <= 0)
         {
             HUDManager.Instance.TurnOffHUD();
             PlayerWins();
         }
+    }
+    public int GetCurrentHealth()
+    {
+        return enemyHealth.Value;
     }
     private void PlayerWins()
     {

@@ -11,9 +11,11 @@ public class PauseManager : MonoBehaviour
     public GameObject OptionsMenu;
 
     private bool isPaused = false;
+    private string currentScene;
 
     private void Start()
     {
+        currentScene = SceneManager.GetActiveScene().name;
         OptionsMenu.SetActive(false);
         ResumeGame();
     }
@@ -49,8 +51,16 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         pauseMenu.SetActive(false);
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
+        if (currentScene == "Encounter")
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
+        }
     }
     public void LoadMenu()
     {

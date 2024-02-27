@@ -8,6 +8,7 @@ public class PlayerSaveData : ScriptableObject
     [Header("Save Attributes")]
     public int TargetEncounterWins;
     public int EncountersWon; //for storing number of encounters player has won
+    public int EncountersCleared; // for storing total number of encouters cleared
     public bool ShopVisited; //for checking if player can enter the shop 
 
     [Header("Game Board Data")]
@@ -30,6 +31,7 @@ public class PlayerSaveData : ScriptableObject
         ShopVisited = false;
         GameBoard = null;
         EncountersWon = 0;
+        EncountersCleared = 0;
         playerFingersInNextEncounter = 5;
     }
 }

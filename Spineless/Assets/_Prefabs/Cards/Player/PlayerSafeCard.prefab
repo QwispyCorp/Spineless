@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5689627988556389148}
   - component: {fileID: 7468337273469609827}
   - component: {fileID: 366098412656955860}
+  - component: {fileID: -6475046154249293908}
   m_Layer: 6
   m_Name: PlayerSafeCard
   m_TagString: SafeCard
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4090042394187079175}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -9.6, y: -5.2329683, z: -2.6000001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.006, y: 1, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,7 +103,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -119,11 +120,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e274d0726057114f93cf7925cf9012d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClicked: 0
   highlightColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   unHighlightColor: {r: 0, g: 0, b: 0, a: 1}
+  safeColor: {r: 0, g: 1, b: 0, a: 1}
+  deathColor: {r: 1, g: 0, b: 0, a: 1}
   cardBackMaterial: {fileID: 2100000, guid: 2b9cb03d4bb061d46af1329b5faa39e4, type: 2}
   safeMaterial: {fileID: 2100000, guid: cdcb38e43ed904b43b7b89f2f64b1d43, type: 2}
   deathMaterial: {fileID: 2100000, guid: 0bbc06bed2675c54289743b039ebf941, type: 2}
   jokerMaterial: {fileID: 2100000, guid: 419d1824de337fb47915ff5365d75bd3, type: 2}
   unflippedColor: {r: 0, g: 0, b: 0, a: 1}
   cardRemoveDelayTime: 1
+  jokerDelayTime: 1
+  encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}
+--- !u!65 &-6475046154249293908
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090042394187079175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9, y: 0.02, z: 12}
+  m_Center: {x: 0, y: 0, z: 0}

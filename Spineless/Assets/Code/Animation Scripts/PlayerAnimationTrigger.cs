@@ -10,7 +10,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
     private float lengthChop3;
     private float lengthChop4;
     private float lengthChop5;
-    private float currentChopAnimLength;
+    public static float CurrentChopAnimLength;
     public delegate void AnimationFinished();
     public static event AnimationFinished OnAnimationFinished;
     [SerializeField] private Animator playerAnimator;
@@ -34,27 +34,27 @@ public class PlayerAnimationTrigger : MonoBehaviour
         switch (PlayerHealthTest.Instance.GetCurrentHealth())
         {
             case 1:
-                currentChopAnimLength = lengthChop1;
+                CurrentChopAnimLength = lengthChop1;
                 playerAnimator.SetTrigger("Chop 1");
                 StartCoroutine("AnimationTurnDelay");
                 break;
             case 2:
-                currentChopAnimLength = lengthChop2;
+                CurrentChopAnimLength = lengthChop2;
                 playerAnimator.SetTrigger("Chop 2");
                 StartCoroutine("AnimationTurnDelay");
                 break;
             case 3:
-                currentChopAnimLength = lengthChop3;
+                CurrentChopAnimLength = lengthChop3;
                 playerAnimator.SetTrigger("Chop 3");
                 StartCoroutine("AnimationTurnDelay");
                 break;
             case 4:
-                currentChopAnimLength = lengthChop4;
+                CurrentChopAnimLength = lengthChop4;
                 playerAnimator.SetTrigger("Chop 4");
                 StartCoroutine("AnimationTurnDelay");
                 break;
             case 5:
-                currentChopAnimLength = lengthChop5;
+                CurrentChopAnimLength = lengthChop5;
                 playerAnimator.SetTrigger("Chop 5");
                 StartCoroutine("AnimationTurnDelay");
                 break;
@@ -65,7 +65,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
 
     private IEnumerator AnimationTurnDelay()
     {
-        yield return new WaitForSeconds(currentChopAnimLength);
+        yield return new WaitForSeconds(CurrentChopAnimLength);
         if (PlayerHealthTest.Instance.GetCurrentHealth() == 0)
         {
             //play lose animation? or whatever

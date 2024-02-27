@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 1659944648128021788}
   - component: {fileID: 5689627988556389148}
   - component: {fileID: 7468337273469609827}
-  - component: {fileID: 8651285903761849644}
-  - component: {fileID: -5053759358490011733}
+  - component: {fileID: 546321791018411550}
+  - component: {fileID: -766128385064338748}
   m_Layer: 6
-  m_Name: EnemySafeCard
-  m_TagString: SafeCard
+  m_Name: EnemyJokerCard
+  m_TagString: JokerCard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &8651285903761849644
+--- !u!114 &546321791018411550
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,7 +134,7 @@ MonoBehaviour:
   jokerDelayTime: 1
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}
---- !u!65 &-5053759358490011733
+--- !u!65 &-766128385064338748
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

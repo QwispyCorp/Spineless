@@ -10,9 +10,9 @@ public class CameraPan : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined; //change to locked when we fix raycast interaction for items and add crosshair/ dot in center of screen
+        Cursor.lockState = CursorLockMode.Locked; //change to locked when we fix raycast interaction for items and add crosshair/ dot in center of screen
 
-        Cursor.visible = true; //change to false when above is changed to locked
+        Cursor.visible = false; //change to false when above is changed to locked
     }
     //--------------------------------------------------------
     void Update()

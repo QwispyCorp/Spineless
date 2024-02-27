@@ -26,18 +26,25 @@ public class DeathCountTVUpdater : MonoBehaviour
 
         for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)
         {
-            if (encounterData.PlayerTableCards[i].name.Contains("Death"))
+            if (encounterData.PlayerTableCards[i])
             {
-                playerDeathCards++;
+                if (encounterData.PlayerTableCards[i].name.Contains("Death"))
+                {
+                    playerDeathCards++;
+                }
             }
         }
 
         for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
         {
-            if (encounterData.EnemyTableCards[i].name.Contains("Death"))
+            if (encounterData.EnemyTableCards[i])
             {
-                enemyDeathCards++;
+                if (encounterData.EnemyTableCards[i].name.Contains("Death"))
+                {
+                    enemyDeathCards++;
+                }
             }
+
         }
 
         int totalDeathCards = playerDeathCards + enemyDeathCards;

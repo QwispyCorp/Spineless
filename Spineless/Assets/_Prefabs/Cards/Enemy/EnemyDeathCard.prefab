@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5689627988556389148}
   - component: {fileID: 7468337273469609827}
   - component: {fileID: 6479434213963113662}
-  m_Layer: 0
+  - component: {fileID: -5126923735884717604}
+  m_Layer: 6
   m_Name: EnemyDeathCard
   m_TagString: DeathCard
   m_Icon: {fileID: 0}
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4090042394187079175}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.6, y: -5.2329683, z: -2.6000001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.006, y: 1, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,7 +103,7 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
@@ -128,5 +129,29 @@ MonoBehaviour:
   safeColor: {r: 0, g: 1, b: 0, a: 1}
   deathColor: {r: 1, g: 0, b: 0, a: 1}
   unflippedColor: {r: 0, g: 0, b: 0, a: 1}
+  isClicked: 0
   cardRemoveDelayTime: 1
+  jokerDelayTime: 1
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
+  encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}
+--- !u!65 &-5126923735884717604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4090042394187079175}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 9, y: 0.02, z: 12}
+  m_Center: {x: 0, y: 0, z: 0}
