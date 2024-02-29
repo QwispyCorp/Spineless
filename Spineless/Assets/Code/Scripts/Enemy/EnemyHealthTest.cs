@@ -41,7 +41,7 @@ public class EnemyHealthTest : MonoBehaviour
     void Start()
     {
         enemyHealth.Value = maxHealth;
-        healthText.SetText("Enemy Fingers: " + enemyHealth.Value);
+        //healthText.SetText("Enemy Fingers: " + enemyHealth.Value);
     }
     public void ChangeHealth(int amount)
     {
@@ -53,7 +53,7 @@ public class EnemyHealthTest : MonoBehaviour
             }
         }
         enemyHealth.Value += amount;
-        healthText.SetText("Enemy Fingers: " + enemyHealth.Value);
+        //healthText.SetText("Enemy Fingers: " + enemyHealth.Value);
     }
     public int GetCurrentHealth()
     {
@@ -63,7 +63,7 @@ public class EnemyHealthTest : MonoBehaviour
     {
         if (enemyHealth.Value <= 0)
         {
-            HUDManager.Instance.TurnOffHUD();
+            //HUDManager.Instance.TurnOffHUD();
             PlayerWinsEncounter();
             AudioManager.Instance.PlaySound("Riser");
             saveData.EncountersWon++;

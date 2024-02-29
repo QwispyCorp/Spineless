@@ -14,7 +14,7 @@ public class PlayerDeckLogic : MonoBehaviour
     private List<GameObject> tableCards; // The cards on the table
     [Header("Player Deck Properties")]
     [SerializeField] private int totalCardsAmount;
-    [SerializeField] private int totalDeathCards;
+    public int totalDeathCards;
     [SerializeField] private int totalJokerCards;
     [SerializeField] private float cardSpacing;
 

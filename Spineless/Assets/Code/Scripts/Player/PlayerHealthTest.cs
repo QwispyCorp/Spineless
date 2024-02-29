@@ -44,7 +44,7 @@ public class PlayerHealthTest : MonoBehaviour
     void Start()
     {
         playerHealth.Value = saveData.playerFingersInNextEncounter;
-        healthText.SetText("Fingers: " + playerHealth.Value);
+        //healthText.SetText("Fingers: " + playerHealth.Value);
     }
     public void ChangeHealth(int amount)
     {
@@ -56,7 +56,7 @@ public class PlayerHealthTest : MonoBehaviour
             }
         }
         playerHealth.Value += amount;
-        healthText.SetText("Fingers: " + playerHealth.Value);
+        //healthText.SetText("Fingers: " + playerHealth.Value);
     }
 
     public int GetCurrentHealth()
@@ -72,7 +72,7 @@ public class PlayerHealthTest : MonoBehaviour
     {
         if (playerHealth.Value <= 0)
         {
-            HUDManager.Instance.TurnOffHUD();
+            //HUDManager.Instance.TurnOffHUD();
             saveData.playerFingersInNextEncounter -= 2; 
             if (saveData.playerFingersInNextEncounter <= 0) //if player's perma health drops below 0
             {

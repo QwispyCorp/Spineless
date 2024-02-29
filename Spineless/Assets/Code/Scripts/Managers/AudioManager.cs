@@ -23,6 +23,8 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get { return _instance; } } //to use any method from this manager call AudioManager.Instance."FunctionName"(); anywhere in any script
     public string CurrentTrack;
     public AudioSource CurrentTrackSource;
+    public string CurrentSound;
+    public AudioSource CurrentSoundSource;
 
     [SerializeField] private float musicFadeInDuration;
     [SerializeField] private float musicFadeOutDuration;
@@ -81,7 +83,7 @@ public class AudioManager : MonoBehaviour
         // } MUSIC PLAYED FROM PHONOGRAPH
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
-            Instance.PlayMusicTrack("Encounter Music");
+            //Instance.PlayMusicTrack("Encounter Music");
         }
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
@@ -105,13 +107,15 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
+        CurrentSound = s.name;
+        CurrentSoundSource = s.source;
         s.source.PlayOneShot(s.source.clip, s.source.volume);
         MuffleMusic();
         Invoke("UnMuffleMusic", s.clip.length);
     }
     public void MuffleMusic()
     {
-        //CurrentTrackSource.volume = CurrentTrackSource.volume * .9f;
+        //CurrentTrackSource.volume = CurrentTrackSource.volume * .4f;
     }
     public void UnMuffleMusic()
     {

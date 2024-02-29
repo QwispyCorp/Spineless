@@ -123,7 +123,7 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: Tutorial1
-    clip: {fileID: 8300000, guid: 39cf4fc7964847f48a4cbe9017842270, type: 3}
+    clip: {fileID: 8300000, guid: 24b6e05b90b871540b4af6d629aad4ed, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -159,6 +159,13 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: HeartBeatLast
     clip: {fileID: 8300000, guid: c90fdf4ea89118b4fa2db253d5c70084, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Tutorial2
+    clip: {fileID: 8300000, guid: b0f31f6800f351144b8c95003f120cbe, type: 3}
     volume: 1
     pitch: 1
     loop: 0
