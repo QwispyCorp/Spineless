@@ -4513,7 +4513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   playerAnimator: {fileID: 919132149309587085}
-  playerDeck: {fileID: 0}
+  playerDeck: {fileID: 416523074}
   tutorialCanvas: {fileID: 1572291225}
   dotCanvas: {fileID: 1013342411}
   tutorial2AudioClip: {fileID: 8300000, guid: b0f31f6800f351144b8c95003f120cbe, type: 3}
@@ -4818,11 +4818,6 @@ PrefabInstance:
       propertyPath: cardSpawnPoint
       value: 
       objectReference: {fileID: 717700813}
-    - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
-        type: 3}
-      propertyPath: totalJokerCards
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

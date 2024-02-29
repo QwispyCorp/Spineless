@@ -50,14 +50,14 @@ MonoBehaviour:
     type: 3}
   itemTile: {fileID: 8320977018185505982, guid: c05baf595475c5f42be2db8c1717bfc6,
     type: 3}
-  choiceTile: {fileID: 8320977018185505982, guid: 5d4950857f071d449bf472a55a882c16,
+  shopTile: {fileID: 8320977018185505982, guid: 5d4950857f071d449bf472a55a882c16,
     type: 3}
   emptyTile: {fileID: 1018420391625252070, guid: 7f3348fd6e7d3f840b745e6f85a33c4d,
     type: 3}
   winTile: {fileID: 8320977018185505982, guid: 7f20d1d051fca35428f0a15ae33d70f7, type: 3}
-  maxEncounterTiles: 10
-  maxItemTiles: 13
-  maxChoiceTiles: 0
+  maxEncounterTiles: 12
+  maxItemTiles: 15
+  maxShopTiles: 1
   boardGenerated: 0
   tileScaleFactor: 1.05
 --- !u!1 &4878697361890487097

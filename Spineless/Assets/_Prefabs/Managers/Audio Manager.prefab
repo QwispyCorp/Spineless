@@ -202,6 +202,8 @@ MonoBehaviour:
     source: {fileID: 0}
   CurrentTrack: 
   CurrentTrackSource: {fileID: 0}
+  CurrentSound: 
+  CurrentSoundSource: {fileID: 0}
   musicFadeInDuration: 1
   musicFadeOutDuration: 1
   globalSoundVolume:

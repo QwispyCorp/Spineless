@@ -31,7 +31,7 @@ public class LightManager : MonoBehaviour
         {
             Debug.Log("Switching to Encounter Scene");
             SceneManager.LoadScene("Encounter");
-            AudioManager.Instance.PlayMusicTrack("Encounter Music");
+            //AudioManager.Instance.PlayMusicTrack("Encounter Music");
         }
         else if (newScene == "GameBoard")
         {
