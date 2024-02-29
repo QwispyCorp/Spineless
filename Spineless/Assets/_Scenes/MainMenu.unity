@@ -1634,7 +1634,6 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -2198,7 +2197,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1033530144}
+      objectReference: {fileID: 1824811397}
+    - target: {fileID: 631646108399629378, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Tutorial1
+      objectReference: {fileID: 0}
+    - target: {fileID: 631646108399629378, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CinemaCam, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 936620034404005779, guid: 19eb78789a374b34f856494cce171e1b,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2333,6 +2342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3307853838200955747, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4159957235713069147, guid: 19eb78789a374b34f856494cce171e1b,
         type: 3}
@@ -2662,15 +2676,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1767428771952485545, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767428771952485545, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1767428771952485545, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3090165559311640881, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1033530144}
+    - target: {fileID: 6560322430912390216, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6560322430912390216, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169994393440336002, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169994393440336002, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491236800249635828, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491236800249635828, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491236800249635828, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9114579504042752682, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
         type: 3}
       propertyPath: m_Name
       value: Options Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114579504042752682, guid: f8888ef05adf6a64daa9c3744d8cb8aa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3353,10 +3422,41 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1033530144}
+    - target: {fileID: 4989904466274616613, guid: d2c60632c027e924282d817f5aeaa41c,
+        type: 3}
+      propertyPath: m_VideoClip
+      value: 
+      objectReference: {fileID: 32900000, guid: 2a05b97f25de1814496cfe83cf7dc528,
+        type: 3}
+    - target: {fileID: 6785070985096306828, guid: d2c60632c027e924282d817f5aeaa41c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.6640857
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785070985096306828, guid: d2c60632c027e924282d817f5aeaa41c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.3790722
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785070985096306828, guid: d2c60632c027e924282d817f5aeaa41c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.6640857
+      objectReference: {fileID: 0}
+    - target: {fileID: 6785070985096306828, guid: d2c60632c027e924282d817f5aeaa41c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -486
+      objectReference: {fileID: 0}
     - target: {fileID: 7524520608660091490, guid: d2c60632c027e924282d817f5aeaa41c,
         type: 3}
       propertyPath: m_Name
       value: Credits Menu Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7524520608660091490, guid: d2c60632c027e924282d817f5aeaa41c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8474449073575047692, guid: d2c60632c027e924282d817f5aeaa41c,
         type: 3}

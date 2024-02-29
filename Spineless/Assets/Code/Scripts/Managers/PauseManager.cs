@@ -9,6 +9,7 @@ public class PauseManager : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject OptionsMenu;
+    public GameObject TransitionMenu;
 
     private bool isPaused = false;
     private string currentScene;
@@ -44,11 +45,11 @@ public class PauseManager : MonoBehaviour
         pauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
     }
     public void ResumeGame()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         isPaused = false;
         pauseMenu.SetActive(false);
         if (currentScene == "Encounter")
@@ -70,9 +71,28 @@ public class PauseManager : MonoBehaviour
         }
         SceneManager.LoadScene("MainMenu");
     }
-    public void LoadOptions()
+    //-----------------------------------------------------
+    public void LoadOptions() //call this function on a button to switch to options
     {
         pauseMenu.SetActive(false);
+        TransitionMenu.SetActive(true);
+        Invoke("TransitiontoOptions", 1f);
+    }
+    public void TransitiontoOptions()
+    {
+        TransitionMenu.SetActive(false);
         OptionsMenu.SetActive(true);
+    }
+    //----------------------------------------------------
+    public void LoadPause() //call this function on the button
+    {
+        OptionsMenu.SetActive(false);
+        TransitionMenu.SetActive(true);
+        Invoke("TransitiontoPause", 1f);
+    }
+    public void TransitiontoPause()
+    {
+        TransitionMenu.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 }

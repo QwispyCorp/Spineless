@@ -91,7 +91,7 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.None;
-        AudioManager.Instance.MuffleMusic();
+        AudioManager.Instance.StopAllSounds();
         AudioManager.Instance.PlaySound("Tutorial1");
         CamAni.SetTrigger("T1");
         yield return new WaitForSeconds(39f);

@@ -4309,7 +4309,7 @@ PrefabInstance:
     - target: {fileID: 2762833205086480085, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
         type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2762833205086480085, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
         type: 3}
@@ -4345,6 +4345,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0.78431374
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655625255963217884, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4828405953594044326, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
         type: 3}
