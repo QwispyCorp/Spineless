@@ -41,7 +41,7 @@ public class EnemyDeckLogic : MonoBehaviour
     {
         //deck = new List<GameObject>();
         int totalCards = 52;
-        int deathCardCount = totalCards / 4;
+        int deathCardCount = totalDeathCards;
 
         for (int i = 0; i < totalCards; i++)
         {
@@ -89,20 +89,17 @@ public class EnemyDeckLogic : MonoBehaviour
     }
     public void DrawHand()
     {
-        //tableCards = new List<GameObject>();
-
+        AudioManager.Instance.PlaySound("CardFlip4");
         // Draw and instantiate 5 cards in front of the player on the table
         for (int i = 0; i < 5; i++)
         {
             DrawCard();
         }
-
         UpdateEncounterCards();
     }
 
     public void EnemyCardSelection() // Enemy AI for card selection
     {
-        //StateTest.Instance.DelayTurn();
         AudioManager.Instance.PlaySound("CardFlip" + Random.Range(1, 3).ToString());
         int randomCardIndex = Random.Range(0, tableCards.Count);
         GameObject chosenCard;

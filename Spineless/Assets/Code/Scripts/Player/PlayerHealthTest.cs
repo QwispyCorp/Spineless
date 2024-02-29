@@ -73,7 +73,7 @@ public class PlayerHealthTest : MonoBehaviour
         if (playerHealth.Value <= 0)
         {
             HUDManager.Instance.TurnOffHUD();
-            saveData.playerFingersInNextEncounter -= 2; //
+            saveData.playerFingersInNextEncounter -= 2; 
             if (saveData.playerFingersInNextEncounter <= 0) //if player's perma health drops below 0
             {
                 //player perma loses

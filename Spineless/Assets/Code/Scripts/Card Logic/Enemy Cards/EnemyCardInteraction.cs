@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyCardInteraction : MonoBehaviour
 {
     private bool isSafeCard;
+    private bool isDeathCard;
     private bool isJokerCard;
     public Color highlightColor = new Color(1f, 1f, 1f, 0.5f); // White with 50% opacity;
     public Color unHighlightColor = Color.black;
@@ -16,6 +17,7 @@ public class EnemyCardInteraction : MonoBehaviour
     public Color unflippedColor = Color.black;
     [HideInInspector] public MeshRenderer CardMesh;
     [HideInInspector] public bool isClicked;
+    [HideInInspector] public bool isSelected;
 
     private EnemyDeckLogic enemyDeck; // Reference to the enemyDeckLogic script
     [SerializeField] private float cardRemoveDelayTime;
@@ -25,12 +27,21 @@ public class EnemyCardInteraction : MonoBehaviour
 
     public delegate void JokerExecutionCompleted2();
     public static event JokerExecutionCompleted2 OnJokerExecutionCompleted2;
-
+    void OnEnable()
+    {
+        EnemyAnimationTrigger.OnEnemyAnimationFinished += SwitchToPlayerTurn;
+    }
+    void OnDisable()
+    {
+        EnemyAnimationTrigger.OnEnemyAnimationFinished -= SwitchToPlayerTurn;
+    }
     void Start()
     {
+        isSelected = false;
         isClicked = false;
         // Determine whether the card is safe or death (you can implement your logic here)
         isSafeCard = CheckIfSafeCard();
+        isDeathCard = CheckIfDeathCard();
         isJokerCard = CheckIfJokerCard();
 
         //Assign card mesh for highlighting
@@ -94,6 +105,10 @@ public class EnemyCardInteraction : MonoBehaviour
         // For simplicity, let's say safe cards have the tag "SafeCard" and death cards have the tag "DeathCard"
         return gameObject.CompareTag("SafeCard");
     }
+    public bool CheckIfDeathCard()
+    {
+        return gameObject.CompareTag("DeathCard");
+    }
     public bool CheckIfJokerCard()
     {
         return gameObject.CompareTag("JokerCard");
@@ -120,6 +135,7 @@ public class EnemyCardInteraction : MonoBehaviour
     }
     public void EnemyCardSelected()
     {
+        isSelected = true;
         //when this card is selected by the enemy AI
         if (isSafeCard) //if the card is safe
         {
@@ -130,25 +146,36 @@ public class EnemyCardInteraction : MonoBehaviour
             HandleDeathCardInteraction(); //handle death card logic
         }
     }
-    private void SwitchState()
+    private void SwitchToPlayerTurn()
     {
-        enemyDeck.RemoveCardFromTable(gameObject); //remove the card from the table
-        StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
-
-        //Check if table is empty
-        if (enemyDeck.CheckTableCards() == 0)
+        if (isSelected) //if card has been selected (for animation finished event)
         {
-            //if table is empty after flipping a card, redraw all cards
-            AudioManager.Instance.PlaySound("CardFlip4");
-            enemyDeck.DrawHand();
+            if (EnemyHealthTest.Instance.GetCurrentHealth() > 0) //if the player is still alive, switch to enemy turn
+            {
+                Debug.Log("In Switch to Player Turn");
+                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
+
+                enemyDeck.RemoveCardFromTable(gameObject); //remove the card from the table
+            }
         }
     }
 
     private IEnumerator CardRemoveDelay()
     {
         yield return new WaitForSeconds(cardRemoveDelayTime); //wait for the delay time before removing the card from the table
-        //PopUpTextManager.Instance.CloseScreen(PopUpTextManager.Instance.currentScreen); //close chosen card screen overlay
-        Invoke("SwitchState", cardRemoveDelayTime);
+        if (isSafeCard)
+        {
+            Debug.Log("In Enemy card Interaction Safe Card Exit");
+            Invoke("SwitchToPlayerTurn", cardRemoveDelayTime);
+        }
+        else if (isJokerCard)
+        {
+            enemyDeck.RemoveCardFromTable(gameObject);//if it's a joker card, remove immediately after the delay ends to allow joker execution state
+            if (encounterData.JokerCardsCollected != 3)
+            {
+                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
+            }
+        }
 
     }
 

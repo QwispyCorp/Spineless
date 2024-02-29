@@ -52,7 +52,7 @@ MonoBehaviour:
   cardSpawnPoint: {fileID: 0}
   totalCardsAmount: 52
   totalDeathCards: 13
-  totalJokerCards: 6
+  totalJokerCards: 0
   cardSpacing: 0.1
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}

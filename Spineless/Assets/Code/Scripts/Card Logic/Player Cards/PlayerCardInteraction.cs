@@ -103,6 +103,7 @@ public class PlayerCardInteraction : MonoBehaviour
     }
     private void HandleJokerCardInteraction()
     {
+        PopUpTextManager.Instance.ShowScreen("Joker Card Screen"); //show joker screen overlay
         CardMesh.material = jokerMaterial; //change card material to joker material
         if (OnJokerFlipped != null)
         {
@@ -188,7 +189,6 @@ public class PlayerCardInteraction : MonoBehaviour
                 playerDeck.RemoveCardFromTable(gameObject); //remove the card from the table
             }
         }
-
     }
     private void StartRemove()
     {
@@ -203,7 +203,7 @@ public class PlayerCardInteraction : MonoBehaviour
         }
         if (isJokerCard)
         {
-            Destroy(gameObject); //if it's a joker card, remove immediately after the delay ends to allow joker execution state
+            playerDeck.RemoveCardFromTable(gameObject);//if it's a joker card, remove immediately after the delay ends to allow joker execution state
             if (encounterData.JokerCardsCollected != 3)
             {
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyTurn);

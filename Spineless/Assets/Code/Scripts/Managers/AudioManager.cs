@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
         if (_instance != null && _instance != this)
         {
             globalMusicVolume.Value = 0.5f;
-            globalSoundVolume.Value = 0.5f;
+            globalSoundVolume.Value = 0.8f;
 
             Destroy(this.gameObject);
         }

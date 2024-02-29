@@ -16,7 +16,6 @@ public class StateManager : MonoBehaviour
 
     void Awake()
     {
-        //DontDestroyOnLoad(gameObject);
         //on awake check for existence of manager and handle accordingly
         if (_instance != null && _instance != this)
         {
@@ -83,7 +82,8 @@ public class StateManager : MonoBehaviour
     private void HandlePlayerTurn()
     {
         Debug.Log("PLAYER CURRENTLY IN: Player Turn State");
-        if(playerDeck.CheckTableCards() == 0){ //if hand is empty at beginning of turn, draw hand
+        if (playerDeck.CheckTableCards() == 0)
+        { //if hand is empty at beginning of turn, draw hand
             playerDeck.DrawHand();
         }
     }
@@ -99,21 +99,24 @@ public class StateManager : MonoBehaviour
     }
     private void HandleEnemyTurn()
     {
+        //Check if table is empty
+        if (enemyDeck.CheckTableCards() == 0)
+        {
+            //if table is empty at beginning of enemy turn, redraw all cards
+            enemyDeck.DrawHand();
+        }
         Debug.Log("ENEMY CURRENTLY IN: Enemy Turn State");
         Invoke("RunEnemyCardAI", enemyTurnTime);
-        Debug.Log("Switching to Player Turn");
     }
     private void HandleEnemyDamage()
     {
         Debug.Log("ENEMY CURRENTLY IN: Enemy Damage State");
         Debug.Log("Switching to player turn...");
-        UpdateEncounterState(EncounterState.PlayerTurn);
     }
     private void HandleEnemySafe()
     {
         Debug.Log("ENEMY CURRENTLY IN: Enemy Safe State");
         Debug.Log("Switching to player turn...");
-        UpdateEncounterState(EncounterState.PlayerTurn);
     }
 
     private void HandleEnemyJoker()
