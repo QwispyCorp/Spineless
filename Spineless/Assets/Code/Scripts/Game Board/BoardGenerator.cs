@@ -122,12 +122,12 @@ public class BoardGenerator : MonoBehaviour
                     GameObject emptyInstance = Instantiate(emptyTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
                     generatedBoardTiles.Remove(randomEmptyTile);
                 }
-                else if ((i == 0 && j == 1) || (i == 1 && j == 0)) //always spawn item tiles adjacent to player start point
+                else if ((i == 0 && j == 1) || (i == 1 && j == 0)) //always spawn encounter tiles adjacent to player start point
                 {
-                    GameObject randomItemTile = generatedBoardTiles.Find(tile => tile.name == "Item Tile");
-                    randomItemTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
-                    GameObject emptyInstance = Instantiate(itemTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
-                    generatedBoardTiles.Remove(randomItemTile);
+                    GameObject randomEncounterTile = generatedBoardTiles.Find(tile => tile.name == "Monster Tile");
+                    randomEncounterTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
+                    GameObject encounterInstance = Instantiate(encounterTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
+                    generatedBoardTiles.Remove(randomEncounterTile);
                 }
                 else if (i == 4 && j == 3) //Always spawn shop tile in center of board
                 {

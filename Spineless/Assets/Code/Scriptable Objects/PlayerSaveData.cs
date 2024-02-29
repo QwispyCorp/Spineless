@@ -10,6 +10,7 @@ public class PlayerSaveData : ScriptableObject
     public int EncountersWon; //for storing number of encounters player has won
     public int EncountersCleared; // for storing total number of encouters cleared
     public bool ShopVisited; //for checking if player can enter the shop 
+    public bool FirstEncounterEntered; //for playing tutorial in first encounter
 
     [Header("Game Board Data")]
     public bool BoardGenerated; //for keeping track of board generation state
@@ -28,6 +29,7 @@ public class PlayerSaveData : ScriptableObject
         Inventory.Clear();
         EquippedItems.Clear();
         BoardGenerated = false;
+        FirstEncounterEntered = false;
         ShopVisited = false;
         GameBoard = null;
         EncountersWon = 0;

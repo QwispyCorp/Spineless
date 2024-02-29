@@ -7341,7 +7341,7 @@ PrefabInstance:
     - target: {fileID: 6750785888874988901, guid: 1d494077787240f4c9dbe7da2de5bb0b,
         type: 3}
       propertyPath: maxEncounterTiles
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7930868538440937752, guid: 1d494077787240f4c9dbe7da2de5bb0b,
         type: 3}
