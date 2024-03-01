@@ -35,5 +35,6 @@ public class PlayerSaveData : ScriptableObject
         EncountersWon = 0;
         EncountersCleared = 0;
         playerFingersInNextEncounter = 5;
+        monsterFingers = 0;
     }
 }

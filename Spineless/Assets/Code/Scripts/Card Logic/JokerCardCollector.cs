@@ -51,17 +51,6 @@ public class JokerCardCollector : MonoBehaviour
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyJokerExecution); //enter enemy execution state
             }
         }
-        else
-        {
-            if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn) //if it's currently the player's turn
-            {
-                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyTurn); //switch to enemy turn
-            }
-            else if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.EnemyTurn) //if it's currntly the enemy's turn
-            {
-                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn); //switch to the player's turn
-            }
-        }
     }
     void ClearJokerCards()
     {

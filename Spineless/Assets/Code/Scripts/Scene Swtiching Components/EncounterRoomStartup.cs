@@ -10,14 +10,12 @@ public class EncounterRoomStartup : MonoBehaviour
     [SerializeField] private GameObject tutorialCanvas;
     [SerializeField] private GameObject dotCanvas;
     [SerializeField] private AudioClip tutorial2AudioClip;
-    private bool encounterStarted;
     private int entryHP;
     void Awake()
     {
         //play tutorial if this is their first time in an encounter
         if (saveData.FirstEncounterEntered == false)
         {
-            encounterStarted = false;
             playerDeck.totalDeathCards = 4;
             tutorialCanvas.SetActive(true);
             dotCanvas.SetActive(false);
@@ -25,16 +23,14 @@ public class EncounterRoomStartup : MonoBehaviour
             StartCoroutine("TutorialDelay");
             //play tutorial
         }
-        else
-        {
-            encounterStarted = true;
-        }
     }
     void Start()
     {
         if (saveData.FirstEncounterEntered == false)
         {
+            AudioManager.Instance.StopAllSounds();
             AudioManager.Instance.PlaySound("Tutorial2");
+            AudioManager.Instance.MuffleMusic();
             saveData.FirstEncounterEntered = true;
         }
 
@@ -56,6 +52,7 @@ public class EncounterRoomStartup : MonoBehaviour
     private IEnumerator TutorialDelay()
     {
         yield return new WaitForSecondsRealtime(107);
+        AudioManager.Instance.UnMuffleMusic();
         tutorialCanvas.SetActive(false);
         dotCanvas.SetActive(true);
     }

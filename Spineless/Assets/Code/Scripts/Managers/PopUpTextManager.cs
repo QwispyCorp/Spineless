@@ -99,12 +99,5 @@ public class PopUpTextManager : MonoBehaviour
 
         yield return new WaitForSeconds(screenOffDelay);
         CloseAllScreens();
-        if (SceneManager.GetActiveScene().name == "Encounter")
-        {
-            if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.EnemyTurn)
-            {
-                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
-            }
-        }
     }
 }

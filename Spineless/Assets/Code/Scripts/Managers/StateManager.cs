@@ -25,7 +25,6 @@ public class StateManager : MonoBehaviour
         {
             _instance = this;
         }
-
     }
     // Start is called before the first frame update
     void Start()
@@ -81,7 +80,8 @@ public class StateManager : MonoBehaviour
 
     private void HandlePlayerTurn()
     {
-        Debug.Log("PLAYER CURRENTLY IN: Player Turn State");
+        Debug.Log("Going into: Player Turn State");
+        Debug.Log("In Player Turn State");
         if (playerDeck.CheckTableCards() == 0)
         { //if hand is empty at beginning of turn, draw hand
             playerDeck.DrawHand();
@@ -89,44 +89,48 @@ public class StateManager : MonoBehaviour
     }
     private void HandlePlayerDamage()
     {
-        Debug.Log("PLAYER CURRENTLY IN: Player Damage State");
-        Debug.Log("Switching to Enemy turn...");
-        UpdateEncounterState(EncounterState.EnemyTurn);
+        Debug.Log("Going into: Player Damage State");
+        Debug.Log("In Player Damage State");
     }
     private void HandlePlayerSafe()
     {
-        Debug.Log("PLAYER CURRENTLY IN: Player Safe State.");
+        Debug.Log("Going into: Player Safe State.");
+        Debug.Log("In Player Safe State");
     }
     private void HandleEnemyTurn()
     {
+        Debug.Log("Going into: Enemy Turn State");
+        Debug.Log("In Enemy Turn State");
         //Check if table is empty
         if (enemyDeck.CheckTableCards() == 0)
         {
             //if table is empty at beginning of enemy turn, redraw all cards
             enemyDeck.DrawHand();
         }
-        Debug.Log("ENEMY CURRENTLY IN: Enemy Turn State");
+        
         Invoke("RunEnemyCardAI", enemyTurnTime);
     }
     private void HandleEnemyDamage()
     {
-        Debug.Log("ENEMY CURRENTLY IN: Enemy Damage State");
-        Debug.Log("Switching to player turn...");
+        Debug.Log("Going into: Enemy Damage State");
+        Debug.Log("In Enemy Damage State");
     }
     private void HandleEnemySafe()
     {
-        Debug.Log("ENEMY CURRENTLY IN: Enemy Safe State");
-        Debug.Log("Switching to player turn...");
+        Debug.Log("Going into: Enemy Safe State");
+        Debug.Log("In Enemy Safe State");
     }
 
     private void HandleEnemyJoker()
     {
-        Debug.Log("ENEMY CURRENTLY IN: Enemy Joker State");
+        Debug.Log("Going into: Enemy Joker State");
+        Debug.Log("In Enemy Joker Execution State");
         Invoke("RunEnemyJokerAI", enemyTurnTime);
     }
     private void HandlePlayerJoker()
     {
-        Debug.Log("PLAYER CURRENTLY IN: Player Joker State");
+        Debug.Log("Going into: Player Joker State");
+        Debug.Log("In Player Joker Execution State");
     }
     private void RunEnemyCardAI()
     {

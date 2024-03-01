@@ -33,4 +33,4 @@ MonoBehaviour:
   Inventory: []
   EquippedItems: []
   playerFingersInNextEncounter: 5
-  monsterFingers: 6
+  monsterFingers: 0

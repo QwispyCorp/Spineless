@@ -114,6 +114,22 @@ public class EnemyCardInteraction : MonoBehaviour
         return gameObject.CompareTag("JokerCard");
     }
 
+    public void ShowCard()
+    {
+        if (isSafeCard)
+        {
+            CardMesh.material = safeMaterial;
+        }
+        else if (isJokerCard)
+        {
+            CardMesh.material = jokerMaterial;
+        }
+        else
+        {
+            CardMesh.material = deathMaterial;
+        }
+    }
+
     void HandleSafeCardInteraction()
     {
         CardMesh.material = safeMaterial;
@@ -148,7 +164,7 @@ public class EnemyCardInteraction : MonoBehaviour
     }
     private void SwitchToPlayerTurn()
     {
-        if (isSelected) //if card has been selected (for animation finished event)
+        if (isSelected) //if card has been selected (to not include non-selected cards for removal when animation finished event broadcasts)
         {
             if (EnemyHealthTest.Instance.GetCurrentHealth() > 0) //if the player is still alive, switch to enemy turn
             {

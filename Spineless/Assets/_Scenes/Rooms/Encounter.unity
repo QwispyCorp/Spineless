@@ -1734,11 +1734,6 @@ PrefabInstance:
       propertyPath: cardSpawnPoint
       value: 
       objectReference: {fileID: 1608931367}
-    - target: {fileID: 748930836245372046, guid: 5f39b59ce863906429493ca0510d18a6,
-        type: 3}
-      propertyPath: totalDeathCards
-      value: 18
-      objectReference: {fileID: 0}
     - target: {fileID: 6446819219378937399, guid: 5f39b59ce863906429493ca0510d18a6,
         type: 3}
       propertyPath: m_LocalPosition.x

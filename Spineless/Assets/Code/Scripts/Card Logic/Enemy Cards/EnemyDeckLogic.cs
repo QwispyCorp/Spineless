@@ -115,6 +115,7 @@ public class EnemyDeckLogic : MonoBehaviour
             {
                 cardExists = true;
                 chosenCard.GetComponent<EnemyCardInteraction>().EnemyCardSelected();
+                break;
             }
         }
 
@@ -238,5 +239,13 @@ public class EnemyDeckLogic : MonoBehaviour
     public int CheckTableCards()
     {
         return tableCards.Count;
+    }
+
+    public void ShowAllCards()
+    {
+        for (int i = 0; i < tableCards.Count; i++)
+        {
+            tableCards[i].GetComponent<PlayerCardInteraction>().ShowCard();
+        }
     }
 }

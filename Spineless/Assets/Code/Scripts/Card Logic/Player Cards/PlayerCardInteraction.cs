@@ -105,7 +105,7 @@ public class PlayerCardInteraction : MonoBehaviour
     {
         PopUpTextManager.Instance.ShowScreen("Joker Card Screen"); //show joker screen overlay
         CardMesh.material = jokerMaterial; //change card material to joker material
-        StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerJokerExecution);
+        //StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerJokerExecution);
         if (OnJokerFlipped != null)
         {
             OnJokerFlipped?.Invoke(); //broadcast that a joker card has been flipped
@@ -147,12 +147,12 @@ public class PlayerCardInteraction : MonoBehaviour
     {
         if (isClicked == false && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn)
         {
-            StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerSafe);
             AudioManager.Instance.PlaySound("CardFlip" + UnityEngine.Random.Range(1, 3).ToString());
             isClicked = true;
 
             if (isSafeCard)
             {
+                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerSafe);
                 HandleSafeCardInteraction();
             }
             else if (isJokerCard)

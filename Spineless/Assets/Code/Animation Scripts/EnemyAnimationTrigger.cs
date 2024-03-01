@@ -33,16 +33,6 @@ public class EnemyAnimationTrigger : MonoBehaviour
     {
 
     }
-    private IEnumerator AnimationTurnDelay()
-    {
-        yield return new WaitForSeconds(CurrentEnemyChopAnimLength);
-
-        if (OnEnemyAnimationFinished != null)
-        {
-            Debug.Log("On Enemy Animation Finished");
-            OnEnemyAnimationFinished?.Invoke();
-        }
-    }
     void PlayChopAnimation()
     {
         switch (EnemyHealthTest.Instance.GetCurrentHealth())
@@ -74,6 +64,16 @@ public class EnemyAnimationTrigger : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+    private IEnumerator AnimationTurnDelay()
+    {
+        yield return new WaitForSeconds(CurrentEnemyChopAnimLength);
+
+        if (OnEnemyAnimationFinished != null)
+        {
+            Debug.Log("On Enemy Animation Finished");
+            OnEnemyAnimationFinished?.Invoke();
         }
     }
     public void UpdateAnimClipTimes()

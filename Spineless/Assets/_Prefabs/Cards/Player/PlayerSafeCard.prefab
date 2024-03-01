@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.006, y: 1, z: 0.01}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.0075000003, y: 1.25, z: 0.012499999}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -130,6 +130,7 @@ MonoBehaviour:
   deathMaterial: {fileID: 2100000, guid: 0bbc06bed2675c54289743b039ebf941, type: 2}
   jokerMaterial: {fileID: 2100000, guid: 419d1824de337fb47915ff5365d75bd3, type: 2}
   unflippedColor: {r: 0, g: 0, b: 0, a: 1}
+  CardMesh: {fileID: 0}
   cardRemoveDelayTime: 1
   jokerDelayTime: 1
   encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}
