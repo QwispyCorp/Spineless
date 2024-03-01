@@ -64,7 +64,6 @@ public class EnemyHealthTest : MonoBehaviour
         if (enemyHealth.Value <= 0)
         {
             //HUDManager.Instance.TurnOffHUD();
-            PlayerWinsEncounter();
             AudioManager.Instance.PlaySound("Riser");
             saveData.EncountersWon++;
             GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");

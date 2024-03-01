@@ -40,7 +40,7 @@ public class JokerCardCollector : MonoBehaviour
             }
         }
 
-        if (encounterData.JokerCardsCollected == jokerSpawnPoints.Length) //if max number of joker cards have been reached
+        if (encounterData.JokerCardsCollected == 3) //if max number of joker cards have been reached
         {
             if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn) //if it's currently the player's turn
             {
