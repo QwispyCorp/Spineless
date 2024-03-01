@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
         if (_instance != null && _instance != this)
         {
             globalMusicVolume.Value = 0.5f;
-            globalSoundVolume.Value = 0.8f;
+            globalSoundVolume.Value = 1f;
 
             Destroy(this.gameObject);
         }
@@ -107,6 +107,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound: " + name + " not found!");
             return;
         }
+        Debug.Log("Playing sound " + s.name);
         CurrentSound = s.name;
         CurrentSoundSource = s.source;
         s.source.PlayOneShot(s.source.clip, s.source.volume);

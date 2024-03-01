@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetEncounterWins: 5
   EncountersWon: 0
+  EncountersCleared: 0
   ShopVisited: 0
+  FirstEncounterEntered: 0
   BoardGenerated: 0
   GameBoard: {fileID: 0}
   TileSpacing: 0.041999996
   MasterItemPool:
   - {fileID: 11400000, guid: 0555ef7a5a0ff3045885f6a927c86003, type: 2}
   - {fileID: 11400000, guid: 6e2dd18ca168839469f92bfeb64e06f1, type: 2}
-  - {fileID: 11400000, guid: dfdbb2b719ba31c4eb3af241f027a943, type: 2}
   - {fileID: 11400000, guid: 16215195cff34a848a4f82a38dc365c1, type: 2}
   - {fileID: 11400000, guid: 9d94c58ce4d8640c8bd40dc252f84c78, type: 2}
   - {fileID: 11400000, guid: cca536367a10880429ac147964f44177, type: 2}
@@ -32,4 +33,4 @@ MonoBehaviour:
   Inventory: []
   EquippedItems: []
   playerFingersInNextEncounter: 5
-  monsterFingers: 0
+  monsterFingers: 6

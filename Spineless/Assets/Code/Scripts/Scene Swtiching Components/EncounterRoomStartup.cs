@@ -19,14 +19,20 @@ public class EncounterRoomStartup : MonoBehaviour
             playerDeck.totalDeathCards = 4;
             tutorialCanvas.SetActive(true);
             dotCanvas.SetActive(false);
-            saveData.FirstEncounterEntered = true;
+
+            StartCoroutine("TutorialDelay");
 
             //play tutorial
-            AudioManager.Instance.PlaySound("Tutorial2");
         }
     }
     void Start()
     {
+        if (saveData.FirstEncounterEntered == false)
+        {
+            AudioManager.Instance.PlaySound("Tutorial2");
+            saveData.FirstEncounterEntered = true;
+        }
+
         //AudioManager.Instance.PlayMusicTrack("Encounter Music"); //Play track for encounter
         saveData.ShopVisited = false; //every time player enters encounter room, reset shop availability
 
@@ -44,7 +50,7 @@ public class EncounterRoomStartup : MonoBehaviour
 
     private IEnumerator TutorialDelay()
     {
-        yield return new WaitForSeconds(tutorial2AudioClip.length);
+        yield return new WaitForSeconds(107);
         tutorialCanvas.SetActive(false);
         dotCanvas.SetActive(true);
     }
