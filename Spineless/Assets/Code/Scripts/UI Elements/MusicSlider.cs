@@ -18,14 +18,13 @@ public class MusicSlider : MonoBehaviour
     void Start()
     {
         musicSlider.onValueChanged.AddListener(val => AudioManager.Instance.SetMusicVolume(val)); //when slider value changes, update volume in audio manager
-        musicSlider.onValueChanged.AddListener(val => UpdateGlobalVolume(val));
+        musicSlider.onValueChanged.AddListener(val => UpdateGlobalVolume());
     }
 
-    void UpdateGlobalVolume(float newVolume)
+    void UpdateGlobalVolume()
     {
         if (OnMusicVolumeChanged != null)
         {
-            Debug.Log("Slider debug point");
             OnMusicVolumeChanged?.Invoke(); //SEND MESSAGE THAT MUSIC VOLUME CHANGED
         }
     }

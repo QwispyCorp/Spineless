@@ -32,6 +32,7 @@ public class AudioManager : MonoBehaviour
     //global volume values
     [SerializeField] private FloatReference globalSoundVolume;
     [SerializeField] private FloatReference globalMusicVolume;
+    [SerializeField] private AudioMixerGroup sfxMixer;
 
 
     void Awake()
@@ -60,6 +61,7 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.playOnAwake = s.playOnAwake;
+            s.source.outputAudioMixerGroup = sfxMixer;
         }
 
         foreach (Sound s in musicTracks)
@@ -111,16 +113,22 @@ public class AudioManager : MonoBehaviour
         CurrentSound = s.name;
         CurrentSoundSource = s.source;
         s.source.PlayOneShot(s.source.clip, s.source.volume);
-        MuffleMusic();
+        //MuffleMusic();
         Invoke("UnMuffleMusic", s.clip.length);
     }
     public void MuffleMusic()
     {
-        //CurrentTrackSource.volume = CurrentTrackSource.volume * .4f;
+        if (CurrentTrackSource != null)
+        {
+            CurrentTrackSource.volume = CurrentTrackSource.volume * .2f;
+        }
     }
     public void UnMuffleMusic()
     {
-        //CurrentTrackSource.volume = globalMusicVolume.Value;
+        if (CurrentTrackSource != null)
+        {
+            CurrentTrackSource.volume = globalMusicVolume.Value;
+        }
     }
     public void StopSound(string name) //Stop a sound by passing its name assigned in inspector. Usage outside of this class: AudioManager.Instance.StopSound("Sound Name");
     {
@@ -174,10 +182,10 @@ public class AudioManager : MonoBehaviour
         {
             s.source.Stop();
         }
-        foreach (Sound s in musicTracks)
-        {
-            s.source.Stop();
-        }
+        // foreach (Sound s in musicTracks)
+        // {
+        //     s.source.Stop();
+        // }
     }
 
     private IEnumerator FadeInMusic(Sound track, float duration)

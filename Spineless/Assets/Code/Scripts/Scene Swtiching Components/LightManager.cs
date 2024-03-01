@@ -27,6 +27,8 @@ public class LightManager : MonoBehaviour
     }
     private void EnvironmentSwitchTo(string newScene)
     {
+        AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
+
         if (newScene == "Encounter")
         {
             Debug.Log("Switching to Encounter Scene");

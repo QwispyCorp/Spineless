@@ -214,3 +214,4 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: a634d1ac0f1f76b4498dd4d7c7916606, type: 2}
+  sfxMixer: {fileID: 24300002, guid: 8ee0645ab7e51e54fa2509afdab3953f, type: 2}

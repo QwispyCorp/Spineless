@@ -4,22 +4,44 @@ using UnityEngine;
 
 public class PhonographVolumeUpdater : MonoBehaviour
 {
+    [SerializeField] private AudioSource[] phonographTracks;
     [SerializeField] private FloatReference globalMusicVolume;
-    [SerializeField] private AudioSource phonographTrack;
+    [SerializeField] private FloatReference globalSoundVolume;
+    [SerializeField] private AudioSource phonographMusicTrack;
     void OnEnable()
     {
-        MusicSlider.OnMusicVolumeChanged += UpdateVolume;
+        MusicSlider.OnMusicVolumeChanged += UpdateMusicVolume;
+        SoundsSlider.OnSoundVolumeChanged += UpdateSoundVolume;
     }
     void OnDisable()
     {
-        MusicSlider.OnMusicVolumeChanged += UpdateVolume;
+        MusicSlider.OnMusicVolumeChanged += UpdateMusicVolume;
+        SoundsSlider.OnSoundVolumeChanged -= UpdateSoundVolume;
     }
     void Start()
     {
-        phonographTrack.volume = globalMusicVolume.Value;
+        if (phonographMusicTrack != null)
+        {
+            phonographMusicTrack.volume = globalMusicVolume.Value;
+        }
+
+        foreach (AudioSource source in phonographTracks)
+        {
+            source.volume = globalSoundVolume.Value;
+        }
     }
-    void UpdateVolume()
+    void UpdateMusicVolume()
     {
-        phonographTrack.volume = globalMusicVolume.Value;
+        if (phonographMusicTrack != null)
+        {
+            phonographMusicTrack.volume = globalMusicVolume.Value;
+        }
+    }
+    void UpdateSoundVolume()
+    {
+        foreach (AudioSource source in phonographTracks)
+        {
+            source.volume = globalSoundVolume.Value;
+        }
     }
 }

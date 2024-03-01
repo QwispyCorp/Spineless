@@ -866,7 +866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.98039216}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1222,6 +1222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3296785730944001045, guid: d491037c5cb2d8944bf849836ebc9c37,
+        type: 3}
+      propertyPath: globalSoundsVolume.UseConstant
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4887028868726693281, guid: d491037c5cb2d8944bf849836ebc9c37,
         type: 3}

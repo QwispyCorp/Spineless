@@ -45,11 +45,11 @@ public class PauseManager : MonoBehaviour
         pauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        //Time.timeScale = 0;
+        Time.timeScale = 0;
     }
     public void ResumeGame()
     {
-        //Time.timeScale = 1;
+        Time.timeScale = 1;
         isPaused = false;
         pauseMenu.SetActive(false);
         if (currentScene == "Encounter")
@@ -69,6 +69,10 @@ public class PauseManager : MonoBehaviour
         {
             BoardGenerator.Instance.DestroyBoard();
         }
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
+        }
         SceneManager.LoadScene("MainMenu");
     }
     //-----------------------------------------------------
@@ -76,23 +80,35 @@ public class PauseManager : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         TransitionMenu.SetActive(true);
-        Invoke("TransitiontoOptions", 1f);
+        //Invoke("TransitiontoOptions", 1f);
+
+        StartCoroutine(LoadOptionsCoroutine());
     }
     public void TransitiontoOptions()
     {
         TransitionMenu.SetActive(false);
         OptionsMenu.SetActive(true);
     }
+    private IEnumerator LoadOptionsCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        TransitiontoOptions();
+    }
     //----------------------------------------------------
     public void LoadPause() //call this function on the button
     {
         OptionsMenu.SetActive(false);
         TransitionMenu.SetActive(true);
-        Invoke("TransitiontoPause", 1f);
+        StartCoroutine("LoadPauseCoroutine");
     }
     public void TransitiontoPause()
     {
         TransitionMenu.SetActive(false);
         pauseMenu.SetActive(true);
+    }
+    private IEnumerator LoadPauseCoroutine()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        TransitiontoPause();
     }
 }

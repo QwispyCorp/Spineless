@@ -10,19 +10,24 @@ public class EncounterRoomStartup : MonoBehaviour
     [SerializeField] private GameObject tutorialCanvas;
     [SerializeField] private GameObject dotCanvas;
     [SerializeField] private AudioClip tutorial2AudioClip;
+    private bool encounterStarted;
     private int entryHP;
     void Awake()
     {
         //play tutorial if this is their first time in an encounter
         if (saveData.FirstEncounterEntered == false)
         {
+            encounterStarted = false;
             playerDeck.totalDeathCards = 4;
             tutorialCanvas.SetActive(true);
             dotCanvas.SetActive(false);
 
             StartCoroutine("TutorialDelay");
-
             //play tutorial
+        }
+        else
+        {
+            encounterStarted = true;
         }
     }
     void Start()
@@ -33,7 +38,7 @@ public class EncounterRoomStartup : MonoBehaviour
             saveData.FirstEncounterEntered = true;
         }
 
-        //AudioManager.Instance.PlayMusicTrack("Encounter Music"); //Play track for encounter
+        AudioManager.Instance.PlayMusicTrack("Encounter Music"); //Play track for encounter
         saveData.ShopVisited = false; //every time player enters encounter room, reset shop availability
 
         //Set character's starting animation to proper finger count
@@ -50,7 +55,7 @@ public class EncounterRoomStartup : MonoBehaviour
 
     private IEnumerator TutorialDelay()
     {
-        yield return new WaitForSeconds(107);
+        yield return new WaitForSecondsRealtime(107);
         tutorialCanvas.SetActive(false);
         dotCanvas.SetActive(true);
     }
