@@ -14,6 +14,9 @@ public class StateManager : MonoBehaviour
     [SerializeField] private PlayerDeckLogic playerDeck;
     [SerializeField] private float enemyTurnTime;
 
+    public delegate void EnemyTurnStarted();
+    public static event EnemyTurnStarted OnEnemyTurnStarted;
+
     void Awake()
     {
         //on awake check for existence of manager and handle accordingly
@@ -101,13 +104,19 @@ public class StateManager : MonoBehaviour
     {
         Debug.Log("Going into: Enemy Turn State");
         Debug.Log("In Enemy Turn State");
+
+        if (OnEnemyTurnStarted != null)
+        {
+            OnEnemyTurnStarted?.Invoke();
+        }
+
         //Check if table is empty
         if (enemyDeck.CheckTableCards() == 0)
         {
             //if table is empty at beginning of enemy turn, redraw all cards
             enemyDeck.DrawHand();
         }
-        
+
         Invoke("RunEnemyCardAI", enemyTurnTime);
     }
     private void HandleEnemyDamage()

@@ -27,6 +27,9 @@ public class EnemyCardInteraction : MonoBehaviour
 
     public delegate void JokerExecutionCompleted2();
     public static event JokerExecutionCompleted2 OnJokerExecutionCompleted2;
+
+    public delegate void EnemyTurnFinished();
+    public static event EnemyTurnFinished OnEnemyTurnFinished;
     void OnEnable()
     {
         EnemyAnimationTrigger.OnEnemyAnimationFinished += SwitchToPlayerTurn;
@@ -168,7 +171,10 @@ public class EnemyCardInteraction : MonoBehaviour
         {
             if (EnemyHealthTest.Instance.GetCurrentHealth() > 0) //if the player is still alive, switch to enemy turn
             {
-                Debug.Log("In Switch to Player Turn");
+                if (OnEnemyTurnFinished != null)
+                {
+                    OnEnemyTurnFinished?.Invoke();
+                }
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
 
                 enemyDeck.RemoveCardFromTable(gameObject); //remove the card from the table
@@ -186,10 +192,9 @@ public class EnemyCardInteraction : MonoBehaviour
         }
         else if (isJokerCard)
         {
-            enemyDeck.RemoveCardFromTable(gameObject);//if it's a joker card, remove immediately after the delay ends to allow joker execution state
             if (encounterData.JokerCardsCollected != 3)
             {
-                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
+                Invoke("SwitchToPlayerTurn", cardRemoveDelayTime);
             }
         }
 

@@ -3700,6 +3700,7 @@ MonoBehaviour:
   senseX: 40
   senseY: 40
   orientation: {fileID: 202356901}
+  camLookUpSpeed: 2
 --- !u!1001 &1220179543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4026,27 +4027,27 @@ PrefabInstance:
     - target: {fileID: 9024709631469209217, guid: 51cee8cc1ecb0f145938220c940a6042,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98756903
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9024709631469209217, guid: 51cee8cc1ecb0f145938220c940a6042,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1571863
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024709631469209217, guid: 51cee8cc1ecb0f145938220c940a6042,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024709631469209217, guid: 51cee8cc1ecb0f145938220c940a6042,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024709631469209217, guid: 51cee8cc1ecb0f145938220c940a6042,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 18.087
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024709631469209217, guid: 51cee8cc1ecb0f145938220c940a6042,
         type: 3}
@@ -4903,7 +4904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1572291226
 MonoBehaviour:
   m_ObjectHideFlags: 0
