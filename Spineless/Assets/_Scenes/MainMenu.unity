@@ -2351,6 +2351,11 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1033530144}
+    - target: {fileID: 3010259925918764630, guid: 19eb78789a374b34f856494cce171e1b,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: QuitGame
+      objectReference: {fileID: 0}
     - target: {fileID: 3307853838200955747, guid: 19eb78789a374b34f856494cce171e1b,
         type: 3}
       propertyPath: m_Name

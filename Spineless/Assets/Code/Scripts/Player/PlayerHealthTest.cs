@@ -16,6 +16,8 @@ public class PlayerHealthTest : MonoBehaviour
     [SerializeField] private EncounterData encounterData;
     public delegate void PlayerFingerLost();
     public static event PlayerFingerLost OnPlayerFingerLost;
+    public delegate void PlayerFingerGained();
+    public static event PlayerFingerGained OnPlayerFingerGained;
     private static PlayerHealthTest _instance;
     public static PlayerHealthTest Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
 
@@ -55,6 +57,13 @@ public class PlayerHealthTest : MonoBehaviour
                 OnPlayerFingerLost?.Invoke(); //invoke finger lost event
             }
         }
+        else if (amount > 0) //if player health change is positive
+        {
+            if (OnPlayerFingerGained != null)
+            {
+                OnPlayerFingerGained?.Invoke(); //invoke finger lost event
+            }
+        }
         playerHealth.Value += amount;
         //healthText.SetText("Fingers: " + playerHealth.Value);
     }
@@ -75,7 +84,7 @@ public class PlayerHealthTest : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             //HUDManager.Instance.TurnOffHUD();
-            saveData.playerFingersInNextEncounter -= 2; 
+            saveData.playerFingersInNextEncounter -= 2;
             if (saveData.playerFingersInNextEncounter <= 0) //if player's perma health drops below 0
             {
                 //player perma loses

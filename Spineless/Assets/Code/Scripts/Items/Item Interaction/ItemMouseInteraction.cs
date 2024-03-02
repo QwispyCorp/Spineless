@@ -26,6 +26,8 @@ public class ItemMouseInteraction : MonoBehaviour
     private Transform[] trayTransforms;
     private Transform[] cabinetTransforms;
     private string currentRoom;
+    private GameObject itemRoomSpawnPoint1;
+    private GameObject itemRoomSpawnPoint2;
     public delegate void ItemPurchased();
     public static event ItemPurchased OnItemPurchased;
 
@@ -135,6 +137,9 @@ public class ItemMouseInteraction : MonoBehaviour
                 Debug.LogWarning("Could not find Item Room TV Text object.");
             }
 
+            itemRoomSpawnPoint1 = GameObject.Find("Spawn Point 1");
+            itemRoomSpawnPoint2 = GameObject.Find("Spawn Point 2");
+
             //turn off encounter tv text
             if (GameObject.Find("Death Card Text") != null)
             {
@@ -192,7 +197,7 @@ public class ItemMouseInteraction : MonoBehaviour
 
     void Start()
     {
-
+        
     }
     //-------------------------------------WHEN PLAYER HOVERS OVER ITEM WITH CURSOR 
     private void OnMouseEnter()
@@ -363,6 +368,8 @@ public class ItemMouseInteraction : MonoBehaviour
             AudioManager.Instance.PlaySound(itemName);//play the item's sound effect during transition
             //turn off HUD all elements
             LightManager.Instance.StartFlickeringTransitionTo("GameBoard"); //switch back to game board room
+            itemRoomSpawnPoint1.SetActive(false);
+            itemRoomSpawnPoint2.SetActive(false);
         }
         //ITEM FUNCTIONALITY FOR SHOP ROOM ---------------------------------
         if (currentRoom == "ShopRoom")

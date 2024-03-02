@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3872379041820847355}
   - component: {fileID: -3053793001769943321}
   - component: {fileID: 8715152702217755467}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stapler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 5947535878869375838}
   - component: {fileID: 3384708159594318965}
   - component: {fileID: 9064337713394644844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 2446532633004905435}
   - component: {fileID: 6846748961927684859}
   - component: {fileID: 186417108820501661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: StaplerShell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

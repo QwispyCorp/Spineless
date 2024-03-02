@@ -17,10 +17,12 @@ public class PlayerAnimationTrigger : MonoBehaviour
 
     void OnEnable()
     {
+        PlayerHealthTest.OnPlayerFingerGained += GainFinger;
         PlayerHealthTest.OnPlayerFingerLost += PlayChopAnimation;
     }
     void OnDisable()
     {
+        PlayerHealthTest.OnPlayerFingerGained -= GainFinger;
         PlayerHealthTest.OnPlayerFingerLost -= PlayChopAnimation;
     }
 
@@ -57,6 +59,27 @@ public class PlayerAnimationTrigger : MonoBehaviour
                 CurrentChopAnimLength = lengthChop5;
                 playerAnimator.SetTrigger("Chop 5");
                 StartCoroutine("AnimationTurnDelay");
+                break;
+            default:
+                break;
+        }
+    }
+
+    void GainFinger()
+    {
+        switch (PlayerHealthTest.Instance.GetCurrentHealth())
+        {
+            case 1:
+                playerAnimator.SetTrigger("Idle 2");
+                break;
+            case 2:
+                playerAnimator.SetTrigger("Idle 3");
+                break;
+            case 3:
+                playerAnimator.SetTrigger("Idle 4");
+                break;
+            case 4:
+                playerAnimator.SetTrigger("Idle 5");
                 break;
             default:
                 break;
