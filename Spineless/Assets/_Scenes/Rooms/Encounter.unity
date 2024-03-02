@@ -4533,31 +4533,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Menu Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2395641058675145442, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2395641058675145442, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2395641058675145442, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2395641058675145442, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2395641058675145442, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
-        type: 3}
-      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.Animator, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 4922966530239442410, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
         type: 3}
       propertyPath: m_LocalPosition.x

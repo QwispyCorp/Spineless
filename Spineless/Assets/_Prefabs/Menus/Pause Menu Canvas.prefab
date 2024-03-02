@@ -209,6 +209,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 2469787550556269826}
   OptionsMenu: {fileID: 480261592542292979}
   TransitionMenu: {fileID: 4655625255963217884}
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
 --- !u!1 &2469787550556269826
 GameObject:
   m_ObjectHideFlags: 0

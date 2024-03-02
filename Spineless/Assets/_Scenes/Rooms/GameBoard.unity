@@ -5245,6 +5245,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 257637886216935011, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
+        type: 3}
+      propertyPath: saveData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089,
+        type: 2}
     - target: {fileID: 1072119782020277009, guid: 89ad446b8965a4d499e3e88a9f50a7c2,
         type: 3}
       propertyPath: m_Name

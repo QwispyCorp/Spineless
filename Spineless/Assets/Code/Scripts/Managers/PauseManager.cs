@@ -74,6 +74,7 @@ public class PauseManager : MonoBehaviour
         {
             AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
         }
+        Time.timeScale = 1;
         saveData.ClearAllData();
         SceneManager.LoadScene("MainMenu");
     }
