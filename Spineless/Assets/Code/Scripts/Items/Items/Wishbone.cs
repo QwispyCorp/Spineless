@@ -11,6 +11,7 @@ public class Wishbone : MonoBehaviour, Interactable
         //play wishbone animation
         //activate effect after item animation plays
         StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyTurn);
+        gameObject.SetActive(false);
         
     }
 }

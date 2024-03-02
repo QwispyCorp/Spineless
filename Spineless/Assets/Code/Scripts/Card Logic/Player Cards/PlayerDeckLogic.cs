@@ -128,7 +128,7 @@ public class PlayerDeckLogic : MonoBehaviour
             {
                 Vector3 spawnPosition = cardSpawnPoint.transform.position + new Vector3(tableCards.Count * cardSpacing, 0f, 0f);
 
-                GameObject card = Instantiate(drawnCard, spawnPosition, Quaternion.identity);
+                GameObject card = Instantiate(drawnCard, spawnPosition, new Quaternion(0, 180, 0, 1));
                 //card.AddComponent<CardInteractLogic>(); // Add CardInteractLogic script to each card
 
                 // Add the card to the list of table cards
@@ -182,5 +182,15 @@ public class PlayerDeckLogic : MonoBehaviour
     public int CheckTableCards()
     {
         return tableCards.Count;
+    }
+
+    public void RefreshTable()
+    {
+        // Remove all cards from the table
+        foreach (GameObject card in tableCards)
+        {
+            Destroy(card);
+        }
+        tableCards.Clear(); // Clear the list
     }
 }

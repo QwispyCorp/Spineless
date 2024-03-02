@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//very ugly tv text loader 
+
+
+//very, VERY ugly tv text loader that could've been done better but oh well
 public class TVTextLoader : MonoBehaviour
 {
     [SerializeField] private PlayerSaveData saveData;
@@ -56,7 +58,7 @@ public class TVTextLoader : MonoBehaviour
             }
             if (GameObject.Find("Game Board Room Text") != null)
             {
-                GameObject.Find("Game Board Room Text").SetActive(false);
+                GameObject.Find("Game Board Room Text").SetActive(true);
             }
 
             if (GameObject.Find("Shop Room Text") != null)

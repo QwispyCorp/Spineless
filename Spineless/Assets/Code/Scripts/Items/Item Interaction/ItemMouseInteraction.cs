@@ -317,6 +317,19 @@ public class ItemMouseInteraction : MonoBehaviour
     //-------------------------------------WHEN PLAYER CLICKS ON ITEM WITH CURSOR 
     private void OnMouseDown()
     {
+        //ITEM FUNCTIONALITY FOR ENCOUNTER ROOM -----------------------------------------------------------
+        if (currentRoom == "Encounter") //if in game board room, equip or unequip item
+        {
+            if (itemTextObject)
+            {
+                itemTextObject.SetActive(false); //turn off the item text description
+            }
+            if (encounterTVTextObject)
+            {
+                encounterTVTextObject.SetActive(false); //turn on the tv text
+            }
+            ConsumeItem();
+        }
 
         //ITEM FUNCTIONALITY FOR GAME BOARD ROOM -----------------------------------------------------------
         if (currentRoom == "GameBoard") //if in game board room, equip or unequip item
@@ -434,6 +447,11 @@ public class ItemMouseInteraction : MonoBehaviour
     {
         saveData.Inventory.Add(itemSO);
         Destroy(gameObject);
+    }
+    private void ConsumeItem()
+    {
+        saveData.EquippedItems.Remove(itemSO);
+        //in encounter room, item is destroyed in its effect script
     }
 
 }

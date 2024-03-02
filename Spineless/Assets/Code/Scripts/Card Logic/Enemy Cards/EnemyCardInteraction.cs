@@ -293,8 +293,6 @@ public class EnemyCardInteraction : MonoBehaviour
             {
                 OnJokerExecutionCompleted2?.Invoke();
             }
-            //switch to enemy turn
-            StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyTurn);
         }
         //otherwise, the monster is dead and the enemy health system will execute the win condition logic
     }

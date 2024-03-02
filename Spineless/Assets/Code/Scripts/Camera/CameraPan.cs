@@ -50,8 +50,8 @@ public class CameraPan : MonoBehaviour
             yRotation += mouseX;
             xRotation -= mouseY;
 
-            xRotation = Mathf.Clamp(xRotation, -70f, 70f); //limit player camera vertical rotation
-            yRotation = Mathf.Clamp(yRotation, -60f, 60f); //limit player camera horizontal rotation
+            xRotation = Mathf.Clamp(xRotation, -16f, 52f); //limit player camera vertical rotation
+            yRotation = Mathf.Clamp(yRotation, -60f, 60); //limit player camera horizontal rotation
 
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.localRotation = Quaternion.Euler(0, yRotation, 0);

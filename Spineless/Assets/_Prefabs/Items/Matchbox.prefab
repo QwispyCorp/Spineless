@@ -1309,6 +1309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a964b2ffa62c34bd58119c6564fa5e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDeck: {fileID: 0}
+  encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}
 --- !u!114 &-3679381436417433241
 MonoBehaviour:
   m_ObjectHideFlags: 0
