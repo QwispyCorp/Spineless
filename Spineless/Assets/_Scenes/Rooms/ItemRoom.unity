@@ -682,47 +682,52 @@ PrefabInstance:
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.852696
+      value: 1.0046272
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.1112307
+      value: 1.3092271
+      objectReference: {fileID: 0}
+    - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9749859
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.012300007
+      value: 0.00010000625
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9998643
+      value: 0.99995244
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.000002291053
+      value: 0.0000016130504
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.016479226
+      value: 0.009758165
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00010219034
+      value: -0.000102202124
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.030499965
+      value: -0.04249999
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.009000033
+      value: 0.0019999924
       objectReference: {fileID: 0}
     - target: {fileID: 4283699858504488619, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -783,31 +788,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 15f135491e8a9924e9a8d8baf97c10c0,
+      objectReference: {fileID: 32900000, guid: 9e5408e7fc33b6f4dbd520ceb96a3c6d,
         type: 3}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_ControlledAudioTrackCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_DirectAudioMutes.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_DirectAudioVolumes.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_EnabledAudioTracks.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_TargetAudioSources.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_DirectAudioMutes.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1944,7 +1954,6 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
