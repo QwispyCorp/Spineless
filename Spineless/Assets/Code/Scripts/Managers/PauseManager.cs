@@ -10,6 +10,7 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject OptionsMenu;
     public GameObject TransitionMenu;
+    [SerializeField] private PlayerSaveData saveData;
 
     private bool isPaused = false;
     private string currentScene;
@@ -73,6 +74,7 @@ public class PauseManager : MonoBehaviour
         {
             AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
         }
+        saveData.ClearAllData();
         SceneManager.LoadScene("MainMenu");
     }
     //-----------------------------------------------------

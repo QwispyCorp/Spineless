@@ -26,6 +26,11 @@ public class PlayerSaveData : ScriptableObject
 
     private void OnDisable()
     { // reset all data on disable
+        ClearAllData();
+    }
+
+    public void ClearAllData()
+    {
         Inventory.Clear();
         EquippedItems.Clear();
         BoardGenerated = false;

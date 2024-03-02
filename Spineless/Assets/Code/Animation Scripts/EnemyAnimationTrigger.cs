@@ -38,7 +38,7 @@ public class EnemyAnimationTrigger : MonoBehaviour
         switch (EnemyHealthTest.Instance.GetCurrentHealth())
         {
             case 1:
-                CurrentEnemyChopAnimLength = lengthChop1;
+                CurrentEnemyChopAnimLength = 7;
                 enemyAnimator.SetTrigger("Chop 1");
                 StartCoroutine("AnimationTurnDelay");
                 break;

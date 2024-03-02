@@ -171,6 +171,48 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: LightSwitch1
+    clip: {fileID: 8300000, guid: c5423dda92a1f6541bfd6e6b6aa2b211, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: LightSwitch2
+    clip: {fileID: 8300000, guid: 100ac358613d2df47a713fc0e8fab884, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: LightSwitch3
+    clip: {fileID: 8300000, guid: 77e839af2344cb548bd568eb8b83372d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: LightSwitch4
+    clip: {fileID: 8300000, guid: e5ca1a6b05355f645ad8dade9dd4f091, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: LightSwitch5
+    clip: {fileID: 8300000, guid: 1909d8bfa65281f4eb9935d76a3c4697, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: LightSwitch6
+    clip: {fileID: 8300000, guid: f3dd62d123640dc44a46d28bd8d8be06, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   musicTracks:
   - name: Title Music
     clip: {fileID: 8300000, guid: 8929767d4fc07034b9e48a4dbd9f8bb3, type: 3}

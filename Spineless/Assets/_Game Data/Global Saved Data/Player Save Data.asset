@@ -16,7 +16,7 @@ MonoBehaviour:
   EncountersWon: 0
   EncountersCleared: 0
   ShopVisited: 0
-  FirstEncounterEntered: 0
+  FirstEncounterEntered: 1
   BoardGenerated: 0
   GameBoard: {fileID: 0}
   TileSpacing: 0.041999996

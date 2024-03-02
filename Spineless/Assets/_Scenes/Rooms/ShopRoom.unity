@@ -1723,7 +1723,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 593255537}
         m_TargetAssemblyTypeName: LightManager, Assembly-CSharp
         m_MethodName: StartFlickeringTransitionTo
         m_Mode: 5
@@ -3671,6 +3671,76 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2994231584433397465, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9.289034
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994231584433397465, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9.289034
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994231584433397465, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9.289034
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994231584433397465, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.4413998
+      objectReference: {fileID: 0}
+    - target: {fileID: 2994231584433397465, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.86
+      objectReference: {fileID: 0}
+    - target: {fileID: 4498273636573388097, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0342
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968884240997365922, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 14.213967
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968884240997365922, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 14.213967
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968884240997365922, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 14.213967
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968884240997365922, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4968884240997365922, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.0123
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395346274687613319, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 9.289034
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395346274687613319, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 9.289034
+      objectReference: {fileID: 0}
+    - target: {fileID: 7395346274687613319, guid: e0123d0ea1d94b24ab650d032d99ca0c,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9.289034
+      objectReference: {fileID: 0}
     - target: {fileID: 7777133843420557751, guid: e0123d0ea1d94b24ab650d032d99ca0c,
         type: 3}
       propertyPath: m_Name

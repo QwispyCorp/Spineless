@@ -67,52 +67,67 @@ public class LightManager : MonoBehaviour
     private IEnumerator FlickerTransition()
     {
         //Flicker Off 
+        AudioManager.Instance.PlaySound("LightSwitch1"); //light off
         Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch2"); //light on
         Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch1"); //light off
         Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch2"); //light on
         Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch1"); //light off
         Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch2"); //light on
         Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch1"); //light off
         Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
 
         yield return new WaitForSeconds(2f);
-        
+
         EnvironmentSwitchTo(_newSceneName);
         StopCoroutine("FlickerTransition");
     }
     private IEnumerator SwitchLightOn()
     {
+
+        AudioManager.Instance.PlaySound("LightSwitch" + UnityEngine.Random.Range(1, 6)); //light on
         Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch" + UnityEngine.Random.Range(1, 6)); //light off
         Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch" + UnityEngine.Random.Range(1, 6)); //light on
         Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch" + UnityEngine.Random.Range(1, 6)); //light off
         Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch" + UnityEngine.Random.Range(1, 6)); //light on
         Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch" + UnityEngine.Random.Range(1, 6)); ; //light off
         Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
         yield return new WaitForSeconds(timeDelay);
+        AudioManager.Instance.PlaySound("LightSwitch" + UnityEngine.Random.Range(1, 6)); //light on
         Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
         StopCoroutine(SwitchLightOn());
