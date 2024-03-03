@@ -5,11 +5,7 @@ using UnityEngine;
 public class Tutorial1Skipper : MonoBehaviour
 {
     private bool isPressed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject tutorialSubtitles;
 
     // Update is called once per frame
     void Update()
@@ -20,6 +16,7 @@ public class Tutorial1Skipper : MonoBehaviour
             AudioManager.Instance.StopAllSounds();
             LightManager.Instance.StartFlickeringTransitionTo("GameBoard");
             AudioManager.Instance.UnMuffleMusic();
+            tutorialSubtitles.SetActive(false);
         }
     }
 }

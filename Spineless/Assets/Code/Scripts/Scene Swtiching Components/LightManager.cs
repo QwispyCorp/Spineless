@@ -10,6 +10,9 @@ public class LightManager : MonoBehaviour
     public GameObject Lights;
     public static LightManager Instance { get { return _instance; } }
 
+    public delegate void LightFlickeredOn();
+    public static event LightFlickeredOn OnLightFlickeredOn;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -130,6 +133,10 @@ public class LightManager : MonoBehaviour
         AudioManager.Instance.PlaySound("LightSwitch" + UnityEngine.Random.Range(1, 6)); //light on
         Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
+        if (OnLightFlickeredOn != null)
+        {
+            OnLightFlickeredOn?.Invoke();
+        }
         StopCoroutine(SwitchLightOn());
 
     }
