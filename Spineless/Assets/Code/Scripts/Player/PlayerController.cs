@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
@@ -13,24 +15,18 @@ public class PlayerController : MonoBehaviour
     private bool tileEventTriggered;
     private bool shopTileTriggered;
     private bool itemTileTriggered;
+    private bool winTileTriggered;
     private bool monsterTileTriggered;
     private GameObject collidedObject;
     [SerializeField] private GameObject playerInteractCanvas;
     [SerializeField] private PlayerSaveData saveData;
     [SerializeField] private float tileSpacing; // for movement, changes based on board tile scaling
-    [SerializeField] private float playerSlideSpeed; //speed at which player slides to next tile
     public GameObject board;
     public Animator CameraAni;
     public bool playerOnBoard;
     private int wallLayerMask;
-    private bool isMoving;
-    private bool moveUp;
-    private bool moveDown;
-    private bool moveLeft;
-    private bool moveRight;
     void Start()
     {
-        isMoving = false;
         playerOnBoard = false;
         //AudioManager.Instance.PlayMusicTrack("Encounter Music");
         playerInteractCanvas.SetActive(true);
@@ -44,6 +40,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * tileSpacing, Color.green);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * tileSpacing, Color.green);
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.left) * tileSpacing, Color.green);
@@ -100,6 +98,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Win Tile") && playerOnBoard)
         {
+            AudioManager.Instance.PlaySound("Riser");
+            tileEventTriggered = true;
+            winTileTriggered = true;
             HandleWinTile(collidedObject);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
@@ -150,9 +151,9 @@ public class PlayerController : MonoBehaviour
     private void HandleWinTile(GameObject tile)
     {
         tile.GetComponent<TileTrigger>().FlipTile();
-        Destroy(board);
-        PopUpTextManager.Instance.ShowScreen("Win Screen");
+        playerInteractCanvas.SetActive(false);
         Debug.Log("Player on WinTile");
+        Invoke("SwitchRooms", 2);
     }
     private void HandleShopTile(GameObject tile)
     {
@@ -186,6 +187,10 @@ public class PlayerController : MonoBehaviour
                 else if (monsterTileTriggered) //switch scene to encounter
                 {
                     LightManager.Instance.StartFlickeringTransitionTo("Encounter");
+                }
+                else if (winTileTriggered) //switch to winning scene for ending animations
+                {
+                    LightManager.Instance.StartFlickeringTransitionTo("WinScene");
                 }
             }
         }

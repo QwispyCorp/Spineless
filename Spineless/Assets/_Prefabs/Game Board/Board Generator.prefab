@@ -55,8 +55,8 @@ MonoBehaviour:
   emptyTile: {fileID: 1018420391625252070, guid: 7f3348fd6e7d3f840b745e6f85a33c4d,
     type: 3}
   winTile: {fileID: 8320977018185505982, guid: 7f20d1d051fca35428f0a15ae33d70f7, type: 3}
-  maxEncounterTiles: 12
-  maxItemTiles: 15
+  maxEncounterTiles: 15
+  maxItemTiles: 20
   maxShopTiles: 1
   boardGenerated: 0
   tileScaleFactor: 1.05

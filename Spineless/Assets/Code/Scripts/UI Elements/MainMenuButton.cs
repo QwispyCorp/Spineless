@@ -14,7 +14,11 @@ public class MainMenuButton : MonoBehaviour
 
         if (AudioManager.Instance != null)
         {
-            AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
+            if (AudioManager.Instance.CurrentTrack != null)
+            {
+                AudioManager.Instance.StopAllSounds();
+                AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
+            }
         }
         SceneManager.LoadScene("MainMenu");
     }
