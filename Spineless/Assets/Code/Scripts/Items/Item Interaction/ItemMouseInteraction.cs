@@ -30,7 +30,7 @@ public class ItemMouseInteraction : MonoBehaviour
     private GameObject itemRoomSpawnPoint2;
     public delegate void ItemPurchased();
     public static event ItemPurchased OnItemPurchased;
-
+   
     void Awake()
     {
         currentRoom = SceneManager.GetActiveScene().name;
@@ -197,7 +197,7 @@ public class ItemMouseInteraction : MonoBehaviour
 
     void Start()
     {
-        
+        itemTextObject.SetActive(false);
     }
     //-------------------------------------WHEN PLAYER HOVERS OVER ITEM WITH CURSOR 
     private void OnMouseEnter()
@@ -240,21 +240,9 @@ public class ItemMouseInteraction : MonoBehaviour
         if (itemTextObject)
         {
             itemTextObject.SetActive(true); //turn on item text
-            if (currentRoom == "ItemRoom")
-            {
-                itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription + Environment.NewLine + "Collect?"); //update item text object
-            }
-            else if (currentRoom == "ShopRoom")
+            if (currentRoom == "ShopRoom")
             {
                 itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription + Environment.NewLine + "Finger Cost: " + itemValue); //update item text object
-            }
-            else if (currentRoom == "Encounter")
-            {
-                itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription); //update item text object
-            }
-            else if (currentRoom == "GameBoard")
-            {
-                itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription); //update item text object
             }
         }
         if (encounterTVTextObject)
