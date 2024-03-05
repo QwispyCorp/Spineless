@@ -18,6 +18,7 @@ public class PlayerCardInteraction : MonoBehaviour
     public Material jokerMaterial;
     public Color unflippedColor = Color.black;
     [HideInInspector] public MeshRenderer CardMesh;
+    [HideInInspector] public Animator CardAnimator;
 
     private PlayerDeckLogic playerDeck; // Reference to the playerDeckLogic script
     [SerializeField] private float cardRemoveDelayTime;
@@ -44,6 +45,8 @@ public class PlayerCardInteraction : MonoBehaviour
 
         //Assign card mesh for highlighting
         CardMesh = GetComponent<MeshRenderer>();
+
+        CardAnimator = GetComponent<Animator>();
 
         //Start card with unflipped material
         CardMesh.material = cardBackMaterial;
@@ -82,6 +85,7 @@ public class PlayerCardInteraction : MonoBehaviour
         {
             CardMesh.material = deathMaterial;
         }
+        CardAnimator.SetTrigger("Flip");
     }
 
     void HandleSafeCardInteraction()

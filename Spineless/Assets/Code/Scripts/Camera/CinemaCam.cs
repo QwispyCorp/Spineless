@@ -18,6 +18,7 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("F2C");
+        AudioManager.Instance.PlaySound("CabinetOpen");
         yield return new WaitForSeconds(1.5f);
         Cursor.visible = true;
     }
@@ -30,6 +31,8 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("C2F");
+         yield return new WaitForSeconds(0.9f);
+        AudioManager.Instance.PlaySound("CabinetClose");
         yield return new WaitForSeconds(1.5f);
         Cursor.visible = true;
     }
