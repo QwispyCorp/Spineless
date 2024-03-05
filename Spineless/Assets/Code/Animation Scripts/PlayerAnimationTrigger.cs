@@ -65,7 +65,7 @@ public class PlayerAnimationTrigger : MonoBehaviour
         }
     }
 
-    void GainFinger()
+    void GainFinger() //Stapler animations with time delay will go here?
     {
         switch (PlayerHealthTest.Instance.GetCurrentHealth())
         {
@@ -92,6 +92,13 @@ public class PlayerAnimationTrigger : MonoBehaviour
         if (PlayerHealthTest.Instance.GetCurrentHealth() == 0)
         {
             //play lose animation? or whatever
+
+            //wait time for lose animation to end?
+            //then let player health manager know losing animations are finished
+            if (OnAnimationFinished != null)
+            {
+                OnAnimationFinished?.Invoke();
+            }
         }
         else
         {

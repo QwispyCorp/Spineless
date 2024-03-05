@@ -83,7 +83,6 @@ public class PlayerHealthTest : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
-            //HUDManager.Instance.TurnOffHUD();
             saveData.playerFingersInNextEncounter -= 2;
             if (saveData.playerFingersInNextEncounter <= 0) //if player's perma health drops below 0
             {
