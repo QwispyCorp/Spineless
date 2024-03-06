@@ -53,13 +53,12 @@ public class TVTextLoader : MonoBehaviour
         //GAME BOARD ROOM FUNCTIONALITY
         if (currentRoom == "GameBoard")
         {
-            if(GameObject.Find("Video Screen") != null){
+            if (GameObject.Find("Video Screen") != null)
+            {
                 GameObject.Find("Video Screen").SetActive(false);
             }
-            if (GameObject.Find("Game Board Room Text") != null)
-            {
-                GameObject.Find("Game Board Room Text").SetActive(true);
-            }
+
+            StartCoroutine("ShutOffDelay"); //Delay shut off of gameboard TV 
 
             if (GameObject.Find("Shop Room Text") != null)
             {
@@ -71,7 +70,7 @@ public class TVTextLoader : MonoBehaviour
             }
             if (GameObject.Find("Item Room Text") != null)
             {
-                GameObject.Find("Item Room Text").SetActive(false);
+                GameObject.Find("Item Room Text").SetActive(true);
             }
         }
         //ITEM ROOM FUNCTIONALITY
@@ -113,6 +112,15 @@ public class TVTextLoader : MonoBehaviour
             {
                 GameObject.Find("Game Board Room Text").SetActive(false);
             }
+        }
+    }
+
+    private IEnumerator ShutOffDelay()
+    {
+        yield return new WaitForSeconds(1);
+        if (GameObject.Find("Game Board Room Text") != null)
+        {
+            GameObject.Find("Game Board Room Text").SetActive(false);
         }
     }
 }

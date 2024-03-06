@@ -2616,7 +2616,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3705,6 +3705,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 189514510361076759, guid: d2c60632c027e924282d817f5aeaa41c,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2374575467736568649, guid: d2c60632c027e924282d817f5aeaa41c,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3726,6 +3731,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 32900000, guid: 2a05b97f25de1814496cfe83cf7dc528,
         type: 3}
+    - target: {fileID: 5431454274483831490, guid: d2c60632c027e924282d817f5aeaa41c,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6785070985096306828, guid: d2c60632c027e924282d817f5aeaa41c,
         type: 3}
       propertyPath: m_LocalScale.x
