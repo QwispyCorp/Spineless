@@ -176,6 +176,7 @@ public class PlayerCardInteraction : MonoBehaviour
         {
             CardAnimator.SetTrigger("Flip");
             AudioManager.Instance.PlaySound("CardFlip" + UnityEngine.Random.Range(1, 3).ToString());
+            CardMesh.material.SetColor("_EmissiveColor", unHighlightColor); //unhighlight card
             isClicked = true;
 
             if (isSafeCard)

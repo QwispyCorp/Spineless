@@ -19,7 +19,7 @@ public class CameraPan : MonoBehaviour
 
     void OnEnable()
     {
-        StateManager.OnEnemyTurnStarted += PlayerLookUp;
+        StateManager.OnEnemyTurnStarted += PlayerLookMid;
         EnemyCardInteraction.OnEnemyTurnFinished += UnlockCamera;
         PlayerHealthTest.OnPlayerFingerLost += PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost += PlayerLookUp;
@@ -28,7 +28,7 @@ public class CameraPan : MonoBehaviour
 
     void OnDisable()
     {
-        StateManager.OnEnemyTurnStarted -= PlayerLookUp;
+        StateManager.OnEnemyTurnStarted -= PlayerLookMid;
         EnemyCardInteraction.OnEnemyTurnFinished -= UnlockCamera;
         PlayerHealthTest.OnPlayerFingerLost -= PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerLookUp;
@@ -39,6 +39,7 @@ public class CameraPan : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked; //change to locked when we fix raycast interaction for items and add crosshair/ dot in center of screen
         playerLookingUp = false;
+        playerLookingMid = false;
         Cursor.visible = false; //change to false when above is changed to locked
 
         _senseX = senseX;
@@ -61,20 +62,24 @@ public class CameraPan : MonoBehaviour
             transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
         }
-        if (playerLookingUp)
+        if (playerLookingUp && !playerLookingMid)
         {
             transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
             xRotation = transform.localRotation.x; //to prevent snapbacks
             yRotation = transform.localRotation.y; //to prevent snapbacks
             orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
+            mouseX = 0;
+            mouseY = 0;
         }
 
-        if (playerLookingMid)
+        if (playerLookingMid && !playerLookingUp)
         {
             transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0.4f, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
             xRotation = transform.localRotation.x; //to prevent snapbacks
             yRotation = transform.localRotation.y; //to prevent snapback
             orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
+            mouseX = 0;
+            mouseY = 0;
         }
     }
 

@@ -140,8 +140,8 @@ public class EnemyCardInteraction : MonoBehaviour
 
     void HandleSafeCardInteraction()
     {
-        CardMesh.material = safeMaterial;
-        PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen 
+        //CardMesh.material = safeMaterial;
+        //PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen 
         StartCoroutine(CardRemoveDelay());
         Debug.Log("Enemy safe card!");
     }
@@ -151,8 +151,8 @@ public class EnemyCardInteraction : MonoBehaviour
         //Chopping finger animation goes here
         AudioManager.Instance.PlaySound("SeveredHand");
         saveData.monsterFingers++; //increase monster fingers player currency
-        CardMesh.material = deathMaterial;
-        PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen 
+        //CardMesh.material = deathMaterial;
+        //PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen 
         StartCoroutine(CardRemoveDelay());
         Debug.Log("Enemy Death Card!");
     }
