@@ -5725,6 +5725,11 @@ PrefabInstance:
       propertyPath: cardSpawnPoint
       value: 
       objectReference: {fileID: 717700813}
+    - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
+        type: 3}
+      propertyPath: totalJokerCards
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

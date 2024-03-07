@@ -51,7 +51,7 @@ public class EnemyCardInteraction : MonoBehaviour
         isJokerCard = CheckIfJokerCard();
 
         //Assign card mesh for highlighting
-        CardMesh = GetComponent<MeshRenderer>();
+        CardMesh = GetComponentInChildren<MeshRenderer>();
 
         //Start card with unflipped color
         CardMesh.material = cardBackMaterial;
@@ -74,7 +74,7 @@ public class EnemyCardInteraction : MonoBehaviour
             //highlight all enemy death cards
             for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
             {
-                encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", highlightColor); //highlight currently indexed card
+                encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", highlightColor); //highlight currently indexed card
             }
         }
     }
@@ -85,7 +85,7 @@ public class EnemyCardInteraction : MonoBehaviour
             //unhighlight all enemy table cards
             for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
             {
-                encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor); //highlight currently indexed card
+                encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor); //highlight currently indexed card
             }
         }
     }
@@ -97,11 +97,11 @@ public class EnemyCardInteraction : MonoBehaviour
 
             for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)//set all player table cards isCLicked to true to avoid multiple joker executions on different cards
             {
-                encounterData.PlayerTableCards[i].GetComponent<PlayerCardInteraction>().isClicked = true;
+                encounterData.PlayerTableCards[i].GetComponentInChildren<PlayerCardInteraction>().isClicked = true;
             }
             for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)//set all enemy table cards isCLicked to true to avoid multiple joker executions on different cards
             {
-                encounterData.EnemyTableCards[i].GetComponent<EnemyCardInteraction>().isClicked = true;
+                encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = true;
             }
             ExecutePlayerJoker();
         }
@@ -228,7 +228,7 @@ public class EnemyCardInteraction : MonoBehaviour
             //highlight all enemy table cards with red
             for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
             {
-                encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", deathColor);
+                encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", deathColor);
             }
 
             StartCoroutine("JokerFailExecutionDelay");
@@ -241,7 +241,7 @@ public class EnemyCardInteraction : MonoBehaviour
             {
                 if (encounterData.EnemyTableCards[i].name.Contains("Death"))
                 {
-                    encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", safeColor);
+                    encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", safeColor);
                 }
             }
             //start delay for joker safe execution
@@ -264,17 +264,17 @@ public class EnemyCardInteraction : MonoBehaviour
         //revert color for remaining cards on table
         for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
         {
-            encounterData.EnemyTableCards[i].GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor);
+            encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor);
         }
         //revert isClicked to false for remaing player cards on table
         for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)
         {
-            encounterData.PlayerTableCards[i].GetComponent<PlayerCardInteraction>().isClicked = false;
+            encounterData.PlayerTableCards[i].GetComponentInChildren<PlayerCardInteraction>().isClicked = false;
         }
         //revert isClicked to false for remaing enemy cards on table
         for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
         {
-            encounterData.EnemyTableCards[i].GetComponent<EnemyCardInteraction>().isClicked = false;
+            encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = false;
         }
 
         //broadcast that joker execution has finished

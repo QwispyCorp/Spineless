@@ -29,8 +29,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1495908791623675093}
   - {fileID: 3037087126878888512}
+  - {fileID: 1495908791623675093}
   m_Father: {fileID: 7556764832170673686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2188312488303631482
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e274d0726057114f93cf7925cf9012d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isJokerCard: 0
   isClicked: 0
   highlightColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   unHighlightColor: {r: 0, g: 0, b: 0, a: 1}
