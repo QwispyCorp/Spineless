@@ -31,7 +31,7 @@ public class PlayerSaveData : ScriptableObject
 
     public void ClearAllData()
     {
-        //Inventory.Clear();
+        Inventory.Clear();
         //EquippedItems.Clear();
         BoardGenerated = false;
         FirstEncounterEntered = false;

@@ -83,12 +83,9 @@ public class StateManager : MonoBehaviour
 
     private void HandlePlayerTurn()
     {
+        Invoke("drawEnemyHand", 1);
         Debug.Log("Going into: Player Turn State");
         Debug.Log("In Player Turn State");
-        if (playerDeck.CheckTableCards() == 0)
-        { //if hand is empty at beginning of turn, draw hand
-            playerDeck.DrawHand();
-        }
     }
     private void HandlePlayerDamage()
     {
@@ -102,19 +99,13 @@ public class StateManager : MonoBehaviour
     }
     private void HandleEnemyTurn()
     {
+        Invoke("drawPlayerHand", 1);
         Debug.Log("Going into: Enemy Turn State");
         Debug.Log("In Enemy Turn State");
 
         if (OnEnemyTurnStarted != null)
         {
             OnEnemyTurnStarted?.Invoke();
-        }
-
-        //Check if table is empty
-        if (enemyDeck.CheckTableCards() == 0)
-        {
-            //if table is empty at beginning of enemy turn, redraw all cards
-            enemyDeck.DrawHand();
         }
 
         Invoke("RunEnemyCardAI", enemyTurnTime);
@@ -150,6 +141,21 @@ public class StateManager : MonoBehaviour
         enemyDeck.EnemyJokerExecution();
     }
 
+    private void drawPlayerHand()
+    {
+        if (playerDeck.CheckTableCards() == 0) //redraw player hand if it's empty when the enemy turn starts
+        {
+            playerDeck.DrawHand();
+        }
+    }
+
+    private void drawEnemyHand()
+    {
+        if (enemyDeck.CheckTableCards() == 0) //redraw player hand if it's empty when the enemy turn starts
+        {
+            enemyDeck.DrawHand();
+        }
+    }
     public enum EncounterState
     {
         PlayerTurn,

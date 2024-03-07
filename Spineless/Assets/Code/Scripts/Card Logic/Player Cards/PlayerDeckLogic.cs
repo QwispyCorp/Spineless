@@ -95,9 +95,9 @@ public class PlayerDeckLogic : MonoBehaviour
     }
     public void RemoveDeathCard()
     {
-        if (tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"))
+        if (tableCards.Find(x => x.gameObject.name.Contains("Death")))
         {
-            RemoveCardFromTable(tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"));
+            RemoveCardFromTable(tableCards.Find(x => x.gameObject.name.Contains("Death")));
             UpdateEncounterCards();
 
         }
@@ -110,7 +110,7 @@ public class PlayerDeckLogic : MonoBehaviour
     {
         for (int i = 0; i < tableCards.Count; i++)
         {
-            tableCards[i].GetComponent<PlayerCardInteraction>().ShowCard();
+            tableCards[i].GetComponentInChildren<PlayerCardInteraction>().ShowCard();
         }
     }
 
@@ -169,6 +169,7 @@ public class PlayerDeckLogic : MonoBehaviour
     }
     public void RemoveCardFromTable(GameObject card) //------REMOVES CARD FROM DRAWN SELECTION
     {
+        Debug.Log("Checking removal for: " + card.name);
         // Check if the card is in the tableCards list
         if (tableCards.Contains(card))
         {
@@ -176,7 +177,11 @@ public class PlayerDeckLogic : MonoBehaviour
             tableCards.Remove(card);
             UpdateEncounterCards();
             // Destroy the card GameObject
-            Destroy(card);
+            PlayerCardInteraction cardInteraction = card.GetComponentInChildren<PlayerCardInteraction>();
+            if (cardInteraction != null)
+            {
+                Destroy(card);
+            }
         }
     }
     public int CheckTableCards()

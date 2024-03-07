@@ -248,7 +248,7 @@ public class ItemMouseInteraction : MonoBehaviour
             itemTextObject.SetActive(true); //turn on item text
             if (currentRoom == "ShopRoom")
             {
-                itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription + Environment.NewLine + "Finger Cost: " + itemValue); //update item text object
+                //itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription + Environment.NewLine + "Finger Cost: " + itemValue); //update item text object
             }
         }
         if (encounterTVTextObject)

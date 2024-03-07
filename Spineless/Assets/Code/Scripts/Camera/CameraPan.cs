@@ -6,18 +6,22 @@ public class CameraPan : MonoBehaviour
 {
     public float senseX;
     public float senseY;
+    private float mouseX;
+    private float mouseY;
     public Transform orientation;
     float xRotation;
     float yRotation;
     private float _senseX; //to store sense to revert after animation ends
     private float _senseY; //to store sense to revert after animation ends
     private bool playerLookingUp;
+    private bool playerLookingMid;
     [SerializeField] private float camLookUpSpeed; //speed the player looks up at the enemy 
 
     void OnEnable()
     {
         StateManager.OnEnemyTurnStarted += PlayerLookUp;
         EnemyCardInteraction.OnEnemyTurnFinished += UnlockCamera;
+        PlayerHealthTest.OnPlayerFingerLost += PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost += PlayerLookUp;
         EnemyAnimationTrigger.OnEnemyAnimationFinished += UnlockCamera;
     }
@@ -26,6 +30,7 @@ public class CameraPan : MonoBehaviour
     {
         StateManager.OnEnemyTurnStarted -= PlayerLookUp;
         EnemyCardInteraction.OnEnemyTurnFinished -= UnlockCamera;
+        PlayerHealthTest.OnPlayerFingerLost -= PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerLookUp;
         EnemyAnimationTrigger.OnEnemyAnimationFinished -= UnlockCamera;
     }
@@ -42,10 +47,10 @@ public class CameraPan : MonoBehaviour
     //--------------------------------------------------------
     void Update()
     {
-        if (!playerLookingUp)
+        if (!playerLookingUp && !playerLookingMid)
         {
-            float mouseX = -Input.GetAxisRaw("Mouse X") * Time.deltaTime * senseX;
-            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * senseY;
+            mouseX = -Input.GetAxisRaw("Mouse X") * Time.deltaTime * senseX;
+            mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * senseY;
 
             yRotation += mouseX;
             xRotation -= mouseY;
@@ -61,8 +66,16 @@ public class CameraPan : MonoBehaviour
             transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
             xRotation = transform.localRotation.x; //to prevent snapbacks
             yRotation = transform.localRotation.y; //to prevent snapbacks
+            orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
         }
 
+        if (playerLookingMid)
+        {
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0.4f, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
+            xRotation = transform.localRotation.x; //to prevent snapbacks
+            yRotation = transform.localRotation.y; //to prevent snapback
+            orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
+        }
     }
 
     private void PlayerLookUp()
@@ -72,9 +85,19 @@ public class CameraPan : MonoBehaviour
         senseY = 0;
     }
 
+    private void PlayerLookMid()
+    {
+        playerLookingMid = true;
+        senseX = 0;
+        senseY = 0;
+    }
+
     private void UnlockCamera()
     {
+        playerLookingMid = false;
         playerLookingUp = false;
+        xRotation = transform.localRotation.x; //to prevent snapbacks
+        yRotation = transform.localRotation.y; //to prevent snapback
         senseX = _senseX;
         senseY = _senseY;
     }

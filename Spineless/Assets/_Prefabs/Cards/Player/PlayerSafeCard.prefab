@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 7809175469343715235}
   - component: {fileID: 5466542046611934977}
   - component: {fileID: 6114399578105907978}
+  - component: {fileID: 8504021225117035611}
+  - component: {fileID: 353861770602386552}
   m_Layer: 6
   m_Name: Card Back
   m_TagString: SafeCard
@@ -83,6 +85,56 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8504021225117035611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736032454160364478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e274d0726057114f93cf7925cf9012d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isClicked: 0
+  highlightColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  unHighlightColor: {r: 0, g: 0, b: 0, a: 1}
+  safeColor: {r: 0, g: 1, b: 0, a: 1}
+  deathColor: {r: 1, g: 0, b: 0, a: 1}
+  cardBackMaterial: {fileID: 2100000, guid: 2b9cb03d4bb061d46af1329b5faa39e4, type: 2}
+  safeMaterial: {fileID: 2100000, guid: cdcb38e43ed904b43b7b89f2f64b1d43, type: 2}
+  deathMaterial: {fileID: 2100000, guid: 0bbc06bed2675c54289743b039ebf941, type: 2}
+  jokerMaterial: {fileID: 2100000, guid: 419d1824de337fb47915ff5365d75bd3, type: 2}
+  unflippedColor: {r: 0, g: 0, b: 0, a: 1}
+  CardMesh: {fileID: 0}
+  CardAnimator: {fileID: 0}
+  CardHolderObject: {fileID: 4090042394187079175}
+  cardRemoveDelayTime: 1.5
+  jokerDelayTime: 1
+  encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}
+--- !u!64 &353861770602386552
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1736032454160364478}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &3969436614847506766
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,8 +164,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7809175469343715235}
   - {fileID: 427892617567960737}
+  - {fileID: 7809175469343715235}
   m_Father: {fileID: 4614643752933905355}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4090042394187079175
@@ -126,8 +178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4614643752933905355}
   - component: {fileID: 5102843950633277790}
-  - component: {fileID: 5995228611798825032}
-  - component: {fileID: 7754091896164778415}
   m_Layer: 6
   m_Name: PlayerSafeCard
   m_TagString: SafeCard
@@ -145,8 +195,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3806139146599039648}
   m_Father: {fileID: 0}
@@ -172,54 +222,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5995228611798825032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4090042394187079175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e274d0726057114f93cf7925cf9012d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isClicked: 0
-  highlightColor: {r: 1, g: 1, b: 1, a: 0.5019608}
-  unHighlightColor: {r: 0, g: 0, b: 0, a: 1}
-  safeColor: {r: 0, g: 1, b: 0, a: 1}
-  deathColor: {r: 1, g: 0, b: 0, a: 1}
-  cardBackMaterial: {fileID: 2100000, guid: 2b9cb03d4bb061d46af1329b5faa39e4, type: 2}
-  safeMaterial: {fileID: 2100000, guid: cdcb38e43ed904b43b7b89f2f64b1d43, type: 2}
-  deathMaterial: {fileID: 2100000, guid: 0bbc06bed2675c54289743b039ebf941, type: 2}
-  jokerMaterial: {fileID: 2100000, guid: 419d1824de337fb47915ff5365d75bd3, type: 2}
-  unflippedColor: {r: 0, g: 0, b: 0, a: 1}
-  CardMesh: {fileID: 0}
-  CardAnimator: {fileID: 0}
-  cardRemoveDelayTime: 1
-  jokerDelayTime: 1
-  encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}
---- !u!65 &7754091896164778415
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4090042394187079175}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 0.02, z: 12}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6312513112345521548
 GameObject:
   m_ObjectHideFlags: 0

@@ -114,7 +114,7 @@ public class EnemyDeckLogic : MonoBehaviour
             if (chosenCard != null)
             {
                 cardExists = true;
-                chosenCard.GetComponent<EnemyCardInteraction>().EnemyCardSelected();
+                chosenCard.GetComponentInChildren<EnemyCardInteraction>().EnemyCardSelected();
                 break;
             }
         }
@@ -126,12 +126,12 @@ public class EnemyDeckLogic : MonoBehaviour
     {
         for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)//set all table cards isCLicked to true to avoid multiple joker executions on different cards
         {
-            encounterData.PlayerTableCards[i].GetComponent<PlayerCardInteraction>().isClicked = true;
+            encounterData.PlayerTableCards[i].GetComponentInChildren<PlayerCardInteraction>().isClicked = true;
         }
 
         for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)//set all table cards isCLicked to true to avoid multiple joker executions on different cards
         {
-            encounterData.EnemyTableCards[i].GetComponent<EnemyCardInteraction>().isClicked = true;
+            encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = true;
         }
         //check the current death card count
         int playerDeathCards = 0;
@@ -226,6 +226,7 @@ public class EnemyDeckLogic : MonoBehaviour
     }
     public void RemoveCardFromTable(GameObject card) //------REMOVES CARD FROM DRAWN SELECTION
     {
+        Debug.Log("Checking removal for: " + card.name);
         // Check if the card is in the tableCards list
         if (tableCards.Contains(card))
         {
@@ -245,7 +246,7 @@ public class EnemyDeckLogic : MonoBehaviour
     {
         for (int i = 0; i < tableCards.Count; i++)
         {
-            tableCards[i].GetComponent<PlayerCardInteraction>().ShowCard();
+            tableCards[i].GetComponentInChildren<EnemyCardInteraction>().ShowCard();
         }
     }
 }

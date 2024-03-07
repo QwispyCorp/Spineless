@@ -6,7 +6,8 @@ using Unity.VisualScripting;
 public class PlayerCardInteraction : MonoBehaviour
 {
     private bool isSafeCard;
-    private bool isJokerCard;
+    [HideInInspector] public bool isJokerCard;
+    private bool isDeathCard;
     [HideInInspector] public bool isClicked;
     public Color highlightColor = new Color(1f, 1f, 1f, 0.5f); // White with 50% opacity;
     public Color unHighlightColor = Color.black; // White with 50% opacity;
@@ -19,6 +20,7 @@ public class PlayerCardInteraction : MonoBehaviour
     public Color unflippedColor = Color.black;
     [HideInInspector] public MeshRenderer CardMesh;
     [HideInInspector] public Animator CardAnimator;
+    [SerializeField] private GameObject CardHolderObject;
 
     private PlayerDeckLogic playerDeck; // Reference to the playerDeckLogic script
     [SerializeField] private float cardRemoveDelayTime;
@@ -42,11 +44,12 @@ public class PlayerCardInteraction : MonoBehaviour
         // Determine whether the card is safe or death or joker (you can implement your logic here)
         isSafeCard = CheckIfSafeCard();
         isJokerCard = CheckIfJokerCard();
+        isDeathCard = CheckIfDeathCard();
 
         //Assign card mesh for highlighting
         CardMesh = GetComponent<MeshRenderer>();
 
-        CardAnimator = GetComponent<Animator>();
+        CardAnimator = GetComponentInParent<Animator>();
 
         //Start card with unflipped material
         CardMesh.material = cardBackMaterial;
@@ -71,6 +74,10 @@ public class PlayerCardInteraction : MonoBehaviour
     {
         return gameObject.CompareTag("JokerCard");
     }
+    bool CheckIfDeathCard()
+    {
+        return gameObject.CompareTag("DeathCard");
+    }
     public void ShowCard()
     {
         if (isSafeCard)
@@ -85,13 +92,13 @@ public class PlayerCardInteraction : MonoBehaviour
         {
             CardMesh.material = deathMaterial;
         }
-        CardAnimator.SetTrigger("Flip");
+        //CardAnimator.SetTrigger("Flip");
     }
 
     void HandleSafeCardInteraction()
     {
-        CardMesh.material = safeMaterial;  //change card material to safe material
-        PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen overlay
+        //CardMesh.material = safeMaterial;  //change card material to safe material
+        //PopUpTextManager.Instance.ShowScreen("Safe Card Screen"); //show safe screen overlay
         StartRemove(); //start coroutine to remove card and screen overlay
         Debug.Log("Safe card! Your turn ends.");
     }
@@ -99,16 +106,32 @@ public class PlayerCardInteraction : MonoBehaviour
     void HandleDeathCardInteraction()
     {
         AudioManager.Instance.PlaySound("SeveredHand");
-        PlayerHealthTest.Instance.ChangeHealth(-1); //Decrease health
-        CardMesh.material = deathMaterial;  //change card material to death material
-        PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen overlay
+        //CardMesh.material = deathMaterial;  //change card material to death material
+        //PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen overlay
         StartRemove(); //start coroutine to remove card and screen overlay
         Debug.Log("Death card! You lose a finger!");
     }
     private void HandleJokerCardInteraction()
     {
-        PopUpTextManager.Instance.ShowScreen("Joker Card Screen"); //show joker screen overlay
-        CardMesh.material = jokerMaterial; //change card material to joker material
+        //PopUpTextManager.Instance.ShowScreen("Joker Card Screen"); //show joker screen overlay
+        //CardMesh.material = jokerMaterial; //change card material to joker material
+        switch (encounterData.JokerCardsCollected)
+        {
+            case 0://if there are 0 joker cards on the table
+                //play animation 1
+                CardAnimator.SetTrigger("Move1");
+                break;
+            case 1: //if there is 1 joker card on the table
+                //play animation 2
+                CardAnimator.SetTrigger("Move2");
+                break;
+            case 2: //if there are 2 joker cards on the table
+                //play animation 3
+                CardAnimator.SetTrigger("Move3");
+                break;
+            default:
+                break;
+        }
         //StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerJokerExecution);
         if (OnJokerFlipped != null)
         {
@@ -151,6 +174,7 @@ public class PlayerCardInteraction : MonoBehaviour
     {
         if (isClicked == false && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn)
         {
+            CardAnimator.SetTrigger("Flip");
             AudioManager.Instance.PlaySound("CardFlip" + UnityEngine.Random.Range(1, 3).ToString());
             isClicked = true;
 
@@ -176,7 +200,7 @@ public class PlayerCardInteraction : MonoBehaviour
             }
             for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)//set all enemy table cards isCLicked to true to avoid multiple joker executions on different cards
             {
-                encounterData.EnemyTableCards[i].GetComponent<EnemyCardInteraction>().isClicked = true;
+                encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = true;
             }
             //run Joker execution on player table cards:
             ExecutePlayerJoker();
@@ -190,8 +214,7 @@ public class PlayerCardInteraction : MonoBehaviour
             if (PlayerHealthTest.Instance.GetCurrentHealth() > 0) //if the player is still alive, switch to enemy turn
             {
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyTurn);
-
-                playerDeck.RemoveCardFromTable(gameObject); //remove the card from the table
+                playerDeck.RemoveCardFromTable(CardHolderObject); //remove the card from the table
             }
         }
     }
@@ -208,11 +231,15 @@ public class PlayerCardInteraction : MonoBehaviour
         }
         if (isJokerCard)
         {
-            playerDeck.RemoveCardFromTable(gameObject);//if it's a joker card, remove immediately after the delay ends to allow joker execution state
+            playerDeck.RemoveCardFromTable(CardHolderObject);//if it's a joker card, remove immediately after the delay ends to allow joker execution state
             if (encounterData.JokerCardsCollected != 3)
             {
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyTurn);
             }
+        }
+        if (isDeathCard)
+        {
+            PlayerHealthTest.Instance.ChangeHealth(-1); //Decrease health
         }
     }
 
@@ -281,7 +308,7 @@ public class PlayerCardInteraction : MonoBehaviour
         //revert isClicked to false for remaing enemy cards on table
         for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
         {
-            encounterData.EnemyTableCards[i].GetComponent<EnemyCardInteraction>().isClicked = false;
+            encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = false;
         }
 
         //broadcast that joker execution has finished

@@ -37,7 +37,10 @@ public class ItemRoomEntryLogic : MonoBehaviour
             if (GameObject.Find(saveData.MasterItemPool[i].itemName) == null)
             {
                 Debug.Log(saveData.MasterItemPool[i].itemName);
-                GameObject.Find(saveData.MasterItemPool[i].itemName + " Text").SetActive(false);
+                if (GameObject.Find(saveData.MasterItemPool[i].itemName + " Text") != null)
+                {
+                    GameObject.Find(saveData.MasterItemPool[i].itemName + " Text").SetActive(false);
+                }
             }
         }
 

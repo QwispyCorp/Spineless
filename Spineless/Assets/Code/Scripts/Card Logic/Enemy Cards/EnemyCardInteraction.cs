@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class EnemyCardInteraction : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class EnemyCardInteraction : MonoBehaviour
     [HideInInspector] public MeshRenderer CardMesh;
     [HideInInspector] public bool isClicked;
     [HideInInspector] public bool isSelected;
+    [SerializeField] private GameObject cardHolderObject;
+    [SerializeField] private Animator cardAnimator;
 
     private EnemyDeckLogic enemyDeck; // Reference to the enemyDeckLogic script
     [SerializeField] private float cardRemoveDelayTime;
@@ -52,6 +55,7 @@ public class EnemyCardInteraction : MonoBehaviour
 
         //Start card with unflipped color
         CardMesh.material = cardBackMaterial;
+
 
         // Find the enemyDeckLogic script in the scene
         enemyDeck = FindObjectOfType<EnemyDeckLogic>();
@@ -131,6 +135,7 @@ public class EnemyCardInteraction : MonoBehaviour
         {
             CardMesh.material = deathMaterial;
         }
+        //cardAnimator.SetTrigger("Flip");
     }
 
     void HandleSafeCardInteraction()
@@ -145,7 +150,6 @@ public class EnemyCardInteraction : MonoBehaviour
     {
         //Chopping finger animation goes here
         AudioManager.Instance.PlaySound("SeveredHand");
-        EnemyHealthTest.Instance.ChangeHealth(-1); //Decrease health
         saveData.monsterFingers++; //increase monster fingers player currency
         CardMesh.material = deathMaterial;
         PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen 
@@ -154,6 +158,7 @@ public class EnemyCardInteraction : MonoBehaviour
     }
     public void EnemyCardSelected()
     {
+        cardAnimator.SetTrigger("Flip");
         isSelected = true;
         //when this card is selected by the enemy AI
         if (isSafeCard) //if the card is safe
@@ -176,8 +181,8 @@ public class EnemyCardInteraction : MonoBehaviour
                     OnEnemyTurnFinished?.Invoke();
                 }
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
-
-                enemyDeck.RemoveCardFromTable(gameObject); //remove the card from the table
+        
+                enemyDeck.RemoveCardFromTable(cardHolderObject); //remove the card from the table
             }
         }
     }
@@ -190,12 +195,16 @@ public class EnemyCardInteraction : MonoBehaviour
             Debug.Log("In Enemy card Interaction Safe Card Exit");
             Invoke("SwitchToPlayerTurn", cardRemoveDelayTime);
         }
-        else if (isJokerCard)
+        if (isJokerCard)
         {
             if (encounterData.JokerCardsCollected != 3)
             {
                 Invoke("SwitchToPlayerTurn", cardRemoveDelayTime);
             }
+        }
+        if (isDeathCard)
+        {
+            EnemyHealthTest.Instance.ChangeHealth(-1); //Decrease health
         }
 
     }

@@ -726,6 +726,7 @@ GameObject:
   - component: {fileID: 5770066263091770563}
   - component: {fileID: 683571875533397634}
   - component: {fileID: 797939785903478141}
+  - component: {fileID: 8733254217989713947}
   m_Layer: 0
   m_Name: TV Item Descriptions
   m_TagString: Untagged
@@ -777,6 +778,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardCountText: {fileID: 6021460288183200436}
   encounterData: {fileID: 11400000, guid: e899a2c8b7c051b47a0b8f983123be9f, type: 2}
+--- !u!114 &8733254217989713947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4283699858504488619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552ea4eff93149843a92bede421bf96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
 --- !u!1 &4808605006793241714
 GameObject:
   m_ObjectHideFlags: 0
@@ -1174,7 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
