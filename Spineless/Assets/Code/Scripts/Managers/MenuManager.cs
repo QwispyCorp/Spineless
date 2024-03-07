@@ -140,7 +140,7 @@ public class MenuManager : MonoBehaviour
     public void Credits()
     {
         Instance.OpenMenu("Transtion Canvas");
-        Invoke("GoToCreditsMenu", 1f);
+        Invoke("GoToCreditsMenu", 2f);
     }
     public void GoToMainMenu()
     {
