@@ -2375,6 +2375,7 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -3283,8 +3284,73 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
         type: 3}
+      propertyPath: sounds.Array.size
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
       propertyPath: musicFadeInDuration
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[26].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: b14aedaa7de7ee24aa1b491e343b377d, type: 3}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[26].name
+      value: Footsteps1
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[27].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: eb922d50e56ab79478f9aee420de5a8d, type: 3}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[27].name
+      value: Footsteps2
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[28].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1d5b608e65f7b484d986b53e3799418c, type: 3}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[28].name
+      value: FootstepsFast
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[26].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[27].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[28].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[26].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[27].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 286160723761441664, guid: 135abd4d03607ec4f827b0308a2dc9dc,
+        type: 3}
+      propertyPath: sounds.Array.data[28].volume
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3472157213612398043, guid: 135abd4d03607ec4f827b0308a2dc9dc,
         type: 3}
@@ -4517,7 +4583,7 @@ PrefabInstance:
     - target: {fileID: 7524520608660091490, guid: d2c60632c027e924282d817f5aeaa41c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8474449073575047692, guid: d2c60632c027e924282d817f5aeaa41c,
         type: 3}
@@ -5329,7 +5395,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &3307853837990938739
 GameObject:
   m_ObjectHideFlags: 0
@@ -5934,9 +6000,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1033530144}
-          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-          m_MethodName: Credits
+        - m_Target: {fileID: 1824811397}
+          m_TargetAssemblyTypeName: CinemaCam, Assembly-CSharp
+          m_MethodName: Main2Credits
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

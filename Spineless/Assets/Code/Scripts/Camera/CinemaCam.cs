@@ -18,6 +18,7 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("F2C");
+        AudioManager.Instance.PlaySound("FootstepsFast");
         AudioManager.Instance.PlaySound("CabinetOpen");
         yield return new WaitForSeconds(1.5f);
         Cursor.visible = true;
@@ -31,6 +32,7 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("C2F");
+        AudioManager.Instance.PlaySound("FootstepsFast");
          yield return new WaitForSeconds(0.9f);
         AudioManager.Instance.PlaySound("CabinetClose");
         yield return new WaitForSeconds(1.5f);
@@ -45,6 +47,7 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("F2B");
+        AudioManager.Instance.PlaySound("FootstepsFast");
         yield return new WaitForSeconds(1.5f);
         Cursor.visible = true;
     }
@@ -57,6 +60,7 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("B2F");
+        AudioManager.Instance.PlaySound("FootstepsFast");
         yield return new WaitForSeconds(1.5f);
         Cursor.visible = true;
     }
@@ -69,6 +73,7 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("F2P");
+        AudioManager.Instance.PlaySound("FootstepsFast");
         yield return new WaitForSeconds(1.5f);
         Cursor.visible = true;
     }
@@ -81,7 +86,36 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("P2F");
+        AudioManager.Instance.PlaySound("FootstepsFast");
         yield return new WaitForSeconds(1.5f);
+        Cursor.visible = true;
+    }
+
+    //----------------------------CREDITS----------------------------------
+    public void Main2Credits() //CALL THIS TO START THIS ANIMATION
+    {
+        StartCoroutine(Main2CreditsCoroutine());
+    }
+    IEnumerator Main2CreditsCoroutine()
+    {
+        Cursor.visible = false;
+        CamAni.SetTrigger("Credits");
+        yield return new WaitForSeconds(2.1f);
+        AudioManager.Instance.PlaySound("Footsteps1");
+        yield return new WaitForSeconds(3f);
+        Cursor.visible = true;
+    }
+    public void Credits2Main() //CALL THIS TO START THIS ANIMATION
+    {
+        StartCoroutine(Credits2MainCoroutine());
+    }
+    IEnumerator Credits2MainCoroutine()
+    {
+        Cursor.visible = false;
+        CamAni.SetTrigger("Main");
+        yield return new WaitForSeconds(0.5f);
+        AudioManager.Instance.PlaySound("Footsteps2");
+        yield return new WaitForSeconds(4.5f);
         Cursor.visible = true;
     }
 
