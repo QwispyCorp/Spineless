@@ -3682,7 +3682,6 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -5728,7 +5727,7 @@ PrefabInstance:
     - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
         type: 3}
       propertyPath: totalJokerCards
-      value: 40
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12423,7 +12422,7 @@ Transform:
   m_GameObject: {fileID: 5813412169962864001}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0.00018587912, y: 0.12911496, z: -0.093971044}
+  m_LocalPosition: {x: -0.0052, y: 0.1291, z: -0.0879}
   m_LocalScale: {x: 8.022488, y: 2.7262392, z: 8.022488}
   m_ConstrainProportionsScale: 0
   m_Children: []

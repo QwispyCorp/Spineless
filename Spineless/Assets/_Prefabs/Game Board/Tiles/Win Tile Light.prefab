@@ -46,7 +46,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.42410073, g: 1, b: 0.4198113, a: 1}
-  m_Intensity: 17.32503
+  m_Intensity: 56.306343
   m_Range: 0.6
   m_SpotAngle: 22
   m_InnerSpotAngle: 2
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 2
+  m_Intensity: 6.5
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0

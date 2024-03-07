@@ -32,7 +32,7 @@ public class PlayerSaveData : ScriptableObject
     public void ClearAllData()
     {
         Inventory.Clear();
-        //EquippedItems.Clear();
+        EquippedItems.Clear();
         BoardGenerated = false;
         FirstEncounterEntered = false;
         ShopVisited = false;

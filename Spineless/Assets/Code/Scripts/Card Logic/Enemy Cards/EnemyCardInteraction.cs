@@ -181,7 +181,7 @@ public class EnemyCardInteraction : MonoBehaviour
                     OnEnemyTurnFinished?.Invoke();
                 }
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
-        
+
                 enemyDeck.RemoveCardFromTable(cardHolderObject); //remove the card from the table
             }
         }
