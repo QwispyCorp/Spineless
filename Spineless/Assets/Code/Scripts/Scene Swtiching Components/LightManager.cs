@@ -61,6 +61,11 @@ public class LightManager : MonoBehaviour
             Debug.Log("Switching to Win Scene");
             SceneManager.LoadScene("WinScene");
         }
+        else if (newScene == "EncounterTutorial")
+        {
+            Debug.Log("Switching to Encounter Tutorial");
+            SceneManager.LoadScene("EncounterTutorial");
+        }
     }
     public void StartFlickeringTransitionTo(string newSceneName)
     {
