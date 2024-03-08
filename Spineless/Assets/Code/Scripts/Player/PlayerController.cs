@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float tileSpacing; // for movement, changes based on board tile scaling
     public GameObject board;
     public Animator CameraAni;
+    public Animator Pawn;
     public bool playerOnBoard;
     private int wallLayerMask;
     void Start()
@@ -134,6 +135,7 @@ public class PlayerController : MonoBehaviour
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Monster Tile");
+        Pawn.SetTrigger("Move");
         Invoke("SwitchRooms", 2);
     }
     private void HandleItemTile(GameObject tile)
@@ -141,6 +143,7 @@ public class PlayerController : MonoBehaviour
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Item Tile");
+        Pawn.SetTrigger("Move");
         Invoke("SwitchRooms", 2);
     }
     private void HandleEmptyTile(GameObject tile)
@@ -153,6 +156,7 @@ public class PlayerController : MonoBehaviour
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on WinTile");
+        Pawn.SetTrigger("Move");
         Invoke("SwitchRooms", 2);
     }
     private void HandleShopTile(GameObject tile)
@@ -160,6 +164,7 @@ public class PlayerController : MonoBehaviour
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Shop Tile");
+        Pawn.SetTrigger("Move");
         Invoke("SwitchRooms", 2);
 
     }
