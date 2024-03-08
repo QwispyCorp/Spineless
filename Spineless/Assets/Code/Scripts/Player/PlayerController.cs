@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Monster Tile");
         Pawn.SetTrigger("Move");
-        Invoke("SwitchRooms", 2);
+        Invoke("SwitchRooms", 3);
     }
     private void HandleItemTile(GameObject tile)
     {
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Item Tile");
         Pawn.SetTrigger("Move");
-        Invoke("SwitchRooms", 2);
+        Invoke("SwitchRooms", 3);
     }
     private void HandleEmptyTile(GameObject tile)
     {
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on WinTile");
         Pawn.SetTrigger("Move");
-        Invoke("SwitchRooms", 2);
+        Invoke("SwitchRooms", 3);
     }
     private void HandleShopTile(GameObject tile)
     {
@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Shop Tile");
         Pawn.SetTrigger("Move");
-        Invoke("SwitchRooms", 2);
+        Invoke("SwitchRooms", 3);
 
     }
 
