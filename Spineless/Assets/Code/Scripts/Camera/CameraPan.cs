@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -20,19 +21,29 @@ public class CameraPan : MonoBehaviour
     void OnEnable()
     {
         StateManager.OnEnemyTurnStarted += PlayerLookMid;
-        EnemyCardInteraction.OnEnemyTurnFinished += UnlockCamera;
+        EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookUp;
+        //EnemyCardInteraction.OnEnemyTurnFinished += PlayerStopLookMid;
+        EnemyCardInteraction.OnEnemyTurnFinished += StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost += PlayerLookMid;
+        PlayerAnimationTrigger.OnAnimationFinished += StartCamReset;
+        EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookMid;
         EnemyHealthTest.OnEnemyFingerLost += PlayerLookUp;
-        EnemyAnimationTrigger.OnEnemyAnimationFinished += UnlockCamera;
+        EnemyAnimationTrigger.OnEnemyAnimationFinished += PlayerStopLookUp;
+        EnemyAnimationTrigger.OnEnemyAnimationFinished += StartCamReset;
     }
 
     void OnDisable()
     {
         StateManager.OnEnemyTurnStarted -= PlayerLookMid;
-        EnemyCardInteraction.OnEnemyTurnFinished -= UnlockCamera;
+        EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookUp;
+        //EnemyCardInteraction.OnEnemyTurnFinished -= PlayerStopLookMid;
+        EnemyCardInteraction.OnEnemyTurnFinished -= StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost -= PlayerLookMid;
+        PlayerAnimationTrigger.OnAnimationFinished -= StartCamReset;
+        EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookMid;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerLookUp;
-        EnemyAnimationTrigger.OnEnemyAnimationFinished -= UnlockCamera;
+        EnemyAnimationTrigger.OnEnemyAnimationFinished -= PlayerStopLookUp;
+        EnemyAnimationTrigger.OnEnemyAnimationFinished -= StartCamReset;
     }
 
     void Start()
@@ -53,18 +64,20 @@ public class CameraPan : MonoBehaviour
             mouseX = -Input.GetAxisRaw("Mouse X") * Time.deltaTime * senseX;
             mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * senseY;
 
+            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
+
             yRotation += mouseX;
             xRotation -= mouseY;
 
             xRotation = Mathf.Clamp(xRotation, -16f, 52f); //limit player camera vertical rotation
             yRotation = Mathf.Clamp(yRotation, -60f, 60); //limit player camera horizontal rotation
 
-            transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0);
-            orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
+
         }
-        if (playerLookingUp && !playerLookingMid)
+        if (playerLookingUp)
         {
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(-.2f, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
             xRotation = transform.localRotation.x; //to prevent snapbacks
             yRotation = transform.localRotation.y; //to prevent snapbacks
             orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
@@ -86,8 +99,8 @@ public class CameraPan : MonoBehaviour
     private void PlayerLookUp()
     {
         playerLookingUp = true;
-        senseX = 0;
-        senseY = 0;
+        senseX = _senseX;
+        senseY = _senseY;
     }
 
     private void PlayerLookMid()
@@ -95,6 +108,18 @@ public class CameraPan : MonoBehaviour
         playerLookingMid = true;
         senseX = 0;
         senseY = 0;
+    }
+    private void PlayerStopLookMid()
+    {
+        playerLookingMid = false;
+        senseX = _senseX;
+        senseY = _senseY;
+    }
+    private void PlayerStopLookUp()
+    {
+        playerLookingUp = false;
+        senseX = _senseX;
+        senseY = _senseY;
     }
 
     private void UnlockCamera()
@@ -105,5 +130,16 @@ public class CameraPan : MonoBehaviour
         yRotation = transform.localRotation.y; //to prevent snapback
         senseX = _senseX;
         senseY = _senseY;
+    }
+    private void StartCamReset()
+    {
+        StartCoroutine("CamReset");
+    }
+    private IEnumerator CamReset()
+    {
+        PlayerLookUp();
+        yield return new WaitForSeconds(1);
+
+        UnlockCamera();
     }
 }

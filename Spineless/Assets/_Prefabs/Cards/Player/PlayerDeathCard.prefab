@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 5405423975351861877}
   - component: {fileID: 2150062351159623080}
   - component: {fileID: 7916779875685485448}
+  - component: {fileID: 5946472557145485281}
   m_Layer: 6
   m_Name: Card Back
   m_TagString: DeathCard
@@ -169,6 +170,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &5946472557145485281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188312488303631482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480a67f91d7a0f84b842fdd885160c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  interactionDistance: 2
 --- !u!1 &5894024438274378547
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +279,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7556764832170673686}
   - component: {fileID: 5814198932236813075}
-  - component: {fileID: 740852100409908178}
   m_Layer: 6
   m_Name: PlayerDeathCard
   m_TagString: DeathCard
@@ -307,24 +323,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &740852100409908178
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8781309038735725388}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 9, y: 0.02, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}

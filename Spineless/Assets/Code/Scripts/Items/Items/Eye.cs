@@ -7,6 +7,6 @@ public class Eye : MonoBehaviour, Interactable
 {
     public void Interact()
     {
-        //
+        gameObject.SetActive(false);
     }
 }

@@ -446,7 +446,14 @@ public class ItemMouseInteraction : MonoBehaviour
     }
     private void CollectItem()
     {
-        saveData.Inventory.Add(itemSO);
+        if (saveData.EquippedItems.Count != 4)
+        {
+            saveData.EquippedItems.Add(itemSO);
+        }
+        else
+        {
+            saveData.Inventory.Add(itemSO);
+        }
         Destroy(gameObject);
     }
     private void ConsumeItem()

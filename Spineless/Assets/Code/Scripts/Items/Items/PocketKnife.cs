@@ -7,6 +7,6 @@ public class PocketKnife : MonoBehaviour, Interactable
 {
     public void Interact()
     {
-
+        gameObject.SetActive(false); //hide/ destroy item after effect is used
     }
 }

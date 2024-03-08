@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4291538020236963977}
   - component: {fileID: 8839604085294297592}
   - component: {fileID: 8618081737888935852}
+  - component: {fileID: 3300511501175907897}
   m_Layer: 6
   m_Name: Card Back
   m_TagString: JokerCard
@@ -136,6 +137,22 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &3300511501175907897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726654828019355415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 480a67f91d7a0f84b842fdd885160c63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  interactionDistance: 2
 --- !u!1 &2525252358091664288
 GameObject:
   m_ObjectHideFlags: 0
