@@ -77,6 +77,10 @@ public class EnemyCardInteraction : MonoBehaviour
                 encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", highlightColor); //highlight currently indexed card
             }
         }
+        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
+        {
+            CardMesh.material.SetColor("_EmissiveColor", highlightColor);
+        }
     }
     void OnMouseExit() //used to interact with enemy cards in joker execution state
     {
@@ -87,6 +91,10 @@ public class EnemyCardInteraction : MonoBehaviour
             {
                 encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor); //highlight currently indexed card
             }
+        }
+        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
+        {
+            CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
         }
     }
     void OnMouseUp()
@@ -104,6 +112,12 @@ public class EnemyCardInteraction : MonoBehaviour
                 encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = true;
             }
             ExecutePlayerJoker();
+        }
+        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
+        {
+            CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
+            ShowCard();
+            StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
         }
     }
 

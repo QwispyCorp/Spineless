@@ -17,6 +17,7 @@ public class StateManager : MonoBehaviour
     public delegate void EnemyTurnStarted();
     public static event EnemyTurnStarted OnEnemyTurnStarted;
 
+
     void Awake()
     {
         //on awake check for existence of manager and handle accordingly
@@ -83,7 +84,7 @@ public class StateManager : MonoBehaviour
 
     private void HandlePlayerTurn()
     {
-        Invoke("drawEnemyHand", 1);
+        Invoke("DrawEnemyHand", 1);
         Debug.Log("Going into: Player Turn State");
         Debug.Log("In Player Turn State");
     }
@@ -99,7 +100,7 @@ public class StateManager : MonoBehaviour
     }
     private void HandleEnemyTurn()
     {
-        Invoke("drawPlayerHand", 1);
+        Invoke("DrawPlayerHand", 1);
         Debug.Log("Going into: Enemy Turn State");
         Debug.Log("In Enemy Turn State");
 
@@ -141,7 +142,7 @@ public class StateManager : MonoBehaviour
         enemyDeck.EnemyJokerExecution();
     }
 
-    private void drawPlayerHand()
+    private void DrawPlayerHand()
     {
         if (playerDeck.CheckTableCards() == 0) //redraw player hand if it's empty when the enemy turn starts
         {
@@ -149,7 +150,7 @@ public class StateManager : MonoBehaviour
         }
     }
 
-    private void drawEnemyHand()
+    private void DrawEnemyHand()
     {
         if (enemyDeck.CheckTableCards() == 0) //redraw player hand if it's empty when the enemy turn starts
         {
@@ -162,6 +163,8 @@ public class StateManager : MonoBehaviour
         PlayerDamage,
         PlayerJokerExecution,
         PlayerSafe,
+        PlayerEye,
+        PlayerKnife,
         EnemyTurn,
         EnemyDamage,
         EnemySafe,

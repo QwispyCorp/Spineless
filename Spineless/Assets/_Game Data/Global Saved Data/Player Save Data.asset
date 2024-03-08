@@ -30,10 +30,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5a44431b147faa940b719dd32deb2c08, type: 2}
   - {fileID: 11400000, guid: 5139583744950c54aac630b955972c8c, type: 2}
   - {fileID: 11400000, guid: 16215195cff34a848a4f82a38dc365c1, type: 2}
+  - {fileID: 11400000, guid: 9b86307f1ebab46f18accda9fce970e1, type: 2}
   Inventory: []
-  EquippedItems:
-  - {fileID: 11400000, guid: 0555ef7a5a0ff3045885f6a927c86003, type: 2}
-  - {fileID: 11400000, guid: 6e2dd18ca168839469f92bfeb64e06f1, type: 2}
-  - {fileID: 11400000, guid: cca536367a10880429ac147964f44177, type: 2}
+  EquippedItems: []
   playerFingersInNextEncounter: 5
   monsterFingers: 0

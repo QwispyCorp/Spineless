@@ -200,6 +200,10 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             mesh = GetComponent<MeshRenderer>();
         }
+        // else
+        // {
+        //     mesh = GetComponentInChildren<MeshRenderer>();
+        // }
     }
 
     void Start()
@@ -234,7 +238,10 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 if (transform.GetChild(i).GetComponent<MeshRenderer>() != null) //if the child has a mesh renderer
                 {
-                    transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                    foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
+                    {
+                        transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                    }
                 }
                 if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
                 {
@@ -282,7 +289,10 @@ public class ItemMouseInteraction : MonoBehaviour
             {
                 if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
                 {
-                    transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", Color.black);
+                    foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
+                    {
+                        transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", Color.black); //highlight item
+                    }
                 }
                 if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
                 {

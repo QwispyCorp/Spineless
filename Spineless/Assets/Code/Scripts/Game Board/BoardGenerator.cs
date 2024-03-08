@@ -120,7 +120,9 @@ public class BoardGenerator : MonoBehaviour
                     GameObject randomEmptyTile = generatedBoardTiles.Find(tile => tile.name == "Empty Tile");
                     randomEmptyTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
                     GameObject emptyInstance = Instantiate(emptyTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
+                    emptyInstance.GetComponentInChildren<TileTrigger>().FlipTile();
                     generatedBoardTiles.Remove(randomEmptyTile);
+
                 }
                 else if ((i == 0 && j == 1) || (i == 1 && j == 0)) //always spawn encounter tiles adjacent to player start point
                 {
@@ -134,7 +136,6 @@ public class BoardGenerator : MonoBehaviour
                     GameObject randomShopTile = generatedBoardTiles.Find(tile => tile.name == "Shop Tile");
                     randomShopTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);
                     GameObject shopInstance = Instantiate(shopTile, transform.position + new Vector3(i * tileSpacing, 0, j * tileSpacing), Quaternion.identity, transform);
-                    shopInstance.GetComponentInChildren<TileTrigger>().FlipTile();
                     generatedBoardTiles.Remove(randomShopTile);
 
                 }

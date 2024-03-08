@@ -9,7 +9,7 @@ public class TileTrigger : MonoBehaviour
     [SerializeField] private GameObject coveredTile;
     [SerializeField] private GameObject tileFog;
     [SerializeField] private ParticleSystem landingEffect;
-    void Start()
+    void Awake()
     {
         coveredTile.SetActive(true);
         tileFog.SetActive(true);

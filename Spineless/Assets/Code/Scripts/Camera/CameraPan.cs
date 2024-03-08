@@ -16,19 +16,18 @@ public class CameraPan : MonoBehaviour
     private float _senseY; //to store sense to revert after animation ends
     private bool playerLookingUp;
     private bool playerLookingMid;
+    private bool playerLookingCenter;
     [SerializeField] private float camLookUpSpeed; //speed the player looks up at the enemy 
 
     void OnEnable()
     {
         StateManager.OnEnemyTurnStarted += PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookUp;
-        //EnemyCardInteraction.OnEnemyTurnFinished += PlayerStopLookMid;
         EnemyCardInteraction.OnEnemyTurnFinished += StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost += PlayerLookMid;
-        PlayerAnimationTrigger.OnAnimationFinished += StartCamReset;
+        //PlayerAnimationTrigger.OnAnimationFinished += StartCamReset;
         EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookMid;
         EnemyHealthTest.OnEnemyFingerLost += PlayerLookUp;
-        EnemyAnimationTrigger.OnEnemyAnimationFinished += PlayerStopLookUp;
         EnemyAnimationTrigger.OnEnemyAnimationFinished += StartCamReset;
     }
 
@@ -36,13 +35,11 @@ public class CameraPan : MonoBehaviour
     {
         StateManager.OnEnemyTurnStarted -= PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookUp;
-        //EnemyCardInteraction.OnEnemyTurnFinished -= PlayerStopLookMid;
         EnemyCardInteraction.OnEnemyTurnFinished -= StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost -= PlayerLookMid;
-        PlayerAnimationTrigger.OnAnimationFinished -= StartCamReset;
+        //PlayerAnimationTrigger.OnAnimationFinished -= StartCamReset;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookMid;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerLookUp;
-        EnemyAnimationTrigger.OnEnemyAnimationFinished -= PlayerStopLookUp;
         EnemyAnimationTrigger.OnEnemyAnimationFinished -= StartCamReset;
     }
 
@@ -75,9 +72,18 @@ public class CameraPan : MonoBehaviour
 
 
         }
-        if (playerLookingUp)
+        if (playerLookingCenter)
         {
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(-.2f, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
+            xRotation = transform.localRotation.x; //to prevent snapbacks
+            yRotation = transform.localRotation.y; //to prevent snapbacks
+            orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
+            mouseX = 0;
+            mouseY = 0;
+        }
+        else if (playerLookingUp)
+        {
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(-.1f, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
             xRotation = transform.localRotation.x; //to prevent snapbacks
             yRotation = transform.localRotation.y; //to prevent snapbacks
             orientation.localRotation = Quaternion.Euler(0, yRotation, 0);
@@ -85,7 +91,7 @@ public class CameraPan : MonoBehaviour
             mouseY = 0;
         }
 
-        if (playerLookingMid && !playerLookingUp)
+        else if (playerLookingMid)
         {
             transform.localRotation = Quaternion.Slerp(transform.localRotation, new Quaternion(0.4f, 0, 0, 1), camLookUpSpeed * Time.deltaTime);
             xRotation = transform.localRotation.x; //to prevent snapbacks
@@ -122,10 +128,19 @@ public class CameraPan : MonoBehaviour
         senseY = _senseY;
     }
 
+    private void PlayerLookCenter()
+    {
+        playerLookingCenter = true;
+        senseX = _senseX;
+        senseY = _senseY;
+    }
+
     private void UnlockCamera()
     {
         playerLookingMid = false;
         playerLookingUp = false;
+        playerLookingCenter = false;
+
         xRotation = transform.localRotation.x; //to prevent snapbacks
         yRotation = transform.localRotation.y; //to prevent snapback
         senseX = _senseX;
@@ -137,8 +152,8 @@ public class CameraPan : MonoBehaviour
     }
     private IEnumerator CamReset()
     {
-        PlayerLookUp();
-        yield return new WaitForSeconds(1);
+        PlayerLookCenter();
+        yield return new WaitForSeconds(1.8f);
 
         UnlockCamera();
     }

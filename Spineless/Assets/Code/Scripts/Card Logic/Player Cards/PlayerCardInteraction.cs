@@ -154,6 +154,10 @@ public class PlayerCardInteraction : MonoBehaviour
                 encounterData.PlayerTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", highlightColor); //highlight currently indexed card
             }
         }
+        if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerEye)
+        {
+            GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", highlightColor); //highlight card when hovering for eye item use
+        }
     }
     void OnMouseExit()
     {
@@ -161,7 +165,7 @@ public class PlayerCardInteraction : MonoBehaviour
         {
             CardMesh.material.SetColor("_EmissiveColor", unHighlightColor); //unhighlight card
         }
-        if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
+        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
         {
             //unhighlight all player table cards
             for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)
@@ -169,10 +173,14 @@ public class PlayerCardInteraction : MonoBehaviour
                 encounterData.PlayerTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor); //highlight currently indexed card
             }
         }
+        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerEye)
+        {
+            CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
+        }
     }
     void OnMouseUp()
     {
-        if (isClicked == false && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn)
+        if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn)
         {
             CardAnimator.SetTrigger("Flip");
             AudioManager.Instance.PlaySound("CardFlip" + UnityEngine.Random.Range(1, 3).ToString());
@@ -193,7 +201,7 @@ public class PlayerCardInteraction : MonoBehaviour
                 HandleDeathCardInteraction();
             }
         }
-        if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
+        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
         {
             for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)//set all player table cards isCLicked to true to avoid multiple joker executions on different cards
             {
@@ -206,6 +214,14 @@ public class PlayerCardInteraction : MonoBehaviour
             //run Joker execution on player table cards:
             ExecutePlayerJoker();
         }
+
+        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerEye)
+        {
+            CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
+            ShowCard();
+            StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
+        }
+
     }
 
     private void SwitchToEnemyTurn()

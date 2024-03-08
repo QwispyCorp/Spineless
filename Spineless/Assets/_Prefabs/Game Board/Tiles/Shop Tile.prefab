@@ -511,7 +511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1259794771614778845
 RectTransform:
   m_ObjectHideFlags: 0
@@ -552,7 +552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.27450982}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5723,6 +5723,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile Light
       objectReference: {fileID: 0}
+    - target: {fileID: 3150840304181012637, guid: d1a46d27aa0d9844b952102630335280,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3661346046835743328, guid: d1a46d27aa0d9844b952102630335280,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5846,6 +5851,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531287455282600926, guid: b854629cae7f1cf49ab3e839d1b292d1,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.ctime1
+      value: 53199
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531287455282600926, guid: b854629cae7f1cf49ab3e839d1b292d1,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.b
+      value: 0.3764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531287455282600926, guid: b854629cae7f1cf49ab3e839d1b292d1,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.g
+      value: 0.21176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531287455282600926, guid: b854629cae7f1cf49ab3e839d1b292d1,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key0.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531287455282600926, guid: b854629cae7f1cf49ab3e839d1b292d1,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.b
+      value: 0.3764706
+      objectReference: {fileID: 0}
+    - target: {fileID: 8531287455282600926, guid: b854629cae7f1cf49ab3e839d1b292d1,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.g
+      value: 0.21176471
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

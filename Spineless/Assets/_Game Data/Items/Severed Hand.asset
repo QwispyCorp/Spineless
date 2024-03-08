@@ -15,4 +15,5 @@ MonoBehaviour:
   itemName: Severed Hand
   itemDescription: ' Reshuffle all cards.'
   value: 2
-  itemPrefab: {fileID: 0}
+  itemPrefab: {fileID: 8689384045968838354, guid: 9d4603b98daf9054b81936574dc4299a,
+    type: 3}
