@@ -113,9 +113,9 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("Main");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.9f);
         AudioManager.Instance.PlaySound("Footsteps2");
-        yield return new WaitForSeconds(4.5f);
+        yield return new WaitForSeconds(5f);
         Cursor.visible = true;
     }
 
