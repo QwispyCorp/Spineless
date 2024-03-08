@@ -18,9 +18,12 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("F2C");
-        AudioManager.Instance.PlaySound("Footsteps1");
         AudioManager.Instance.PlaySound("CabinetOpen");
-        yield return new WaitForSeconds(4.1f);
+        yield return new WaitForSeconds(0.8f);
+        AudioManager.Instance.PlaySound("Footsteps1");
+        yield return new WaitForSeconds(1.9f);
+        AudioManager.Instance.PlaySound("FootstepsFast");
+        yield return new WaitForSeconds(1.4f);
         Cursor.visible = true;
     }
     //--------------------------------------------------------
@@ -32,10 +35,13 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("C2F");
-        AudioManager.Instance.PlaySound("Footsteps2");
          yield return new WaitForSeconds(0.9f);
         AudioManager.Instance.PlaySound("CabinetClose");
-        yield return new WaitForSeconds(4.1f);
+        yield return new WaitForSeconds(1.2f);
+        AudioManager.Instance.PlaySound("Footsteps2");
+        yield return new WaitForSeconds(1.9f);
+        AudioManager.Instance.PlaySound("FootstepsFast");
+        yield return new WaitForSeconds(2.1f);
         Cursor.visible = true;
     }
     //--------------------------------------------------------
@@ -47,8 +53,9 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("F2B");
-        AudioManager.Instance.PlaySound("Footsteps1");
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(0.6f);
+        AudioManager.Instance.PlaySound("FootstepsFast");
+        yield return new WaitForSeconds(1f);
         Cursor.visible = true;
     }
     //--------------------------------------------------------
@@ -60,8 +67,9 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("B2F");
+        yield return new WaitForSeconds(0.2f);
         AudioManager.Instance.PlaySound("FootstepsFast");
-        yield return new WaitForSeconds(1.4f);
+        yield return new WaitForSeconds(1.2f);
         Cursor.visible = true;
     }
     //--------------------------------------------------------
@@ -73,8 +81,11 @@ public class CinemaCam : MonoBehaviour
     {
         Cursor.visible = false;
         CamAni.SetTrigger("F2P");
+        yield return new WaitForSeconds(1.3f);
         AudioManager.Instance.PlaySound("Footsteps1");
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(1.9f);
+        AudioManager.Instance.PlaySound("FootstepsFast");
+        yield return new WaitForSeconds(0.8f);
         Cursor.visible = true;
     }
     //--------------------------------------------------------
@@ -87,7 +98,9 @@ public class CinemaCam : MonoBehaviour
         Cursor.visible = false;
         CamAni.SetTrigger("P2F");
         AudioManager.Instance.PlaySound("Footsteps2");
-        yield return new WaitForSeconds(4.3f);
+        yield return new WaitForSeconds(1.9f);
+        AudioManager.Instance.PlaySound("FootstepsFast");
+        yield return new WaitForSeconds(2.4f);
         Cursor.visible = true;
     }
 
