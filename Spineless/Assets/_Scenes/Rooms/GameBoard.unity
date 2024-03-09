@@ -2133,7 +2133,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
         - m_Target: {fileID: 1903629591}
           m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
@@ -2145,7 +2145,7 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
-            m_BoolArgument: 0
+            m_BoolArgument: 1
           m_CallState: 2
   - eventID: 1
     callback:
@@ -7112,6 +7112,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7109773049506038836, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_Name
+      value: Eye Of Foresight Text
       objectReference: {fileID: 0}
     - target: {fileID: 7109773049506038836, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}

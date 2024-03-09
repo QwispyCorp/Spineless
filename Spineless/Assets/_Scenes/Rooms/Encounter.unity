@@ -2384,6 +2384,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.0209
       objectReference: {fileID: 0}
+    - target: {fileID: 7109773049506038836, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_Name
+      value: Eye Of Foresight Text
+      objectReference: {fileID: 0}
     - target: {fileID: 7145724353600488861, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_Name
@@ -3525,7 +3530,6 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
