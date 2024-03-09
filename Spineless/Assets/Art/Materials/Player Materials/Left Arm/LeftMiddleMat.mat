@@ -24,16 +24,16 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LeftMiddleMat
-  m_Shader: {fileID: 4800000, guid: 7252379db4c18b641b517f2c91bb57e1, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
-  m_InvalidKeywords:
   - _MASKMAP
   - _NORMALMAP
   - _NORMALMAP_TANGENT_SPACE
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorMap:
-        m_Texture: {fileID: 2800000, guid: 2c5138d0baa4d05408d9966343b97d96, type: 3}
+        m_Texture: {fileID: 2800000, guid: 08259ae959a851e4d84d427af6aa8862, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BentNormalMap:
@@ -99,11 +99,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 2c5138d0baa4d05408d9966343b97d96, type: 3}
+        m_Texture: {fileID: 2800000, guid: 08259ae959a851e4d84d427af6aa8862, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMap:
-        m_Texture: {fileID: 2800000, guid: bb641ae9449d0cc4a92c6b147cbc6ab2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 346f758665e164f45bc76b12b0f5c5b3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -111,7 +111,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: f5370a8eb60ab3b4a89162d0a72d8d5c, type: 3}
+        m_Texture: {fileID: 2800000, guid: e4efbfe1bbe58c9468b74789a5abf96c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
@@ -228,7 +228,7 @@ Material:
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
-    - _MetallicRemapMax: 1
+    - _MetallicRemapMax: 1.0000001
     - _MetallicRemapMin: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1

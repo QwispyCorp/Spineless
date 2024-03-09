@@ -189,9 +189,13 @@ public class PlayerController : MonoBehaviour
                 {
                     LightManager.Instance.StartFlickeringTransitionTo("ItemRoom");
                 }
-                else if (monsterTileTriggered) //switch scene to encounter
+                else if (monsterTileTriggered && saveData.FirstEncounterEntered) //switch scene to encounter
                 {
                     LightManager.Instance.StartFlickeringTransitionTo("Encounter");
+                }
+                else if (monsterTileTriggered && !saveData.FirstEncounterEntered) //switch scene to encounter tutorial if player has not yet entered an encounter
+                {
+                    LightManager.Instance.StartFlickeringTransitionTo("EncounterTutorial");
                 }
                 else if (winTileTriggered) //switch to winning scene for ending animations
                 {

@@ -7,9 +7,7 @@ public class EncounterRoomStartup : MonoBehaviour
     [SerializeField] private PlayerSaveData saveData;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private PlayerDeckLogic playerDeck;
-    [SerializeField] private GameObject tutorialCanvas;
     [SerializeField] private GameObject dotCanvas;
-    [SerializeField] private AudioClip tutorial2AudioClip;
     private int entryHP;
     void Awake()
     {
@@ -17,11 +15,6 @@ public class EncounterRoomStartup : MonoBehaviour
         if (saveData.FirstEncounterEntered == false)
         {
             playerDeck.totalDeathCards = 4;
-            tutorialCanvas.SetActive(true);
-            dotCanvas.SetActive(false);
-
-            StartCoroutine("TutorialDelay");
-            //play tutorial
         }
     }
     void Start()
@@ -29,7 +22,6 @@ public class EncounterRoomStartup : MonoBehaviour
         if (saveData.FirstEncounterEntered == false)
         {
             AudioManager.Instance.StopAllSounds();
-            AudioManager.Instance.PlaySound("Tutorial2");
             AudioManager.Instance.MuffleMusic();
             saveData.FirstEncounterEntered = true;
         }
@@ -47,13 +39,5 @@ public class EncounterRoomStartup : MonoBehaviour
         {
             playerAnimator.SetTrigger("1 HP Entry");
         }
-    }
-
-    private IEnumerator TutorialDelay()
-    {
-        yield return new WaitForSecondsRealtime(107);
-        AudioManager.Instance.UnMuffleMusic();
-        tutorialCanvas.SetActive(false);
-        dotCanvas.SetActive(true);
     }
 }

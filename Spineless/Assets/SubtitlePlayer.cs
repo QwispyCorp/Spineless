@@ -14,6 +14,7 @@ public class SubtitlePlayer : MonoBehaviour
     }
     public void StopSubtitles()
     {
+        StopAllCoroutines();
         gameObject.SetActive(false);
     }
 

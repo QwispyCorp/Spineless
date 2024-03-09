@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Rooms/WinScene.unity
     guid: dbde456f75e2199468057f04ff964fe9
+  - enabled: 1
+    path: Assets/_Scenes/Rooms/EncounterTutorial.unity
+    guid: c62612b2b694438498ef89900cf19668
   m_configObjects: {}
