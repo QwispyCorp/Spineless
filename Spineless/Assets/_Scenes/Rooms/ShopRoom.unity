@@ -650,7 +650,7 @@ Transform:
   m_GameObject: {fileID: 294624380}
   serializedVersion: 2
   m_LocalRotation: {x: 0.16335085, y: -0.68798006, z: -0.68798006, w: -0.16335085}
-  m_LocalPosition: {x: -0.607918, y: -0.04003632, z: -0.18689099}
+  m_LocalPosition: {x: -0.607918, y: -0.0559, z: -0.148891}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2319,7 +2319,7 @@ Transform:
   m_GameObject: {fileID: 1121427570}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.25, y: 1.25, z: 0.5}
+  m_LocalPosition: {x: 0.25, y: 1.979, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2882,12 +2882,12 @@ PrefabInstance:
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.0275773
+      value: 1.0915953
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.4137316
+      value: 1.4854077
       objectReference: {fileID: 0}
     - target: {fileID: 2086412168809698708, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -3289,7 +3289,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VideoClip
       value: 
-      objectReference: {fileID: 32900000, guid: 9e5408e7fc33b6f4dbd520ceb96a3c6d,
+      objectReference: {fileID: 32900000, guid: 15f135491e8a9924e9a8d8baf97c10c0,
         type: 3}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -3299,27 +3299,27 @@ PrefabInstance:
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_ControlledAudioTrackCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_DirectAudioMutes.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_DirectAudioVolumes.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_EnabledAudioTracks.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_TargetAudioSources.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}

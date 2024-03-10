@@ -582,7 +582,7 @@ Transform:
   m_GameObject: {fileID: 194868403}
   serializedVersion: 2
   m_LocalRotation: {x: 0.16335085, y: -0.68798006, z: -0.68798006, w: -0.16335085}
-  m_LocalPosition: {x: -0.5796, y: 0.0238, z: 0.0176}
+  m_LocalPosition: {x: -0.5796, y: 0.0081, z: 0.05559999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -679,6 +679,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 142078877830901410, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 8400000, guid: e211fbdd8d51bb24590a92cd5c516d78, type: 2}
     - target: {fileID: 169947179404796941, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -708,11 +713,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.0041999
-      objectReference: {fileID: 0}
-    - target: {fileID: 293491189800601257, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1121402307160606966, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -854,31 +854,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.041
       objectReference: {fileID: 0}
-    - target: {fileID: 2909275683761124788, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_Name
-      value: Wishbone Text
-      objectReference: {fileID: 0}
-    - target: {fileID: 2909275683761124788, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3818817675021878488, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3985815375983551882, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4058954506093486707, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4283699858504488619, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_Name
@@ -944,27 +919,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.0041999
       objectReference: {fileID: 0}
-    - target: {fileID: 5053132024411344716, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5159643490881205882, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 3c50512f34ccc944eba8a4ef9740322a,
         type: 3}
-    - target: {fileID: 5487575616398350096, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_Name
-      value: Jack In The Box Text
-      objectReference: {fileID: 0}
-    - target: {fileID: 5487575616398350096, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5770066263091770563, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1015,11 +975,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -6
       objectReference: {fileID: 0}
-    - target: {fileID: 6106954598228487325, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6636951768788564750, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1050,11 +1005,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.0041999
       objectReference: {fileID: 0}
-    - target: {fileID: 6695407523059607342, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7066805868112368518, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -1075,42 +1025,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Eye Of Foresight Text
       objectReference: {fileID: 0}
-    - target: {fileID: 8053696967993891501, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_VideoClip
-      value: 
-      objectReference: {fileID: 32900000, guid: 9e5408e7fc33b6f4dbd520ceb96a3c6d,
-        type: 3}
-    - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_ControlledAudioTrackCount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_DirectAudioMutes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_DirectAudioVolumes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_EnabledAudioTracks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_TargetAudioSources.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_DirectAudioMutes.Array.data[0]
@@ -1130,21 +1044,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.0053424803
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896835791444630149, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_Name
-      value: Eye Of Foresight Text
-      objectReference: {fileID: 0}
-    - target: {fileID: 8896835791444630149, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9035616989043053366, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9085701964138908794, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -2730,7 +2629,7 @@ Transform:
   m_GameObject: {fileID: 1121427570}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.25, y: 1.25, z: 0.5}
+  m_LocalPosition: {x: 0.25, y: 1.979, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

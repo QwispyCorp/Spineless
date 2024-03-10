@@ -14,56 +14,26 @@ public class ItemTextCloser : MonoBehaviour
         string currentScene = SceneManager.GetActiveScene().name;
         foreach (Item item in saveData.MasterItemPool)
         {
-            if (currentScene == "GameBoard")
+            if (currentScene == "GameBoard") //in geame board room, turn off item tv text for items that aren't equipped and are also not in inventory
             {
-                if (!saveData.Inventory.Find(x => x.name == item.itemName) && !saveData.EquippedItems.Find(x => x.name == item.itemName)) //if the item is not in inventoiry AND is not in equipped items, turn off its screen in this room
+                if (!saveData.Inventory.Find(x => x.itemName == item.itemName) && !saveData.EquippedItems.Find(x => x.itemName == item.itemName)) //if the item is not in inventoiry AND is not in equipped items, turn off its screen in this room
                 {
                     //Find the item's corresponding text object in the scene
                     if (GameObject.Find(item.itemName + " Text") != null)
                     {
-                        Debug.Log(item.itemName + " Text Object Found");
+                        Debug.LogWarning(item.itemName + " Text Object Turned Off");
                         GameObject itemTextObject = GameObject.Find(item.itemName + " Text");
                         itemTextObject.SetActive(false);
                     }
                     else
                     {
-                        Debug.LogWarning("Could not find text object for " + item.itemName + ".");
-                    }
-                }
-                else if (!saveData.EquippedItems.Find(x => x.name == item.itemName)) //if the item is not in inventoiry AND is not in equipped items, turn off its screen in this room
-                {
-                    //Find the item's corresponding text object in the scene
-                    if (GameObject.Find(item.itemName + " Text") != null)
-                    {
-                        Debug.Log(item.itemName + " Text Object Found");
-                        GameObject itemTextObject = GameObject.Find(item.itemName + " Text");
-                        itemTextObject.SetActive(false);
-                    }
-                    else
-                    {
-                        item.itemName = null;
-                        Debug.LogWarning("Could not find text object for " + item.itemName + ".");
-                    }
-                }
-                else if (!saveData.Inventory.Find(x => x.name == item.itemName)) //if the item is not in inventoiry AND is not in equipped items, turn off its screen in this room
-                {
-                    //Find the item's corresponding text object in the scene
-                    if (GameObject.Find(item.itemName + " Text") != null)
-                    {
-                        Debug.Log(item.itemName + " Text Object Found");
-                        GameObject itemTextObject = GameObject.Find(item.itemName + " Text");
-                        itemTextObject.SetActive(false);
-                    }
-                    else
-                    {
-                        item.itemName = null;
                         Debug.LogWarning("Could not find text object for " + item.itemName + ".");
                     }
                 }
             }
-            if (currentScene == "Encounter")
+            if (currentScene == "Encounter") //in encounter room, turn off item tv text for items not currently equipped
             {
-                if (!saveData.EquippedItems.Find(x => x.name == item.itemName)) //if the item is not in equipped items, turn off its screen in this room
+                if (!saveData.EquippedItems.Find(x => x.itemName == item.itemName)) //if the item is not in equipped items, turn off its screen in this room
                 {
                     //Find the item's corresponding text object in the scene
                     if (GameObject.Find(item.itemName + " Text") != null)
@@ -74,7 +44,6 @@ public class ItemTextCloser : MonoBehaviour
                     }
                     else
                     {
-                        //item.itemName = null;
                         Debug.LogWarning("Could not find text object for " + item.itemName + ".");
                     }
                 }

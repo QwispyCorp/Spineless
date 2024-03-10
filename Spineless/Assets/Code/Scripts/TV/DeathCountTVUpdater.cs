@@ -49,6 +49,6 @@ public class DeathCountTVUpdater : MonoBehaviour
 
         int totalDeathCards = playerDeathCards + enemyDeathCards;
 
-        cardCountText.SetText("Death cards on table: " + Environment.NewLine + " " + totalDeathCards);
+        //cardCountText.SetText("Death cards on table: " + Environment.NewLine + " " + totalDeathCards);
     }
 }

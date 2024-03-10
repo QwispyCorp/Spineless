@@ -70,7 +70,7 @@ public class TVTextLoader : MonoBehaviour
             }
             if (GameObject.Find("Item Room Text") != null)
             {
-                GameObject.Find("Item Room Text").SetActive(true);
+                GameObject.Find("Item Room Text").SetActive(false);
             }
         }
         //ITEM ROOM FUNCTIONALITY

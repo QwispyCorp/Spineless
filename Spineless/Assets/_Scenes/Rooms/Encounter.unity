@@ -1992,7 +1992,7 @@ PrefabInstance:
     - target: {fileID: 293491189800601257, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 442661162911771714, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -2214,6 +2214,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wishbone Text
       objectReference: {fileID: 0}
+    - target: {fileID: 2909275683761124788, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2952791889283201023, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2264,6 +2269,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.1386
       objectReference: {fileID: 0}
+    - target: {fileID: 3818817675021878488, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3893279245283534686, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -2282,7 +2292,12 @@ PrefabInstance:
     - target: {fileID: 3985815375983551882, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4058954506093486707, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4170742826195687730, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -2382,12 +2397,17 @@ PrefabInstance:
     - target: {fileID: 5053132024411344716, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5487575616398350096, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_Name
       value: Jack In The Box Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487575616398350096, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5770066263091770563, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -2457,7 +2477,7 @@ PrefabInstance:
     - target: {fileID: 6106954598228487325, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6636951768788564750, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -2514,6 +2534,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.057
       objectReference: {fileID: 0}
+    - target: {fileID: 6695407523059607342, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7109773049506038836, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_Name
@@ -2547,7 +2572,7 @@ PrefabInstance:
     - target: {fileID: 8053696967993891501, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8434438458627036991, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -2602,7 +2627,12 @@ PrefabInstance:
     - target: {fileID: 8896835791444630149, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9035616989043053366, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9085701964138908794, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -2667,11 +2697,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4283699858504488619, guid: 10e316c4a88133940918ea0c5f266ac4,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1604912449}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
 --- !u!1001 &646020541
 PrefabInstance:
@@ -5516,25 +5542,6 @@ Transform:
   - {fileID: 545451252}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1604912445 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4283699858504488619, guid: 10e316c4a88133940918ea0c5f266ac4,
-    type: 3}
-  m_PrefabInstance: {fileID: 596070926}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1604912449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604912445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 552ea4eff93149843a92bede421bf96a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
 --- !u!1 &1608931367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4827491593922432890, guid: e8f66e1b51b3c2941aec1597b3c0d15f,
@@ -9200,8 +9207,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2580995673304997321}
   m_AABB:
-    m_Center: {x: -4.351743, y: 0.49819547, z: 11.359457}
-    m_Extent: {x: 0.3867507, y: 0.28142518, z: 0.8909483}
+    m_Center: {x: -7.3429685, y: 7.0872645, z: 6.411759}
+    m_Extent: {x: 4.060574, y: 6.415692, z: 8.597704}
   m_DirtyAABB: 0
 --- !u!1 &2427251039946222151
 GameObject:
@@ -9622,8 +9629,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2580995673304997321}
   m_AABB:
-    m_Center: {x: -5.2400417, y: 0.4694271, z: 11.58351}
-    m_Extent: {x: 0.29462957, y: 0.27136505, z: 1.0339098}
+    m_Center: {x: -7.3429685, y: 7.0872645, z: 6.411759}
+    m_Extent: {x: 4.060574, y: 6.415692, z: 8.597704}
   m_DirtyAABB: 0
 --- !u!1 &2870457990530863171
 GameObject:
@@ -10862,8 +10869,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2580995673304997321}
   m_AABB:
-    m_Center: {x: -7.3429685, y: 7.0872645, z: 5.190078}
-    m_Extent: {x: 4.060574, y: 6.415692, z: 7.3760223}
+    m_Center: {x: -7.3429685, y: 7.0872645, z: 6.411759}
+    m_Extent: {x: 4.060574, y: 6.415692, z: 8.597704}
   m_DirtyAABB: 0
 --- !u!137 &4585865604235185233
 SkinnedMeshRenderer:
@@ -10969,8 +10976,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2580995673304997321}
   m_AABB:
-    m_Center: {x: -5.9873557, y: 0.4248271, z: 11.35849}
-    m_Extent: {x: 0.31582594, y: 0.2694682, z: 0.9689884}
+    m_Center: {x: -7.3429685, y: 7.0872645, z: 6.411759}
+    m_Extent: {x: 4.060574, y: 6.415692, z: 8.597704}
   m_DirtyAABB: 0
 --- !u!1 &4600758787868336388
 GameObject:
@@ -11604,8 +11611,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2580995673304997321}
   m_AABB:
-    m_Center: {x: -3.6171875, y: -0.15282685, z: 9.801583}
-    m_Extent: {x: 0.6734191, y: 0.36346608, z: 0.8051996}
+    m_Center: {x: -7.3429685, y: 7.0872645, z: 6.411759}
+    m_Extent: {x: 4.060574, y: 6.415692, z: 8.597704}
   m_DirtyAABB: 0
 --- !u!4 &5141882875980322487
 Transform:
@@ -14007,8 +14014,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2580995673304997321}
   m_AABB:
-    m_Center: {x: -6.850153, y: 0.3671422, z: 10.790979}
-    m_Extent: {x: 0.31094646, y: 0.24735428, z: 0.7757263}
+    m_Center: {x: -7.3429685, y: 7.0872645, z: 6.411759}
+    m_Extent: {x: 4.060574, y: 6.415692, z: 8.597704}
   m_DirtyAABB: 0
 --- !u!1 &7325297869682820178
 GameObject:
@@ -14656,8 +14663,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2580995673304997321}
   m_AABB:
-    m_Center: {x: -7.667319, y: 1.8810788, z: 11.564058}
-    m_Extent: {x: 0.53642035, y: 0.5492362, z: 0.8117614}
+    m_Center: {x: -7.1317677, y: 3.1132731, z: 11.269132}
+    m_Extent: {x: 3.601584, y: 1.7814307, z: 1.1066885}
   m_DirtyAABB: 0
 --- !u!4 &7958495381912428862
 Transform:

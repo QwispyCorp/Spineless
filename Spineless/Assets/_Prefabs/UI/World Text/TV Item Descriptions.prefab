@@ -208,12 +208,12 @@ GameObject:
   - component: {fileID: 6690442022261863219}
   - component: {fileID: 8535432632919029949}
   m_Layer: 0
-  m_Name: WishBone Text
+  m_Name: Wishbone Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7378615721730246690
 RectTransform:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4170742826195687730
 RectTransform:
   m_ObjectHideFlags: 0
@@ -407,7 +407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1378235469506033330
 RectTransform:
   m_ObjectHideFlags: 0
@@ -504,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2581272527355737070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -769,12 +769,12 @@ GameObject:
   - component: {fileID: 3573820795037570857}
   - component: {fileID: 5914849334906114407}
   m_Layer: 0
-  m_Name: Jack In the Box Text
+  m_Name: Jack In The Box Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &491160273965643448
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1106,7 +1106,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8646414150371314185
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1410,12 +1410,12 @@ GameObject:
   - component: {fileID: 1841404228361484911}
   - component: {fileID: 219613647356263581}
   m_Layer: 0
-  m_Name: Eye of Foresight Text
+  m_Name: Eye Of Foresight Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8491506466096102143
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1512,7 +1512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &442661162911771714
 RectTransform:
   m_ObjectHideFlags: 0
