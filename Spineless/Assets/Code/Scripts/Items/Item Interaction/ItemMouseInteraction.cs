@@ -99,11 +99,17 @@ public class ItemMouseInteraction : MonoBehaviour
                 {
                     if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
                     {
-                        transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                        foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
+                        {
+                            mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                        }
                     }
                     if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
                     {
-                        transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                        foreach (Material mat in transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().materials)
+                        {
+                            mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                        }
                     }
                 }
             }
@@ -117,12 +123,16 @@ public class ItemMouseInteraction : MonoBehaviour
                 {
                     foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
                     {
-                        transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                        mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
                     }
                 }
                 if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
                 {
-                    transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                    //transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                    foreach (Material mat in transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().materials)
+                    {
+                        mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                    }
                 }
             }
         }
@@ -168,12 +178,15 @@ public class ItemMouseInteraction : MonoBehaviour
                 {
                     foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
                     {
-                        transform.GetChild(i).GetComponent<MeshRenderer>().material.SetColor("_EmissiveColor", Color.black); //highlight item
+                        mat.SetColor("_EmissiveColor", Color.black); //highlight item
                     }
                 }
                 if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
                 {
-                    transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().material.SetColor("_EmissiveColor", Color.black); //highlight item
+                    foreach (Material mat in transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().materials)
+                    {
+                        mat.SetColor("_EmissiveColor", Color.black); //highlight item
+                    }
                 }
             }
         }
@@ -204,7 +217,7 @@ public class ItemMouseInteraction : MonoBehaviour
     private void OnMouseDown()
     {
         //ITEM FUNCTIONALITY FOR ENCOUNTER ROOM -----------------------------------------------------------
-        if (currentRoom == "Encounter") //if in game board room, equip or unequip item
+        if (currentRoom == "Encounter") //if in encounter room, consume item
         {
             if (itemTextObject)
             {
@@ -212,7 +225,7 @@ public class ItemMouseInteraction : MonoBehaviour
             }
             if (encounterTVTextObject)
             {
-                encounterTVTextObject.SetActive(false); //turn on the tv text
+                encounterTVTextObject.SetActive(true); //turn on the tv text
             }
             ConsumeItem();
         }
