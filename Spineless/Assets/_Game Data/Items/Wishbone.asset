@@ -17,3 +17,5 @@ MonoBehaviour:
   value: 2
   itemPrefab: {fileID: 6713821218124877309, guid: eb64fdc003bcff240bad17c2a7988817,
     type: 3}
+  itemShopButton: {fileID: 8539014398371992494, guid: 55a66b443cbb5774d9ae66ca1a54a573,
+    type: 3}

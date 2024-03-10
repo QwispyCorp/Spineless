@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -34,6 +35,23 @@ public class ItemTextCloser : MonoBehaviour
             if (currentScene == "Encounter") //in encounter room, turn off item tv text for items not currently equipped
             {
                 if (!saveData.EquippedItems.Find(x => x.itemName == item.itemName)) //if the item is not in equipped items, turn off its screen in this room
+                {
+                    //Find the item's corresponding text object in the scene
+                    if (GameObject.Find(item.itemName + " Text") != null)
+                    {
+                        Debug.Log(item.itemName + " Text Object Found");
+                        GameObject itemTextObject = GameObject.Find(item.itemName + " Text");
+                        itemTextObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Debug.LogWarning("Could not find text object for " + item.itemName + ".");
+                    }
+                }
+            }
+            if (currentScene == "ShopRoom") //in shop room, turn off item tv text for item buttons that were not spawned into the room
+            {
+                if (!GameObject.Find(item.itemName + " Button"))
                 {
                     //Find the item's corresponding text object in the scene
                     if (GameObject.Find(item.itemName + " Text") != null)

@@ -11,4 +11,5 @@ public class Item : ScriptableObject
     public string itemDescription;
     public int value;
     public GameObject itemPrefab;
+    public GameObject itemShopButton;
 }

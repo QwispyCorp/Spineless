@@ -5,41 +5,42 @@ using UnityEngine;
 public class ShopRoomEntryLogic : MonoBehaviour
 {
     [SerializeField] private PlayerSaveData saveData;
-    [SerializeField] private Transform leftSpawn;
-    [SerializeField] private Transform rightSpawn;
+    [Header("Button Spawn Points")]
+    [SerializeField] private Transform topButtonSpawn;
+    [SerializeField] private Transform middleButtonSpawn;
+    [SerializeField] private Transform bottomButtonSpawn;
     void Start()
     {
         //when player enters shop, update shop visisted for shopo availability on board
         saveData.ShopVisited = true;
 
-        //When shop room starts, spawn random items in the spawn points for player purchasing
+        //When shop room starts, spawn random item buttons in the top and middle buttons for purchasing
 
-        //Spawn left item,  store which item index was used
-        int leftItemIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
-        GameObject leftItem = Instantiate(saveData.MasterItemPool[leftItemIndex].itemPrefab, leftSpawn, false);
+        //Spawn top button
+        int topButtonIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
+        GameObject topButton = Instantiate(saveData.MasterItemPool[topButtonIndex].itemShopButton, topButtonSpawn, false);
 
-        //Spawn right item, checking for non-duplicate item from the left's index
-        int rightItemIndex;
+        //Spawn middle button
+        int middleButtonIndex;
         while (true)
         {
-            rightItemIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
-            if (rightItemIndex != leftItemIndex)
+            middleButtonIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
+            if (middleButtonIndex != topButtonIndex)
             {
-                GameObject rightItem = Instantiate(saveData.MasterItemPool[rightItemIndex].itemPrefab, rightSpawn, false);
+                GameObject middleButton = Instantiate(saveData.MasterItemPool[middleButtonIndex].itemShopButton, middleButtonSpawn, false);
                 break;
             }
         }
-
-        //When item room starts, turn off all item text on tv, turn on item room prompt
-        for (int i = 0; i < saveData.MasterItemPool.Count; i++)
+        
+        //Spawn bottom button
+        int bottomButtonIndex;
+        while (true)
         {
-            if (GameObject.Find(saveData.MasterItemPool[i].itemName) == null)
+            bottomButtonIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
+            if (bottomButtonIndex != topButtonIndex && bottomButtonIndex != middleButtonIndex)
             {
-                Debug.Log(saveData.MasterItemPool[i].itemName);
-                if (GameObject.Find(saveData.MasterItemPool[i].itemName + " Text") != null)
-                {
-                    GameObject.Find(saveData.MasterItemPool[i].itemName + " Text").SetActive(false);
-                }
+                GameObject bottomButton = Instantiate(saveData.MasterItemPool[bottomButtonIndex].itemShopButton, bottomButtonSpawn, false);
+                break;
             }
         }
     }

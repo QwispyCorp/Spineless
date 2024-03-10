@@ -29,8 +29,6 @@ public class ItemMouseInteraction : MonoBehaviour
     private string currentRoom;
     private GameObject itemRoomSpawnPoint1;
     private GameObject itemRoomSpawnPoint2;
-    public delegate void ItemPurchased();
-    public static event ItemPurchased OnItemPurchased;
 
     void Awake()
     {
@@ -265,30 +263,6 @@ public class ItemMouseInteraction : MonoBehaviour
             itemRoomSpawnPoint1.SetActive(false);
             itemRoomSpawnPoint2.SetActive(false);
         }
-        //ITEM FUNCTIONALITY FOR SHOP ROOM ---------------------------------
-        if (currentRoom == "ShopRoom")
-        {
-            //check if player has enough currency
-            if (saveData.monsterFingers >= itemValue)
-            {
-                if (itemTextObject)
-                {
-                    itemTextObject.SetActive(false); //turn off the item text description
-                }
-                if (shopRoomTVTextObject)
-                {
-                    shopRoomTVTextObject.SetActive(true); //turn on the tv text
-                }
-
-                PurchaseItem(); //purchase the item
-            }
-            else
-            {
-                //play error sound?
-                //not enough currency feedback
-                Debug.Log("Not enough fingers for " + itemName + "!");
-            }
-        }
     }
     // ------------------------------------ PRIVATE UTIL FUNCTIONS --------------
 
@@ -340,26 +314,6 @@ public class ItemMouseInteraction : MonoBehaviour
         }
     }
 
-    // ITEM ROOM FUNCTIONS
-    private void PurchaseItem()
-    {
-        saveData.monsterFingers -= itemValue; //subtract currency from player
-        if (OnItemPurchased != null)
-        {
-            OnItemPurchased?.Invoke(); //trigger item purchased event to update monster fingers in finger jar UI
-        }
-        if (saveData.EquippedItems.Count == 4) //if equipped items is full, store item in inventory
-        {
-            saveData.Inventory.Add(itemSO); //add item to inventory
-        }
-        else
-        {
-            saveData.EquippedItems.Add(itemSO);
-        }
-        //play item sound effect
-        //update monster finger jar count/ text
-        Destroy(gameObject); //destroy object
-    }
     private void CollectItem()
     {
         if (saveData.EquippedItems.Count != 4)
