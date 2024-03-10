@@ -9,8 +9,9 @@ public class ShopRoomEntryLogic : MonoBehaviour
     [SerializeField] private Transform topButtonSpawn;
     [SerializeField] private Transform middleButtonSpawn;
     [SerializeField] private Transform bottomButtonSpawn;
-    void Start()
+    void Awake()
     {
+
         //when player enters shop, update shop visisted for shopo availability on board
         saveData.ShopVisited = true;
 
@@ -21,27 +22,11 @@ public class ShopRoomEntryLogic : MonoBehaviour
         GameObject topButton = Instantiate(saveData.MasterItemPool[topButtonIndex].itemShopButton, topButtonSpawn, false);
 
         //Spawn middle button
-        int middleButtonIndex;
-        while (true)
-        {
-            middleButtonIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
-            if (middleButtonIndex != topButtonIndex)
-            {
-                GameObject middleButton = Instantiate(saveData.MasterItemPool[middleButtonIndex].itemShopButton, middleButtonSpawn, false);
-                break;
-            }
-        }
-        
+        int middleButtonIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
+        GameObject middleButton = Instantiate(saveData.MasterItemPool[middleButtonIndex].itemShopButton, middleButtonSpawn, false);
+
         //Spawn bottom button
-        int bottomButtonIndex;
-        while (true)
-        {
-            bottomButtonIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
-            if (bottomButtonIndex != topButtonIndex && bottomButtonIndex != middleButtonIndex)
-            {
-                GameObject bottomButton = Instantiate(saveData.MasterItemPool[bottomButtonIndex].itemShopButton, bottomButtonSpawn, false);
-                break;
-            }
-        }
+        int bottomButtonIndex = UnityEngine.Random.Range(0, saveData.MasterItemPool.Count);
+        GameObject bottomButton = Instantiate(saveData.MasterItemPool[bottomButtonIndex].itemShopButton, bottomButtonSpawn, false);
     }
 }

@@ -4934,8 +4934,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2086412169491117588}
-  - {fileID: 1378235467776234802}
   - {fileID: 208336969}
+  - {fileID: 1378235467776234802}
   - {fileID: 8491506467830143359}
   - {fileID: 7378615721309088674}
   - {fileID: 8646414148607846793}
@@ -5329,7 +5329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &4000412235339578754
 Animator:
   serializedVersion: 5
