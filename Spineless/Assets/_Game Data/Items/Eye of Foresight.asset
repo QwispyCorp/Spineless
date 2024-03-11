@@ -19,3 +19,5 @@ MonoBehaviour:
     type: 3}
   itemShopButton: {fileID: 8221656543554809607, guid: b32c103c061f4a74cbf64596615c45c7,
     type: 3}
+  itemShopDescription: {fileID: 7324579350475563359, guid: a2927d1645ff3b94183603dc17b0eeda,
+    type: 3}

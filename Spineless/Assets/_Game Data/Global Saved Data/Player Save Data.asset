@@ -15,7 +15,7 @@ MonoBehaviour:
   TargetEncounterWins: 5
   EncountersWon: 0
   EncountersCleared: 0
-  ShopVisited: 0
+  ShopVisited: 1
   FirstEncounterEntered: 0
   BoardGenerated: 0
   GameBoard: {fileID: 0}
@@ -39,5 +39,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 16215195cff34a848a4f82a38dc365c1, type: 2}
   EquippedItems:
   - {fileID: 11400000, guid: 9b86307f1ebab46f18accda9fce970e1, type: 2}
+  - {fileID: 11400000, guid: 6e2dd18ca168839469f92bfeb64e06f1, type: 2}
   playerFingersInNextEncounter: 5
   monsterFingers: 0

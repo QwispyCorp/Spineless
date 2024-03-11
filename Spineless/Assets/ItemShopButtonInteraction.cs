@@ -14,6 +14,9 @@ public class ItemShopButtonInteraction : MonoBehaviour
     private int _itemValue;
     private GameObject _itemPrefab;
     private GameObject _itemShopButton;
+    private GameObject _itemShopDescriptionObject;
+    private GameObject _spawnedText;
+    private GameObject ekgCanvas;
     [SerializeField] private Item itemSO;
     [SerializeField] private GameObject buttonTextObject;
     private UnityEngine.UI.Image buttonTextImage;
@@ -35,64 +38,76 @@ public class ItemShopButtonInteraction : MonoBehaviour
         _itemPrefab = itemSO.itemPrefab;
         _itemDescription = itemSO.itemDescription;
         _itemShopButton = itemSO.itemShopButton;
+        _itemShopDescriptionObject = itemSO.itemShopDescription;
 
         buttonTextImage = buttonTextObject.GetComponent<UnityEngine.UI.Image>();
         buttonValueImage = buttonValueObject.GetComponent<UnityEngine.UI.Image>();
 
 
         //Find the item's corresponding text object in the scene
-        if (GameObject.Find(_itemName + " Text") != null)
+        if (GameObject.Find("EKG Canvas") != null)
         {
-            Debug.Log(_itemName + " Text Object Found for ItemShopButtonInteraction.");
-            itemTextObject = GameObject.Find(_itemName + " Text");
-            itemTextObject.SetActive(false);
+            Debug.Log("EKG Canvas located for " + _itemName);
+            ekgCanvas = GameObject.Find("EKG Canvas");
+
+            _spawnedText = Instantiate(_itemShopDescriptionObject, ekgCanvas.transform, false); //spawn the description onto the ekg canvas
+            _spawnedText.SetActive(false); //turn it off
+
         }
         else
         {
-            itemTextObject = null;
-            Debug.LogWarning("Could not find text object for " + _itemName + "in ItemShopButtonInteraction..");
+            ekgCanvas = null;
+            Debug.LogWarning("Could not find EKG Canvas.");
         }
     }
-    void OnMouseDown()
+    void OnMouseDown() //when item is clicked on
     {
         //check if player has enough currency
-        if (saveData.monsterFingers >= _itemValue)
+        if (saveData.monsterFingers >= _itemValue) //if they have enough fingers to buy item
         {
-            if (itemTextObject)
+            if (_spawnedText)
             {
-                itemTextObject.SetActive(false); //turn off the item text description
+                Destroy(_spawnedText); //Destroy the text description on canvas
             }
 
             PurchaseItem(); //purchase the item
         }
-        else
+        else //if player doesn't have enough fingers
         {
             //play error sound?
             //not enough currency feedback
-            buttonTextImage.color = insufficientFingersColor;
-            buttonValueImage.color = insufficientFingersColor;
+            buttonTextImage.color = insufficientFingersColor; //highlight text red
+            buttonValueImage.color = insufficientFingersColor; //highlight text red
             Debug.Log("Not enough fingers for " + _itemName + "!");
         }
     }
-
-    void OnMouseEnter()
+    void OnMouseUp() //after item is clicked on
     {
-        buttonTextImage.color = highlightColor;
-        buttonValueImage.color = highlightColor;
-
-        if (itemTextObject)
+        if (buttonTextImage.color == insufficientFingersColor)
         {
-            itemTextObject.SetActive(true); //turn on item text
+            buttonTextImage.color = baseColor;//change color to normal when player unclicks after an unsuccessful purchase
+            buttonValueImage.color = baseColor; //change color to normal when player unclicks after an unsuccessful purchase
         }
     }
 
-    void OnMouseExit()
+    void OnMouseEnter() //when player hovers over button
     {
-        buttonTextImage.color = baseColor;
-        buttonValueImage.color = baseColor;
-        if (itemTextObject)
+        buttonTextImage.color = highlightColor; //highlight text
+        buttonValueImage.color = highlightColor; //highlight number
+
+        if (_spawnedText)
         {
-            itemTextObject.SetActive(false); //turn on item text
+            _spawnedText.SetActive(true); //turn on item text
+        }
+    }
+
+    void OnMouseExit() //when player leaves the button hover area
+    {
+        buttonTextImage.color = baseColor; //highlight text
+        buttonValueImage.color = baseColor; //highlight number
+        if (_spawnedText)
+        {
+            _spawnedText.SetActive(false); //turn off item text
         }
     }
     private void PurchaseItem()
@@ -114,6 +129,7 @@ public class ItemShopButtonInteraction : MonoBehaviour
         }
         //play item sound effect
         //update monster finger jar count/ text
+        Destroy(_spawnedText);
         Destroy(gameObject); //destroy object
     }
 }
