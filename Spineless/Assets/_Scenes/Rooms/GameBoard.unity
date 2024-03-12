@@ -8059,10 +8059,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 288833094867757894, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cb6e46fe74cc3194ca62df501516ca64,
+        type: 3}
     - target: {fileID: 293491189800601257, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 791028682990987146, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 797939785903478141, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
