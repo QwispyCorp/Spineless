@@ -8,6 +8,8 @@ public class ItemAnimationDelay : MonoBehaviour
 {
     private AnimationClip[] itemAnimationClips;
     private float itemAnimationLength;
+    public delegate void ItemAnimationEnded();
+    public static event ItemAnimationEnded OnItemAnimationEnded;
 
     void Start()
     {
@@ -20,7 +22,12 @@ public class ItemAnimationDelay : MonoBehaviour
     private IEnumerator ItemEffectDelay()
     {
         yield return new WaitForSeconds(itemAnimationLength);
+
+        if (OnItemAnimationEnded != null)
+        {
+            OnItemAnimationEnded?.Invoke();
+        }
         //execute item effect
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

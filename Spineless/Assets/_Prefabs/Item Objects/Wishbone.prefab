@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4653507638686176762}
-  - component: {fileID: -113074031920498439}
   - component: {fileID: 897632367246897795}
   - component: {fileID: 872507886991107857}
   m_Layer: 0
@@ -36,18 +35,6 @@ Transform:
   - {fileID: 3863023745871947061}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
---- !u!114 &-113074031920498439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6713821218124877309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d42f8856e93e4299867215e6c8d3313, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &897632367246897795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +51,7 @@ MonoBehaviour:
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1
+  itemTextObject: {fileID: 0}
 --- !u!65 &872507886991107857
 BoxCollider:
   m_ObjectHideFlags: 0

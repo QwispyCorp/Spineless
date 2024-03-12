@@ -21,3 +21,5 @@ MonoBehaviour:
     type: 3}
   itemShopDescription: {fileID: 7983635916916953657, guid: 74bc54b1c6daca34390d8f10796ee6cf,
     type: 3}
+  itemAnimationObject: {fileID: 1296843008245565807, guid: a9224a19c731a7e4cadbbaf515def851,
+    type: 3}

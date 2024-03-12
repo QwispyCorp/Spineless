@@ -348,7 +348,6 @@ GameObject:
   - component: {fileID: 3298174290323784899}
   - component: {fileID: 3020802805583272468}
   - component: {fileID: 1569615930604981881}
-  - component: {fileID: 2361480807611621310}
   m_Layer: 6
   m_Name: Severed Hand
   m_TagString: Untagged
@@ -413,15 +412,3 @@ MonoBehaviour:
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1
   itemTextObject: {fileID: 0}
---- !u!114 &2361480807611621310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8689384045968838354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 332dca6efe1f63348ba54ee43fdb8a7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

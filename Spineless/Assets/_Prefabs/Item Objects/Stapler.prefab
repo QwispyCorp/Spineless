@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2670388703776968850}
   - component: {fileID: 3872379041820847355}
-  - component: {fileID: -3053793001769943321}
   - component: {fileID: 8715152702217755467}
   m_Layer: 6
   m_Name: Stapler
@@ -57,26 +56,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.13657638, y: 0.2102668, z: 0.65478873}
   m_Center: {x: -0.012451917, y: 0.16335143, z: -0.016168356}
---- !u!114 &-3053793001769943321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 692793098900669828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 876cc483a2a3f2049abbec47ff617b62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerHealth:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: bf91ee7ed86c5446db36b5e885a0e631, type: 2}
-  maxPlayerHealth:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 81e0fe0d6e4e749c388d7c586f680186, type: 2}
 --- !u!114 &8715152702217755467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,6 +72,7 @@ MonoBehaviour:
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1
+  itemTextObject: {fileID: 0}
 --- !u!1 &1512597196647011836
 GameObject:
   m_ObjectHideFlags: 0

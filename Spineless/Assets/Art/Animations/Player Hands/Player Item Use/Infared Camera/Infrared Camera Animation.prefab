@@ -609,6 +609,7 @@ GameObject:
   - component: {fileID: 2554111036432267755}
   - component: {fileID: 6910309845506522541}
   - component: {fileID: 2690064514908283598}
+  - component: {fileID: 4374568544173615775}
   m_Layer: 0
   m_Name: Infrared Camera Animation
   m_TagString: Untagged
@@ -666,6 +667,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a1cb244ac6ac144b8d21ccbf304bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4374568544173615775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2458341546982429716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7985393b9f59e834e938fd5e89dac273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 6e2dd18ca168839469f92bfeb64e06f1, type: 2}
+  playerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  maxPlayerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
 --- !u!1 &2761979683161442401
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,8 +1116,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 8301732877923098028}
   m_AABB:
-    m_Center: {x: 7.6723027, y: 4.9018517, z: 1.3686514}
-    m_Extent: {x: 4.5008655, y: 6.4928885, z: 6.36374}
+    m_Center: {x: 7.672303, y: 4.9018517, z: 0.1166172}
+    m_Extent: {x: 14.7, y: 6.4928885, z: 12.324644}
   m_DirtyAABB: 0
 --- !u!1 &3891833949761599829
 GameObject:

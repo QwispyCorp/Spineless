@@ -15,9 +15,11 @@ MonoBehaviour:
   itemName: Snake
   itemDescription: Reveal enemy's cards.
   value: 2
-  itemPrefab: {fileID: 3742920824577165655, guid: c4fbb999225096145978c4b3b36661c2,
+  itemPrefab: {fileID: 3606743934441489221, guid: 5a2b6d98ed09bb84481f3e6d07dffd03,
     type: 3}
   itemShopButton: {fileID: 481228483975240178, guid: dd1c51c24cbad734c8f3573cf077e6f8,
     type: 3}
   itemShopDescription: {fileID: 825405270328813478, guid: b085b5f1318dc664e938bbf3fe16d801,
+    type: 3}
+  itemAnimationObject: {fileID: 4687485715978302046, guid: 3d2b02684181af44695ed8312e6d8830,
     type: 3}

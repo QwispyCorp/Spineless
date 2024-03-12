@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2273058645661325252}
   - component: {fileID: 7436946946482827388}
   - component: {fileID: 2123052193164973285}
-  - component: {fileID: -648326576530844274}
   - component: {fileID: 2090621199833392003}
   - component: {fileID: 8809165521032020985}
   m_Layer: 6
@@ -86,19 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &-648326576530844274
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6572587325165623293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cdf41ef0638f4358ab9e05b632cd924, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
 --- !u!114 &2090621199833392003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,6 +101,7 @@ MonoBehaviour:
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1
+  itemTextObject: {fileID: 0}
 --- !u!65 &8809165521032020985
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -4313,7 +4313,6 @@ GameObject:
   - component: {fileID: 6126486186220669403}
   - component: {fileID: 7578178160407316796}
   - component: {fileID: 715255711535694659}
-  - component: {fileID: 7382359677619174700}
   m_Layer: 6
   m_Name: Jack In The Box
   m_TagString: Untagged
@@ -4359,6 +4358,7 @@ MonoBehaviour:
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1
+  itemTextObject: {fileID: 0}
 --- !u!65 &715255711535694659
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4380,18 +4380,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14023073, y: 0.22034141, z: 0.14484209}
   m_Center: {x: -0.00069945306, y: 0.075350165, z: -0.005153656}
---- !u!114 &7382359677619174700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6211203667120519613}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40a8ae4bbb552a14eb98dcdf010546da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6242416226692519103
 GameObject:
   m_ObjectHideFlags: 0

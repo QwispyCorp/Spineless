@@ -212,7 +212,7 @@ public class ItemMouseInteraction : MonoBehaviour
 
     }
     //-------------------------------------WHEN PLAYER CLICKS ON ITEM WITH CURSOR 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         //ITEM FUNCTIONALITY FOR ENCOUNTER ROOM -----------------------------------------------------------
         if (currentRoom == "Encounter") //if in encounter room, consume item
@@ -329,6 +329,8 @@ public class ItemMouseInteraction : MonoBehaviour
     private void ConsumeItem()
     {
         saveData.EquippedItems.Remove(itemSO);
+        Instantiate(itemSO.itemAnimationObject);
+        Destroy(gameObject);
         //in encounter room, item is destroyed in its effect script
     }
 

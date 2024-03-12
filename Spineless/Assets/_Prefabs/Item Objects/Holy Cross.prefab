@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5549218534913000948}
   - component: {fileID: 6165460677619310814}
   - component: {fileID: 2683067658443159015}
-  - component: {fileID: 3013319960659556573}
   - component: {fileID: -8466358770888463244}
   m_Layer: 6
   m_Name: Holy Cross
@@ -102,19 +101,7 @@ MonoBehaviour:
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1
---- !u!114 &3013319960659556573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232879863359453446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c85f24c9333052408150a536ec63b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
+  itemTextObject: {fileID: 0}
 --- !u!65 &-8466358770888463244
 BoxCollider:
   m_ObjectHideFlags: 0

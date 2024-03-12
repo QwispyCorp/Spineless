@@ -136,8 +136,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 103754561897995621}
   m_AABB:
-    m_Center: {x: 7.131566, y: 4.2371206, z: -2.1122954}
-    m_Extent: {x: 3.6214893, y: 9.176247, z: 5.0585613}
+    m_Center: {x: 2.9592876, y: 5.0221004, z: -1.0091162}
+    m_Extent: {x: 9.631189, y: 9.961229, z: 10.337773}
   m_DirtyAABB: 0
 --- !u!1 &177958332088414262
 GameObject:
@@ -811,6 +811,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8096937238934348060}
   - component: {fileID: 8254402015526678717}
+  - component: {fileID: -2276883897447978264}
+  - component: {fileID: 1781229773656973941}
   m_Layer: 0
   m_Name: Stapler Animation
   m_TagString: Untagged
@@ -856,6 +858,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2276883897447978264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176490955882394609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a1cb244ac6ac144b8d21ccbf304bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1781229773656973941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3176490955882394609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7985393b9f59e834e938fd5e89dac273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 5a44431b147faa940b719dd32deb2c08, type: 2}
+  playerHealth:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: bf91ee7ed86c5446db36b5e885a0e631, type: 2}
+  maxPlayerHealth:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 51f14fccd24dc1247b4e18e934c794f9, type: 2}
 --- !u!1 &3180549025455736523
 GameObject:
   m_ObjectHideFlags: 0

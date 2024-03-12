@@ -916,8 +916,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 534301587110122486}
   m_AABB:
-    m_Center: {x: 10.984872, y: 8.369607, z: 0.07663226}
-    m_Extent: {x: 6.197812, y: 6.1473875, z: 6.4896955}
+    m_Center: {x: 9.323803, y: 8.369607, z: -2.3248653}
+    m_Extent: {x: 13.931791, y: 6.1473875, z: 15.106262}
   m_DirtyAABB: 0
 --- !u!1 &2352189067429021177
 GameObject:
@@ -1442,6 +1442,7 @@ GameObject:
   - component: {fileID: 2332210574737168210}
   - component: {fileID: 4978417645436958548}
   - component: {fileID: 4942404152810125205}
+  - component: {fileID: -5498298307296877147}
   m_Layer: 0
   m_Name: Pocket Knife Animation
   m_TagString: Untagged
@@ -1499,6 +1500,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a1cb244ac6ac144b8d21ccbf304bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5498298307296877147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438605140794838491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7985393b9f59e834e938fd5e89dac273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 16215195cff34a848a4f82a38dc365c1, type: 2}
+  playerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  maxPlayerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
 --- !u!1 &5607291284749490418
 GameObject:
   m_ObjectHideFlags: 0

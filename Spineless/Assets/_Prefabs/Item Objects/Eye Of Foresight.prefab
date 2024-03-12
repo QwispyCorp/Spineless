@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 510700437683859349}
   - component: {fileID: -7000143076925390379}
-  - component: {fileID: -2725294226685951356}
   - component: {fileID: 7636026442973683424}
   m_Layer: 6
   m_Name: Eye Of Foresight
@@ -52,18 +51,7 @@ MonoBehaviour:
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
   hoverEmissionColor: {r: 1, g: 1, b: 1, a: 0}
   hoverEmissionIntensity: 1
---- !u!114 &-2725294226685951356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2736175684165648134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16964357a96364a02b074cdc4cb4a7be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  itemTextObject: {fileID: 0}
 --- !u!65 &7636026442973683424
 BoxCollider:
   m_ObjectHideFlags: 0

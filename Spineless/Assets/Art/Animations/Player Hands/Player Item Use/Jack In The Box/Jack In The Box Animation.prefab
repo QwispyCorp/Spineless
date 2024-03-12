@@ -1646,6 +1646,7 @@ GameObject:
   - component: {fileID: 7894247360557377560}
   - component: {fileID: 8429724397566278700}
   - component: {fileID: 9047993123378270133}
+  - component: {fileID: -7500308045646351398}
   m_Layer: 0
   m_Name: Jack In The Box Animation
   m_TagString: Untagged
@@ -1705,6 +1706,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a1cb244ac6ac144b8d21ccbf304bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7500308045646351398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296843008245565807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7985393b9f59e834e938fd5e89dac273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 7f125b7fa9dda46d9a9780ffa491ee59, type: 2}
+  playerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  maxPlayerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
 --- !u!1 &1319886739527555317
 GameObject:
   m_ObjectHideFlags: 0
@@ -3914,7 +3936,7 @@ SkinnedMeshRenderer:
   m_RootBone: {fileID: 4962784130946878491}
   m_AABB:
     m_Center: {x: 6.9492946, y: 5.6664643, z: 0.8162236}
-    m_Extent: {x: 3.1617475, y: 7.062176, z: 6.1076465}
+    m_Extent: {x: 14.7, y: 9.46, z: 18.23}
   m_DirtyAABB: 0
 --- !u!1 &3622456698534568451
 GameObject:

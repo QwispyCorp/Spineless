@@ -1177,6 +1177,7 @@ GameObject:
   - component: {fileID: 7577254929226693274}
   - component: {fileID: 1363063530575760114}
   - component: {fileID: -5915616162266070533}
+  - component: {fileID: 452807715487687922}
   m_Layer: 0
   m_Name: Matchbox Animation
   m_TagString: Untagged
@@ -1234,6 +1235,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a1cb244ac6ac144b8d21ccbf304bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &452807715487687922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3867826022331012011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7985393b9f59e834e938fd5e89dac273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 9d94c58ce4d8640c8bd40dc252f84c78, type: 2}
+  playerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  maxPlayerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
 --- !u!1 &3880180563620951254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,8 +1871,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 2174658391502692129}
   m_AABB:
-    m_Center: {x: 10.112811, y: 9.463221, z: 1.3002315}
-    m_Extent: {x: 6.794444, y: 9.4045925, z: 4.974837}
+    m_Center: {x: 10.112811, y: 9.463221, z: 3.327932}
+    m_Extent: {x: 14.7, y: 14.699999, z: 18.208937}
   m_DirtyAABB: 0
 --- !u!1 &5668280733710340689
 GameObject:

@@ -396,6 +396,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2299834880951099259}
   - component: {fileID: 5939405213697613826}
+  - component: {fileID: 5797048305736843675}
+  - component: {fileID: -5528198062709222986}
   m_Layer: 0
   m_Name: Wishbone Animation
   m_TagString: Untagged
@@ -441,6 +443,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5797048305736843675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125093181446454038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a1cb244ac6ac144b8d21ccbf304bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5528198062709222986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125093181446454038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7985393b9f59e834e938fd5e89dac273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 16e2f906df11445b490688a43d4eb90a, type: 2}
+  playerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  maxPlayerHealth:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
 --- !u!1 &2168439837197734996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,8 +1815,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7105910734884154552}
   m_AABB:
-    m_Center: {x: 7.128005, y: 3.7592764, z: -0.02394414}
-    m_Extent: {x: 3.7991936, y: 8.76138, z: 5.381913}
+    m_Center: {x: 6.777583, y: 3.7592764, z: -0.71074724}
+    m_Extent: {x: 13.268029, y: 8.76138, z: 12.684639}
   m_DirtyAABB: 0
 --- !u!1 &7045032968753136181
 GameObject:

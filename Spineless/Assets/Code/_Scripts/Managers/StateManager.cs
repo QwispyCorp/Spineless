@@ -55,6 +55,8 @@ public class StateManager : MonoBehaviour
 
         switch (newState)
         {
+            case EncounterState.ItemUse:
+                break;
             case EncounterState.PlayerTurn:
                 HandlePlayerTurn();
                 break;
@@ -162,6 +164,7 @@ public class StateManager : MonoBehaviour
         PlayerTurn,
         PlayerDamage,
         PlayerJokerExecution,
+        ItemUse,
         PlayerSafe,
         PlayerEye,
         PlayerKnife,
