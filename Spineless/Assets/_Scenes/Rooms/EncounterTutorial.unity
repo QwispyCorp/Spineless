@@ -821,60 +821,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitles:
   - text: 
-    duration: 3.2
+    duration: 2.5
   - text: During your encounters with the other patient, a standard 52 card deck
-      will be placed before each of you, and each patient is allowed 5 cards in their
-      hand.
-    duration: 8.3
+      will be placed before each of you.
+    duration: 6.5
+  - text: And each patient is alowed 5 cards in their hand.
+    duration: 3
   - text: Luckily for you, since you're the challenger, you'll always start first.
-    duration: 4.3
+    duration: 4
   - text: All revealed cards will be moved to the discard pile, off to the side.
-      You will be able to redraw once you have used all cards in your hand.
-    duration: 8.7
-  - text: Of course, a new deck won't be shuffled until all cards have been sent
-      to the discard pile.
+    duration: 4.5
+  - text: You will only be able to redraw once you have used all the cards in your
+      hand.
+    duration: 4.5
+  - text: 'Of course, a new deck won''t be shuffled until all cards have been sent
+      to the discard pile. '
     duration: 4.5
   - text: In each deck, there are 31 safe cards, 16 death cards, and 8 joker cards.
     duration: 6
-  - text: Drawing a safe card allow you to pass your turn with no consequence. But
-      if you draw a death card, you will unfortunately have to relieve yourself of
-      one of your fingers.
-    duration: 9
-  - text: Additionally, for your convenience, there will be a monitor keeping track
-      of the amount of death cards currently on the table.
-    duration: 6.5
-  - text: 'If three jokers are drawn, an execution will begin. '
+  - text: 'Drawing a safe card allows you to pass your turn with no consequences. '
     duration: 4.5
-  - text: Whoever draws the third joker has the option to choose either themselves
-      or their opponent to have their current hand scanned.
+  - text: But, if you draw a death card, you will unfortunately have to relieve yourself
+      of one of your fingers.
+    duration: 5.8
+  - text: 'Additionally, for your convenience, there will be a monitor keeping track
+      of the amount of death cards currently on the table. '
+    duration: 6.7
+  - text: 'If three jokers are drawn, an execution will begin. '
+    duration: 4
+  - text: Whoever draws the third joker, has the option to choose either themselves
+      or their opponent, to have their current hand scanned.
     duration: 6.5
-  - text: If you choose yourself, your hand will be scanned for death cards. If you
-      have any death cards, they will be removed from your hand.
-    duration: 7
-  - text: If you do not possess any death cards when you perform this action, one
-      of your fingers will be similarly removed. The same is true for your opponent.
-    duration: 11.5
-  - text: Should you win the game, you'll be returned to the game board. Should you
-      lose all your fingers in an encounter, you will permanently lose two fingers
-      and return to the board.
-    duration: 9.5
-  - text: This procedure is still a work in progress after all!
+  - text: If you choose yourself, your hand will be scanned for death cards.
     duration: 3.5
-  - text: Regrettably, if you permanently lose all of your fingers, you will no longer
-      have the opportunity to take part in this wonderful project, and will be retired.
-    duration: 9
-  - text: Any fingers you collect from your opponent can be kept to trade for items
-      in the item shop, the location of which is noted in blue on the game board.
-    duration: 8.5
-  - text: You can see your collection of fingers in the jar located in the game board
+  - text: 'If you have any death cards, they will be removed from your hand. '
+    duration: 3.3
+  - text: If you do not possess any death cards when you perform this action, one
+      of your fingers will be similarly removed.
+    duration: 7
+  - text: The same is true for your opponent.
+    duration: 2.2
+  - text: 'Should you win the game, you''ll be returned to the game board. '
+    duration: 3
+  - text: Should you lose all your fingers within an encounter, you'll permanently
+      lose two fingers and return to the board.
+    duration: 6
+  - text: This procedure is still a work in progress after all.
+    duration: 3
+  - text: Regrettably, if you permanently lose all your fingers, you will no longer
+      have the opportunity to be a part of this wonderful project,
+    duration: 7.4
+  - text: and you will be retired.
+    duration: 2.1
+  - text: Any fingers you collect from your opponent can be kept and traded for items
+      in the item shop.
+    duration: 5
+  - text: The location of which is noted in blue on the game board.
+    duration: 3.5
+  - text: You can see your collection of fingers in a jar located in the game board
       room cabinet.
     duration: 5.5
-  - text: You can see your collection of fingers in the jar located in the game board
-      room cabinet.
-    duration: 6.5
   - text: In case you need to hear this message again, please feel free to replay
-      it on the phonograph located in the game board room.
-    duration: 7.5
+      it from the phonograph located in the game board room.
+    duration: 7
   subText: {fileID: 2143770442}
 --- !u!114 &293634552
 MonoBehaviour:
@@ -2940,6 +2949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 966851519}
   - component: {fileID: 966851518}
+  - component: {fileID: 966851520}
   m_Layer: 0
   m_Name: Tutorial Audio
   m_TagString: Untagged
@@ -2956,7 +2966,8 @@ AudioSource:
   m_GameObject: {fileID: 966851517}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 8ee0645ab7e51e54fa2509afdab3953f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 56b26f0c818716848aff27997ceaa10a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -3058,6 +3069,29 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &966851520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966851517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dfa1e342f6a75488eecd26533b9ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spatialSounds:
+  - {fileID: 966851518}
+  globalMusicVolume:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: a634d1ac0f1f76b4498dd4d7c7916606, type: 2}
+  globalSoundVolume:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: baf14cc2d8be9c84baa17518803f3f9c, type: 2}
+  spatialMusicTrack: {fileID: 0}
 --- !u!1 &1011528132
 GameObject:
   m_ObjectHideFlags: 19
