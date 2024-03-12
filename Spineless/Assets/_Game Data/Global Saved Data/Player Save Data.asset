@@ -16,7 +16,7 @@ MonoBehaviour:
   EncountersWon: 0
   EncountersCleared: 0
   ShopVisited: 0
-  FirstEncounterEntered: 1
+  FirstEncounterEntered: 0
   BoardGenerated: 0
   GameBoard: {fileID: 0}
   TileSpacing: 0.041999996
@@ -32,10 +32,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 16215195cff34a848a4f82a38dc365c1, type: 2}
   - {fileID: 11400000, guid: 9b86307f1ebab46f18accda9fce970e1, type: 2}
   Inventory: []
-  EquippedItems:
-  - {fileID: 11400000, guid: 5139583744950c54aac630b955972c8c, type: 2}
-  - {fileID: 11400000, guid: cca536367a10880429ac147964f44177, type: 2}
-  - {fileID: 11400000, guid: 16e2f906df11445b490688a43d4eb90a, type: 2}
-  - {fileID: 11400000, guid: 0555ef7a5a0ff3045885f6a927c86003, type: 2}
+  EquippedItems: []
   playerFingersInNextEncounter: 5
   monsterFingers: 0

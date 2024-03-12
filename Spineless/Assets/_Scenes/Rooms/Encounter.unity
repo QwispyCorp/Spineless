@@ -5390,6 +5390,7 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -8011,7 +8012,7 @@ PrefabInstance:
     - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
         type: 3}
       propertyPath: totalJokerCards
-      value: 8
+      value: 30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
