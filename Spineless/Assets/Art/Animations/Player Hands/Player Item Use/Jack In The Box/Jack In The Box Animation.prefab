@@ -1645,6 +1645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7894247360557377560}
   - component: {fileID: 8429724397566278700}
+  - component: {fileID: 9047993123378270133}
   m_Layer: 0
   m_Name: Jack In The Box Animation
   m_TagString: Untagged
@@ -1692,6 +1693,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9047993123378270133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296843008245565807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a1cb244ac6ac144b8d21ccbf304bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1319886739527555317
 GameObject:
   m_ObjectHideFlags: 0

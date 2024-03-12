@@ -13,4 +13,5 @@ public class Item : ScriptableObject
     public GameObject itemPrefab;
     public GameObject itemShopButton;
     public GameObject itemShopDescription;
+    public GameObject itemAnimation;
 }

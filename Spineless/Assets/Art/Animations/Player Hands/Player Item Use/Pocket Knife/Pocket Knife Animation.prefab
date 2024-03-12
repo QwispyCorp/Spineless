@@ -1441,6 +1441,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2332210574737168210}
   - component: {fileID: 4978417645436958548}
+  - component: {fileID: 4942404152810125205}
   m_Layer: 0
   m_Name: Pocket Knife Animation
   m_TagString: Untagged
@@ -1486,6 +1487,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4942404152810125205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5438605140794838491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1a1cb244ac6ac144b8d21ccbf304bf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5607291284749490418
 GameObject:
   m_ObjectHideFlags: 0
