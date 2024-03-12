@@ -678,59 +678,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   subtitles:
   - text: 'Welcome, patient. '
-    duration: 1.56
+    duration: 1.2
   - text: All of us here at the Raymond Mitchell Association want to thank you for
       your participation in our limb regrowth program.
-    duration: 6.5
-  - text: Your generous service helps us aid all of humanity.
-    duration: 3.5
-  - text: We understand if you're confused, but don't worry, you're not alone. There
-      is another patient to keep you company in our facility.
-    duration: 6.2
-  - text: And they are very eager to meet you...
-    duration: 2.2
-  - text: All we ask as that you play a game of chance with your new friend to determine
-      the effectiveness of our procedure.
-    duration: 5.5
-  - text: There is a small penalty for losing, but luckily for you, the very nature
-      of this program means you won't suffer any permanent damage.
-    duration: 4.6
-  - text: In the following room, you will see a game board representing a maze in
-      our facility, with the human statuette representing you.
-    duration: 7
+    duration: 7.8
+  - text: Your generous service helps us aid all of humanity. We understand if you're
+      confused, but don't worry, you're not alone.
+    duration: 8
+  - text: There is another patient to keep you company in our facility, and they're
+      very eager to meet you.
+    duration: 6
+  - text: 'All we ask is that you play a game of chance with your new friend to determine
+      the effectiveness of our procedure. '
+    duration: 6
+  - text: There is a small penalty for losing...
+    duration: 2.5
+  - text: 'But luckily for you, the very nature of this program means you won''t
+      suffer any permanent damage! '
+    duration: 6
+  - text: 
+    duration: 0.5
+  - text: In the following room, you will see a game board representing the maze
+      in our facility, with the human statuette representing you.
+    duration: 7.5
   - text: Your goal is to navigate through this maze and find a way out.
     duration: 3.5
-  - text: But, be careful, some tiles will initiate certain events, and you might
-      not find all of them to be pleasant.
-    duration: 8
-  - text: 'These are the tiles you will come across throughout this experiment:'
-    duration: 4
-  - text: Red tiles represent where you'll meet your fellow patient, and yellow tiles
-      represent items to collect.
-    duration: 7
-  - text: The glowing blue tile denotes a shop where you can purchase items using
-      currency from your encounters.
-    duration: 5
-  - text: And lastly, the green tile represents your way out.
+  - text: But be careful, some tiles, represented by various colors, will initiate
+      certain events.
+    duration: 5.5
+  - text: And you might not find all of them to be pleasant...
     duration: 3.5
-  - text: A small cabinet has been provided for you to store all of your useful items
+  - text: A small cabinet has been provided for you to store all the useful items
       you come across.
     duration: 5
-  - text: You are free to have 4 items in the medical tray to use during your friendly
-      games with your fellow patient.
-    duration: 6
   - text: Hover over items to see their descriptions, and left click to move them
-      on and off the tray.
-    duration: 6
-  - text: Be sure to use your items strategically. As once used, they are forever
-      gone.
-    duration: 5.5
-  - text: Additionally, there will be a jar in this cabinet where you can view your
-      currency from your encounters to use in the item shop.
-    duration: 6
-  - text: In case you need to hear this message again, please feel free to replay
-      it from the phonograph in the following room.
-    duration: 5.5
+      on and off the provided medical tray to equip them.
+    duration: 7.5
+  - text: Be sure to use your items strategically. As once they are used, they are
+      gone forever.
+    duration: 5
+  - text: In the case that you need to hear this message again, please feel free
+      to replay it from the phonograph in the following room.
+    duration: 9
   subText: {fileID: 770435703}
 --- !u!224 &14889192
 RectTransform:
@@ -2393,7 +2382,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 8ee0645ab7e51e54fa2509afdab3953f,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 186058c9862d96c4ca364c181a38df34, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c53b04d40a9b180408a00f410ba519bf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4898,7 +4887,6 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -12184,7 +12172,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7591893896485562744}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.00784882}
+  m_LocalPosition: {x: 0, y: 0, z: -70}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12192,7 +12180,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.01224938, y: -899}
+  m_AnchoredPosition: {x: 1239, y: -499}
   m_SizeDelta: {x: 700, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &2868956340778376352
