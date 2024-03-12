@@ -318,5 +318,7 @@ public class EnemyCardInteraction : MonoBehaviour
             }
         }
         //otherwise, the monster is dead and the enemy health system will execute the win condition logic
+        //switch to enemy turn
+        StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.EnemyTurn);
     }
 }
