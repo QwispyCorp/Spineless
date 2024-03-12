@@ -43,7 +43,10 @@ public class FingerJarHover : MonoBehaviour
         mesh.material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
 
         fingerTextObject.SetActive(true); //turn on finger text
-        gameBoardRoomText.SetActive(false); //turn off game board room text
+        if (gameBoardRoomText)
+        {
+            gameBoardRoomText.SetActive(false); //turn off game board room text
+        }
 
         //turn on number of fingers text
         switch (currentFingers)
@@ -100,7 +103,10 @@ public class FingerJarHover : MonoBehaviour
     {
         mesh.material.SetColor("_EmissiveColor", Color.black); //unhighlight item
         fingerTextObject.SetActive(false); //turn off text object
-        gameBoardRoomText.SetActive(true); //turn on game board room text
+        if (gameBoardRoomText)
+        {
+            gameBoardRoomText.SetActive(true); //turn on game board room text
+        }
         //turn on number of fingers text
         switch (currentFingers)
         {
