@@ -718,12 +718,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa576b697a80504680b734c529ebde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wing1Prefabs:
-  - {fileID: 2431402245562163708, guid: 5ee106012b149bb469b414d8f17f37a3, type: 3}
-  wing2Prefabs:
-  - {fileID: 2431402245562163708, guid: 94815886e9bf7d3498a6e8d7254450c0, type: 3}
-  wing3Prefabs:
-  - {fileID: 2431402245562163708, guid: c5161c7602ceb5f47a19890b65cf61ad, type: 3}
+  wingPrefabs:
+  - {fileID: 5339507363584436697, guid: c147cfa2a005e964bacd23a9a001d2b1, type: 3}
+  - {fileID: 452337406860544268, guid: 8925ea0693c647348b13eb5fe4b1fbf7, type: 3}
+  - {fileID: 452337406860544268, guid: 5e2dfbe93486e434c95377a8b28bfb7a, type: 3}
+  - {fileID: 452337406860544268, guid: 14f03c7be2a738e4291ccc9cc622008a, type: 3}
+  - {fileID: 7069811957720680909, guid: 0c917595d99427042b453e23e0e0dcbb, type: 3}
+  - {fileID: 7069811957720680909, guid: 9ef58be5c5e2ceb4282d88e544a24297, type: 3}
+  - {fileID: 2443665470104984909, guid: d051beec3d8b462469ca13b687e8dd5c, type: 3}
+  - {fileID: 5431129584681061179, guid: 7f0b210a8b424f845a241825102444e4, type: 3}
   position1: {fileID: 1570639681}
   position2: {fileID: 200350988}
   position3: {fileID: 1990777365}
@@ -1318,7 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19dfa1e342f6a75488eecd26533b9ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phonographTracks:
+  spatialSounds:
   - {fileID: 448386939}
   globalMusicVolume:
     UseConstant: 0
@@ -1328,7 +1331,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: baf14cc2d8be9c84baa17518803f3f9c, type: 2}
-  phonographMusicTrack: {fileID: 0}
+  spatialMusicTrack: {fileID: 0}
 --- !u!1001 &472755904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2956,7 +2959,6 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19

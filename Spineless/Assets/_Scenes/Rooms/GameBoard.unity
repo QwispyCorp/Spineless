@@ -6712,6 +6712,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 942632627}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9e534af05542e8e40bf5b23c7588e2b7,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 942632628}
   m_SourcePrefab: {fileID: 100100000, guid: 9e534af05542e8e40bf5b23c7588e2b7, type: 3}
 --- !u!1 &942632624 stripped
 GameObject:
@@ -6842,6 +6846,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &942632628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942632624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19dfa1e342f6a75488eecd26533b9ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spatialSounds:
+  - {fileID: 942632627}
+  globalMusicVolume:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  globalSoundVolume:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}
+  spatialMusicTrack: {fileID: 0}
 --- !u!1001 &956851014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7038,9 +7065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19dfa1e342f6a75488eecd26533b9ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phonographTracks:
-  - {fileID: 1337628245}
-  - {fileID: 1911346451}
+  spatialSounds: []
   globalMusicVolume:
     UseConstant: 0
     ConstantValue: 0
@@ -7049,7 +7074,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: baf14cc2d8be9c84baa17518803f3f9c, type: 2}
-  phonographMusicTrack: {fileID: 1049443124}
+  spatialMusicTrack: {fileID: 1049443124}
 --- !u!1 &1051426289
 GameObject:
   m_ObjectHideFlags: 0

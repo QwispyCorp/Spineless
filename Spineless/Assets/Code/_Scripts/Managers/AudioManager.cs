@@ -85,7 +85,7 @@ public class AudioManager : MonoBehaviour
         // } MUSIC PLAYED FROM PHONOGRAPH
         if (SceneManager.GetActiveScene().name == "Encounter")
         {
-            //Instance.PlayMusicTrack("Encounter Music");
+            MuffleMusic();
         }
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
@@ -120,6 +120,7 @@ public class AudioManager : MonoBehaviour
     {
         if (CurrentTrackSource != null)
         {
+            Debug.Log("Muffling music");
             CurrentTrackSource.volume = CurrentTrackSource.volume * .2f;
         }
     }

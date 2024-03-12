@@ -53,6 +53,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         pauseMenu.SetActive(false);
+        OptionsMenu.SetActive(false);
         if (currentScene == "Encounter")
         {
             Cursor.lockState = CursorLockMode.Locked;

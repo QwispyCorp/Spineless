@@ -21,9 +21,9 @@ public class CameraPan : MonoBehaviour
 
     void OnEnable()
     {
-        StateManager.OnEnemyTurnStarted += PlayerLookMid;
+        //StateManager.OnEnemyTurnStarted += PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookUp;
-        EnemyCardInteraction.OnEnemyTurnFinished += StartCamReset;
+        //EnemyCardInteraction.OnEnemyTurnFinished += StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost += PlayerLookMid;
         //PlayerAnimationTrigger.OnAnimationFinished += StartCamReset;
         EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookMid;
@@ -33,9 +33,9 @@ public class CameraPan : MonoBehaviour
 
     void OnDisable()
     {
-        StateManager.OnEnemyTurnStarted -= PlayerLookMid;
+        //StateManager.OnEnemyTurnStarted -= PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookUp;
-        EnemyCardInteraction.OnEnemyTurnFinished -= StartCamReset;
+        //EnemyCardInteraction.OnEnemyTurnFinished -= StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost -= PlayerLookMid;
         //PlayerAnimationTrigger.OnAnimationFinished -= StartCamReset;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookMid;

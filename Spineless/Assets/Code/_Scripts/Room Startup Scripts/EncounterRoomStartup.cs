@@ -21,12 +21,14 @@ public class EncounterRoomStartup : MonoBehaviour
     {
         if (saveData.FirstEncounterEntered == false)
         {
-            AudioManager.Instance.StopAllSounds();
-            AudioManager.Instance.MuffleMusic();
             saveData.FirstEncounterEntered = true;
         }
 
         AudioManager.Instance.PlayMusicTrack("Encounter Music"); //Play track for encounter
+
+        AudioManager.Instance.StopAllSounds();
+        AudioManager.Instance.MuffleMusic();
+
         saveData.ShopVisited = false; //every time player enters encounter room, reset shop availability
 
         //Set character's starting animation to proper finger count

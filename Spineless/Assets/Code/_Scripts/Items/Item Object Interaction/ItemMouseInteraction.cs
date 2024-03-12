@@ -396,7 +396,6 @@ public class ItemMouseInteraction : MonoBehaviour
                 itemTextObject.SetActive(false); //turn off the item text description
             }
             CollectItem(); //collect the item
-            AudioManager.Instance.PlaySound(itemName);//play the item's sound effect during transition
             //turn off HUD all elements
             LightManager.Instance.StartFlickeringTransitionTo("GameBoard"); //switch back to game board room
             itemRoomSpawnPoint1.SetActive(false);
@@ -469,6 +468,7 @@ public class ItemMouseInteraction : MonoBehaviour
     {
         saveData.EquippedItems.Remove(itemSO);
         StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.ItemUse);
+        AudioManager.Instance.PlaySound(itemName);
         Instantiate(itemSO.itemAnimationObject);
         if (OnItemUsed != null)
         {

@@ -80,7 +80,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: SeveredHand
+  - name: Severed Hand
     clip: {fileID: 8300000, guid: 7966d2c205251114aa8b286bc18678f1, type: 3}
     volume: 1
     pitch: 1
@@ -102,21 +102,21 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: Jack In The Box
-    clip: {fileID: 8300000, guid: 7dcadc20151b43341970b6d73bb359d3, type: 3}
+    clip: {fileID: 8300000, guid: de879dbd764301142b889853b6f5a56a, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Stapler
-    clip: {fileID: 8300000, guid: 421675785add5a64ebee93786113673a, type: 3}
+    clip: {fileID: 8300000, guid: 788ce3a1ff83ee04ab13d56992e27dc9, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
   - name: Holy Cross
-    clip: {fileID: 8300000, guid: 5526d15725820bc4ba9f39ee49512985, type: 3}
+    clip: {fileID: 8300000, guid: c556d20ba646fba4196345357a93b828, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -227,6 +227,34 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Snake
+    clip: {fileID: 8300000, guid: efec1f35dc0454e41994674017d299e2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Camera
+    clip: {fileID: 8300000, guid: 38bcbe66f2010ba46809bb02a7d89192, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Matchbox
+    clip: {fileID: 8300000, guid: 57a10bfe8e03ad34bad02d9aa4df0ced, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Eye
+    clip: {fileID: 8300000, guid: a8e01558813dfa443b4f21cfc29ea6e1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   musicTracks:
   - name: Title Music
     clip: {fileID: 8300000, guid: 8929767d4fc07034b9e48a4dbd9f8bb3, type: 3}
@@ -238,7 +266,7 @@ MonoBehaviour:
   - name: Encounter Music
     clip: {fileID: 8300000, guid: 8929767d4fc07034b9e48a4dbd9f8bb3, type: 3}
     volume: 0.5
-    pitch: 1
+    pitch: 0.56
     loop: 1
     playOnAwake: 0
     source: {fileID: 0}

@@ -5,4 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Float", menuName = "Variables/Float", order = 0)]
 public class FloatVariable : ScriptableObject {
     public float Value;
+
+    private void OnEnable() {
+        Value = .5f;
+    }
 }

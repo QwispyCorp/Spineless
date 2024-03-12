@@ -4233,6 +4233,7 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -5063,6 +5064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be2386b6977ca041b390eb92b383f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TVCover: {fileID: 1830130362}
 --- !u!4 &1199317605
 Transform:
   m_ObjectHideFlags: 0
@@ -7955,13 +7957,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830130362}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.886415, y: 1.941536, z: 1.6006966}
+  m_LocalRotation: {x: -0, y: 0.0031851225, z: -0, w: 0.99999493}
+  m_LocalPosition: {x: 0, y: 0, z: 15}
+  m_LocalScale: {x: 2.3533027, y: 2.2218938, z: 1.6006966}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2248451620919433076}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0.365, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -64, y: -498}
@@ -8330,8 +8332,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 69654891132486514, guid: c147cfa2a005e964bacd23a9a001d2b1,
         type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00059999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 69654891132486514, guid: c147cfa2a005e964bacd23a9a001d2b1,
+        type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00020441509
+      value: -0.00020441475
       objectReference: {fileID: 0}
     - target: {fileID: 5339507363584436697, guid: c147cfa2a005e964bacd23a9a001d2b1,
         type: 3}
