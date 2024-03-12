@@ -4372,10 +4372,10 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 901977062}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: StopSound
-          m_Mode: 5
+        - m_Target: {fileID: 1337628245}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Stop
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4384,10 +4384,10 @@ MonoBehaviour:
             m_StringArgument: Tutorial1
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 901977062}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: StopSound
-          m_Mode: 5
+        - m_Target: {fileID: 1911346451}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Stop
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4466,6 +4466,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: On
+            m_BoolArgument: 1
+          m_CallState: 2
+        - m_Target: {fileID: 1049443124}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
 --- !u!222 &665162445
@@ -5184,10 +5196,10 @@ MonoBehaviour:
             m_StringArgument: Click
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 901977062}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: StopSound
-          m_Mode: 5
+        - m_Target: {fileID: 1337628245}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5196,10 +5208,10 @@ MonoBehaviour:
             m_StringArgument: Tutorial1
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 901977062}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: StopSound
-          m_Mode: 5
+        - m_Target: {fileID: 1911346451}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Stop
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5208,16 +5220,16 @@ MonoBehaviour:
             m_StringArgument: Tutorial2
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 901977062}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlaySound
-          m_Mode: 5
+        - m_Target: {fileID: 1049443124}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Tutorial2
+            m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
 --- !u!222 &817308779
@@ -9006,10 +9018,10 @@ MonoBehaviour:
             m_StringArgument: Click
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 901977062}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: StopSound
-          m_Mode: 5
+        - m_Target: {fileID: 1337628245}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Stop
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9018,10 +9030,10 @@ MonoBehaviour:
             m_StringArgument: Tutorial2
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 901977062}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: StopSound
-          m_Mode: 5
+        - m_Target: {fileID: 1911346451}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9030,16 +9042,16 @@ MonoBehaviour:
             m_StringArgument: Tutorial1
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 901977062}
-          m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
-          m_MethodName: PlaySound
-          m_Mode: 5
+        - m_Target: {fileID: 1049443124}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Pause
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Tutorial1
+            m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
 --- !u!222 &1237632177
@@ -9715,7 +9727,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 1bad1797c95045344ad245711ecb17bf,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 24b6e05b90b871540b4af6d629aad4ed, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c53b04d40a9b180408a00f410ba519bf, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -12137,7 +12149,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 1bad1797c95045344ad245711ecb17bf,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: b0f31f6800f351144b8c95003f120cbe, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 56b26f0c818716848aff27997ceaa10a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -13612,7 +13624,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &7790842708797731570
 Transform:
