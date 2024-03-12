@@ -144,9 +144,8 @@ public class CinemaCam : MonoBehaviour
         AudioManager.Instance.StopAllSounds();
         //AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
         AudioManager.Instance.MuffleMusic();
-        AudioManager.Instance.PlaySound("Tutorial1");
         //CamAni.SetTrigger("T1");
-        yield return new WaitForSeconds(111f);
+        yield return new WaitForSeconds(84f);
         AudioManager.Instance.UnMuffleMusic();
         AudioManager.Instance.StopAllSounds();
         GameObject lightGameObject = GameObject.FindGameObjectWithTag("Light");
