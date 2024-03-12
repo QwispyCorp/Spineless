@@ -15,7 +15,7 @@ MonoBehaviour:
   TargetEncounterWins: 5
   EncountersWon: 0
   EncountersCleared: 0
-  ShopVisited: 1
+  ShopVisited: 0
   FirstEncounterEntered: 0
   BoardGenerated: 0
   GameBoard: {fileID: 0}

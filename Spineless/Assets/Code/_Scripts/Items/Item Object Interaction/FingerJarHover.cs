@@ -15,6 +15,7 @@ public class FingerJarHover : MonoBehaviour
     private MeshRenderer mesh;
     public Color hoverEmissionColor;
     public float hoverEmissionIntensity;
+    private GameObject gameBoardRoomText;
 
 
     void OnEnable()
@@ -29,6 +30,7 @@ public class FingerJarHover : MonoBehaviour
     void Awake()
     {
         currentFingers = saveData.monsterFingers;
+        gameBoardRoomText = GameObject.Find("Game Board Room Text");
     }
     void Start()
     {
@@ -41,6 +43,7 @@ public class FingerJarHover : MonoBehaviour
         mesh.material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
 
         fingerTextObject.SetActive(true); //turn on finger text
+        gameBoardRoomText.SetActive(false); //turn off game board room text
 
         //turn on number of fingers text
         switch (currentFingers)
@@ -97,6 +100,7 @@ public class FingerJarHover : MonoBehaviour
     {
         mesh.material.SetColor("_EmissiveColor", Color.black); //unhighlight item
         fingerTextObject.SetActive(false); //turn off text object
+        gameBoardRoomText.SetActive(true); //turn on game board room text
         //turn on number of fingers text
         switch (currentFingers)
         {
