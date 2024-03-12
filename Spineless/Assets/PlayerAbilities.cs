@@ -31,38 +31,52 @@ public class PlayerAbilities : MonoBehaviour
         switch (_itemName)
         {
             case "Camera":
+                Debug.Log(_itemName + " Effect Used");
                 CameraEffect();
                 break;
             case "Eye Of Foresight":
+                Debug.Log(_itemName + " Effect Used");
                 EyeEffect();
                 break;
             case "Holy Cross":
+                Debug.Log(_itemName + " Effect Used");
                 HolyCrossEffect();
                 break;
             case "Jack In The Box":
+                Debug.Log(_itemName + " Effect Used");
                 JackEffect();
                 break;
             case "Pocket Knife":
                 PocketKnifeEffect();
+                Debug.Log(_itemName + " Effect Used");
                 break;
             case "Matchbox":
                 MatchBoxEffect();
+                Debug.Log(_itemName + " Effect Used");
                 break;
             case "Severed Hand":
                 SeveredHandEffect();
+                Debug.Log(_itemName + " Effect Used");
                 break;
             case "Snake":
                 SnakeEffect();
+                Debug.Log(_itemName + " Effect Used");
                 break;
             case "Stapler":
                 StaplerEffect();
+                Debug.Log(_itemName + " Effect Used");
                 break;
             case "Wishbone":
                 WishboneEffect();
+                Debug.Log(_itemName + " Effect Used");
                 break;
             default:
                 Debug.LogWarning("EFFECT NOT EXECUTED");
                 break;
+        }
+        if (_itemName != "Pocket Knife" && _itemName != "Eye Of Foresight")
+        {
+            StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
         }
         Destroy(gameObject);
     }
@@ -173,7 +187,7 @@ public class PlayerAbilities : MonoBehaviour
 
             if (enemyDeckLogic != null)
             {
-                AudioManager.Instance.PlaySound("HolyCross");
+                Debug.Log("Running snake effect");
                 enemyDeckLogic.ShowAllCards();
             }
             else
