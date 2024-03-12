@@ -25,7 +25,7 @@ public class CameraPan : MonoBehaviour
         EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookUp;
         //EnemyCardInteraction.OnEnemyTurnFinished += StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost += PlayerLookMid;
-        //PlayerAnimationTrigger.OnAnimationFinished += StartCamReset;
+        PlayerAnimationTrigger.OnAnimationFinished += UnlockCamera;
         EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookMid;
         EnemyHealthTest.OnEnemyFingerLost += PlayerLookUp;
         EnemyAnimationTrigger.OnEnemyAnimationFinished += StartCamReset;
@@ -37,7 +37,7 @@ public class CameraPan : MonoBehaviour
         EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookUp;
         //EnemyCardInteraction.OnEnemyTurnFinished -= StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost -= PlayerLookMid;
-        //PlayerAnimationTrigger.OnAnimationFinished -= StartCamReset;
+        PlayerAnimationTrigger.OnAnimationFinished -= UnlockCamera;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookMid;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerLookUp;
         EnemyAnimationTrigger.OnEnemyAnimationFinished -= StartCamReset;
