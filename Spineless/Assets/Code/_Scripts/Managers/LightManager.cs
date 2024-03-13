@@ -8,6 +8,7 @@ public class LightManager : MonoBehaviour
     private static LightManager _instance;
     private string _newSceneName;
     public GameObject Lights;
+    [SerializeField] private Animator fadeOutAnimator;
     public static LightManager Instance { get { return _instance; } }
 
     public delegate void LightFlickeredOn();
@@ -102,6 +103,11 @@ public class LightManager : MonoBehaviour
         AudioManager.Instance.PlaySound("LightSwitch1"); //light off
         Lights.gameObject.SetActive(false);
         timeDelay = Random.Range(0.1f, 0.4f);
+
+        if (fadeOutAnimator)
+        {
+            fadeOutAnimator.SetTrigger("Fade");
+        }
 
         yield return new WaitForSeconds(2f);
 

@@ -15,6 +15,8 @@ public class EncounterRoomStartup : MonoBehaviour
         if (saveData.FirstEncounterEntered == false)
         {
             playerDeck.totalDeathCards = 4;
+            saveData.EquippedItems.Add(saveData.MasterItemPool[Random.Range(0, saveData.MasterItemPool.Count)]);
+            saveData.EquippedItems.Add(saveData.MasterItemPool[Random.Range(0, saveData.MasterItemPool.Count)]);
         }
     }
     void Start()

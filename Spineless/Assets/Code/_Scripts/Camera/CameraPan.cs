@@ -21,11 +21,9 @@ public class CameraPan : MonoBehaviour
 
     void OnEnable()
     {
-        //StateManager.OnEnemyTurnStarted += PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookUp;
-        //EnemyCardInteraction.OnEnemyTurnFinished += StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost += PlayerLookMid;
-        PlayerAnimationTrigger.OnAnimationFinished += UnlockCamera;
+        PlayerAnimationTrigger.OnAnimationFinished += StartCamReset;
         EnemyHealthTest.OnEnemyFingerLost += PlayerStopLookMid;
         EnemyHealthTest.OnEnemyFingerLost += PlayerLookUp;
         EnemyAnimationTrigger.OnEnemyAnimationFinished += StartCamReset;
@@ -33,11 +31,9 @@ public class CameraPan : MonoBehaviour
 
     void OnDisable()
     {
-        //StateManager.OnEnemyTurnStarted -= PlayerLookMid;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookUp;
-        //EnemyCardInteraction.OnEnemyTurnFinished -= StartCamReset;
         PlayerHealthTest.OnPlayerFingerLost -= PlayerLookMid;
-        PlayerAnimationTrigger.OnAnimationFinished -= UnlockCamera;
+        PlayerAnimationTrigger.OnAnimationFinished -= StartCamReset;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerStopLookMid;
         EnemyHealthTest.OnEnemyFingerLost -= PlayerLookUp;
         EnemyAnimationTrigger.OnEnemyAnimationFinished -= StartCamReset;
@@ -153,7 +149,7 @@ public class CameraPan : MonoBehaviour
     private IEnumerator CamReset()
     {
         PlayerLookCenter();
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(1.3f);
 
         UnlockCamera();
     }

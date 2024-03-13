@@ -61,7 +61,7 @@ public class PlayerHealthTest : MonoBehaviour
         {
             if (OnPlayerFingerGained != null)
             {
-                OnPlayerFingerGained?.Invoke(); //invoke finger lost event
+                OnPlayerFingerGained?.Invoke(); //invoke finger gain event
             }
         }
         playerHealth.Value += amount;

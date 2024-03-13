@@ -651,20 +651,66 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5805201002992734219, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805201002992734219, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805201002992734219, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805201002992734219, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MainMenuButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730617865019666965, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730617865019666965, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: dd0d8cf776cc0c54fa3b492ce159b912,
+        type: 3}
     - target: {fileID: 6730617865019666965, guid: 6f199b2e913ca9a40a1450ac286045a3,
         type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6730617865019666965, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_RaycastPadding.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6730617865019666965, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_RaycastPadding.z
+      value: -30
+      objectReference: {fileID: 0}
     - target: {fileID: 6878588213872835991, guid: 6f199b2e913ca9a40a1450ac286045a3,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6993527498085574590, guid: 6f199b2e913ca9a40a1450ac286045a3,
         type: 3}
       propertyPath: m_Name
       value: Pop-Up Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 7025170446058954960, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 144.4
       objectReference: {fileID: 0}
     - target: {fileID: 8211922673194274472, guid: 6f199b2e913ca9a40a1450ac286045a3,
         type: 3}
@@ -715,10 +761,24 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9106961005817402353, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4045065722677732624, guid: 6f199b2e913ca9a40a1450ac286045a3, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5001869410954218282, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 346562938}
+    - targetCorrespondingSourceObject: {fileID: 5001869410954218282, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 346562939}
   m_SourcePrefab: {fileID: 100100000, guid: 6f199b2e913ca9a40a1450ac286045a3, type: 3}
 --- !u!1 &105447216
 GameObject:
@@ -1511,12 +1571,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fa576b697a80504680b734c529ebde3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wing1Prefabs:
-  - {fileID: 2431402245562163708, guid: 5ee106012b149bb469b414d8f17f37a3, type: 3}
-  wing2Prefabs:
-  - {fileID: 2431402245562163708, guid: 94815886e9bf7d3498a6e8d7254450c0, type: 3}
-  wing3Prefabs:
-  - {fileID: 2431402245562163708, guid: c5161c7602ceb5f47a19890b65cf61ad, type: 3}
+  wingPrefabs:
+  - {fileID: 5339507363584436697, guid: c147cfa2a005e964bacd23a9a001d2b1, type: 3}
+  - {fileID: 452337406860544268, guid: 8925ea0693c647348b13eb5fe4b1fbf7, type: 3}
+  - {fileID: 452337406860544268, guid: 5e2dfbe93486e434c95377a8b28bfb7a, type: 3}
+  - {fileID: 452337406860544268, guid: 14f03c7be2a738e4291ccc9cc622008a, type: 3}
+  - {fileID: 7069811957720680909, guid: 0c917595d99427042b453e23e0e0dcbb, type: 3}
+  - {fileID: 7069811957720680909, guid: 9ef58be5c5e2ceb4282d88e544a24297, type: 3}
+  - {fileID: 2443665470104984909, guid: d051beec3d8b462469ca13b687e8dd5c, type: 3}
+  - {fileID: 5431129584681061179, guid: 7f0b210a8b424f845a241825102444e4, type: 3}
   position1: {fileID: 1570639681}
   position2: {fileID: 200350988}
   position3: {fileID: 1990777365}
@@ -1792,6 +1855,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1375447537}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &346562932 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5001869410954218282, guid: 6f199b2e913ca9a40a1450ac286045a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 98624659}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &346562938
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346562932}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e6e42e51cc557804ca016dd0250e735e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &346562939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346562932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 346562938}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Roll
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 346562938}
+          m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+          m_MethodName: SetTrigger
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Unroll
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &392179786
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,8 +2391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19dfa1e342f6a75488eecd26533b9ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phonographTracks:
-  - {fileID: 448386939}
+  spatialSounds: []
   globalMusicVolume:
     UseConstant: 0
     ConstantValue: 0
@@ -2266,7 +2400,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: baf14cc2d8be9c84baa17518803f3f9c, type: 2}
-  phonographMusicTrack: {fileID: 0}
+  spatialMusicTrack: {fileID: 0}
 --- !u!1001 &472755904
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6782,8 +6916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19dfa1e342f6a75488eecd26533b9ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phonographTracks:
-  - {fileID: 1346837453}
+  spatialSounds: []
   globalMusicVolume:
     UseConstant: 0
     ConstantValue: 0
@@ -6792,7 +6925,7 @@ MonoBehaviour:
     UseConstant: 0
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: baf14cc2d8be9c84baa17518803f3f9c, type: 2}
-  phonographMusicTrack: {fileID: 0}
+  spatialMusicTrack: {fileID: 0}
 --- !u!1 &1370763446
 GameObject:
   m_ObjectHideFlags: 0
