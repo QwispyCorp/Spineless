@@ -8,4 +8,8 @@ public class UISoundPlayer : MonoBehaviour
     {
         AudioManager.Instance.PlaySound(soundName);
     }
+    public void StopSound(string soundName)
+    {
+        AudioManager.Instance.StopSound(soundName);
+    }
 }

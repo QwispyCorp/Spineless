@@ -7297,7 +7297,7 @@ MonoBehaviour:
   - text: During your encounters with the other patient, a standard 52 card deck
       will be placed before each of you.
     duration: 6.5
-  - text: And each patient is alowed 5 cards in their hand.
+  - text: And each patient is allowed 5 cards in their hand.
     duration: 3
   - text: Luckily for you, since you're the challenger, you'll always start first.
     duration: 4
@@ -8525,7 +8525,7 @@ PrefabInstance:
     - target: {fileID: 683571875533397634, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 791028682990987146, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -9066,7 +9066,7 @@ PrefabInstance:
     - target: {fileID: 8733254217989713947, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8792544875417849265, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}

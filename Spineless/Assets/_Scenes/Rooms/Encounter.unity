@@ -395,7 +395,8 @@ AudioSource:
   m_GameObject: {fileID: 58658959}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8622124583343589078, guid: 8ee0645ab7e51e54fa2509afdab3953f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 5ab2991c18dbabe40a5fd22016411943, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -2357,7 +2358,8 @@ AudioSource:
   m_GameObject: {fileID: 534511188}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8622124583343589078, guid: 8ee0645ab7e51e54fa2509afdab3953f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: f93d4767989d5854ab684ae7d31a4f7e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -4634,7 +4636,8 @@ AudioSource:
   m_GameObject: {fileID: 709654374}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8622124583343589078, guid: 8ee0645ab7e51e54fa2509afdab3953f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 75a502e5046ceed4eaf892df13f390f8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -5779,6 +5782,7 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -7538,7 +7542,8 @@ AudioSource:
   m_GameObject: {fileID: 1449481401}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8622124583343589078, guid: 8ee0645ab7e51e54fa2509afdab3953f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 0d014d2fd4c13924a858cea9ab1e85ad, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -8366,7 +8371,8 @@ AudioSource:
   m_GameObject: {fileID: 1649824451}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8622124583343589078, guid: 8ee0645ab7e51e54fa2509afdab3953f,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 86cb5617f1b77c94a80795bb0b65ab8c, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1

@@ -118,7 +118,7 @@ public class AudioManager : MonoBehaviour
         CurrentSoundSource = s.source;
         s.source.PlayOneShot(s.source.clip, s.source.volume);
         //MuffleMusic();
-        Invoke("UnMuffleMusic", s.clip.length);
+        //Invoke("UnMuffleMusic", s.clip.length);
     }
     public void MuffleMusic()
     {
