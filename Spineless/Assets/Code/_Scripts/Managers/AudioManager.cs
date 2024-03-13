@@ -87,6 +87,10 @@ public class AudioManager : MonoBehaviour
         {
             MuffleMusic();
         }
+        else
+        {
+            UnMuffleMusic();
+        }
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             Instance.PlayMusicTrack("Title Music");

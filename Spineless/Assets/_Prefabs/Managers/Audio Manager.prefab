@@ -129,21 +129,35 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: ThumbChop
-    clip: {fileID: 8300000, guid: 4f05b0fd294212d439b561f02f135c2a, type: 3}
+  - name: Chop 5
+    clip: {fileID: 8300000, guid: f93d4767989d5854ab684ae7d31a4f7e, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: DefaultChop
-    clip: {fileID: 8300000, guid: b637e5aff86ddae4582e12785dda620b, type: 3}
+  - name: Chop 4
+    clip: {fileID: 8300000, guid: 0d014d2fd4c13924a858cea9ab1e85ad, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: PinkyChop
+  - name: Chop 3
+    clip: {fileID: 8300000, guid: 86cb5617f1b77c94a80795bb0b65ab8c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Chop 2
+    clip: {fileID: 8300000, guid: 5ab2991c18dbabe40a5fd22016411943, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Chop 1
     clip: {fileID: 8300000, guid: 3d0e81f40baab724f81150b291232570, type: 3}
     volume: 1
     pitch: 1
@@ -255,6 +269,48 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Severed Hand
+    clip: {fileID: 8300000, guid: 78b3c208d9290cb44a0202a89f691515, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: WorldSpaceUI
+    clip: {fileID: 8300000, guid: 106ec7c7a29118b44ab6fefac607c89c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Pocket Knife
+    clip: {fileID: 8300000, guid: 166cd8c73942fc94fbe5c3e3a1da282e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footsteps1
+    clip: {fileID: 8300000, guid: b14aedaa7de7ee24aa1b491e343b377d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Footsteps2
+    clip: {fileID: 8300000, guid: eb922d50e56ab79478f9aee420de5a8d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: FootstepsFast
+    clip: {fileID: 8300000, guid: cc8a2c456a563164fa3d9876a22c80cd, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   musicTracks:
   - name: Title Music
     clip: {fileID: 8300000, guid: 8929767d4fc07034b9e48a4dbd9f8bb3, type: 3}
@@ -288,8 +344,8 @@ MonoBehaviour:
   CurrentTrackSource: {fileID: 0}
   CurrentSound: 
   CurrentSoundSource: {fileID: 0}
-  musicFadeInDuration: 1
-  musicFadeOutDuration: 1
+  musicFadeInDuration: 2
+  musicFadeOutDuration: 2
   globalSoundVolume:
     UseConstant: 0
     ConstantValue: 0
