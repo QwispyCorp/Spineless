@@ -113,30 +113,6 @@ public class PlayerCardInteraction : MonoBehaviour
     }
     private void HandleJokerCardInteraction()
     {
-        //PopUpTextManager.Instance.ShowScreen("Joker Card Screen"); //show joker screen overlay
-        //CardMesh.material = jokerMaterial; //change card material to joker material
-        switch (encounterData.JokerCardsCollected)
-        {
-            case 0://if there are 0 joker cards on the table
-                //play animation 1
-                CardAnimator.SetTrigger("Move1");
-                break;
-            case 1: //if there is 1 joker card on the table
-                //play animation 2
-                CardAnimator.SetTrigger("Move2");
-                break;
-            case 2: //if there are 2 joker cards on the table
-                //play animation 3
-                CardAnimator.SetTrigger("Move3");
-                break;
-            default:
-                break;
-        }
-        //StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerJokerExecution);
-        if (OnJokerFlipped != null)
-        {
-            OnJokerFlipped?.Invoke(); //broadcast that a joker card has been flipped
-        }
         StartRemove(); //start coroutine to remove card
         Debug.Log("Joker card!");
     }
@@ -182,22 +158,37 @@ public class PlayerCardInteraction : MonoBehaviour
     {
         if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn)
         {
-            CardAnimator.SetTrigger("Flip");
             AudioManager.Instance.PlaySound("CardFlip" + UnityEngine.Random.Range(1, 3).ToString());
             CardMesh.material.SetColor("_EmissiveColor", unHighlightColor); //unhighlight card
             isClicked = true;
 
             if (isSafeCard)
             {
+                CardAnimator.SetTrigger("Flip");
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerSafe);
                 HandleSafeCardInteraction();
             }
             else if (isJokerCard)
             {
+                switch (encounterData.JokerCardsCollected)
+                {
+                    case 0:
+                        CardAnimator.SetTrigger("Flip");
+                        break;
+                    case 1:
+                        CardAnimator.SetTrigger("Flip2");
+                        break;
+                    case 2:
+                        CardAnimator.SetTrigger("Flip3");
+                        break;
+                    default:
+                        break;
+                }
                 HandleJokerCardInteraction();
             }
             else
             {
+                CardAnimator.SetTrigger("Flip");
                 HandleDeathCardInteraction();
             }
         }
@@ -248,6 +239,12 @@ public class PlayerCardInteraction : MonoBehaviour
         }
         if (isJokerCard)
         {
+            //yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(1);
+            if (OnJokerFlipped != null)
+            {
+                OnJokerFlipped?.Invoke(); //broadcast that a joker card has been flipped
+            }
             playerDeck.RemoveCardFromTable(CardHolderObject);//if it's a joker card, remove immediately after the delay ends to allow joker execution state
             if (encounterData.JokerCardsCollected != 3)
             {

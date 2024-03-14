@@ -305,6 +305,22 @@ public class EnemyCardInteraction : MonoBehaviour
     {
         yield return new WaitForSeconds(jokerDelayTime); //delay effect
 
+        //revert color for remaining cards on table
+        for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+        {
+            encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor);
+        }
+        //revert isClicked to false for remaing player cards on table
+        for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)
+        {
+            encounterData.PlayerTableCards[i].GetComponentInChildren<PlayerCardInteraction>().isClicked = false;
+        }
+        //revert isClicked to false for remaing enemy cards on table
+        for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+        {
+            encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = false;
+        }
+
         //remove a finger
         EnemyHealthTest.Instance.ChangeHealth(-1);
 
