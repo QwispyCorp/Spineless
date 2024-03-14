@@ -160,74 +160,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &36298287
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4090042394187079175, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_Name
-      value: PlayerJokerCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.32
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.4827
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614643752933905355, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 18dabfa7caaf9294ebc9d4a83ecb7cd8, type: 3}
 --- !u!1001 &42584481
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8370,7 +8302,7 @@ PrefabInstance:
     - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
         type: 3}
       propertyPath: totalJokerCards
-      value: 30
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15399,7 +15331,6 @@ SceneRoots:
   - {fileID: 1488083840}
   - {fileID: 1800303718}
   - {fileID: 1739220416}
-  - {fileID: 36298287}
   - {fileID: 1207754177}
   - {fileID: 4442260932714089199}
   - {fileID: 1469473601216560371}
