@@ -11619,6 +11619,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 415500470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1844369042 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1701584888703557731, guid: 767ceec07b0f9404084ffeadd35aff7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8803804190268378653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1848646695
 GameObject:
   m_ObjectHideFlags: 0
@@ -14228,6 +14234,11 @@ PrefabInstance:
       objectReference: {fileID: 265534230922306497}
     - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
+      propertyPath: PlayerP
+      value: 
+      objectReference: {fileID: 1844369042}
+    - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
       propertyPath: CameraAni
       value: 
       objectReference: {fileID: 2106969210}
@@ -14284,6 +14295,11 @@ PrefabInstance:
     - target: {fileID: 9110876428368676386, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9118664898226761061, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

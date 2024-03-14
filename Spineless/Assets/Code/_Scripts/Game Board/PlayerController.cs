@@ -52,36 +52,33 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * tileSpacing, Color.green);
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.right) * tileSpacing, Color.green);
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.left) * tileSpacing, Color.green);
-        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.back) * tileSpacing, Color.green);
         if (!tileEventTriggered && playerOnBoard)
         {
             if (Input.GetKeyDown(KeyCode.W) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
+                //Pawn.SetTrigger("W");
                 transform.Translate(0, 0, tileSpacing);
             }
             else if (Input.GetKeyDown(KeyCode.A) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
+                //Pawn.SetTrigger("A");
                 transform.Translate(-tileSpacing, 0, 0);
             }
             else if (Input.GetKeyDown(KeyCode.D) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
+                //Pawn.SetTrigger("D");
                 transform.Translate(tileSpacing, 0, 0);
             }
             else if (Input.GetKeyDown(KeyCode.S) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
+                //Pawn.SetTrigger("S");
                 transform.Translate(0, 0, -tileSpacing);
             }
         }
-
     }
     private void OnTriggerEnter(Collider other)
     {
