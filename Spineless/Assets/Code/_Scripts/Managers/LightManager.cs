@@ -31,6 +31,7 @@ public class LightManager : MonoBehaviour
     }
     private void EnvironmentSwitchTo(string newScene)
     {
+        AudioManager.Instance.UnMuffleMusic();
         AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
 
         if (newScene == "Encounter")

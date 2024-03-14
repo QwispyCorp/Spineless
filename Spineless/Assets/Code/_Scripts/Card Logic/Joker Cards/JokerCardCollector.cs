@@ -54,7 +54,6 @@ public class JokerCardCollector : MonoBehaviour
     }
     void ClearJokerCards()
     {
-        encounterData.JokerCardsCollected = 0;
         if (encounterData.JokerCardsCollected == 3)
         {
             for (int i = 0; i < jokerSpawnPoints.Length; i++)
@@ -64,6 +63,7 @@ public class JokerCardCollector : MonoBehaviour
                     Destroy(jokerSpawnPoints[i].GetChild(0).gameObject);
                 }
             }
+            encounterData.JokerCardsCollected = 0;
         }
     }
 }
