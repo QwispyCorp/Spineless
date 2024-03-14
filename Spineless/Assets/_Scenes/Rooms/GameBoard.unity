@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -7584,8 +7584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2028115a0eb71d04d86870d795d697b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  senseX: 25
-  senseY: 25
+  senseX: 10
+  senseY: 10
   orientation: {fileID: 317404447}
   camLookUpSpeed: 0
 --- !u!1001 &1170115558
