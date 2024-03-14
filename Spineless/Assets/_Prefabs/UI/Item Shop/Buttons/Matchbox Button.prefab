@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6699696441284511396}
   - component: {fileID: 947046181455652003}
   - component: {fileID: 8298049930781291477}
+  - component: {fileID: 632123944554785609}
   m_Layer: 5
   m_Name: Matchbox Button
   m_TagString: Untagged
@@ -88,6 +89,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18, y: 0.04, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &632123944554785609
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856468047547656867}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6740410307143987352
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +121,7 @@ GameObject:
   - component: {fileID: 8822017669978651671}
   - component: {fileID: 7328077629609645529}
   - component: {fileID: 3884518351345646898}
+  - component: {fileID: 737157844861484738}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -163,6 +186,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &737157844861484738
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6740410307143987352}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 24ff2edf11faef54b89342c17f7c7e20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8560224330715735537
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +218,7 @@ GameObject:
   - component: {fileID: 5532822669031695521}
   - component: {fileID: 6211435237405854826}
   - component: {fileID: 6840046307834509168}
+  - component: {fileID: 7061995651515545660}
   m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
@@ -238,3 +283,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &7061995651515545660
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8560224330715735537}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3afeb20ce2abd54085500a02937b3b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

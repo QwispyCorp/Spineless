@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2117235259366208346}
   - component: {fileID: 450789933693079814}
   - component: {fileID: 8689943882321998593}
+  - component: {fileID: 8296236250463162374}
   m_Layer: 5
   m_Name: Severed Hand Button
   m_TagString: Untagged
@@ -88,6 +89,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18, y: 0.04, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &8296236250463162374
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418039246824673924}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5781417168728079084
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +121,7 @@ GameObject:
   - component: {fileID: 1152131810791695221}
   - component: {fileID: 1864103562121174877}
   - component: {fileID: 5931419979363648319}
+  - component: {fileID: 5775368272599379080}
   m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
@@ -163,6 +186,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &5775368272599379080
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5781417168728079084}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3afeb20ce2abd54085500a02937b3b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7282936342342900865
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +218,7 @@ GameObject:
   - component: {fileID: 8685678102192486300}
   - component: {fileID: 7959257858270996993}
   - component: {fileID: 1195693106497867666}
+  - component: {fileID: 4014315693143031058}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -238,3 +283,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &4014315693143031058
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7282936342342900865}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 938aca4deaa7e4b4c82257d65ce51cdc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

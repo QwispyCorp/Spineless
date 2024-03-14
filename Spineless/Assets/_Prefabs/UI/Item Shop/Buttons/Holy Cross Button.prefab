@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6745348659297230396}
   - component: {fileID: 7784625765923193814}
   - component: {fileID: 1171470629223725598}
+  - component: {fileID: 9126204360978580955}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -75,6 +76,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &9126204360978580955
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3452030890126449374}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4d7910c342bd9b6468a313b438ece1de, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3986017289956766356
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,6 +108,7 @@ GameObject:
   - component: {fileID: 2529897128449962111}
   - component: {fileID: 8433449214277638599}
   - component: {fileID: 833056553599638531}
+  - component: {fileID: 6444298927802741356}
   m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
@@ -150,6 +173,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6444298927802741356
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3986017289956766356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3afeb20ce2abd54085500a02937b3b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4414407311655577355
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,6 +206,7 @@ GameObject:
   - component: {fileID: 7438506570722617283}
   - component: {fileID: 7167256790689512848}
   - component: {fileID: 9157417024231924957}
+  - component: {fileID: 2138850393903906306}
   m_Layer: 5
   m_Name: Holy Cross Button
   m_TagString: Untagged
@@ -238,3 +283,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18, y: 0.04, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &2138850393903906306
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4414407311655577355}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

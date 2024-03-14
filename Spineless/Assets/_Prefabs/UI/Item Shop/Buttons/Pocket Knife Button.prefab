@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2196940305798528886}
   - component: {fileID: 8425004924123689151}
   - component: {fileID: 3713244378135818590}
+  - component: {fileID: 2252214689030668731}
   m_Layer: 5
   m_Name: Pocket Knife Button
   m_TagString: Untagged
@@ -88,6 +89,27 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.18, y: 0.04, z: 0.001}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &2252214689030668731
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38025605431372434}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2737965652534550799
 GameObject:
   m_ObjectHideFlags: 0
@@ -99,6 +121,7 @@ GameObject:
   - component: {fileID: 2477070543079110164}
   - component: {fileID: 3988222322176826991}
   - component: {fileID: 7959814515569084973}
+  - component: {fileID: 43062824604131027}
   m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
@@ -163,6 +186,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &43062824604131027
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2737965652534550799}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3afeb20ce2abd54085500a02937b3b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3623315706293952078
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +218,7 @@ GameObject:
   - component: {fileID: 9044775235975871304}
   - component: {fileID: 1403687741804009055}
   - component: {fileID: 4604473249562431881}
+  - component: {fileID: 6456706757612028743}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -238,3 +283,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6456706757612028743
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3623315706293952078}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e2792dbf94be1534485cf61a3e397958, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
