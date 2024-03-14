@@ -85,7 +85,7 @@ public class CinemaCam : MonoBehaviour
         AudioManager.Instance.PlaySound("Footsteps1");
         yield return new WaitForSeconds(1.9f);
         AudioManager.Instance.PlaySound("FootstepsFast");
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(1.2f);
         Cursor.visible = true;
     }
     //--------------------------------------------------------
@@ -100,7 +100,7 @@ public class CinemaCam : MonoBehaviour
         AudioManager.Instance.PlaySound("Footsteps2");
         yield return new WaitForSeconds(1.9f);
         AudioManager.Instance.PlaySound("FootstepsFast");
-        yield return new WaitForSeconds(2.4f);
+        yield return new WaitForSeconds(2.8f);
         Cursor.visible = true;
     }
 
