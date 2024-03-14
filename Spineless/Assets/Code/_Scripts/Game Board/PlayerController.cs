@@ -37,6 +37,17 @@ public class PlayerController : MonoBehaviour
         monsterTileTriggered = false;
         wallLayerMask = 1 << 7;
         tileSpacing = saveData.TileSpacing; //set tile spacing for movement equal to board tile spacing 
+
+        //STARTING POSITION
+        if (!saveData.HasEnteredBoardRoom) //if player enters gameboard for first time
+        {
+            transform.position = saveData.playerStartTransform;
+            saveData.HasEnteredBoardRoom = true;
+        }
+        else
+        {
+            transform.position = saveData.lastPlayerTransform;
+        }
     }
     // Update is called once per frame
     void Update()
@@ -78,7 +89,9 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Monster Tile") && playerOnBoard)
         {
-            AudioManager.Instance.PlaySound("Riser");
+            AudioManager.Instance.PlaySound("TileEvent");
+
+            saveData.lastPlayerTransform = transform.position;
             tileEventTriggered = true;
             monsterTileTriggered = true;
             HandleMonsterTile(collidedObject);
@@ -86,7 +99,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Item Tile") && playerOnBoard)
         {
-            AudioManager.Instance.PlaySound("Riser");
+            AudioManager.Instance.PlaySound("TileEvent");
+            saveData.lastPlayerTransform = transform.position;
             tileEventTriggered = true;
             itemTileTriggered = true;
             HandleItemTile(collidedObject);
@@ -99,7 +113,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (other.CompareTag("Win Tile") && playerOnBoard)
         {
-            AudioManager.Instance.PlaySound("Riser");
+            AudioManager.Instance.PlaySound("TileEvent");
+            saveData.lastPlayerTransform = transform.position;
             tileEventTriggered = true;
             winTileTriggered = true;
             HandleWinTile(collidedObject);
@@ -110,6 +125,7 @@ public class PlayerController : MonoBehaviour
             if (saveData.ShopVisited == false)
             {
                 AudioManager.Instance.PlaySound("Riser");
+                saveData.lastPlayerTransform = transform.position;
                 tileEventTriggered = true;
                 shopTileTriggered = true;
                 HandleShopTile(collidedObject);
@@ -136,7 +152,7 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Monster Tile");
         Pawn.SetTrigger("Move");
-        Invoke("SwitchRooms", 3);
+        Invoke("SwitchRooms", 2);
     }
     private void HandleItemTile(GameObject tile)
     {
@@ -144,7 +160,7 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Item Tile");
         Pawn.SetTrigger("Move");
-        Invoke("SwitchRooms", 3);
+        Invoke("SwitchRooms", 2);
     }
     private void HandleEmptyTile(GameObject tile)
     {
@@ -157,7 +173,7 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on WinTile");
         Pawn.SetTrigger("Move");
-        Invoke("SwitchRooms", 3);
+        Invoke("SwitchRooms", 2);
     }
     private void HandleShopTile(GameObject tile)
     {
@@ -165,12 +181,13 @@ public class PlayerController : MonoBehaviour
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Shop Tile");
         Pawn.SetTrigger("Move");
-        Invoke("SwitchRooms", 3);
+        Invoke("SwitchRooms", 2);
 
     }
 
     private void SwitchRooms()
     {
+        AudioManager.Instance.PlaySound("Riser");
         BoardGenerator.Instance.HideBoard();
 
         CameraAni.SetTrigger("B2F");

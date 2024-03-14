@@ -16,6 +16,9 @@ public class PlayerSaveData : ScriptableObject
     public bool BoardGenerated; //for keeping track of board generation state
     public GameObject GameBoard; //for storing generated game board
     public float TileSpacing;
+    public Vector3 playerStartTransform;
+    public Vector3 lastPlayerTransform;
+    public bool HasEnteredBoardRoom;
     [Header("Item Data")]
     public List<Item> MasterItemPool; //for storing all available items
     public List<Item> Inventory; //for storing unlocked items
@@ -34,6 +37,7 @@ public class PlayerSaveData : ScriptableObject
         Inventory.Clear();
         EquippedItems.Clear();
         BoardGenerated = false;
+        HasEnteredBoardRoom = false;
         FirstEncounterEntered = false;
         ShopVisited = false;
         GameBoard = null;
@@ -41,5 +45,6 @@ public class PlayerSaveData : ScriptableObject
         EncountersCleared = 0;
         playerFingersInNextEncounter = 5;
         monsterFingers = 0;
+        lastPlayerTransform = playerStartTransform;
     }
 }

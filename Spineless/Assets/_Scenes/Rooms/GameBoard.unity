@@ -1713,6 +1713,12 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!4 &317404447 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7530285725386807446, guid: 51cee8cc1ecb0f145938220c940a6042,
+    type: 3}
+  m_PrefabInstance: {fileID: 1164479351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &324023361
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1773,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 8803804190268378653}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274270345}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 302b497a03a1d7d4d8a3af0d6097fa8b, type: 3}
@@ -4727,7 +4733,7 @@ MonoBehaviour:
           m_CallState: 2
         - m_Target: {fileID: 1049443124}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
+          m_MethodName: UnPause
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -7884,14 +7890,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1164479353}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2028115a0eb71d04d86870d795d697b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  senseX: 0
-  senseY: 0
-  orientation: {fileID: 0}
+  senseX: 25
+  senseY: 25
+  orientation: {fileID: 317404447}
   camLookUpSpeed: 0
 --- !u!1001 &1170115558
 PrefabInstance:
@@ -10000,33 +10006,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1257151032}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1274270345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1998456387161950762, guid: 767ceec07b0f9404084ffeadd35aff7d,
-    type: 3}
-  m_PrefabInstance: {fileID: 8803804190268378653}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1274270346
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274270345}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5a8c7e1461433194fbfc829c81b29983, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1277652232
 GameObject:
   m_ObjectHideFlags: 0
@@ -14512,6 +14491,74 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1001 &7317967545705104588
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7928416826741847930, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_Name
+      value: Player Starting Position
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0264
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.1621
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049646341943723900, guid: 2a65eec398d2bbb46ba784790b409427,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2a65eec398d2bbb46ba784790b409427, type: 3}
 --- !u!1 &7612709177693660731
 GameObject:
   m_ObjectHideFlags: 0
@@ -14661,11 +14708,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
-      propertyPath: Pawn
-      value: 
-      objectReference: {fileID: 1274270346}
-    - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
-        type: 3}
       propertyPath: board
       value: 
       objectReference: {fileID: 265534230922306497}
@@ -14674,11 +14716,6 @@ PrefabInstance:
       propertyPath: CameraAni
       value: 
       objectReference: {fileID: 2106969210}
-    - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
-        type: 3}
-      propertyPath: playerSlideSpeed
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
       propertyPath: playerInteractCanvas
@@ -14737,11 +14774,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1998456387161950762, guid: 767ceec07b0f9404084ffeadd35aff7d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1274270346}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 767ceec07b0f9404084ffeadd35aff7d, type: 3}
 --- !u!1 &8821623530234750781
 GameObject:
@@ -14820,6 +14853,7 @@ SceneRoots:
   - {fileID: 1747053887}
   - {fileID: 724312988}
   - {fileID: 8803804190268378653}
+  - {fileID: 7317967545705104588}
   - {fileID: 6996048623608708517}
   - {fileID: 1170115558}
   - {fileID: 1860672056}

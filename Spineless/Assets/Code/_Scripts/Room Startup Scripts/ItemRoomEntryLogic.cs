@@ -11,7 +11,7 @@ public class ItemRoomEntryLogic : MonoBehaviour
     [SerializeField] private Transform rightSpawn;
     void Start()
     {
-        AudioManager.Instance.PlayMusicTrack("Item Room Music");
+        //AudioManager.Instance.PlayMusicTrack("Item Room Music");
 
         //When item room starts, spawn random items in the spawn points for player choice
 

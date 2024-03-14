@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1129656176192904852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3988005808127689682}
+  m_Layer: 0
+  m_Name: Wing3 Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3988005808127689682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129656176192904852}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.70710665, y: 0.0000019073486, z: 0.000001862645, w: 0.707107}
+  m_LocalPosition: {x: -2.7499998, y: 0, z: 0.50000894}
+  m_LocalScale: {x: 100.000015, y: 100.00007, z: 100.00005}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7516919329559705961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3357951633674022107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 294411243990377116}
+  m_Layer: 0
+  m_Name: Wing2 Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &294411243990377116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3357951633674022107}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.49999928, y: 0.5000007, z: 0.50000054, w: 0.49999946}
+  m_LocalPosition: {x: 0.25000924, y: 0, z: 3.5}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7516919329559705961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5395762890863986374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5385900598093704301}
+  m_Layer: 0
+  m_Name: Wing1 Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5385900598093704301
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5395762890863986374}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000011920929, y: 0.7071068, z: 0.70710677, w: 0.0000001238266}
+  m_LocalPosition: {x: 3.25, y: 0, z: 0.49999106}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7516919329559705961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7064809664027885161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7516919329559705961}
+  - component: {fileID: 8136608693046305213}
+  m_Layer: 0
+  m_Name: Wing Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7516919329559705961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064809664027885161}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5385900598093704301}
+  - {fileID: 294411243990377116}
+  - {fileID: 3988005808127689682}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8136608693046305213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064809664027885161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa576b697a80504680b734c529ebde3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wingPrefabs:
+  - {fileID: 5339507363584436697, guid: c147cfa2a005e964bacd23a9a001d2b1, type: 3}
+  - {fileID: 452337406860544268, guid: 8925ea0693c647348b13eb5fe4b1fbf7, type: 3}
+  - {fileID: 452337406860544268, guid: 5e2dfbe93486e434c95377a8b28bfb7a, type: 3}
+  - {fileID: 452337406860544268, guid: 14f03c7be2a738e4291ccc9cc622008a, type: 3}
+  - {fileID: 7069811957720680909, guid: 0c917595d99427042b453e23e0e0dcbb, type: 3}
+  - {fileID: 7069811957720680909, guid: 9ef58be5c5e2ceb4282d88e544a24297, type: 3}
+  - {fileID: 2443665470104984909, guid: d051beec3d8b462469ca13b687e8dd5c, type: 3}
+  - {fileID: 5431129584681061179, guid: 7f0b210a8b424f845a241825102444e4, type: 3}
+  position1: {fileID: 5385900598093704301}
+  position2: {fileID: 294411243990377116}
+  position3: {fileID: 3988005808127689682}

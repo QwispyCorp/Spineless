@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Animations;
+using UnityEngine.SceneManagement;
 
 public class CameraPan : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class CameraPan : MonoBehaviour
     private bool playerLookingMid;
     private bool playerLookingCenter;
     [SerializeField] private float camLookUpSpeed; //speed the player looks up at the enemy 
+    private string currentRoom;
 
     void OnEnable()
     {
@@ -41,10 +43,19 @@ public class CameraPan : MonoBehaviour
 
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; //change to locked when we fix raycast interaction for items and add crosshair/ dot in center of screen
+        currentRoom = SceneManager.GetActiveScene().name;
         playerLookingUp = false;
         playerLookingMid = false;
-        Cursor.visible = false; //change to false when above is changed to locked
+        if (currentRoom == "Encounter")
+        {
+            Cursor.visible = false; //change to false when above is changed to locked
+            Cursor.lockState = CursorLockMode.Locked; //change to locked when we fix raycast interaction for items and add crosshair/ dot in center of screen
+        }
+        else
+        {
+            Cursor.visible = true; 
+            Cursor.lockState = CursorLockMode.Confined; 
+        }
 
         _senseX = senseX;
         _senseY = senseY;

@@ -7,8 +7,8 @@ public class CinemaCam : MonoBehaviour
     //--------------------------------------------------------
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.visible = true;
     }
     public void Free2Cabinet() //CALL THIS TO START THIS ANIMATION
     {

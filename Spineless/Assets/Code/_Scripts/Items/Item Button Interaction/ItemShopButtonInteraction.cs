@@ -75,6 +75,7 @@ public class ItemShopButtonInteraction : MonoBehaviour
         {
             //play error sound?
             //not enough currency feedback
+            AudioManager.Instance.PlaySound("Error");
             buttonTextImage.color = insufficientFingersColor; //highlight text red
             buttonValueImage.color = insufficientFingersColor; //highlight text red
             Debug.Log("Not enough fingers for " + _itemName + "!");

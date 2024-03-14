@@ -20,6 +20,9 @@ MonoBehaviour:
   BoardGenerated: 0
   GameBoard: {fileID: 0}
   TileSpacing: 0.041999996
+  playerStartTransform: {x: -0.15, y: 1.0264, z: -0.1621}
+  lastPlayerTransform: {x: 0, y: 0, z: 0}
+  HasEnteredBoardRoom: 0
   MasterItemPool:
   - {fileID: 11400000, guid: 0555ef7a5a0ff3045885f6a927c86003, type: 2}
   - {fileID: 11400000, guid: 6e2dd18ca168839469f92bfeb64e06f1, type: 2}

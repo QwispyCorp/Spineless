@@ -9,11 +9,15 @@ public class PlayerHandsHider : MonoBehaviour
     void OnEnable()
     {
         ItemMouseInteraction.OnItemUsed += HideHand;
+        PlayerHealthTest.OnPlayerFingerLost += ShowHand;
+        PlayerAnimationTrigger.OnAnimationFinished += HideHand;
         ItemAnimationDelay.OnItemAnimationEnded += ShowHand;
     }
     void OnDisable()
     {
         ItemMouseInteraction.OnItemUsed -= HideHand;
+        PlayerHealthTest.OnPlayerFingerLost -= ShowHand;
+        PlayerAnimationTrigger.OnAnimationFinished -= HideHand;
         ItemAnimationDelay.OnItemAnimationEnded -= ShowHand;
     }
 
