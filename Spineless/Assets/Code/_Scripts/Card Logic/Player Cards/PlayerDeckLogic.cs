@@ -98,12 +98,21 @@ public class PlayerDeckLogic : MonoBehaviour
         if (tableCards.Find(x => x.gameObject.name.Contains("Death")))
         {
             RemoveCardFromTable(tableCards.Find(x => x.gameObject.name.Contains("Death")));
+            if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.ItemUse)
+            {
+                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
+            }
             UpdateEncounterCards();
 
         }
         else
         {
             Debug.Log("Could not find card named " + tableCards.Find(x => x.gameObject.name == "PlayerDeathCard(Clone)"));
+            if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.ItemUse)
+            {
+                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
+            }
+
         }
     }
     public void ShowAllCards()

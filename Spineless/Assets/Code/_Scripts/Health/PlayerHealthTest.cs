@@ -83,11 +83,11 @@ public class PlayerHealthTest : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
-            saveData.playerFingersInNextEncounter -= 2;
+            saveData.playerFingersInNextEncounter -= 2; 
             if (saveData.playerFingersInNextEncounter <= 0) //if player's perma health drops below 0
             {
                 //player perma loses
-                PopUpTextManager.Instance.ShowScreen("Lose Screen"); //show lose screen or lose animation
+                LightManager.Instance.StartFlickeringTransitionTo("LoseScene"); //transition to losing scene
             }
             else //if player's still alive after enocunter
             {

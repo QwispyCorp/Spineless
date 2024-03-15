@@ -164,7 +164,10 @@ public class EnemyCardInteraction : MonoBehaviour
     {
         //Chopping finger animation goes here
         AudioManager.Instance.PlaySound("SeveredHand");
-        saveData.monsterFingers++; //increase monster fingers player currency
+        if (saveData.monsterFingers < 10)
+        {
+            saveData.monsterFingers++; //increase monster fingers player currency
+        }
         //CardMesh.material = deathMaterial;
         //PopUpTextManager.Instance.ShowScreen("Death Card Screen"); //show death screen 
         StartCoroutine(CardRemoveDelay());

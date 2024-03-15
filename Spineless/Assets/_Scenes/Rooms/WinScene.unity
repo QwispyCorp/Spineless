@@ -7618,6 +7618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDelay: 0
   Lights: {fileID: 1121427570}
+  fadeOutAnimator: {fileID: 0}
 --- !u!4 &1443224827
 Transform:
   m_ObjectHideFlags: 0
@@ -8164,7 +8165,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1684408894}
   - component: {fileID: 1684408893}
-  - component: {fileID: 1684408892}
   m_Layer: 0
   m_Name: Monster UV
   m_TagString: Untagged
@@ -8172,19 +8172,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1684408892
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684408891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a0ecc9705df52a4e927ec6e6b4bc20e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyAnimator: {fileID: 1684408893}
 --- !u!95 &1684408893
 Animator:
   serializedVersion: 5
@@ -8194,7 +8181,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684408891}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 67cbbc2b193fab44986b19c6ae130aef, type: 3}
+  m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7db73c622651ab442b897f561a19c0e1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0

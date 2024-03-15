@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Rooms/EncounterTutorial.unity
     guid: c62612b2b694438498ef89900cf19668
+  - enabled: 1
+    path: Assets/_Scenes/Rooms/LoseScene.unity
+    guid: 00e981a153d0f154eac521fa4df2384c
   m_configObjects: {}

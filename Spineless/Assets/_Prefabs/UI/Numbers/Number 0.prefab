@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 9039039329183769039}
   - component: {fileID: 9095450370382371714}
   - component: {fileID: 8908557873519562317}
-  - component: {fileID: 2014425502736580523}
+  - component: {fileID: 3052898294901853881}
   m_Layer: 0
   m_Name: Number 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9039039329183769039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &2014425502736580523
+--- !u!95 &3052898294901853881
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0

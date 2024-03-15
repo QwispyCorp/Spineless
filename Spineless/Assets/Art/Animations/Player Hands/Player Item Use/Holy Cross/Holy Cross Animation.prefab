@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: 7881386990180734930}
   - component: {fileID: 9044458144472730158}
   - component: {fileID: 7434820012379663470}
+  - component: {fileID: 4273155621474448348}
   m_Layer: 0
   m_Name: Holy Cross Animation
   m_TagString: Untagged
@@ -643,6 +644,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a1cb244ac6ac144b8d21ccbf304bf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4273155621474448348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3491888229766799255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7985393b9f59e834e938fd5e89dac273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemSO: {fileID: 11400000, guid: 0555ef7a5a0ff3045885f6a927c86003, type: 2}
+  playerHealth:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: bf91ee7ed86c5446db36b5e885a0e631, type: 2}
+  maxPlayerHealth:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 51f14fccd24dc1247b4e18e934c794f9, type: 2}
 --- !u!1 &3659989026676975620
 GameObject:
   m_ObjectHideFlags: 0

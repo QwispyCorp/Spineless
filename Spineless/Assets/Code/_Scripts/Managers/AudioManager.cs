@@ -125,7 +125,7 @@ public class AudioManager : MonoBehaviour
         if (CurrentTrackSource != null)
         {
             Debug.Log("Muffling music");
-            CurrentTrackSource.volume = CurrentTrackSource.volume * .2f;
+            CurrentTrackSource.volume = CurrentTrackSource.volume * .1f;
         }
     }
     public void UnMuffleMusic()

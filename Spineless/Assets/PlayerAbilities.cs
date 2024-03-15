@@ -90,7 +90,7 @@ public class PlayerAbilities : MonoBehaviour
 
             if (playerDeckLogic != null)
             {
-                AudioManager.Instance.PlaySound("HolyCross");
+                //AudioManager.Instance.PlaySound("HolyCross");
                 playerDeckLogic.ShowAllCards();
             }
             else
@@ -116,7 +116,7 @@ public class PlayerAbilities : MonoBehaviour
 
             if (playerDeckLogic != null)
             {
-                AudioManager.Instance.PlaySound("HolyCross");
+                //AudioManager.Instance.PlaySound("HolyCross");
                 playerDeckLogic.RemoveDeathCard();
             }
             else
@@ -138,7 +138,7 @@ public class PlayerAbilities : MonoBehaviour
 
             if (enemyDeckLogic != null)
             {
-                AudioManager.Instance.PlaySound("Jack In The Box");
+                //AudioManager.Instance.PlaySound("Jack In The Box");
                 enemyDeckLogic.RefreshTable();
                 enemyDeckLogic.DrawHand();
                 Debug.Log("New Enemy Cards");
@@ -167,7 +167,7 @@ public class PlayerAbilities : MonoBehaviour
 
             if (playerDeckLogic != null)
             {
-                AudioManager.Instance.PlaySound("Severed Hand");
+                //.Instance.PlaySound("Severed Hand");
                 playerDeckLogic.RefreshTable();
                 playerDeckLogic.DrawHand();
                 Debug.Log("New Player Cards");
@@ -205,7 +205,7 @@ public class PlayerAbilities : MonoBehaviour
         if (playerHealth.Value < maxPlayerHealth.Value) //ifplayer is under max health, add a finger
         {
             PlayerHealthTest.Instance.ChangeHealth(1);
-            AudioManager.Instance.PlaySound("Stapler");
+            //AudioManager.Instance.PlaySound("Stapler");
         }
         else //if player is at max health, still consume but break stapler
         {

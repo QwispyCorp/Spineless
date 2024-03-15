@@ -77,7 +77,9 @@ public class PauseManager : MonoBehaviour
         }
         Time.timeScale = 1;
         saveData.ClearAllData();
-        SceneManager.LoadScene("MainMenu");
+        pauseMenu.SetActive(false);
+        LightManager.Instance.StartFlickeringTransitionTo("MainMenu");
+        //SceneManager.LoadScene("MainMenu");
     }
     //-----------------------------------------------------
     public void LoadOptions() //call this function on a button to switch to options

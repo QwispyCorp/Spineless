@@ -5574,6 +5574,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2799696568241757914, guid: 6f199b2e913ca9a40a1450ac286045a3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6993527498085574590, guid: 6f199b2e913ca9a40a1450ac286045a3,
         type: 3}
       propertyPath: m_Name
@@ -11717,12 +11722,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 415500470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1844369042 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1701584888703557731, guid: 767ceec07b0f9404084ffeadd35aff7d,
-    type: 3}
-  m_PrefabInstance: {fileID: 8803804190268378653}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1848646695
 GameObject:
   m_ObjectHideFlags: 0
@@ -14320,21 +14319,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1701584888703557731, guid: 767ceec07b0f9404084ffeadd35aff7d,
+    - target: {fileID: 578719834342505687, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
+      propertyPath: MaxDistance
+      value: 1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 578719834342505687, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.6649933
+      objectReference: {fileID: 0}
+    - target: {fileID: 578719834342505687, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.040740967
+      objectReference: {fileID: 0}
+    - target: {fileID: 578719834342505687, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
+      value: 0.044556797
+      objectReference: {fileID: 0}
+    - target: {fileID: 578719834342505687, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inSlope
+      value: -0.1337626
+      objectReference: {fileID: 0}
+    - target: {fileID: 578719834342505687, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: 0.044556797
+      objectReference: {fileID: 0}
+    - target: {fileID: 578719834342505687, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].inWeight
+      value: 0.4508326
+      objectReference: {fileID: 0}
+    - target: {fileID: 578719834342505687, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].outSlope
+      value: -0.1337626
+      objectReference: {fileID: 0}
+    - target: {fileID: 578719834342505687, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.54097086
       objectReference: {fileID: 0}
     - target: {fileID: 1998456387161950762, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
       propertyPath: m_Name
       value: Player Piece
       objectReference: {fileID: 0}
-    - target: {fileID: 4714872304755430267, guid: 767ceec07b0f9404084ffeadd35aff7d,
+    - target: {fileID: 4696420073434230707, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: be1cbbf296cd4d44e9df85f2d1946ec1, type: 2}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.639801
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696420073434230707, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.059265137
+      objectReference: {fileID: 0}
     - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
       propertyPath: board
@@ -14342,19 +14386,9 @@ PrefabInstance:
       objectReference: {fileID: 265534230922306497}
     - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
-      propertyPath: PlayerP
-      value: 
-      objectReference: {fileID: 1844369042}
-    - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
-        type: 3}
       propertyPath: CameraAni
       value: 
       objectReference: {fileID: 2106969210}
-    - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
-        type: 3}
-      propertyPath: animationDuration
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
       propertyPath: playerInteractCanvas
@@ -14408,11 +14442,6 @@ PrefabInstance:
     - target: {fileID: 9110876428368676386, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9118664898226761061, guid: 767ceec07b0f9404084ffeadd35aff7d,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

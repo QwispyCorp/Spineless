@@ -262,7 +262,7 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
-  - name: Eye
+  - name: Eye Of Foresight
     clip: {fileID: 8300000, guid: a8e01558813dfa443b4f21cfc29ea6e1, type: 3}
     volume: 1
     pitch: 1
@@ -341,6 +341,20 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Error
     clip: {fileID: 8300000, guid: d9a2247cd1f054f4996d893676005b34, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Slide1
+    clip: {fileID: 8300000, guid: b573385e7446bc14889114ae2cac3e10, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Slide2
+    clip: {fileID: 8300000, guid: 7c80c83421ed79d4da0e6feee1162c79, type: 3}
     volume: 1
     pitch: 1
     loop: 0
