@@ -127,8 +127,6 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Monster Tile") && playerOnBoard)
         {
             AudioManager.Instance.PlaySound("TileEvent");
-
-            //saveData.lastPlayerTransform = transform.position;
             tileEventTriggered = true;
             monsterTileTriggered = true;
             HandleMonsterTile(collidedObject);
@@ -137,7 +135,6 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("Item Tile") && playerOnBoard)
         {
             AudioManager.Instance.PlaySound("TileEvent");
-            //saveData.lastPlayerTransform = transform.position;
             tileEventTriggered = true;
             itemTileTriggered = true;
             HandleItemTile(collidedObject);
@@ -151,7 +148,6 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("Win Tile") && playerOnBoard)
         {
             AudioManager.Instance.PlaySound("TileEvent");
-            //saveData.lastPlayerTransform = transform.position;
             tileEventTriggered = true;
             winTileTriggered = true;
             HandleWinTile(collidedObject);
@@ -162,7 +158,6 @@ public class PlayerController : MonoBehaviour
             if (saveData.ShopVisited == false)
             {
                 AudioManager.Instance.PlaySound("Riser");
-                //saveData.lastPlayerTransform = transform.position;
                 tileEventTriggered = true;
                 shopTileTriggered = true;
                 HandleShopTile(collidedObject);
@@ -188,6 +183,7 @@ public class PlayerController : MonoBehaviour
         tile.GetComponent<TileTrigger>().FlipTile();
         playerInteractCanvas.SetActive(false);
         Debug.Log("Player on Monster Tile");
+
         Pawn.SetTrigger("Move");
         Invoke("SwitchRooms", 2);
     }
@@ -219,7 +215,11 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player on Shop Tile");
         Pawn.SetTrigger("Move");
         Invoke("SwitchRooms", 2);
+    }
 
+    private void MovePawn()
+    {
+        Pawn.SetTrigger("Move");
     }
 
     private void SwitchRooms()
