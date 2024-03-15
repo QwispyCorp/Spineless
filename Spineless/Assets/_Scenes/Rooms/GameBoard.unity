@@ -14320,6 +14320,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1701584888703557731, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1998456387161950762, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
       propertyPath: m_Name
@@ -14345,6 +14350,11 @@ PrefabInstance:
       propertyPath: CameraAni
       value: 
       objectReference: {fileID: 2106969210}
+    - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
+        type: 3}
+      propertyPath: animationDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6129739329598771875, guid: 767ceec07b0f9404084ffeadd35aff7d,
         type: 3}
       propertyPath: playerInteractCanvas

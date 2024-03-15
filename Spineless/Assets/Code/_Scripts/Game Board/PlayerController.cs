@@ -21,11 +21,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject playerInteractCanvas;
     [SerializeField] private PlayerSaveData saveData;
     [SerializeField] private float tileSpacing; // for movement, changes based on board tile scaling
+    [SerializeField] private float animationDuration = 1;
     public GameObject board;
     public Animator CameraAni;
     public Animator Pawn;
     public bool playerOnBoard;
     private int wallLayerMask;
+    private bool isMoving;
+    private bool movingUp;
+    private bool movingDown;
+    private bool movingLeft;
+    private bool movingRight;
+    private Vector3 initialPosition;
+    private Vector3 targetPosition;
+    private float slideTimer;
     void Start()
     {
         playerOnBoard = false;
@@ -37,6 +46,11 @@ public class PlayerController : MonoBehaviour
         monsterTileTriggered = false;
         wallLayerMask = 1 << 7;
         tileSpacing = saveData.TileSpacing; //set tile spacing for movement equal to board tile spacing 
+        movingUp = false;
+        movingDown = false;
+        movingLeft = false;
+        movingRight = false;
+        slideTimer = 0;
 
         //STARTING POSITION
         if (!saveData.HasEnteredBoardRoom) //if player enters gameboard for first time
@@ -54,29 +68,55 @@ public class PlayerController : MonoBehaviour
     {
         if (!tileEventTriggered && playerOnBoard)
         {
-            if (Input.GetKeyDown(KeyCode.W) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), tileSpacing, wallLayerMask)) //later check for walls here
+            if (Input.GetKeyDown(KeyCode.W) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
+                initialPosition = transform.position;
+                targetPosition = initialPosition + transform.forward * tileSpacing;
+                isMoving = true;
+                //StartCoroutine("MoveUp");
                 //Pawn.SetTrigger("W");
-                transform.Translate(0, 0, tileSpacing);
+                //transform.Translate(0, 0, tileSpacing);
             }
-            else if (Input.GetKeyDown(KeyCode.A) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), tileSpacing, wallLayerMask)) //later check for walls here
+            else if (Input.GetKeyDown(KeyCode.A) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
+                initialPosition = transform.position;
+                targetPosition = initialPosition + Vector3.left * tileSpacing;
+                isMoving = true;
                 //Pawn.SetTrigger("A");
-                transform.Translate(-tileSpacing, 0, 0);
+                //transform.Translate(-tileSpacing, 0, 0);
             }
-            else if (Input.GetKeyDown(KeyCode.D) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), tileSpacing, wallLayerMask)) //later check for walls here
+            else if (Input.GetKeyDown(KeyCode.D) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
+                initialPosition = transform.position;
+                targetPosition = initialPosition + Vector3.right * tileSpacing;
+                isMoving = true;
                 //Pawn.SetTrigger("D");
-                transform.Translate(tileSpacing, 0, 0);
+                //transform.Translate(tileSpacing, 0, 0);
             }
-            else if (Input.GetKeyDown(KeyCode.S) && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), tileSpacing, wallLayerMask)) //later check for walls here
+            else if (Input.GetKeyDown(KeyCode.S) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 AudioManager.Instance.PlaySound("ChessPieceMove");
+                initialPosition = transform.position;
+                targetPosition = initialPosition + Vector3.back * tileSpacing;
+                isMoving = true;
                 //Pawn.SetTrigger("S");
-                transform.Translate(0, 0, -tileSpacing);
+                //transform.Translate(0, 0, -tileSpacing);
+            }
+        }
+        if (isMoving)
+        {
+            slideTimer += Time.deltaTime;
+            float t = Mathf.Clamp01(slideTimer / animationDuration);
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+            Debug.Log("Piece animation percentage: " + t);
+            if (t >= 1)
+            {
+                isMoving = false;
+                slideTimer = 0f;
+                saveData.lastPlayerTransform = transform.position;
             }
         }
     }
@@ -88,7 +128,7 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.Instance.PlaySound("TileEvent");
 
-            saveData.lastPlayerTransform = transform.position;
+            //saveData.lastPlayerTransform = transform.position;
             tileEventTriggered = true;
             monsterTileTriggered = true;
             HandleMonsterTile(collidedObject);
@@ -97,7 +137,7 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("Item Tile") && playerOnBoard)
         {
             AudioManager.Instance.PlaySound("TileEvent");
-            saveData.lastPlayerTransform = transform.position;
+            //saveData.lastPlayerTransform = transform.position;
             tileEventTriggered = true;
             itemTileTriggered = true;
             HandleItemTile(collidedObject);
@@ -111,7 +151,7 @@ public class PlayerController : MonoBehaviour
         else if (other.CompareTag("Win Tile") && playerOnBoard)
         {
             AudioManager.Instance.PlaySound("TileEvent");
-            saveData.lastPlayerTransform = transform.position;
+            //saveData.lastPlayerTransform = transform.position;
             tileEventTriggered = true;
             winTileTriggered = true;
             HandleWinTile(collidedObject);
@@ -122,7 +162,7 @@ public class PlayerController : MonoBehaviour
             if (saveData.ShopVisited == false)
             {
                 AudioManager.Instance.PlaySound("Riser");
-                saveData.lastPlayerTransform = transform.position;
+                //saveData.lastPlayerTransform = transform.position;
                 tileEventTriggered = true;
                 shopTileTriggered = true;
                 HandleShopTile(collidedObject);
@@ -225,5 +265,29 @@ public class PlayerController : MonoBehaviour
     public void PlayerOffBoard()
     {
         playerOnBoard = false;
+    }
+
+    private IEnumerator MoveUp() //change z by .04
+    {
+
+        isMoving = true;
+        float slideTimer = 0;
+        Vector3 initialPosition = transform.position;
+        Vector3 targetPosition = initialPosition + transform.forward * tileSpacing;
+        float t = 0;
+
+        while (isMoving)
+        {
+            slideTimer += Time.deltaTime;
+            t = Mathf.Clamp01(slideTimer / animationDuration);
+            transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+            Debug.Log("Piece animation percentage: " + t);
+            if (t >= 1)
+            {
+                isMoving = false;
+                slideTimer = 0f;
+                yield return null;
+            }
+        }
     }
 }
