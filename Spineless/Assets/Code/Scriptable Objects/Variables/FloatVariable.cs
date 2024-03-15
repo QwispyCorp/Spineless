@@ -8,7 +8,7 @@ public class FloatVariable : ScriptableObject
     public float Value;
     public bool isMusic;
 
-    private void OnEnable()
+    private void OnDisable()
     {
         if (isMusic)
         {

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d10f0865ed7f2439756acdc5b5559b, type: 3}
   m_Name: MusicVolume
   m_EditorClassIdentifier: 
-  Value: 0.5
+  Value: 0.4
   isMusic: 1

@@ -12,7 +12,12 @@ public class SoundsSlider : MonoBehaviour
     private FloatReference globalSoundsVolume;
     public delegate void SoundVolumeChanged();
     public static event SoundVolumeChanged OnSoundVolumeChanged;
-    void Awake()
+    // void Awake()
+    // {
+    //     soundsSlider = GetComponent<Slider>();
+    //     soundsSlider.value = globalSoundsVolume.Value; //make sure the slider value is consistent with what the global volume is
+    // }
+    private void OnEnable()
     {
         soundsSlider = GetComponent<Slider>();
         soundsSlider.value = globalSoundsVolume.Value; //make sure the slider value is consistent with what the global volume is

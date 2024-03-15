@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         playerOnBoard = false;
-        //AudioManager.Instance.PlayMusicTrack("Encounter Music");
         playerInteractCanvas.SetActive(true);
         tileEventTriggered = false;
         itemTileTriggered = false;
@@ -153,7 +152,7 @@ public class PlayerController : MonoBehaviour
         {
             if (saveData.ShopVisited == false)
             {
-                AudioManager.Instance.PlaySound("Riser");
+                AudioManager.Instance.PlaySound("TileEvent");
                 tileEventTriggered = true;
                 shopTileTriggered = true;
                 HandleShopTile(collidedObject);
@@ -211,11 +210,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player on Shop Tile");
         Pawn.SetTrigger("Move");
         Invoke("SwitchRooms", 3);
-    }
-
-    private void MovePawn()
-    {
-        Pawn.SetTrigger("Move");
     }
 
     private void SwitchRooms()
