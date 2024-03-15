@@ -1055,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: 791028682990987146, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1121402307160606966, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
@@ -3161,7 +3161,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
