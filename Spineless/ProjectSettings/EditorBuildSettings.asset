@@ -32,4 +32,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Rooms/LoseScene.unity
     guid: 00e981a153d0f154eac521fa4df2384c
+  - enabled: 0
+    path: Assets/_Scenes/TRAILER SCENES/TRAILERSCENE.unity
+    guid: 444f7be025ecaa84da66de03acb908f2
+  - enabled: 0
+    path: Assets/_Scenes/TRAILER SCENES/TRAILERSCENE 2.unity
+    guid: 5003cd8a3aa1bfb4aa47bdc02d6d00c2
+  - enabled: 0
+    path: Assets/_Scenes/TRAILER SCENES/TRAILERSCENE 3.unity
+    guid: 7632f4f3681b1684bbe508c118f0193d
   m_configObjects: {}
