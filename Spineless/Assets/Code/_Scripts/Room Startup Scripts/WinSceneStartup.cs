@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class WinSceneStartup : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private PlayerSaveData saveData;
+    public Animator CameraAni;
     void Start()
     {
-        Invoke("ShowWinScreen", 3);
+        Invoke("ShowWinScreen", 8);
+        CameraAni.SetTrigger("Win");
     }
 
     private void ShowWinScreen()
     {
-        PopUpTextManager.Instance.ShowScreen("Win Screen");
+        saveData.ClearAllData();
+        LightManager.Instance.StartFlickeringTransitionTo("MainMenu");
     }
 }
