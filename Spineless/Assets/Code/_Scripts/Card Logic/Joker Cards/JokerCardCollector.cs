@@ -42,7 +42,7 @@ public class JokerCardCollector : MonoBehaviour
 
         if (encounterData.JokerCardsCollected == 3) //if max number of joker cards have been reached
         {
-            if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn) //if it's currently the player's turn
+            if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerSafe) //if it's currently the player's turn
             {
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerJokerExecution); //enter player execution state
             }

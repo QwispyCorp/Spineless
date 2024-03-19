@@ -170,6 +170,7 @@ public class PlayerCardInteraction : MonoBehaviour
             }
             else if (isJokerCard)
             {
+                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerSafe);
                 switch (encounterData.JokerCardsCollected)
                 {
                     case 0:
@@ -188,6 +189,7 @@ public class PlayerCardInteraction : MonoBehaviour
             }
             else
             {
+                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerDamage);
                 CardAnimator.SetTrigger("Flip");
                 HandleDeathCardInteraction();
             }
