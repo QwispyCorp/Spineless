@@ -46,5 +46,7 @@ public class PlayerSaveData : ScriptableObject
         playerFingersInNextEncounter = 5;
         monsterFingers = 0;
         lastPlayerTransform = playerStartTransform;
+
+        EquippedItems.Add(MasterItemPool.Find(x => x.itemName == "Camera"));
     }
 }
