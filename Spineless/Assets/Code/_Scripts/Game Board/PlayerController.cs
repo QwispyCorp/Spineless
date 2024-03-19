@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!tileEventTriggered && playerOnBoard)
         {
-            if (Input.GetKeyDown(KeyCode.W) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), tileSpacing, wallLayerMask)) //later check for walls here
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 int randomSoundIndex = UnityEngine.Random.Range(0, pieceSounds.Length);
                 pieceSounds[randomSoundIndex].Play();
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
                 targetPosition = initialPosition + transform.forward * tileSpacing;
                 isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.A) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), tileSpacing, wallLayerMask)) //later check for walls here
+            else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 int randomSoundIndex = UnityEngine.Random.Range(0, pieceSounds.Length);
                 pieceSounds[randomSoundIndex].Play();
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
                 targetPosition = initialPosition + Vector3.left * tileSpacing;
                 isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.D) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), tileSpacing, wallLayerMask)) //later check for walls here
+            else if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 int randomSoundIndex = UnityEngine.Random.Range(0, pieceSounds.Length);
                 pieceSounds[randomSoundIndex].Play();
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
                 targetPosition = initialPosition + Vector3.right * tileSpacing;
                 isMoving = true;
             }
-            else if (Input.GetKeyDown(KeyCode.S) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), tileSpacing, wallLayerMask)) //later check for walls here
+            else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) && !isMoving && !Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), tileSpacing, wallLayerMask)) //later check for walls here
             {
                 int randomSoundIndex = UnityEngine.Random.Range(0, pieceSounds.Length);
                 pieceSounds[randomSoundIndex].Play();
