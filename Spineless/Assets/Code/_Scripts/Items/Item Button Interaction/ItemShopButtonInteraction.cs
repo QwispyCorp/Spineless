@@ -63,25 +63,36 @@ public class ItemShopButtonInteraction : MonoBehaviour
     {
         if (!PauseManager.Instance.IsPaused())
         {
-            //check if player has enough currency
-            if (saveData.monsterFingers >= _itemValue) //if they have enough fingers to buy item
+            //check if player item storage is full
+            if (saveData.EquippedItems.Count == 4 && saveData.Inventory.Count == 12)
             {
-                if (_spawnedText)
-                {
-                    Destroy(_spawnedText); //Destroy the text description on canvas
-                }
-
-                PurchaseItem(); //purchase the item
-            }
-            else //if player doesn't have enough fingers
-            {
-                //play error sound?
-                //not enough currency feedback
                 AudioManager.Instance.PlaySound("Error");
                 buttonTextImage.color = insufficientFingersColor; //highlight text red
                 buttonValueImage.color = insufficientFingersColor; //highlight text red
-                Debug.Log("Not enough fingers for " + _itemName + "!");
             }
+            else //if player has room for items
+            {
+                //check if player has enough currency
+                if (saveData.monsterFingers >= _itemValue) //if they have enough fingers to buy item
+                {
+                    if (_spawnedText)
+                    {
+                        Destroy(_spawnedText); //Destroy the text description on canvas
+                    }
+
+                    PurchaseItem(); //purchase the item
+                }
+                else //if player doesn't have enough fingers
+                {
+                    //play error sound?
+                    //not enough currency feedback
+                    AudioManager.Instance.PlaySound("Error");
+                    buttonTextImage.color = insufficientFingersColor; //highlight text red
+                    buttonValueImage.color = insufficientFingersColor; //highlight text red
+                    Debug.Log("Not enough fingers for " + _itemName + "!");
+                }
+            }
+
         }
 
     }

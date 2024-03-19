@@ -146,10 +146,6 @@ public class ItemMouseInteraction : MonoBehaviour
                     if (itemTextObject)
                     {
                         itemTextObject.SetActive(true); //turn on item text
-                        if (currentRoom == "ShopRoom")
-                        {
-                            //itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription + Environment.NewLine + "Finger Cost: " + itemValue); //update item text object
-                        }
                     }
                     if (encounterTVTextObject)
                     {
@@ -464,15 +460,25 @@ public class ItemMouseInteraction : MonoBehaviour
 
     private void CollectItem()
     {
-        if (saveData.EquippedItems.Count != 4)
+        //check if player item storage is full
+        if (saveData.EquippedItems.Count == 4 && saveData.Inventory.Count == 12)
         {
-            saveData.EquippedItems.Add(itemSO);
+            AudioManager.Instance.PlaySound("Error");
+            Debug.Log("Item storage full!");
         }
         else
         {
-            saveData.Inventory.Add(itemSO);
+            if (saveData.EquippedItems.Count != 4)
+            {
+                saveData.EquippedItems.Add(itemSO);
+            }
+            else
+            {
+                saveData.Inventory.Add(itemSO);
+            }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+
     }
     private void ConsumeItem()
     {
