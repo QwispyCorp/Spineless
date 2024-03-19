@@ -28,10 +28,6 @@ public class PlayerController : MonoBehaviour
     public bool playerOnBoard;
     private int wallLayerMask;
     private bool isMoving;
-    private bool movingUp;
-    private bool movingDown;
-    private bool movingLeft;
-    private bool movingRight;
     private Vector3 initialPosition;
     private Vector3 targetPosition;
     private float slideTimer;
@@ -45,11 +41,7 @@ public class PlayerController : MonoBehaviour
         shopTileTriggered = false;
         monsterTileTriggered = false;
         wallLayerMask = 1 << 7;
-        tileSpacing = saveData.TileSpacing; //set tile spacing for movement equal to board tile spacing 
-        movingUp = false;
-        movingDown = false;
-        movingLeft = false;
-        movingRight = false;
+        tileSpacing = saveData.TileSpacing; //set tile spacing for movement equal to board tile spacing
         slideTimer = 0;
 
         //STARTING POSITION

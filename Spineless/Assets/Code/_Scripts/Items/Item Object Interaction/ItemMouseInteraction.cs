@@ -89,9 +89,87 @@ public class ItemMouseInteraction : MonoBehaviour
     //-------------------------------------WHEN PLAYER HOVERS OVER ITEM WITH CURSOR 
     private void OnMouseEnter()
     {
-        if (currentRoom == "Encounter")
+        if (!PauseManager.Instance.IsPaused())
         {
-            if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn)
+            if (currentRoom == "Encounter")
+            {
+                if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn)
+                {
+                    if (mesh != null) //if the gameobject has a mmesh renderer, highlight its mesh
+                    {
+                        mesh.material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+
+                        if (transform.childCount > 0) //if the item has children, check for mesh renderers in those objects
+                        {
+                            for (int i = 0; i < transform.childCount; i++)
+                            {
+                                if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
+                                {
+                                    foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
+                                    {
+                                        mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                                    }
+                                }
+                                if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
+                                {
+                                    foreach (Material mat in transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().materials)
+                                    {
+                                        mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else //otherwise cycle through children to highlight all different parts of mesh
+                    {
+                        Debug.Log(itemName + " object child count: " + transform.childCount);
+                        for (int i = 0; i < transform.childCount; i++)
+                        {
+                            if (transform.GetChild(i).GetComponent<MeshRenderer>() != null) //if the child has a mesh renderer
+                            {
+                                foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
+                                {
+                                    mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                                }
+                            }
+                            if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
+                            {
+                                //transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                                foreach (Material mat in transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().materials)
+                                {
+                                    mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
+                                }
+                            }
+                        }
+                    }
+
+                    if (itemTextObject)
+                    {
+                        itemTextObject.SetActive(true); //turn on item text
+                        if (currentRoom == "ShopRoom")
+                        {
+                            //itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription + Environment.NewLine + "Finger Cost: " + itemValue); //update item text object
+                        }
+                    }
+                    if (encounterTVTextObject)
+                    {
+                        encounterTVTextObject.SetActive(false); //turn off default tv text when hovering over item
+                    }
+                    if (itemRoomTVTextObject)
+                    {
+                        itemRoomTVTextObject.SetActive(false); //turn off item room tv prompt
+                    }
+                    if (shopRoomTVTextObject)
+                    {
+                        shopRoomTVTextObject.SetActive(false); //turn off shop room tv prompt
+                    }
+                    if (gameBoardRoomTVTextObject)
+                    {
+                        gameBoardRoomTVTextObject.SetActive(false); //turn off game board room tv prompt
+                    }
+                }
+            }
+            else
             {
                 if (mesh != null) //if the gameobject has a mmesh renderer, highlight its mesh
                 {
@@ -167,89 +245,67 @@ public class ItemMouseInteraction : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            if (mesh != null) //if the gameobject has a mmesh renderer, highlight its mesh
-            {
-                mesh.material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
 
-                if (transform.childCount > 0) //if the item has children, check for mesh renderers in those objects
-                {
-                    for (int i = 0; i < transform.childCount; i++)
-                    {
-                        if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
-                        {
-                            foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
-                            {
-                                mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
-                            }
-                        }
-                        if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
-                        {
-                            foreach (Material mat in transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().materials)
-                            {
-                                mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
-                            }
-                        }
-                    }
-                }
-            }
-            else //otherwise cycle through children to highlight all different parts of mesh
-            {
-                Debug.Log(itemName + " object child count: " + transform.childCount);
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    if (transform.GetChild(i).GetComponent<MeshRenderer>() != null) //if the child has a mesh renderer
-                    {
-                        foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
-                        {
-                            mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
-                        }
-                    }
-                    if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
-                    {
-                        //transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().material.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
-                        foreach (Material mat in transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().materials)
-                        {
-                            mat.SetColor("_EmissiveColor", hoverEmissionColor * hoverEmissionIntensity); //highlight item
-                        }
-                    }
-                }
-            }
-
-            if (itemTextObject)
-            {
-                itemTextObject.SetActive(true); //turn on item text
-                if (currentRoom == "ShopRoom")
-                {
-                    //itemTextObject.GetComponent<TextMeshProUGUI>().SetText(itemName + ": " + Environment.NewLine + itemDescription + Environment.NewLine + "Finger Cost: " + itemValue); //update item text object
-                }
-            }
-            if (encounterTVTextObject)
-            {
-                encounterTVTextObject.SetActive(false); //turn off default tv text when hovering over item
-            }
-            if (itemRoomTVTextObject)
-            {
-                itemRoomTVTextObject.SetActive(false); //turn off item room tv prompt
-            }
-            if (shopRoomTVTextObject)
-            {
-                shopRoomTVTextObject.SetActive(false); //turn off shop room tv prompt
-            }
-            if (gameBoardRoomTVTextObject)
-            {
-                gameBoardRoomTVTextObject.SetActive(false); //turn off game board room tv prompt
-            }
-        }
 
     }
     //-------------------------------------WHEN PLAYER EXITS ITEM WITH CURSOR 
     private void OnMouseExit()
     {
-        if (currentRoom == "Encounter")
+        if (!PauseManager.Instance.IsPaused())
         {
-            if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn)
+            if (currentRoom == "Encounter")
+            {
+                if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn)
+                {
+                    if (mesh != null) //if the gameobject has a mesh renderer
+                    {
+                        mesh.material.SetColor("_EmissiveColor", Color.black);
+                    }
+                    else //otherwise cycle through children to highlight all different parts of mesh
+                    {
+
+                        for (int i = 0; i < transform.childCount; i++)
+                        {
+                            if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
+                            {
+                                foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
+                                {
+                                    mat.SetColor("_EmissiveColor", Color.black); //highlight item
+                                }
+                            }
+                            if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
+                            {
+                                foreach (Material mat in transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().materials)
+                                {
+                                    mat.SetColor("_EmissiveColor", Color.black); //highlight item
+                                }
+                            }
+                        }
+                    }
+
+                    if (itemTextObject)
+                    {
+                        itemTextObject.SetActive(false); //turn off item text object
+                    }
+                    if (currentRoom == "Encounter" && encounterTVTextObject)
+                    {
+                        encounterTVTextObject.SetActive(true); //turn on default tv text object
+                    }
+                    if (currentRoom == "ItemRoom" && itemRoomTVTextObject)
+                    {
+                        itemRoomTVTextObject.SetActive(true); //turn on item room tv prompt
+                    }
+                    if (currentRoom == "ShopRoom" && shopRoomTVTextObject)
+                    {
+                        shopRoomTVTextObject.SetActive(true); //turn on shop room tv prompt
+                    }
+                    if (currentRoom == "GameBoard" && gameBoardRoomTVTextObject)
+                    {
+                        gameBoardRoomTVTextObject.SetActive(true); //turn on game board room tv prompt
+                    }
+                }
+            }
+            else
             {
                 if (mesh != null) //if the gameobject has a mesh renderer
                 {
@@ -299,108 +355,62 @@ public class ItemMouseInteraction : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            if (mesh != null) //if the gameobject has a mesh renderer
-            {
-                mesh.material.SetColor("_EmissiveColor", Color.black);
-            }
-            else //otherwise cycle through children to highlight all different parts of mesh
-            {
-
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    if (transform.GetChild(i).GetComponent<MeshRenderer>()) //if the child has a mesh renderer
-                    {
-                        foreach (Material mat in transform.GetChild(i).GetComponent<MeshRenderer>().materials)
-                        {
-                            mat.SetColor("_EmissiveColor", Color.black); //highlight item
-                        }
-                    }
-                    if (transform.GetChild(i).GetComponent<SkinnedMeshRenderer>()) //if the child has a skinned mesh renderer
-                    {
-                        foreach (Material mat in transform.GetChild(i).GetComponent<SkinnedMeshRenderer>().materials)
-                        {
-                            mat.SetColor("_EmissiveColor", Color.black); //highlight item
-                        }
-                    }
-                }
-            }
-
-            if (itemTextObject)
-            {
-                itemTextObject.SetActive(false); //turn off item text object
-            }
-            if (currentRoom == "Encounter" && encounterTVTextObject)
-            {
-                encounterTVTextObject.SetActive(true); //turn on default tv text object
-            }
-            if (currentRoom == "ItemRoom" && itemRoomTVTextObject)
-            {
-                itemRoomTVTextObject.SetActive(true); //turn on item room tv prompt
-            }
-            if (currentRoom == "ShopRoom" && shopRoomTVTextObject)
-            {
-                shopRoomTVTextObject.SetActive(true); //turn on shop room tv prompt
-            }
-            if (currentRoom == "GameBoard" && gameBoardRoomTVTextObject)
-            {
-                gameBoardRoomTVTextObject.SetActive(true); //turn on game board room tv prompt
-            }
-        }
-
     }
     //-------------------------------------WHEN PLAYER CLICKS ON ITEM WITH CURSOR 
     private void OnMouseUp()
     {
-        //ITEM FUNCTIONALITY FOR ENCOUNTER ROOM -----------------------------------------------------------
-        if (currentRoom == "Encounter" && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn) //if in encounter room, consume item
+        if (!PauseManager.Instance.IsPaused())
         {
-            if (itemTextObject)
+            //ITEM FUNCTIONALITY FOR ENCOUNTER ROOM -----------------------------------------------------------
+            if (currentRoom == "Encounter" && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerTurn) //if in encounter room, consume item
             {
-                itemTextObject.SetActive(false); //turn off the item text description
+                if (itemTextObject)
+                {
+                    itemTextObject.SetActive(false); //turn off the item text description
+                }
+                if (encounterTVTextObject)
+                {
+                    encounterTVTextObject.SetActive(true); //turn on the tv text
+                }
+                ConsumeItem();
             }
-            if (encounterTVTextObject)
+
+            //ITEM FUNCTIONALITY FOR GAME BOARD ROOM -----------------------------------------------------------
+            if (currentRoom == "GameBoard") //if in game board room, equip or unequip item
             {
-                encounterTVTextObject.SetActive(true); //turn on the tv text
+                if (itemTextObject)
+                {
+                    itemTextObject.SetActive(false); //turn off the item text description
+                }
+                if (gameBoardRoomTVTextObject)
+                {
+                    gameBoardRoomTVTextObject.SetActive(true); //turn on the tv text
+                }
+                if (saveData.EquippedItems.Exists(x => x.itemName == itemName)) //if item is equipped in tray, unequip it and move to cabinet
+                {
+                    UnequipItem();
+                }
+                else if (saveData.Inventory.Exists(x => x.itemName == itemName)) //if item is in the player's cabinet, equip it and move it to tray
+                {
+                    EquipItem();
+                }
             }
-            ConsumeItem();
+
+            //ITEM FUNCTIONALITY FOR ITEM ROOM ----------------------------------
+            if (currentRoom == "ItemRoom")
+            {
+                if (itemTextObject)
+                {
+                    itemTextObject.SetActive(false); //turn off the item text description
+                }
+                CollectItem(); //collect the item
+                               //turn off HUD all elements
+                LightManager.Instance.StartFlickeringTransitionTo("GameBoard"); //switch back to game board room
+                itemRoomSpawnPoint1.SetActive(false);
+                itemRoomSpawnPoint2.SetActive(false);
+            }
         }
 
-        //ITEM FUNCTIONALITY FOR GAME BOARD ROOM -----------------------------------------------------------
-        if (currentRoom == "GameBoard") //if in game board room, equip or unequip item
-        {
-            if (itemTextObject)
-            {
-                itemTextObject.SetActive(false); //turn off the item text description
-            }
-            if (gameBoardRoomTVTextObject)
-            {
-                gameBoardRoomTVTextObject.SetActive(true); //turn on the tv text
-            }
-            if (saveData.EquippedItems.Exists(x => x.itemName == itemName)) //if item is equipped in tray, unequip it and move to cabinet
-            {
-                UnequipItem();
-            }
-            else if (saveData.Inventory.Exists(x => x.itemName == itemName)) //if item is in the player's cabinet, equip it and move it to tray
-            {
-                EquipItem();
-            }
-        }
-
-        //ITEM FUNCTIONALITY FOR ITEM ROOM ----------------------------------
-        if (currentRoom == "ItemRoom")
-        {
-            if (itemTextObject)
-            {
-                itemTextObject.SetActive(false); //turn off the item text description
-            }
-            CollectItem(); //collect the item
-            //turn off HUD all elements
-            LightManager.Instance.StartFlickeringTransitionTo("GameBoard"); //switch back to game board room
-            itemRoomSpawnPoint1.SetActive(false);
-            itemRoomSpawnPoint2.SetActive(false);
-        }
     }
     // ------------------------------------ PRIVATE UTIL FUNCTIONS --------------
 

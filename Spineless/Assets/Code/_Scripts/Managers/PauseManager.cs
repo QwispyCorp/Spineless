@@ -12,8 +12,25 @@ public class PauseManager : MonoBehaviour
     public GameObject TransitionMenu;
     [SerializeField] private PlayerSaveData saveData;
 
+
+    private static PauseManager _instance;
+    public static PauseManager Instance { get { return _instance; } }
+
     private bool isPaused = false;
     private string currentScene;
+
+    void Awake()
+    {
+        //on awake check for existence of manager and handle accordingly
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -69,11 +86,12 @@ public class PauseManager : MonoBehaviour
     {
         if (BoardGenerator.Instance != null)
         {
-            BoardGenerator.Instance.DestroyBoard();
+            BoardGenerator.Instance.DestroyBoard(); //destroy the current board
         }
-        if (AudioManager.Instance != null)
+        if (AudioManager.Instance != null) //
         {
             AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
+            AudioManager.Instance.StopAllSounds();
         }
         Time.timeScale = 1;
         saveData.ClearAllData();

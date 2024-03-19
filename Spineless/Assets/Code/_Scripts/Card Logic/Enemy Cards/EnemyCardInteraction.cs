@@ -69,56 +69,68 @@ public class EnemyCardInteraction : MonoBehaviour
 
     void OnMouseEnter() //used to interact with enemy cards in joker execution state
     {
-        if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
+        if (!PauseManager.Instance.IsPaused())
         {
-            //highlight all enemy death cards
-            for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+            if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
             {
-                encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", highlightColor); //highlight currently indexed card
+                //highlight all enemy death cards
+                for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+                {
+                    encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", highlightColor); //highlight currently indexed card
+                }
+            }
+            else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
+            {
+                CardMesh.material.SetColor("_EmissiveColor", highlightColor);
             }
         }
-        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
-        {
-            CardMesh.material.SetColor("_EmissiveColor", highlightColor);
-        }
+
     }
     void OnMouseExit() //used to interact with enemy cards in joker execution state
     {
-        if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
+        if (!PauseManager.Instance.IsPaused())
         {
-            //unhighlight all enemy table cards
-            for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+            if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
             {
-                encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor); //highlight currently indexed card
+                //unhighlight all enemy table cards
+                for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)
+                {
+                    encounterData.EnemyTableCards[i].GetComponentInChildren<MeshRenderer>().material.SetColor("_EmissiveColor", unHighlightColor); //highlight currently indexed card
+                }
+            }
+            else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
+            {
+                CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
             }
         }
-        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
-        {
-            CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
-        }
+
     }
     void OnMouseUp()
     {
-        if (isClicked == false && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
+        if (!PauseManager.Instance.IsPaused())
         {
-            isClicked = true;
+            if (isClicked == false && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerJokerExecution)
+            {
+                isClicked = true;
 
-            for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)//set all player table cards isCLicked to true to avoid multiple joker executions on different cards
-            {
-                encounterData.PlayerTableCards[i].GetComponentInChildren<PlayerCardInteraction>().isClicked = true;
+                for (int i = 0; i < encounterData.PlayerTableCards.Count; i++)//set all player table cards isCLicked to true to avoid multiple joker executions on different cards
+                {
+                    encounterData.PlayerTableCards[i].GetComponentInChildren<PlayerCardInteraction>().isClicked = true;
+                }
+                for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)//set all enemy table cards isCLicked to true to avoid multiple joker executions on different cards
+                {
+                    encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = true;
+                }
+                ExecutePlayerJoker();
             }
-            for (int i = 0; i < encounterData.EnemyTableCards.Count; i++)//set all enemy table cards isCLicked to true to avoid multiple joker executions on different cards
+            else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
             {
-                encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = true;
+                CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
+                ShowCard();
+                StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
             }
-            ExecutePlayerJoker();
         }
-        else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
-        {
-            CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
-            ShowCard();
-            StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
-        }
+
     }
 
     public bool CheckIfSafeCard()

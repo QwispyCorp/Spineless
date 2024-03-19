@@ -61,54 +61,70 @@ public class ItemShopButtonInteraction : MonoBehaviour
     }
     void OnMouseDown() //when item is clicked on
     {
-        //check if player has enough currency
-        if (saveData.monsterFingers >= _itemValue) //if they have enough fingers to buy item
+        if (!PauseManager.Instance.IsPaused())
         {
-            if (_spawnedText)
+            //check if player has enough currency
+            if (saveData.monsterFingers >= _itemValue) //if they have enough fingers to buy item
             {
-                Destroy(_spawnedText); //Destroy the text description on canvas
-            }
+                if (_spawnedText)
+                {
+                    Destroy(_spawnedText); //Destroy the text description on canvas
+                }
 
-            PurchaseItem(); //purchase the item
+                PurchaseItem(); //purchase the item
+            }
+            else //if player doesn't have enough fingers
+            {
+                //play error sound?
+                //not enough currency feedback
+                AudioManager.Instance.PlaySound("Error");
+                buttonTextImage.color = insufficientFingersColor; //highlight text red
+                buttonValueImage.color = insufficientFingersColor; //highlight text red
+                Debug.Log("Not enough fingers for " + _itemName + "!");
+            }
         }
-        else //if player doesn't have enough fingers
-        {
-            //play error sound?
-            //not enough currency feedback
-            AudioManager.Instance.PlaySound("Error");
-            buttonTextImage.color = insufficientFingersColor; //highlight text red
-            buttonValueImage.color = insufficientFingersColor; //highlight text red
-            Debug.Log("Not enough fingers for " + _itemName + "!");
-        }
+
     }
     void OnMouseUp() //after item is clicked on
     {
-        if (buttonTextImage.color == insufficientFingersColor)
+        if (!PauseManager.Instance.IsPaused())
         {
-            buttonTextImage.color = baseColor;//change color to normal when player unclicks after an unsuccessful purchase
-            buttonValueImage.color = baseColor; //change color to normal when player unclicks after an unsuccessful purchase
+            if (buttonTextImage.color == insufficientFingersColor)
+            {
+                buttonTextImage.color = baseColor;//change color to normal when player unclicks after an unsuccessful purchase
+                buttonValueImage.color = baseColor; //change color to normal when player unclicks after an unsuccessful purchase
+            }
         }
+
     }
 
     void OnMouseEnter() //when player hovers over button
     {
-        buttonTextImage.color = highlightColor; //highlight text
-        buttonValueImage.color = highlightColor; //highlight number
-
-        if (_spawnedText)
+        if (!PauseManager.Instance.IsPaused())
         {
-            _spawnedText.SetActive(true); //turn on item text
+            buttonTextImage.color = highlightColor; //highlight text
+            buttonValueImage.color = highlightColor; //highlight number
+
+            if (_spawnedText)
+            {
+                _spawnedText.SetActive(true); //turn on item text
+            }
         }
+
     }
 
     void OnMouseExit() //when player leaves the button hover area
     {
-        buttonTextImage.color = baseColor; //highlight text
-        buttonValueImage.color = baseColor; //highlight number
-        if (_spawnedText)
+        if (!PauseManager.Instance.IsPaused())
         {
-            _spawnedText.SetActive(false); //turn off item text
+            buttonTextImage.color = baseColor; //highlight text
+            buttonValueImage.color = baseColor; //highlight number
+            if (_spawnedText)
+            {
+                _spawnedText.SetActive(false); //turn off item text
+            }
         }
+
     }
     private void PurchaseItem()
     {
