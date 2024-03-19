@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopTileLightColor : MonoBehaviour
 {
@@ -13,12 +14,12 @@ public class ShopTileLightColor : MonoBehaviour
         if (saveData.ShopVisited)
         {
 
-            GetComponent<Light>().color = closedShopColor;
+            GetComponent<Image>().color = closedShopColor;
         }
         else
         {
 
-            GetComponent<Light>().color = openShopColor;
+            GetComponent<Image>().color = openShopColor;
         }
 
     }

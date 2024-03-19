@@ -153,6 +153,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 //player cannot re-enter shop feedback
+                AudioManager.Instance.PlaySound("Error");
             }
         }
     }
