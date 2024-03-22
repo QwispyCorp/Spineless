@@ -101,6 +101,10 @@ public class PlayerDeckLogic : MonoBehaviour
             if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.ItemUse)
             {
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
+                if (encounterData.PlayerTableCards.Count == 0)
+                {
+                    DrawHand();
+                }
             }
             UpdateEncounterCards();
 
