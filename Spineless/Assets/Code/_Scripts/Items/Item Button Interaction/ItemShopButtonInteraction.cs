@@ -43,7 +43,7 @@ public class ItemShopButtonInteraction : MonoBehaviour
         buttonValueImage = buttonValueObject.GetComponent<UnityEngine.UI.Image>();
 
 
-        //Find the item's corresponding text object in the scene
+        //Find EKG Canvas, spawn corresponding text object at location and turn it off
         if (GameObject.Find("EKG Canvas") != null)
         {
             Debug.Log("EKG Canvas located for " + _itemName);

@@ -8786,6 +8786,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6915923122072446459, guid: 10e316c4a88133940918ea0c5f266ac4,
+        type: 3}
+      propertyPath: m_Name
+      value: EKG Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 7109773049506038836, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}
       propertyPath: m_Name
@@ -8989,7 +8994,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1177611072866018705, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7348767832623967769, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
+    - {fileID: 5641330919269666451, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
+    - {fileID: 3818817675021878488, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
+    - {fileID: 5487575616398350096, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
+    - {fileID: 9035616989043053366, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
+    - {fileID: 4058954506093486707, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
+    - {fileID: 6695407523059607342, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
+    - {fileID: 2909275683761124788, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
+    - {fileID: 8896835791444630149, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
+    - {fileID: 3985815375983551882, guid: 10e316c4a88133940918ea0c5f266ac4, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2952791889283201023, guid: 10e316c4a88133940918ea0c5f266ac4,
         type: 3}

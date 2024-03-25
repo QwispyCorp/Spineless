@@ -29,39 +29,67 @@ public class ItemMouseInteraction : MonoBehaviour
     private string currentRoom;
     private GameObject itemRoomSpawnPoint1;
     private GameObject itemRoomSpawnPoint2;
+    private GameObject _itemShopDescriptionObject;
+    private GameObject ekgCanvas;
     public delegate void Itemused();
     public static event Itemused OnItemUsed;
 
     void Awake()
     {
+        //Store references to text objects in scene
         encounterTVTextObject = GameObject.Find("Death Card Text");
         itemRoomTVTextObject = GameObject.Find("Item Room Text");
         shopRoomTVTextObject = GameObject.Find("Shop Room Text");
         gameBoardRoomTVTextObject = GameObject.Find("Game Board Room Text");
 
-
+        //check name of current room
         currentRoom = SceneManager.GetActiveScene().name;
+
+        //store local references to item values
         itemName = itemSO.itemName;
         itemValue = itemSO.value;
         itemPrefab = itemSO.itemPrefab;
         itemDescription = itemSO.itemDescription;
+        _itemShopDescriptionObject = itemSO.itemShopDescription;
 
-        //Find the item's corresponding text object in the scene
-        if (GameObject.Find(itemName + " Text") != null)
+        if (currentRoom == "Encounter")
         {
-            Debug.Log(itemName + " Text Object Found");
-            itemTextObject = GameObject.Find(itemName + " Text");
-            itemTextObject.SetActive(false);
-        }
-        else
-        {
-            itemTextObject = null;
-            Debug.LogWarning("Could not find text object for " + itemName + ".");
+            //Find EKG Canvas, spawn corresponding text object at location and turn it off
+            if (GameObject.Find("EKG Canvas") != null)
+            {
+                Debug.Log("EKG Canvas located for " + itemName);
+                ekgCanvas = GameObject.Find("EKG Canvas");
+
+                itemTextObject = Instantiate(_itemShopDescriptionObject, ekgCanvas.transform, false); //spawn the description onto the ekg canvas
+                itemTextObject.SetActive(false); //turn it off
+
+            }
+            else
+            {
+                ekgCanvas = null;
+                Debug.LogWarning("Could not find EKG Canvas.");
+            }
         }
 
         //ITEM INTERACTION SETUP FOR GAME BOARD ROOM -------------
         if (currentRoom == "GameBoard")
         {
+            //Find EKG Canvas, spawn corresponding text object at location and turn it off
+            if (GameObject.Find("EKG Canvas") != null)
+            {
+                Debug.Log("EKG Canvas located for " + itemName);
+                ekgCanvas = GameObject.Find("EKG Canvas");
+
+                itemTextObject = Instantiate(_itemShopDescriptionObject, ekgCanvas.transform, false); //spawn the description onto the ekg canvas
+                itemTextObject.SetActive(false); //turn it off
+
+            }
+            else
+            {
+                ekgCanvas = null;
+                Debug.LogWarning("Could not find EKG Canvas setting up " + itemName);
+            }
+
             //Find the transforms for equipping/ unequipping items
             if (GameObject.Find("Cabinet Items") != null)
             {
@@ -78,9 +106,23 @@ public class ItemMouseInteraction : MonoBehaviour
         //ITEM INTERACTION SETUP FOR ITEM ROOM --------------------
         if (currentRoom == "ItemRoom")
         {
+            //Find the item's corresponding text object in the scene
+            if (GameObject.Find(itemName + " Text") != null)
+            {
+                Debug.Log(itemName + " Text Object Found");
+                itemTextObject = GameObject.Find(itemName + " Text");
+                itemTextObject.SetActive(false);
+            }
+            else
+            {
+                itemTextObject = null;
+                Debug.LogWarning("Could not find text object for " + itemName + ".");
+            }
             itemRoomSpawnPoint1 = GameObject.Find("Spawn Point 1");
             itemRoomSpawnPoint2 = GameObject.Find("Spawn Point 2");
         }
+
+        //get reference to item's mesh renderer if it has one
         if (GetComponent<MeshRenderer>() != null)
         {
             mesh = GetComponent<MeshRenderer>();
