@@ -60,9 +60,11 @@ public class BoardGenerator : MonoBehaviour
             if (difficulty.HardMode)
             {
                 maxItemTiles = 0;
+                maxShopTiles = 0;
             }
             else
             {
+                maxShopTiles = 1;
                 maxItemTiles = 15;
             }
             InitializeTiles();
