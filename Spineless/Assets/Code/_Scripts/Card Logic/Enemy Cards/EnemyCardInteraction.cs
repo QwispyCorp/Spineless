@@ -203,7 +203,7 @@ public class EnemyCardInteraction : MonoBehaviour
     {
         if (isSelected) //if card has been selected (to not include non-selected cards for removal when animation finished event broadcasts)
         {
-            if (EnemyHealthTest.Instance.GetCurrentHealth() > 0) //if the player is still alive, switch to enemy turn
+            if (EnemyHealthTest.Instance.GetCurrentHealth() > 0) //if the enemy is still alive, switch to enemy turn
             {
                 if (OnEnemyTurnFinished != null)
                 {

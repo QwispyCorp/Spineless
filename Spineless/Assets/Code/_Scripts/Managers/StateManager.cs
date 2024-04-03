@@ -86,6 +86,7 @@ public class StateManager : MonoBehaviour
 
     private void HandlePlayerTurn()
     {
+        Invoke("DrawPlayerHand", 0.5f);
         Invoke("DrawEnemyHand", 0.5f);
         Debug.Log("Going into: Player Turn State");
         Debug.Log("In Player Turn State");
@@ -102,6 +103,7 @@ public class StateManager : MonoBehaviour
     }
     private void HandleEnemyTurn()
     {
+        Invoke("DrawEnemyHand", 0.5f);
         Invoke("DrawPlayerHand", 0.5f);
         Debug.Log("Going into: Enemy Turn State");
         Debug.Log("In Enemy Turn State");

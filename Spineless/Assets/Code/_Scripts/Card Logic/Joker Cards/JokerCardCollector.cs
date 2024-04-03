@@ -34,7 +34,6 @@ public class JokerCardCollector : MonoBehaviour
             {
                 GameObject newJokerCard = Instantiate(jokerCardPrefab, jokerSpawnPoints[i], false); //display joker card on table
                 newJokerCard.GetComponent<MeshRenderer>().material = jokerMaterial; //assign the card the joker material
-                //Destroy(newJokerCard.GetComponent<PlayerCardInteraction>()); //remove the joker card's ineteractability 
                 encounterData.JokerCardsCollected++; //incremenet joker cards collected in encounter data container
                 break; //break out to avoid duplicate spawning
             }
