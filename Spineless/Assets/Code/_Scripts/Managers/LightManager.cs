@@ -32,7 +32,6 @@ public class LightManager : MonoBehaviour
     private void EnvironmentSwitchTo(string newScene)
     {
         AudioManager.Instance.UnMuffleMusic();
-        AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
 
         if (newScene == "Encounter")
         {
@@ -44,6 +43,7 @@ public class LightManager : MonoBehaviour
         {
             Debug.Log("Switching to GameBoard Scene");
             SceneManager.LoadScene("GameBoard");
+            AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
             AudioManager.Instance.StopAllSounds();
         }
         else if (newScene == "ItemRoom")
