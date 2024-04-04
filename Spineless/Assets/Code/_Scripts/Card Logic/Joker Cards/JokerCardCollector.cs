@@ -50,6 +50,7 @@ public class JokerCardCollector : MonoBehaviour
                 {
                     OnJokerStart?.Invoke();
                 }
+                AudioManager.Instance.PlaySound("Joker");
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerJokerExecution); //enter player execution state
             }
             else if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.EnemyTurn) //if it's currntly the enemy's turn

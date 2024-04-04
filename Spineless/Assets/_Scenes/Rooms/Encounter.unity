@@ -7019,9 +7019,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e2cb00aed4ff24fba7ff632373fcc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyChopSound1: {fileID: 170832340}
+  enemyChopSound1: {fileID: 148444477}
   enemyChopSound2: {fileID: 70016258}
-  enemyChopSound3: {fileID: 148444477}
+  enemyChopSound3: {fileID: 170832340}
   enemyIdleSound: {fileID: 833859077}
   enemyHealth:
     UseConstant: 0
