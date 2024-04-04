@@ -10,6 +10,9 @@ public class JokerCardCollector : MonoBehaviour
     [SerializeField] private EncounterData encounterData;
     [SerializeField] private Transform[] jokerSpawnPoints;
     [SerializeField] private Material jokerMaterial;
+    public delegate void JokerStart();
+    public static event JokerStart OnJokerStart;
+
 
     void OnEnable()
     {
@@ -43,6 +46,10 @@ public class JokerCardCollector : MonoBehaviour
         {
             if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerSafe) //if it's currently the player's turn
             {
+                if (OnJokerStart != null)
+                {
+                    OnJokerStart?.Invoke();
+                }
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerJokerExecution); //enter player execution state
             }
             else if (StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.EnemyTurn) //if it's currntly the enemy's turn

@@ -30,6 +30,9 @@ public class PlayerCardInteraction : MonoBehaviour
     public static event JokerFlipped OnJokerFlipped;
     public delegate void JokerExecutionCompleted();
     public static event JokerExecutionCompleted OnJokerExecutionCompleted;
+    public delegate void EyeExecuted();
+    public static event EyeExecuted OnEyeExecuted;
+
     void OnEnable()
     {
         PlayerAnimationTrigger.OnAnimationFinished += SwitchToEnemyTurn;
@@ -222,6 +225,10 @@ public class PlayerCardInteraction : MonoBehaviour
             {
                 CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
                 ShowCard();
+                if (OnEyeExecuted != null)
+                {
+                    OnEyeExecuted?.Invoke();
+                }
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
             }
         }

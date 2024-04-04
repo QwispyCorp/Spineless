@@ -33,6 +33,10 @@ public class ItemMouseInteraction : MonoBehaviour
     private GameObject ekgCanvas;
     public delegate void Itemused();
     public static event Itemused OnItemUsed;
+    public delegate void EyeUsed();
+    public static event EyeUsed OnEyeUsed;
+    public delegate void KnifeUsed();
+    public static event KnifeUsed OnKnifeUsed;
 
     void Awake()
     {
@@ -531,6 +535,20 @@ public class ItemMouseInteraction : MonoBehaviour
         if (OnItemUsed != null)
         {
             OnItemUsed?.Invoke();
+        }
+        if (itemName == "Pocket Knife") //check if item used was pocket knife
+        {
+            if (OnKnifeUsed != null)
+            {
+                OnKnifeUsed?.Invoke();
+            }
+        }
+        if (itemName == "Eye Of Foresight") //check if item used was eye of foresight
+        {
+            if (OnEyeUsed != null)
+            {
+                OnEyeUsed?.Invoke();
+            }
         }
         Destroy(gameObject);
         //in encounter room, item is destroyed in its effect script

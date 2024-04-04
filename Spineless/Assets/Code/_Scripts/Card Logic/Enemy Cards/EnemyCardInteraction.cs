@@ -33,6 +33,9 @@ public class EnemyCardInteraction : MonoBehaviour
 
     public delegate void EnemyTurnFinished();
     public static event EnemyTurnFinished OnEnemyTurnFinished;
+
+    public delegate void KnifeExecuted();
+    public static event KnifeExecuted OnKnifeExecuted;
     void OnEnable()
     {
         EnemyAnimationTrigger.OnEnemyAnimationFinished += SwitchToPlayerTurn;
@@ -123,8 +126,12 @@ public class EnemyCardInteraction : MonoBehaviour
                 }
                 ExecutePlayerJoker();
             }
-            else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife)
+            else if (!isClicked && StateManager.Instance.CurrentEncounterState == StateManager.EncounterState.PlayerKnife) //if card is clicked while in player pocket knife ability
             {
+                if (OnKnifeExecuted != null)
+                {
+                    OnKnifeExecuted?.Invoke();
+                }
                 CardMesh.material.SetColor("_EmissiveColor", unHighlightColor);
                 ShowCard();
                 StateManager.Instance.UpdateEncounterState(StateManager.EncounterState.PlayerTurn);
