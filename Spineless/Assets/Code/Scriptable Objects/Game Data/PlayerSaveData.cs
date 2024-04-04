@@ -47,7 +47,6 @@ public class PlayerSaveData : ScriptableObject
         monsterFingers = 0;
         lastPlayerTransform = playerStartTransform;
 
-        EquippedItems.Add(MasterItemPool.Find(x => x.itemName == "Pocket Knife"));
-        EquippedItems.Add(MasterItemPool.Find(x => x.itemName == "Eye Of Foresight"));
+        EquippedItems.Add(MasterItemPool.Find(x => x.itemName == "Camera"));
     }
 }
