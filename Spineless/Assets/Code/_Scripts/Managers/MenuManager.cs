@@ -28,7 +28,6 @@ public class MenuManager : MonoBehaviour
             _instance = this;
         }
 
-        //DontDestroyOnLoad(gameObject);
     }
 
     void Start()

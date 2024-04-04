@@ -97,11 +97,9 @@ public class FingerJarHover : MonoBehaviour
                     //turn on number 10
                     numberObjects[10].SetActive(true);
                     break;
-                case 11:
-                    //turn on number 10+
-                    numberObjects[11].SetActive(true);
-                    break;
                 default:
+                    numberObjects[10].SetActive(true);
+                    numberObjects[11].SetActive(true);
                     break;
             }
         }
@@ -164,11 +162,9 @@ public class FingerJarHover : MonoBehaviour
                     //turn on number 10
                     numberObjects[10].SetActive(false);
                     break;
-                case 11:
-                    //turn on number 10+
-                    numberObjects[11].SetActive(true);
-                    break;
                 default:
+                    numberObjects[10].SetActive(false);
+                    numberObjects[11].SetActive(false);
                     break;
             }
         }

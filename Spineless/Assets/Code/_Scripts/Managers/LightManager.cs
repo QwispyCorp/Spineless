@@ -11,8 +11,8 @@ public class LightManager : MonoBehaviour
     [SerializeField] private Animator fadeOutAnimator;
     public static LightManager Instance { get { return _instance; } }
 
-    public delegate void LightFlickeredOn();
-    public static event LightFlickeredOn OnLightFlickeredOn;
+    // public delegate void LightFlickeredOn();
+    // public static event LightFlickeredOn OnLightFlickeredOn;
 
     private void Awake()
     {
@@ -155,10 +155,10 @@ public class LightManager : MonoBehaviour
         AudioManager.Instance.PlaySound("LightSwitch" + UnityEngine.Random.Range(1, 6)); //light on
         Lights.gameObject.SetActive(true);
         timeDelay = Random.Range(0.1f, 0.4f);
-        if (OnLightFlickeredOn != null)
-        {
-            OnLightFlickeredOn?.Invoke();
-        }
+        // if (OnLightFlickeredOn != null)
+        // {
+        //     OnLightFlickeredOn?.Invoke();
+        // }
         StopCoroutine(SwitchLightOn());
 
     }

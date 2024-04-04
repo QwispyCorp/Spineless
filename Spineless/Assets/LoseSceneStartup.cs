@@ -9,6 +9,16 @@ public class LoseSceneStartup : MonoBehaviour
     void Start()
     {
         Invoke("SwitchToMain", 3);
+
+        if (BoardGenerator.Instance != null)
+        {
+            BoardGenerator.Instance.DestroyBoard(); //destroy the current board
+        }
+        if (AudioManager.Instance != null) //
+        {
+            AudioManager.Instance.StopMusicTrack(AudioManager.Instance.CurrentTrack);
+            AudioManager.Instance.StopAllSounds();
+        }
     }
 
     private void SwitchToMain()

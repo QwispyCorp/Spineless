@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class MainMenuTVAnimationTrigger : MonoBehaviour
 {
-    private void OnEnable()
+    void Start()
     {
-        LightManager.OnLightFlickeredOn += TurnOnTV;
-    }
-    private void OnDisable()
-    {
-        LightManager.OnLightFlickeredOn -= TurnOnTV;
+        StartCoroutine("OnTVDelay");
     }
 
     void TurnOnTV()
     {
         GetComponent<Animator>().SetTrigger("TurnOn");
+    }
+
+    private IEnumerator OnTVDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        TurnOnTV();
     }
 }

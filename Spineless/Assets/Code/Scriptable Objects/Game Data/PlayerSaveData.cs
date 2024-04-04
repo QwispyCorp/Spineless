@@ -35,7 +35,7 @@ public class PlayerSaveData : ScriptableObject
     public void ClearAllData()
     {
         Inventory.Clear();
-        EquippedItems.Clear();
+        RemoveItems();
         BoardGenerated = false;
         HasEnteredBoardRoom = false;
         FirstEncounterEntered = false;
@@ -47,6 +47,15 @@ public class PlayerSaveData : ScriptableObject
         monsterFingers = 0;
         lastPlayerTransform = playerStartTransform;
 
+        AddCamera();
+    }
+
+    public void AddCamera()
+    {
         EquippedItems.Add(MasterItemPool.Find(x => x.itemName == "Camera"));
+    }
+    public void RemoveItems()
+    {
+        EquippedItems.Clear();
     }
 }
