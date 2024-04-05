@@ -2987,7 +2987,6 @@ MonoBehaviour:
   m_Script: {fileID: 1870036034}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1011528134
 Transform:
   m_ObjectHideFlags: 19
@@ -4902,7 +4901,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 0}
+  sharedProfile: {fileID: 11400000, guid: f2ccf875122eb844a9480f5d2890b9da, type: 2}
 --- !u!4 &1971666777
 Transform:
   m_ObjectHideFlags: 0
