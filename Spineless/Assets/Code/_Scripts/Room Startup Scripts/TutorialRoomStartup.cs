@@ -19,6 +19,20 @@ public class TutorialRoomStartup : MonoBehaviour
     [SerializeField] private GameObject tvStaticSound;
     [SerializeField] private VideoClip tutorialVideo;
     [SerializeField] private SubtitlePlayer tutorialSubs;
+    private static TutorialRoomStartup _instance;
+    public static TutorialRoomStartup Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
+    void Awake()
+    {
+        //on awake check for existence of manager and handle accordingly
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
     void Start()
     {
@@ -26,6 +40,8 @@ public class TutorialRoomStartup : MonoBehaviour
         tvCanvas.SetActive(false); //start room with tv off
         tvStaticSound.SetActive(false);
         Invoke("TurnTVOn", 1);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()

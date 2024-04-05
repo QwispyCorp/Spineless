@@ -46,7 +46,7 @@ public class CameraPan : MonoBehaviour
         currentRoom = SceneManager.GetActiveScene().name;
         playerLookingUp = false;
         playerLookingMid = false;
-        if (currentRoom == "Encounter")
+        if (currentRoom == "Encounter" || currentRoom == "EncounterTutorial")
         {
             Cursor.visible = false; //change to false when above is changed to locked
             Cursor.lockState = CursorLockMode.Locked; //change to locked when we fix raycast interaction for items and add crosshair/ dot in center of screen

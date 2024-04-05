@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class SteamIntegration : MonoBehaviour
 {
+    private static SteamIntegration _instance;
+    public static SteamIntegration Instance { get { return _instance; } } //to use any method from this manager call MenuManager.Instance."FunctionName"(); anywhere in any script
     void Awake()
     {
+        //on awake check for existence of manager and handle accordingly
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
         DontDestroyOnLoad(gameObject);
     }
     void Start()
@@ -18,7 +29,7 @@ public class SteamIntegration : MonoBehaviour
         {
             Debug.Log(e);
         }
-        
+
         //Steamworks.SteamUserStats.ResetAll(true); //FOR TESTING
     }
 
