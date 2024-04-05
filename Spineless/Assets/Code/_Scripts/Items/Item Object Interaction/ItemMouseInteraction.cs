@@ -514,6 +514,7 @@ public class ItemMouseInteraction : MonoBehaviour
         }
         else
         {
+            SteamIntegration.UnlockAchievement("FirstItem");
             if (saveData.EquippedItems.Count != 4)
             {
                 saveData.EquippedItems.Add(itemSO);
@@ -536,19 +537,48 @@ public class ItemMouseInteraction : MonoBehaviour
         {
             OnItemUsed?.Invoke();
         }
-        if (itemName == "Pocket Knife") //check if item used was pocket knife
+        switch (itemName)
         {
-            if (OnKnifeUsed != null)
-            {
-                OnKnifeUsed?.Invoke();
-            }
-        }
-        if (itemName == "Eye Of Foresight") //check if item used was eye of foresight
-        {
-            if (OnEyeUsed != null)
-            {
-                OnEyeUsed?.Invoke();
-            }
+            case "Pocket Knife":
+                SteamIntegration.UnlockAchievement("PocketKnife");
+                if (OnKnifeUsed != null)
+                {
+                    OnKnifeUsed?.Invoke();
+                }
+                break;
+            case "Eye Of Foresight":
+                SteamIntegration.UnlockAchievement("Eye");
+                if (OnEyeUsed != null)
+                {
+                    OnEyeUsed?.Invoke();
+                }
+                break;
+            case "Camera":
+                SteamIntegration.UnlockAchievement("Camera");
+                break;
+            case "Jack In The Box":
+                SteamIntegration.UnlockAchievement("Jack");
+                break;
+            case "Wishbone":
+                SteamIntegration.UnlockAchievement("Wishbone");
+                break;
+            case "Holy Cross":
+                SteamIntegration.UnlockAchievement("HolyCross");
+                break;
+            case "Stapler":
+                SteamIntegration.UnlockAchievement("Stapler");
+                break;
+            case "Severed Hand":
+                SteamIntegration.UnlockAchievement("SeveredHand");
+                break;
+            case "Matchbox":
+                SteamIntegration.UnlockAchievement("Matchbox");
+                break;
+            case "Snake":
+                SteamIntegration.UnlockAchievement("Snake");
+                break;
+            default:
+                break;
         }
         Destroy(gameObject);
         //in encounter room, item is destroyed in its effect script

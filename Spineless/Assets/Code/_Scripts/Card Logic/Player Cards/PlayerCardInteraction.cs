@@ -345,7 +345,7 @@ public class PlayerCardInteraction : MonoBehaviour
         {
             encounterData.EnemyTableCards[i].GetComponentInChildren<EnemyCardInteraction>().isClicked = false;
         }
-
+        SteamIntegration.UnlockAchievement("Joker");
         //broadcast that joker execution has finished
         if (OnJokerExecutionCompleted != null)
         {

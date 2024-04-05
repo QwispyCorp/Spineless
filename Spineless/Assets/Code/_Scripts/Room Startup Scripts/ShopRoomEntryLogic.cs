@@ -14,6 +14,7 @@ public class ShopRoomEntryLogic : MonoBehaviour
 
         //when player enters shop, update shop visisted for shopo availability on board
         saveData.ShopVisited = true;
+        SteamIntegration.UnlockAchievement("ShopVisited");
 
         //When shop room starts, spawn random item buttons in the top and middle buttons for purchasing
 

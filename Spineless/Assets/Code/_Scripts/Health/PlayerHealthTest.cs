@@ -11,6 +11,7 @@ public class PlayerHealthTest : MonoBehaviour
     private TMP_Text healthText;
     private int maxHealth;
     [SerializeField] private PlayerSaveData saveData;
+    [SerializeField] private GameDifficulty difficulty;
     [SerializeField] private IntegerReference playerHealth;
     [SerializeField] private IntegerReference playerMaxHealth;
     [SerializeField] private EncounterData encounterData;
@@ -83,16 +84,23 @@ public class PlayerHealthTest : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
-            saveData.playerFingersInNextEncounter -= 2; 
-            if (saveData.playerFingersInNextEncounter <= 0) //if player's perma health drops below 0
+            if (difficulty.NormalMode)
             {
-                //player perma loses
-                LightManager.Instance.StartFlickeringTransitionTo("LoseScene"); //transition to losing scene
+                saveData.playerFingersInNextEncounter -= 2;
+                if (saveData.playerFingersInNextEncounter <= 0) //if player's perma health drops below 0
+                {
+                    //player perma loses
+                    LightManager.Instance.StartFlickeringTransitionTo("LoseScene"); //transition to losing scene
+                }
+                else //if player's still alive after enocunter
+                {
+                    encounterData.ClearAllData(); //reset encounter data
+                    LightManager.Instance.StartFlickeringTransitionTo("GameBoard"); //transition to game board
+                }
             }
-            else //if player's still alive after enocunter
+            if (difficulty.HardMode)
             {
-                encounterData.ClearAllData(); //reset encounter data
-                LightManager.Instance.StartFlickeringTransitionTo("GameBoard"); //transition to game board
+                LightManager.Instance.StartFlickeringTransitionTo("LoseScene"); //transition to losing scene
             }
         }
     }

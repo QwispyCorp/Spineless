@@ -59,11 +59,13 @@ public class BoardGenerator : MonoBehaviour
             //set amounts of tiles here
             if (difficulty.HardMode)
             {
+                maxEncounterTiles = 12;
                 maxItemTiles = 0;
-                maxShopTiles = 0;
+                maxShopTiles = 1;
             }
             else
             {
+                maxEncounterTiles = 12;
                 maxShopTiles = 1;
                 maxItemTiles = 15;
             }
@@ -128,14 +130,13 @@ public class BoardGenerator : MonoBehaviour
         Instantiate(winTile, transform.position + new Vector3(winTileSlot * tileSpacing, 0, (boardSize - 1) * tileSpacing), Quaternion.identity, transform);
         generatedBoardTiles.Remove(winningTile);
 
-        if (difficulty.NormalMode)
-        {
-            //Always spawn shop tile in center of board
-            randomShopTile = generatedBoardTiles.Find(tile => tile.name == "Shop Tile"); //reference to shop tile
-            randomShopTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);//resize tile to fit board
-            shopInstance = Instantiate(shopTile, transform.position + new Vector3(4 * tileSpacing, 0, 3 * tileSpacing), Quaternion.identity, transform);
-            generatedBoardTiles.Remove(randomShopTile);
-        }
+
+        //Always spawn shop tile in center of board
+        randomShopTile = generatedBoardTiles.Find(tile => tile.name == "Shop Tile"); //reference to shop tile
+        randomShopTile.transform.localScale = new Vector3(tileScaleFactor, tileScaleFactor, tileScaleFactor);//resize tile to fit board
+        shopInstance = Instantiate(shopTile, transform.position + new Vector3(4 * tileSpacing, 0, 3 * tileSpacing), Quaternion.identity, transform);
+        generatedBoardTiles.Remove(randomShopTile);
+
 
         for (int i = 0; i < boardSize; i++) //column number of board
         {
@@ -268,60 +269,20 @@ public class BoardGenerator : MonoBehaviour
                         currentTile++;
                         continue;
                     }
+                    else if (i == 4 && j == 3) //skip random instantiation on shop tile
+                    {
+
+                        tileList.Add(randomShopTile); //add tile for index searching
+                        Debug.Log("Tile #" + currentTile + " in currentTile array is a " + randomShopTile.name);
+                        currentTile++;
+                        continue;
+                    }
                     else
                     {
-                        int loopIterations = 0;
                         int randomTileIndex;
-                        do
-                        {
-                            loopIterations++;
-                            //get a random tile to spawn
-                            randomTileIndex = UnityEngine.Random.Range(0, generatedBoardTiles.Count);
+                        //get a random tile to spawn
+                        randomTileIndex = UnityEngine.Random.Range(0, generatedBoardTiles.Count);
 
-                            //if the random tile is a monster tile
-                            if (generatedBoardTiles[randomTileIndex].name.Contains("Monster") == true)
-                            {
-                                bool leftTileIsMonster = false;
-                                bool underTileIsMonster = false;
-                                //check if a monster tile can be spawned (there is no monster tile adjacent = monster tile can be spawned)
-                                if (i == 0) //checking in first row of board
-                                {
-                                    underTileIsMonster = tileList[currentTile - 1].name.Contains("Monster");//check if the previous square is monster tile or not
-                                }
-                                else if (i >= 1) //checking in all other rows of board
-                                {
-                                    underTileIsMonster = tileList[currentTile - 1].name.Contains("Monster");//check if the previous square is monster tile or not
-                                    leftTileIsMonster = tileList[currentTile - 8].name.Contains("Monster");//check if the under square is monster tile or not
-                                }
-
-                                if (i == 0)
-                                {
-                                    if (!underTileIsMonster)
-                                    {
-                                        Debug.Log("encounter available for tile # " + currentTile + " ROW 1");
-                                        break;
-                                    }
-                                }
-                                else if (i >= 1)
-                                {
-                                    if (!leftTileIsMonster && !underTileIsMonster)
-                                    {
-                                        Debug.Log("encounter available for tile # " + currentTile + " OTHER ROW");
-                                        break;
-                                    }
-                                }
-                                //do something to break out if there's only monster tiles left in the list 
-                                if (loopIterations > 5)
-                                {
-                                    break;
-                                }
-                            }
-                            else
-                            {
-                                break;
-                            }
-                        }
-                        while (true);
 
                         GameObject randomTile = generatedBoardTiles[randomTileIndex];
                         tileList.Add(randomTile);

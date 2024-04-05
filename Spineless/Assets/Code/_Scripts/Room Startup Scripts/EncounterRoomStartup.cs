@@ -5,6 +5,7 @@ using UnityEngine;
 public class EncounterRoomStartup : MonoBehaviour
 {
     [SerializeField] private PlayerSaveData saveData;
+    [SerializeField] private GameDifficulty difficulty;
     [SerializeField] private Animator playerAnimator;
     [SerializeField] private PlayerDeckLogic playerDeck;
     [SerializeField] private GameObject dotCanvas;
@@ -14,7 +15,10 @@ public class EncounterRoomStartup : MonoBehaviour
         //play tutorial if this is their first time in an encounter
         if (saveData.FirstEncounterEntered == false)
         {
-            playerDeck.totalDeathCards = 4;
+            if (difficulty.NormalMode)
+            {
+                playerDeck.totalDeathCards = 4;
+            }
         }
     }
     void Start()
@@ -22,6 +26,7 @@ public class EncounterRoomStartup : MonoBehaviour
         if (saveData.FirstEncounterEntered == false)
         {
             saveData.FirstEncounterEntered = true;
+            SteamIntegration.UnlockAchievement("FirstEncounter");
         }
 
         AudioManager.Instance.PlayMusicTrack("Encounter Music"); //Play track for encounter

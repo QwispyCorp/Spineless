@@ -8,6 +8,7 @@ public class LoseSceneStartup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SteamIntegration.UnlockAchievement("LoseGame");
         Invoke("SwitchToMain", 3);
 
         if (BoardGenerator.Instance != null)

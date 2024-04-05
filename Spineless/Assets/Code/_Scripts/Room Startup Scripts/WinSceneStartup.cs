@@ -5,9 +5,19 @@ using UnityEngine;
 public class WinSceneStartup : MonoBehaviour
 {
     [SerializeField] private PlayerSaveData saveData;
+    [SerializeField] private GameDifficulty difficulty;
     public Animator CameraAni;
     void Start()
     {
+        if (difficulty.HardMode)
+        {
+            SteamIntegration.UnlockAchievement("HardWin");
+        }
+        else if (difficulty.NormalMode)
+        {
+            SteamIntegration.UnlockAchievement("NormalWin");
+        }
+        
         Invoke("ShowWinScreen", 8);
         CameraAni.SetTrigger("Win");
 

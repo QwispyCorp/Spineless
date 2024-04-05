@@ -7574,6 +7574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
+  difficulty: {fileID: 11400000, guid: afd1c4bd1a6c1374c826ae3d00961b03, type: 2}
   playerAnimator: {fileID: 934631519151306549}
   playerDeck: {fileID: 416523074}
   dotCanvas: {fileID: 1013342411}
