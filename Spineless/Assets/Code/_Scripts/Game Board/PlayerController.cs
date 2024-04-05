@@ -208,7 +208,10 @@ public class PlayerController : MonoBehaviour
     private void SwitchRooms()
     {
         AudioManager.Instance.PlaySound("Riser");
-        BoardGenerator.Instance.HideBoard();
+        if (BoardGenerator.Instance != null)
+        {
+            BoardGenerator.Instance.HideBoard();
+        }
 
         CameraAni.SetTrigger("B2F");
 

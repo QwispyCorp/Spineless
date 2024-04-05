@@ -1113,6 +1113,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 78313959712449443, guid: 8112f3ef306aa8a4cb54ee36d12c3904,
         type: 3}
+      propertyPath: difficulty
+      value: 
+      objectReference: {fileID: 11400000, guid: afd1c4bd1a6c1374c826ae3d00961b03,
+        type: 2}
+    - target: {fileID: 78313959712449443, guid: 8112f3ef306aa8a4cb54ee36d12c3904,
+        type: 3}
       propertyPath: healthText
       value: 
       objectReference: {fileID: 0}
@@ -8469,7 +8475,7 @@ PrefabInstance:
     - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
         type: 3}
       propertyPath: totalDeathCards
-      value: 16
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7178057373351437141, guid: 458b3502c3fcb334f86155cc69b08782,
         type: 3}

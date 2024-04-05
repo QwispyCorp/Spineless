@@ -74,7 +74,7 @@ public class PlayerHealthTest : MonoBehaviour
         return playerHealth.Value;
     }
 
-    public int GetMaxHealth()
+    public int GetMaxHealth() 
     {
         return playerMaxHealth.Value;
     }
@@ -90,6 +90,7 @@ public class PlayerHealthTest : MonoBehaviour
                 if (saveData.playerFingersInNextEncounter <= 0) //if player's perma health drops below 0
                 {
                     //player perma loses
+                    encounterData.ClearAllData(); //reset encounter data
                     LightManager.Instance.StartFlickeringTransitionTo("LoseScene"); //transition to losing scene
                 }
                 else //if player's still alive after enocunter
@@ -100,6 +101,7 @@ public class PlayerHealthTest : MonoBehaviour
             }
             if (difficulty.HardMode)
             {
+                encounterData.ClearAllData(); //reset encounter data
                 LightManager.Instance.StartFlickeringTransitionTo("LoseScene"); //transition to losing scene
             }
         }

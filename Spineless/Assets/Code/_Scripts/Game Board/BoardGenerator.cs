@@ -307,7 +307,10 @@ public class BoardGenerator : MonoBehaviour
     }
     public void HideBoard()
     {
-        gameObject.SetActive(false);
+        if (gameObject != null)
+        {
+            gameObject.SetActive(false);
+        }
     }
     public void SpawnBoard()
     {

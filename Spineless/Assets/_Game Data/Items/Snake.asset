@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Snake
   itemDescription: Reveal enemy's cards.
-  value: 2
+  value: 3
   itemPrefab: {fileID: 3606743934441489221, guid: 5a2b6d98ed09bb84481f3e6d07dffd03,
     type: 3}
   itemShopButton: {fileID: 481228483975240178, guid: dd1c51c24cbad734c8f3573cf077e6f8,

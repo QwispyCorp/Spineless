@@ -1,23 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HardModeToggle : MonoBehaviour
 {
     [SerializeField] private GameDifficulty difficulty;
     [SerializeField] private PlayerSaveData saveData;
-    public void ToggleHard()
+    [SerializeField] private Toggle toggle;
+    void OnEnable()
     {
-        difficulty.HardMode = !difficulty.HardMode;
-        difficulty.NormalMode = !difficulty.NormalMode;
-
         if (difficulty.HardMode)
         {
-            saveData.RemoveItems();
+            toggle.SetIsOnWithoutNotify(true);
         }
-        else if (difficulty.NormalMode)
+
+    }
+    public void ToggleHard()
+    {
+        Debug.Log("Toggling difficulty");
+        if (gameObject.activeSelf)
         {
-            saveData.AddCamera();
+            difficulty.HardMode = !difficulty.HardMode;
+            difficulty.NormalMode = !difficulty.NormalMode;
+
+            if (difficulty.HardMode)
+            {
+                saveData.RemoveItems();
+            }
+            else if (difficulty.NormalMode)
+            {
+                saveData.AddCamera();
+            }
         }
+
     }
 }

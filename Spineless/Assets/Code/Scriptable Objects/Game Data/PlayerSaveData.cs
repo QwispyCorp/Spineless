@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerSaveData : ScriptableObject
 {
     [Header("Save Attributes")]
+    [SerializeField] private GameDifficulty difficulty;
     public int TargetEncounterWins;
     public int EncountersWon; //for storing number of encounters player has won
     public int EncountersCleared; // for storing total number of encouters cleared
@@ -46,8 +47,10 @@ public class PlayerSaveData : ScriptableObject
         playerFingersInNextEncounter = 5;
         monsterFingers = 0;
         lastPlayerTransform = playerStartTransform;
-
-        AddCamera();
+        if (difficulty.NormalMode)
+        {
+            AddCamera();
+        }
     }
 
     public void AddCamera()

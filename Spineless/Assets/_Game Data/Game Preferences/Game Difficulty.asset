@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fedd917e348954a8209b990f88c6d4, type: 3}
   m_Name: Game Difficulty
   m_EditorClassIdentifier: 
-  HardMode: 0
-  NormalMode: 1
+  saveData: {fileID: 11400000, guid: 9f5560e4b9d331c4aae0f03bb821e089, type: 2}
+  HardMode: 1
+  NormalMode: 0
+  gameStarted: 0
